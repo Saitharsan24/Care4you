@@ -37,7 +37,7 @@
                     </tr>
                     <tr>
                         <td class="tdtype1">Unit Price (Rs.) :</td>
-                        <td class="tdtype2"><input type="number" min="0" class="form-addmedcontrol" name="unitprice" /></td>
+                        <td class="tdtype2"><input type="number" min="0"  step="any" class="form-addmedcontrol" name="unitprice" /></td>
                     </tr>
                     <tr>
                         <td class="tdtype1">Quantity :</td>
@@ -96,7 +96,7 @@
             //echo "Data Inserted";
 
             //Create Session Variable to display message
-            $_SESSION['add'] = '<div class="success"> Medicine Added to Order</div>';
+            //$_SESSION['add'] = '<div class="success"> Medicine Added to Order</div>';
             //Redirect to the pharmacy_respond.php page
             header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
 
@@ -107,7 +107,7 @@
             //echo "Fail to Insert Data";
 
             //Create Session Variable to display message
-            $_SESSION['add'] = '<div class="error"> Failed to Add Medicine to Order</div>';
+            //$_SESSION['add'] = '<div class="error"> Failed to Add Medicine to Order</div>';
             //Redirect to the pharmacy_respond.php page
             header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
 

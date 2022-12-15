@@ -24,21 +24,9 @@
             <div class="signouttext"><a href="#">Sign Out</a></div>
         </div>
         <div class="main_content"> 
-            <div class="info">
-            <h6>
-            <?php 
-
-                if(isset($_SESSION['add']))
-                {
-                    echo $_SESSION['add'];    //Displaying Session Message
-                    unset($_SESSION['add']);    //Removing Session Message
-                }
-
-            ?>
-            </h6>
-            
+            <div class="info">  
+            <table class="tbl-respond">             
             <form action="">
-            <table class="tbl-respond">
                 <tr>
                     <td class="tdtype1">Order ID :</td>
                     <td class="tdtype2"><input type="text" class="form-repondcontrol" name="orderid" required="" autofocus="true"/></td>
@@ -127,7 +115,7 @@
                 </tr>
             </table>
             <br /> <br />
-            <button class="btn-blue"><a href="pharmacy_respond.php">Respond</a></button>
+            <button class="btn-blue"><a href="pharmacy_respond.php">Send Respond</a></button>
             </form>
             </div>
         </div>

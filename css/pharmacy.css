@@ -13,6 +13,30 @@ body{
    background-color: #A5D1E1;
 }
 
+/*CSS for Scroll Bar*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #ffffff; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #698f9d; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0D5C75;
+}
+
 .wrapper{
   display: flex;
   position: relative;
@@ -348,6 +372,10 @@ table td {
   color: #ffffff;
 }
 
+.btn-gray a:hover{
+  color: #000000;
+}
+
 .form-repondcontrol{
   width: 400px;
   padding: 2px;
@@ -356,7 +384,7 @@ table td {
 }
 
 .tbl-addmed{
-  width: 65%;
+  width: 70%;
   margin-left:auto; 
   margin-right:auto;
   border-collapse: separate;
@@ -494,18 +522,20 @@ p{
   font-size: 25px;
 }
 
-h6{
-  background-color: #cde4ec;
-}
-
 .success{
   color: #2ed573;
   font-size: 13px;
   font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
 }
 
 .error{
   color:#ff4757;
   font-size: 13px;
   font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
 }

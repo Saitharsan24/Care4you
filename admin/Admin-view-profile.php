@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <title>Document</title>
 </head>
 <body>
 <div class="navbar">
 
 <div class="logo">
-<img src="./image/logo.png"/>
+<img src="../images/logo.png"/>
  </div>
 
 <div class="profile">
-    <img src="./image/profile.png"/>
+    <img src="../images/profile.png"/>
 </div>
 
     <div class="home">
-        <a href="asst_home.php">
+        <a href="admin_home.php">
     <label>Home</label>
         </a>
     </div>
 
     <div class="session">
-        <a href="asst_session.php">
+        <a href="admin-session.php">
     <label>Sessions</label>
         </a>
     </div>
@@ -65,7 +65,7 @@
 
 
     <div class="view-profile">
-        <a href="asst_view.php">
+        <a href="admin-view.php">
     <label>View Profile</label>
         </a>
     </div>
@@ -81,7 +81,7 @@
 <!-- navgation-->
 
 <div class="Profile-2">
-    <img src="./image/profile.png"/>
+    <img src="../images/profile.png"/>
 </div>
 
 <form >
@@ -128,7 +128,7 @@
 
 <a href="./signin.php" class="nav-signin"><div class="item5 active-btn">Sign In</div></a>
 <div class="divider">
-    <button type="button">Edit Profile</button>
+    <button type="button" onclick="location.href='admin_Editprofile.php';">Edit Profile</button>
 </div>
 
 </body>

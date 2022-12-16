@@ -1,3 +1,5 @@
+<?php include('../config/constants.php') ?>
+<?php include('./partials/login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

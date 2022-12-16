@@ -139,7 +139,7 @@
 
 <?php
 
-include('./database/connection.php');
+include('./config/constants.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 

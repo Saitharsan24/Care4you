@@ -61,7 +61,7 @@
 
 <?php
 
-    include('./database/connection.php');
+    include('./config/constants.php');
 
     function validate($data){
         $data = trim($data);

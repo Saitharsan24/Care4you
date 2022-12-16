@@ -632,6 +632,109 @@ table{
 }
 
 
-/*  admin view patient*/
+/*  admin view appointment*/
+.view{
 
+  position: absolute;
+  margin-left: 41%;
+  margin-top: 5%;
+  font-family: 'poppins';
+  font-size: 32px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+}
 
+.id{
+  color:#0C5C75;
+}
+
+.main_content{
+  position: absolute;
+  margin-left: 31%;
+  margin-top: 10%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 850px;
+  height: 331px;
+  border-radius: 47px;
+  text-align: center;
+  font-size: 37px;
+  font-size: 500;
+  font-family: 'Poppins';
+  padding-top: 35px;
+}
+
+.doctor_name-1{
+  
+  position: absolute;
+  width: 85%;
+  top: 31px;
+  left: 70px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+font-size: 22px;
+color: #000000;
+}
+
+.date-1{
+  
+  position: absolute;
+  width: 85%;
+  top: 97px;
+  left: 117px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+font-size: 22px;
+color: #000000;
+}
+.time-1{
+  
+  position: absolute;
+  width: 85%;
+  top: 163px;
+  left: 120px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+font-size: 22px;
+color: #000000;
+}
+.no_patient-1{
+  
+  position: absolute;
+  width: 85%;
+  top: 227px;
+  left: 73px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+font-size: 22px;
+color: #000000;
+}
+.room_no-1{
+  
+  position: absolute;
+  width: 85%;
+  top: 294px;
+  left: 73px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+font-size: 22px;
+color: #000000;
+}
+
+.edit_button{
+  position: absolute;
+  left: 1151px;
+  top: 565px;
+  background-color:#0C5C75;
+  border-radius: 5px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 18px;
+}

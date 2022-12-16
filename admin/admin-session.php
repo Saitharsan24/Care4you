@@ -85,7 +85,7 @@
             <tr class="head">
                 <th class="th-1">Session ID</th>
                 <th>Doctor Name</th>
-                <th>Session Time</th>
+                <th>Date</th>
                 <th>No.of.Patient</th>
                 <th>Room No.</th>
                 <th class="th-2"> </th>
@@ -93,10 +93,10 @@
             <tr class="body-1">
               <td class="td-1">01</td>
               <td>Dr.Nuwan Fonseka</td>
-              <td>7.00 a.m</td>
+              <td>16/12/2022</td>
               <td>20</td>
               <td>1</td>
-              <td class="td-2"><button class="button">view appointmets</button></td>
+              <td class="td-2"><button class="button" onclick="location.href='admin-view-appointment.php'">view appointment</button></td>
             </tr>
           </table>
         </div>

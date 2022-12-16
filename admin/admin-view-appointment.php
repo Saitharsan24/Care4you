@@ -31,7 +31,7 @@
             </div>
 
             <div class="view-patient">
-                <a href="#">
+                <a href="view-session.php">
             <label>View patient</label>
                 </a>
             </div>
@@ -65,7 +65,7 @@
         
         
             <div class="view-profile">
-                <a href="Admin-view-profile.php">
+                <a href="admin-view-appointment.php">
             <label>View Profile</label>
                 </a>
             </div>
@@ -81,26 +81,35 @@
 
 <!-- navgation-->
 
-<div class="welcome">
- Welcome Laxshan
-</div>
+<div class="view">View appointment of Session Id-<div class="id"> 01</div> </div>
 
-<div class="box-1" style="font-family: 'Poppins';">
- No of appointments
- <div class="in-box-1" style="font-family: 'Poppins';">230</div>
-</div>
+<div class="main_content"> 
+        <form>
+        <div class="doctor_name-1">
+        <label for="doc-name" >Doctor Name: </lable>
+            <input id="doc-name" type="text" >
+    </div>
 
- <div class="box-2" style="font-family: 'Poppins';">
- No of sessions
- <div class="in-box-2" style="font-family: 'Poppins';">20</div>
-</div>
- <div class="box-3" style="font-family: 'Poppins';">
-  Canceled sessions<br> for this week
-  <div class="in-box-3" style="font-family: 'Poppins';">1</div>
-</div>
- <div class="box-4" style="font-family: 'Poppins';">
-  Conformed sessions<br> for this week
-  <div class="in-box-4" style="font-family: 'Poppins';">4</div>
-</div>
+    <div class="date-1">
+        <label for="date" >Date: </lable>
+            <input id="date" type="date" >
+    </div>
+
+    <div class="time-1">
+        <label for="time" >Time: </lable>
+            <input id="doc-name" type="time" >
+    </div>
+    <div class="no_patient-1">
+        <label for="no-patient" >No of patients: </lable>
+            <input id="no-patient" type="number" >
+    </div>
+    <div class="room_no-1">
+        <label for="room" >Room number: </lable>
+            <input id="room" type="text" >
+    </div>
+</form>
+    </div>
+    <button class="edit_button" onclick="location.href='#'">Edit Appointment</button>
+
 </body>
 </html>

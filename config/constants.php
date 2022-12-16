@@ -1,8 +1,5 @@
 <?php 
-    
-    //Start Session
-    session_start();
-    
+  
     //Create constants to store non repeating values
     define('SITEURL','http://localhost/Care4you/');
     define('LOCALHOST','localhost');

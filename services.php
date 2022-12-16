@@ -19,7 +19,7 @@
             </div>  
             <a href="./signin.php" class="nav-signin"><div class="item5">Sign In</div></a>
             <div class="divider"></div>
-            <a href="signup1.php" class="nav-signin"><div class="item6">Sign Up</div></a>
+            <a href="signup.php" class="nav-signin"><div class="item6">Sign Up</div></a>
         </div>
     </div>
 

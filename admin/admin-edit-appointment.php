@@ -31,7 +31,7 @@
             </div>
 
             <div class="view-patient">
-                <a href="#">
+                <a href="view-session.php">
             <label>View patient</label>
                 </a>
             </div>
@@ -65,7 +65,7 @@
         
         
             <div class="view-profile">
-                <a href="admin-view-profile.php">
+                <a href="admin-view-appointment.php">
             <label>View Profile</label>
                 </a>
             </div>
@@ -81,9 +81,8 @@
 
 <!-- navgation-->
 
-<div class="view">View appointment of Session Id-<div class="id"> 01</div> </div>
 
-<div class="main_content-view-app"> 
+<div class="main_content-edit-app"> 
         <form>
         <div class="doctor_name-1">
         <label for="doc-name" >Doctor Name: </lable>
@@ -109,8 +108,9 @@
     </div>
 </form>
     </div>
-    <button class="edit_button-view" onclick="location.href='admin-edit-appointment.php'">Edit Appointment</button>
-    <button class="back_button-view-app" onclick="location.href='admin-session.php'">Back</button>
+    <button class="save_button" onclick="location.href='#'">Save</button>
+    <button class="edit_button" onclick="location.href='#'">Edit</button>
+    <button class="back_button-edit-app" onclick="location.href='admin-view-appointment.php'">Back</button>
 
 </body>
 </html>

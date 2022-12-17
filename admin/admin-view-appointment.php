@@ -81,7 +81,11 @@
 
 <!-- navgation-->
 
+<<<<<<< Updated upstream
 <div class="view">View appointment of Session Id-<div class="id"> 01</div> </div>
+=======
+<div class="view">Session details of session ID</details> -<div class="id"> 01</div> </div>
+>>>>>>> Stashed changes
 
 <div class="main_content-view-app"> 
         <form>
@@ -100,7 +104,11 @@
             <input id="doc-name" type="time" >
     </div>
     <div class="no_patient-1">
+<<<<<<< Updated upstream
         <label for="no-patient" >No of patients: </lable>
+=======
+        <label for="no-patient" >Assistant ID: </lable>
+>>>>>>> Stashed changes
             <input id="no-patient" type="number" >
     </div>
     <div class="room_no-1">
@@ -109,7 +117,11 @@
     </div>
 </form>
     </div>
+<<<<<<< Updated upstream
     <button class="edit_button-view" onclick="location.href='admin-edit-appointment.php'">Edit Appointment</button>
+=======
+    <button class="edit_button-view" onclick="location.href='admin-edit-appointment.php'">Edit Session</button>
+>>>>>>> Stashed changes
     <button class="back_button-view-app" onclick="location.href='admin-session.php'">Back</button>
 
 </body>

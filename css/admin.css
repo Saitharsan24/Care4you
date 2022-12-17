@@ -776,7 +776,11 @@ color: #000000;
 }
 
 
+<<<<<<< Updated upstream
 .save_button{
+=======
+.edit_button{
+>>>>>>> Stashed changes
   position: absolute;
   width: 143px;
   height: 50px;
@@ -791,7 +795,11 @@ color: #000000;
   font-weight: 500;
 }
 
+<<<<<<< Updated upstream
 .edit_button{
+=======
+.save_button{
+>>>>>>> Stashed changes
   position: absolute;
   width: 143px;
   height: 50px;
@@ -820,4 +828,94 @@ color: #000000;
   font-family: 'poppins';
   font-size: 29px;
   font-weight: 500;
+<<<<<<< Updated upstream
+=======
+}
+
+/*  admin system users*/
+.system-users{
+  
+  position: absolute;
+  margin-left: 52%;
+  margin-top: 5%;
+  font-family: 'poppins';
+  font-size: 32px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+}
+
+.button-doc{    
+  position: absolute;
+  width: 320px;
+  height: 151px;
+  left: 500px;
+  top: 226px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 69px;
+  font-weight: 700;
+}
+
+.button-doc{    
+  position: absolute;
+  width: 320px;
+  height: 151px;
+  left: 980px;
+  top: 226px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 49px;
+  font-weight: 700;
+}
+
+.button-pat{    
+  position: absolute;
+  width: 320px;
+  height: 151px;
+  left: 500px;
+  top: 448px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 49px;
+  font-weight: 700;
+}
+.button-asst{    
+  position: absolute;
+  width: 320px;
+  height: 151px;
+  left: 980px;
+  top: 448px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 49px;
+  font-weight: 700;
+}
+
+.button-phar{    
+  position: absolute;
+  width: 320px;
+  height: 151px;
+  left: 500px;
+  top: 226px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 49px;
+  font-weight: 700;
+>>>>>>> Stashed changes
 }

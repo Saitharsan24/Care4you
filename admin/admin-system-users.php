@@ -25,11 +25,7 @@
     </div>
 
     <div class="session">
-<<<<<<< Updated upstream
-        <a href="asst_session.php">
-=======
         <a href="admin-session.php">
->>>>>>> Stashed changes
     <label>Sessions</label>
         </a>
     </div>
@@ -84,29 +80,24 @@
 </div>
 
 <!-- navgation-->
-<div class="table-1">
-          <table>
-            <tr class="head">
-                <th class="th-1">Session ID</th>
-                <th>Doctor Name</th>
-                <th>Date</th>
-                <th>No.of.Patient</th>
-                <th>Room No.</th>
-                <th class="th-2"> </th>
-            </tr>
-            <tr class="body-1">
-              <td class="td-1">01</td>
-              <td>Dr.Nuwan Fonseka</td>
-              <td>16/12/2022</td>
-              <td>20</td>
-              <td>1</td>
-<<<<<<< Updated upstream
-              <td class="td-2"><button class="button" onclick="location.href='admin-view-appointment.php'">view appointment</button></td>
-=======
-              <td class="td-2"><button class="button" onclick="location.href='admin-view-appointment.php'">view session</button></td>
->>>>>>> Stashed changes
-            </tr>
-          </table>
-        </div>
+<div class="system-users">System Users </div>
+<div class="doc-1">
+<button class="button-doc" onclick="location.href='#'">Doctor</button>
+</div>
+
+
+<div class="pat-1">
+<button class="button-pat" onclick="location.href='#'">Patient</button>
+</div>
+
+
+<div class="asst-1">
+<button class="button-asst" onclick="location.href='#'">Assistant</button>
+</div>
+
+
+<div class="phar-1">
+<button class="button-phar" onclick="location.href='#'">Pharmacist</button>
+</div>
 </body>
 </html>

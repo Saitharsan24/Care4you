@@ -99,7 +99,11 @@
             <input id="doc-name" type="time" >
     </div>
     <div class="no_patient-1">
+<<<<<<< Updated upstream
         <label for="no-patient" >No of patients: </lable>
+=======
+        <label for="no-patient" >Assistant ID:: </lable>
+>>>>>>> Stashed changes
             <input id="no-patient" type="number" >
     </div>
     <div class="room_no-1">
@@ -108,8 +112,13 @@
     </div>
 </form>
     </div>
+<<<<<<< Updated upstream
     <button class="save_button" onclick="location.href='#'">Save</button>
     <button class="edit_button" onclick="location.href='#'">Edit</button>
+=======
+    <button class="edit_button" onclick="location.href='#'">Edit</button>
+    <button class="save_button" onclick="location.href='#'">Save</button>
+>>>>>>> Stashed changes
     <button class="back_button-edit-app" onclick="location.href='admin-view-appointment.php'">Back</button>
 
 </body>

@@ -13,6 +13,30 @@ body{
    background-color: #A5D1E1;
 }
 
+/*CSS for Scroll Bar*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #ffffff; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #698f9d; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0D5C75;
+}
+
 .wrapper{
   display: flex;
   position: relative;

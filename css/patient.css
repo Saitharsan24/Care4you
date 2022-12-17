@@ -50,9 +50,9 @@ body{
   
   .wrapper .sidebar{
     width: 250px;
-    height: 100%;
+    height: 100vh;
     background: #FFFFFF;
-    position: fixed;
+
     
   }
   
@@ -113,11 +113,15 @@ body{
   .welcome-text{
     font-size: 30px;
     font-weight:bold;
-    margin: 50px 0px 0px 350px ;
+    margin: 50px 0px 0px 100px ;
     display: flex;
     flex-direction: row;
   }
 
- .left_content .welcome-text .coloured-name{
-    color: #083746;
+  .welcome-text p{
+    margin: 0px 0px 0px 10px;
+  }
+
+  .coloured-name{
+    color: #0D5C75;
  }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/patient.css">
-    <title>Document</title>
+    <title>Home | Patient</title>
 </head>
 
 <body>
@@ -24,13 +24,14 @@
             </ul>
             <div class="signouttext"><a href="#">Sign Out</a></div>
         </div>
-        <div class="right_content">
+        <div class="right-content">
             <div class="welcome-text">
                 <p>Welcome</p><p class="coloured-name">Laxshan</p>
             </div>
+            <div class="">
+
+            </div>
         </div>
-
-
     </div>
 
 

@@ -159,6 +159,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $sql = "INSERT INTO patients (patient_firstname,patient_lastname,gender,dateofbirth,nic_no,phone_no,address_line1,address_line2,address_line3,email,username,pass_word) VALUES ('$first_name','$last_name','$gender','$date_of_birth','$nic_no','$phone_no', '$address_line1', '$address_line2', '$address_line3', '$email', '$username', '$password')";
     $result = mysqli_query($conn, $sql);
+
+    $sqlUserTable = "INSERT INTO users_login (user_role,username,password) VALUES ('patient','$username','$password')";
 }
 
 

@@ -96,9 +96,27 @@
             echo "Logged In!";
             $_SESSION['username'] = $row['username'];
             $_SESSION['id'] = $row['id'];
+            $_SESSION['user_role'] = $row['user_role'];
 
-            header("Location: signup.php");
-            exit();
+            if ($_SESSION['user_role'] === "admin") {
+                header("Location: ./admin/admin_home.php");
+                exit();
+            } else if ($_SESSION['user_role'] === "patient") {
+                header("Location: ./patient/patient_home.php");
+                exit();
+            } else if ($_SESSION['user_role'] === "assistant") {
+                header("Location: ./assistant/assistant_home.php");
+                exit();
+            } else if ($_SESSION['user_role'] === "pharmacy") {
+                header("Location: ./pharmacy/pharmacy_home.php");
+                exit();
+            } else if ($_SESSION['user_role'] === "laboratory") {
+                header("Location: ./laboratory/lab_home.php");
+                exit();
+            } else {
+                header("Location: ./doctor/doctor_home.php");
+                exit();
+            }
         }
     }
     else {

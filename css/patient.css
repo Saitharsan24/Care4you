@@ -10,7 +10,7 @@
 }
 
 body{
-   background: url(../images/background.jpg);
+   background: url(../images/patient_bg.jpg);
    background-position: center;
    background-repeat: no-repeat;
    background-size: auto;
@@ -45,7 +45,7 @@ body{
   /* Side nav */
   .wrapper{
     display: flex;
-    flex-direction: row;
+
   }
   
   .wrapper .sidebar{
@@ -125,3 +125,80 @@ body{
   .coloured-name{
     color: #0D5C75;
  }
+
+  .right-content{
+    width: 70% ;
+  }
+
+  .dashboard{
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0px 0px 110px;
+    height: 70vh;
+    border-radius: 25px;
+  }
+
+  .dashboard .dash-element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0px 0px 0px;
+
+  }
+
+  .dashboard p{
+    margin: -2px;
+    font-weight: bold;
+  }
+
+  .dash-element .count{
+    font-size: 80px;
+    font-weight: bold;
+  }
+
+  .dash-btn{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+  }
+
+  .button-set{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapper .main_content{
+    width: 100%;
+    margin-left: 250px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .wrapper .main_content .info{
+    margin: 20px;
+    color: #000000;
+    line-height: 25px;
+  }
+
+  table {
+    /*border:1px solid #b3adad;*/
+    border-collapse:collapse;
+  }
+
+  .btn-blue{
+    background-color: #0D5C75;
+    padding: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-blue a{
+    color: #ffffff;
+  }

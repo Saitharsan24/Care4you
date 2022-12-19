@@ -1,3 +1,5 @@
+<?php include('../config/constants.php') ?>
+<?php include('./partials/login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +20,22 @@
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="#">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
+            <?php 
+                if(isset($_SESSION['login'])){
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+
+                }
+                if(isset($_SESSION['no-login-message'])){
+                    echo $_SESSION['no-login-message'];
+                    unset($_SESSION['no-login-message']);
+
+                }
+            ?>    
             <div class="welcometext">Welcome <div class="usernametext">Laxshan</div></div>
             <span>
             <table class="center">

@@ -1,3 +1,6 @@
+<?php 
+    include ('../config/constants.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +24,9 @@
             <div class="signouttext"><a href="#">Sign Out</a></div>
         </div>
         <div class="main_content"> 
-            <div class="info">
+            <div class="info">  
+            <table class="tbl-respond">             
             <form action="">
-            <table class="tbl-respond">
                 <tr>
                     <td class="tdtype1">Order ID :</td>
                     <td class="tdtype2"><input type="text" class="form-repondcontrol" name="orderid" required="" autofocus="true"/></td>
@@ -44,18 +47,60 @@
                             <thead>
                                 <tr>
                                     <td>Drug Name</td>
-                                    <td>Unit Price</td>
+                                    <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
                                     <td>Total (Rs.)</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Panadol</td>
-                                    <td>30</td>
-                                    <td>3</td>
-                                    <td>60</td>
-                                </tr>
+
+                                <?php
+                                    //Query to get all data from tbl_addmedicine table
+                                    $sql = "SELECT * FROM tbl_addmedicine";
+
+                                    //Exeute the Query                                    
+                                    $res = mysqli_query($conn, $sql);
+
+                                    //Check Query executed or not
+                                    if($res == TRUE){
+
+                                        //Count rows in tbl_addmedicine table
+                                        $count = mysqli_num_rows($res);     //funtion to get all rows in tbl_addmedicine table
+                                        
+                                        //Check the number of rows
+                                        if($count > 0)
+                                        {
+                                            while($rows = mysqli_fetch_assoc($res))
+                                            {
+
+                                                //Use while loop to get all data in tbl_addmedicine table
+                                                $drugname = $rows['drugname'];
+                                                $unitprice = $rows['unitprice'];
+                                                $quantity = $rows['quantity'];
+                                                $total = $rows['total'];
+
+                                                //Display the Values in Table
+                                                ?>
+                                                
+                                                <tr>
+                                                    <td><?php echo $drugname ?></td>
+                                                    <td><?php echo $unitprice ?></td>
+                                                    <td><?php echo $quantity ?></td>
+                                                    <td><?php echo $total ?></td>
+                                                </tr>
+                                                
+                                                <?php
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            //Have no data in tbl_addmedicine table
+                                        }
+                                    }
+
+                                ?>
                             </tbody>
                         </table>
                     </td>
@@ -70,7 +115,7 @@
                 </tr>
             </table>
             <br /> <br />
-            <button class="btn-blue"><a href="pharmacy_respond.php">Respond</a></button>
+            <button class="btn-blue"><a href="pharmacy_respond.php">Send Respond</a></button>
             </form>
             </div>
         </div>

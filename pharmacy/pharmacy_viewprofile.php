@@ -17,9 +17,9 @@
                 <li><a href="pharmacy_home.php">Home</a></li>
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
-                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php"><div class="highlighttext">View Profile</div></a></li>
             </ul>
-            <div class="signouttext"><a href="#">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
@@ -29,23 +29,23 @@
             <table class="formtable">
                 <tr>
                     <td>Name :</td>
-                    <td><input type="text" class="form-control" name="name" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Username :</td>
-                    <td><input type="text" class="form-control" name="username" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Email Address :</td>
-                    <td><input type="text" class="form-control" name="email" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>NIC Number :</td>
-                    <td><input type="text" class="form-control" name="nic" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Contact Numer :</td>
-                    <td><input type="text" class="form-control" name="contactnumber" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
             </table>
             </form>

@@ -15,7 +15,7 @@
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/user.png" alt="user" class="imgframe">
             <ul>
-                <li><a href="pharmacy_home.php">Home</a></li>
+                <li><a href="pharmacy_home.php"><div class="highlighttext">Home</div></a></li>
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
@@ -54,7 +54,18 @@
                             Pending Payments
                             </br></br></br>
                             <span style="color:#0D5C75; font-size: 70px; font-weight: 700;">
-                            112
+                            23
+                            </span>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=2 style="padding-left: 435px; padding-top: 50px;">
+                        <p id="rcorners">
+                            To be Delivered
+                            </br></br></br>
+                            <span style="color:#0D5C75; font-size: 70px; font-weight: 700;">
+                            12
                             </span>
                         </p>
                     </td>

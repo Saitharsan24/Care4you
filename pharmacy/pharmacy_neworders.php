@@ -16,11 +16,11 @@
             <img src="../images/user.png" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php">Home</a></li>
-                <li><a href="pharmacy_neworders.php">New Orders</a></li>
+                <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="#">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
         </div>
         <div class="main_content"> 
             <div class="info">

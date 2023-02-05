@@ -8,19 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/pharmacy.css"> 
     <title>Pharmacy</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user.png" alt="user" class="imgframe">
+            <img src="../images/user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php">Home</a></li>
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
+                <li><a href="pharmacy_stock.php">Drug Stock</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
@@ -41,35 +43,35 @@
                             <td>24</td>
                             <td>Mr. Sandakoon</td>
                             <td>14/11/2022</td>
-                            <td><button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button></td>
+                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
                         </tr>
                         <tr>
                             <td>02</td>
                             <td>13</td>
                             <td>Ms. Weerakoon</td>
                             <td>14/11/2022</td>
-                            <td><button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button></td>
+                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
                         </tr>
                         <tr>
                             <td>03</td>
                             <td>42</td>
                             <td>Mr. Thanushan</td>
                             <td>15/11/2022</td>
-                            <td><button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button></td>
+                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
                         </tr>
                         <tr>
                             <td>04</td>
                             <td>55</td>
                             <td>Ms. Sivamayoury</td>
                             <td>15/11/2022</td>
-                            <td><button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button></td>
+                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
                         </tr>
                         <tr>
                             <td>05</td>
                             <td>65</td>
                             <td>Mr. Jonathan</td>
                             <td>15/11/2022</td>
-                            <td><button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button></td>
+                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
                         </tr>
                     </tbody>
                 </table>

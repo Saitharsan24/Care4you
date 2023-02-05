@@ -6,21 +6,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <link rel="stylesheet" href="../css/pharmacy.css">
     <title>Pharmacy</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user.png" alt="user" class="imgframe">
+            <img src="../images/user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php"><div class="highlighttext">Home</div></a></li>
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
+                <li><a href="pharmacy_stock.php">Drug Stock</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
@@ -35,8 +37,11 @@
                     unset($_SESSION['no-login-message']);
 
                 }
-            ?>    
-            <div class="welcometext">Welcome <div class="usernametext">Laxshan</div></div>
+            ?>
+            <div class="welcometext">Welcome <div class="usernametext">
+                <?php echo $_SESSION['user']; ?>
+            </div>
+        </div>
             <span>
             <table class="center">
                 <tr>

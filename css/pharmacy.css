@@ -94,12 +94,22 @@ body{
   font-weight: 600;
   position: absolute;
   bottom: 50px;
-  left: 80px;
+  left: 65px;
 }
 
 .wrapper .sidebar .signouttext a{
   color: #0D5C75;
   display: block;
+}
+
+.wrapper .sidebar .signouttext a:hover{
+  color: #000000;
+  font-weight: 700;
+  display: block;
+}
+
+.fa-solid{
+  font-size: 17px;
 }
 
 .wrapper .main_content{
@@ -117,6 +127,14 @@ body{
 
 .wrapper .main_content .info div{
   margin-bottom: 20px;
+}
+
+.wrapper .right-button{
+  margin-left: 470px;
+}
+
+.wrapper .left-button{
+  margin-left: -827px;
 }
 
 .welcometext{
@@ -264,20 +282,44 @@ table td {
   border-radius: 0 10px 10px 0;
 }
 
-.btn-blue1{
-  background-color: #0D5C75;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+.btn-blue1 {
   border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-weight: 500;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
   cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
 }
 
-.btn-blue1 a{
-  color: #ffffff;
+.btn-blue1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-blue1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-blue1:hover span {
+  padding-right: 15px;
+}
+
+.btn-blue1:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 /*neworders.php Ends Here*/
@@ -390,7 +432,7 @@ table td {
 }
 
 .tbl-addmed{
-  width: 70%;
+  width: 80%;
   margin-left:auto; 
   margin-right:auto;
   border-collapse: separate;
@@ -405,7 +447,7 @@ table td {
   color: #000000;
   font-weight: 500;
   padding: 5px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .tbl-addmed tbody tr{
@@ -418,11 +460,11 @@ table td {
   text-align: center;
   color: #212121;
   font-weight: 450;
-  width: 300px;
+  width: 350px;
   padding: 5px;
   padding-left: 0%;
   padding-right: 0%;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .tbl-addmed td:first-child, th:first-child {
@@ -481,6 +523,110 @@ table td {
 /*respond.php Ends Here*/
 
 /*orderhistory.php Starts Here*/
+
+.btn-press {
+  width: 150px;
+  padding: 10px 15px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #0D5C75;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+  font-weight: 500;
+}
+
+.btn-press a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-press:hover {
+  background-color: #0e6680;
+  color: #FFFFFF;
+}
+
+.btn-press:active {
+  background-color: #0e6680;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.btn-pressed {
+  width: 150px;
+  padding: 10px 15px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  font-weight: 500;
+  background-color: #0e6680;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.pressedtext{
+  color: #E8F9FD;
+  font-weight: 600;
+}
+
+.cleartext{
+  color: #000000;
+  font-weight: 500;
+  margin-left: 350px;
+  font-size: 12px;
+}
+
+.cleartext:hover{
+  color: #0D5C75;
+  font-weight: 550;
+}
+
+.btn-vieworder {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-vieworder span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-vieworder span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-vieworder:hover span {
+  padding-right: 15px;
+}
+
+.btn-vieworder:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 .btn-yellow{
   width: 100px;
@@ -544,6 +690,7 @@ p{
   background-color: #F7F7F7;
   padding-left: 2%;
   padding-right: 3%;
+  border-radius: 10%;
 }
 
 /* CSS for login */
@@ -654,4 +801,166 @@ p{
 .login__submit:hover {
 	border-color: #6A679E;
 	outline: none;
+}
+
+/* CSS for viewprofile.php Starts Here*/
+
+.polygons {
+  text-align: center;
+  position: relative;
+}
+.square {
+  border: 2px solid #0D5C75;
+  width: 600px;
+  height: 420px;
+  background: #ffffff;
+  position: relative;
+  top: 100px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.tbl-square{
+  border-collapse: separate;
+  table-layout: fixed;
+  /* border: 1px solid black; */
+}
+
+.tbl-square .type1{
+  /* border: 1px solid black; */
+  width: 245px;
+  text-align: right;
+  font-size: 16px;
+  color: #0D5C75;
+  font-weight: 500;
+}
+
+.tbl-square .type2{
+  /* border: 1px solid black; */
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.circle {
+  border: 2px solid #0D5C75;
+  width: 250px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  left: 500px;
+  top: -15px;
+  overflow: hidden;
+}
+
+/* .circle:hover {
+  color: $primary;
+  background-color: transparent;
+  border: dashed #f7a4a7 5px;
+} */
+
+.square2 {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 430px;
+  /* border-radius: 10%; */
+}
+
+#overlap {
+  width: 10px;
+  height: 60px;
+/*   background: purple; */
+  position: relative;
+  left: -10px;
+  right: -20px;
+}
+
+.form-control2{
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* CSS for viewprofile.php Ends Here*/
+
+/* CSS for stock.php Ends Here*/
+
+.btn-update{
+  width: 100px;
+  background-color: #3CCF4E;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-update a{
+  color: #ffffff;
+}
+
+.btn-delete{
+  width: 100px;
+  background-color: #E0144C;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-delete a{
+  color: #ffffff;
+}
+
+.btn-addnew {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-addnew span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addnew span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addnew:hover span {
+  padding-left: 15px;
+}
+
+.btn-addnew:hover span:after {
+  opacity: 1;
+  left: 0;
 }

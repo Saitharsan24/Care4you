@@ -1,6 +1,5 @@
-<?php 
-    include ('../config/constants.php');
-?>
+<?php include('../config/constants.php') ?>
+<?php include('./partials/login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,22 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/pharmacy.css"> 
     <title>Pharmacy</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user.png" alt="user" class="imgframe">
+            <img src="../images/user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php">Home</a></li>
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
+                <li><a href="pharmacy_stock.php">Drug Stock</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
-            <div class="info">  
+            <div class="info">
+            <?php 
+                if(isset($_SESSION['add'])){
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
+
+                }
+                if(isset($_SESSION['nomed'])){
+                    echo $_SESSION['nomed'];
+                    unset($_SESSION['nomed']);
+
+                }
+            ?>  
             <table class="tbl-respond">             
             <form action="">
                 <tr>
@@ -34,6 +47,10 @@
                 <tr>
                     <td class="tdtype1">Patient Name :</td>
                     <td class="tdtype2"><input type="text" class="form-repondcontrol" name="patientname" required="" autofocus="true"/></td>
+                </tr>
+                <tr>
+                    <td class="tdtype1">Prescription :</td>
+                    <td class="tdtype2"></td>
                 </tr>
                 <tr>
                     <td class="tdtype1">Available Medicines :</td>
@@ -47,6 +64,7 @@
                             <thead>
                                 <tr>
                                     <td>Drug Name</td>
+                                    <td>Strength</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
                                     <td>Total (Rs.)</td>
@@ -75,6 +93,7 @@
 
                                                 //Use while loop to get all data in tbl_addmedicine table
                                                 $drugname = $rows['drugname'];
+                                                $strength = $rows['strength'];
                                                 $unitprice = $rows['unitprice'];
                                                 $quantity = $rows['quantity'];
                                                 $total = $rows['total'];
@@ -84,6 +103,7 @@
                                                 
                                                 <tr>
                                                     <td><?php echo $drugname ?></td>
+                                                    <td><?php echo $strength ?></td>
                                                     <td><?php echo $unitprice ?></td>
                                                     <td><?php echo $quantity ?></td>
                                                     <td><?php echo $total ?></td>

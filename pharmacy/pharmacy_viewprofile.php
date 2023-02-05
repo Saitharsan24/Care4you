@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/pharmacy.css"> 
     <title>Pharmacy</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -17,41 +18,43 @@
                 <li><a href="pharmacy_home.php">Home</a></li>
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
+                <li><a href="pharmacy_stock.php">Drug Stock</a></li>
                 <li><a href="pharmacy_viewprofile.php"><div class="highlighttext">View Profile</div></a></li>
             </ul>
-            <div class="signouttext"><a href="logout.php">Sign Out</a></div>
+            <div class="signouttext"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
-            <img src="../images/user.png" alt="user" class="imgframe">
-            <span>
-            <form>
-            <table class="formtable">
-                <tr>
-                    <td>Name :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Username :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Email Address :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>NIC Number :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Contact Numer :</td>
-                    <td></td>
-                </tr>
-            </table>
-            </form>
-            </br></br></br>
-            <button class="btn-blue"><a href="pharmacy_editprofile.php">Edit Profile</a></button>
-            </span>
+                <div class="polygons">
+                    <div class="square">
+                        <br /><br /><br /><br /><br /><br /><br />
+                        <table class="tbl-square">
+                            <tr>
+                                <td class="type1">Name :</td>
+                                <td class="type2"></td>
+                            </tr>
+                            <tr>
+                                <td class="type1">Username :</td>
+                                <td class="type2"></td>
+                            </tr>
+                            <tr>
+                                <td class="type1">Email Address :</td>
+                                <td class="type2"></td>
+                            </tr>
+                            <tr>
+                                <td class="type1">NIC Number :</td>
+                                <td class="type2"></td>
+                            </tr>
+                            <tr>
+                                <td class="type1">Contact Numer :</td>
+                                <td class="type2"></td>
+                            </tr>
+                        </table> 
+                    </div>
+                        <a href="pharmacy_editprofile.php"><button class="btn-blue square2">Edit Profile</button></a>                      
+                        <img src="../images/user.jpg" alt="user" class="circle" />
+                        <div id="overlap"></div>
+                </div>
             </div>
         </div>
     </div>

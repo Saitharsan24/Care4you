@@ -1,5 +1,5 @@
 <?php include('../config/constants.php') ?>
-<?php include('./partials/login_access.php') ?>
+<?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
                 <li><a href="pharmacy_viewprofile.php"><div class="highlighttext">View Profile</div></a></li>
             </ul>
-            <div class="signouttext"><a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">

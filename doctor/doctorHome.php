@@ -1,4 +1,5 @@
-
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +24,18 @@
         </div>
         <div class="main_content"> 
             <div class="info">
+            <?php 
+                if(isset($_SESSION['login'])){
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+
+                }
+                if(isset($_SESSION['no-login-message'])){
+                    echo $_SESSION['no-login-message'];
+                    unset($_SESSION['no-login-message']);
+
+                }
+            ?>
             <div class="welcometext">Welcome <div class="usernametext"><?php echo $row["d_fname"]." ".$row["d_lname"] ?></div></div>
             <span>
             <table>

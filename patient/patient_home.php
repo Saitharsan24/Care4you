@@ -55,7 +55,7 @@
           <div class="right-page-content">
             <div><a href="./patient_makedocappointment.html"><button>Make doctor appointment</button></a></div>
             <div class="home-divider"></div>
-            <div><a href="./patient_makeorder.html"><button>Order medicine</button></a></div>
+            <div><a href="./patient_makeorder.php"><button>Order medicine</button></a></div>
             <div class="home-divider"></div>
             <div><a href="./patient_makelabappointment.html"><button>Make lab appointment</button></a></div>
           </div>

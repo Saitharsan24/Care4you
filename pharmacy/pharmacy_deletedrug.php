@@ -1,5 +1,5 @@
 <?php
-
+    
     //Include constants.php
     include('../config/constants.php');
 

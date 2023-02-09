@@ -328,7 +328,7 @@ table td {
 
 .tbl-vieworder{
   border:35px solid #ffffff;
-  width: 75%;
+  width: 55%;
   height: 300px;
   margin-left:auto; 
   margin-right:auto;
@@ -340,15 +340,15 @@ table td {
 }
 
 .tbl-vieworder .tdtype1{
-  width: 250px;
+  width: 175px;
   /*border:1px solid #b3adad;*/
   padding: 5px;
   padding-left: 3%;
   padding-right: 3%;
-  color: #083746;
+  color: #0D5C75;
   text-align: right;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .tbl-vieworder .tdtype2{
@@ -359,7 +359,7 @@ table td {
   padding-right: 3%;
   color: #000000;
   text-align: left;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -963,4 +963,22 @@ p{
 .btn-addnew:hover span:after {
   opacity: 1;
   left: 0;
+}
+
+.grayouttext{
+  margin-top: 20px;
+  color: #9CB4CC;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.form-repondcontrol-gray{
+  width: 400px;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #9CB4CC;
+  font-weight: 400;
+  font-style: italic;
 }

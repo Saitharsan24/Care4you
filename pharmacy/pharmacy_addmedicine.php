@@ -26,6 +26,26 @@
         </div>
         <div class="main_content"> 
             <div class="info">
+            <?php
+                //Get the Order ID
+                $id = $_GET['id'];
+                //Query to get all data from tbl_neworder for selected order
+                $sql3 = "SELECT order_id FROM tbl_neworder WHERE order_id=$id";
+                //Exeute the Query                                    
+                $res3 = mysqli_query($conn, $sql3);
+
+                //Check Query executed or not
+                if($res3 == TRUE)
+                {
+                    $count =mysqli_num_rows($res3);
+                    if($count == 1)
+                    {
+                        //echo "Order Available";
+                        $row = mysqli_fetch_assoc($res3);
+                        $order_id = $row['order_id'];
+                    }
+                }
+            ?>
             <form action="" method="POST">
                 <table class="tbl-addmedform">
                     <tr>
@@ -33,7 +53,7 @@
                     </tr>
                     <tr>
                         <td class="tdtype1">Order ID :</td>
-                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="orderid" /></td>
+                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="orderid" value="<?php echo $order_id; ?>"readonly/></td>
                     </tr>
                     <tr>
                         <td class="tdtype1">Drug Name :</td>
@@ -163,9 +183,10 @@
 
                 //Create Session Variable to display message
                 $_SESSION['add'] = '<div class="success"> Medicine Added to Order</div>';
+                $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php';</script>";
+                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
 
             }
             else{
@@ -175,9 +196,10 @@
 
                 //Create Session Variable to display message
                 $_SESSION['add'] = '<div class="error"> Failed to Add Medicine to Order</div>';
+                $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php';</script>";
+                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
 
             }
 
@@ -188,10 +210,11 @@
             //echo "No enough medicines";
 
             //Create Session Variable to display message
-            $_SESSION['nomed'] = '<div class="error">There is currently insufficient amount of the required medicines! </div>';
+            $_SESSION['nomed'] = '<div class="error">There is currently insufficient amount of the required medicine! </div>';
+            $_SESSION['id'] = $order_id;
             //Redirect to the pharmacy_respond.php page
             //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php';</script>";            
+            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";            
         }
     }
 ?>

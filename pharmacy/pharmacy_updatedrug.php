@@ -64,11 +64,11 @@
                     </tr>
                     <tr>
                         <td class="tdtype1">Drug Name :</td>
-                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="name" value="<?php echo $med_name; ?>" required/></td>
+                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="name" value="<?php echo $med_name; ?>" readonly required/></td>
                     </tr>
                     <tr>
                         <td class="tdtype1">Drug Strength :</td>
-                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="strength" value="<?php echo $strength; ?>" required/></td>
+                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="strength" value="<?php echo $strength; ?>" readonly required/></td>
                     </tr>
                     <tr>
                         <td class="tdtype1">Quantity :</td>

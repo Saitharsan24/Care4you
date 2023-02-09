@@ -50,7 +50,20 @@
                             New Orders
                             </br></br></br>
                             <span style="color:#0D5C75; font-size: 70px; font-weight: 700;">
-                            10
+                            <!-- 10 -->
+                            <?php
+                                //Query to get all data from tbl_neworder table
+                                $sql = "SELECT * FROM tbl_neworder";
+                                //Exeute the Query                                    
+                                $res = mysqli_query($conn, $sql);
+
+                                //Check Query executed or not
+                                if($res == TRUE)
+                                {
+                                    $count = mysqli_num_rows($res);
+                                    echo $count;
+                                }
+                            ?>
                             </span>
                         </p>
                     </td>

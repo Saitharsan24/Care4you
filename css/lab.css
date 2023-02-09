@@ -22,7 +22,7 @@ body{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #ffffff; 
+  box-shadow: inset 0 0 2px #ffffff; 
   border-radius: 10px;
 }
  
@@ -94,12 +94,22 @@ body{
   font-weight: 600;
   position: absolute;
   bottom: 50px;
-  left: 80px;
+  left: 65px;
 }
 
 .wrapper .sidebar .signouttext a{
   color: #0D5C75;
   display: block;
+}
+
+.wrapper .sidebar .signouttext a:hover{
+  color: #000000;
+  font-weight: 700;
+  display: block;
+}
+
+.fa-solid{
+  font-size: 17px;
 }
 
 .wrapper .main_content{
@@ -119,6 +129,14 @@ body{
   margin-bottom: 20px;
 }
 
+.wrapper .right-button{
+  margin-left: 470px;
+}
+
+.wrapper .left-button{
+  margin-left: -827px;
+}
+
 .welcometext{
   color: #000000;
   font-size: 32px;
@@ -131,6 +149,31 @@ body{
 .usernametext{
   color: #0D5C75;
   display: inline;
+}
+
+.highlighttext{
+  color: #0D5C75;
+  font-weight: 600;
+  display: inline;
+}
+
+.success{
+  color: #2ed573;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
+.error{
+  color:#ff4757;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
 }
 
 table {
@@ -167,14 +210,14 @@ table td {
 
 .formtable{
   /*border:1px solid #b3adad;*/
-  border-collapse:collapse;
+  border-collapse:separate;
   margin-top: 3%;
   margin-bottom: 5%;
   margin-left: auto; 
   margin-right: auto;
 }
 
-.formtable td {
+.formtable .tdtype01 {
   width: 300px;
   /*border:1px solid #b3adad;*/
   padding: 5px;
@@ -182,6 +225,19 @@ table td {
   padding-right: 3%;
   color: #083746;
   text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.formtable .tdtype02 {
+  background-color: #ffffff;
+  width: 300px;
+  /*border:1px solid #b3adad;*/
+  padding: 5px;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #083746;
+  text-align: left;
   font-size: 20px;
   font-weight: 500;
 }
@@ -261,7 +317,7 @@ table td {
   border-radius: 0 10px 10px 0;
 }
 
-.btn-blue1{
+/* .btn-blue1{
   background-color: #0D5C75;
   padding: 5px;
   padding-left: 10px;
@@ -274,11 +330,51 @@ table td {
 
 .btn-blue1 a{
   color: #ffffff;
+} */
+
+.btn-viewapp {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-viewapp span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-viewapp span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-viewapp:hover span {
+  padding-right: 15px;
+}
+
+.btn-viewapp:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 /*appointments.php Ends Here*/
 
-/*viewappointment.php Starts Here*/
+/*reguserappointment.php Starts Here*/
 
 .tbl-viewappointment{
   border:35px solid #ffffff;
@@ -332,4 +428,278 @@ table td {
 .btn-upload a{
   color: #ffffff;
 }
+/*reguserappointment.php Ends Here*/
+
+/*viewappointment.php Starts Here*/
+
+.rcorners01 {
+  border-radius: 35px;
+  background: #ffffff;
+  padding: 20px; 
+  width: 400px;
+  height: 210px;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.btn-option{
+  border-radius: 35px;
+  border-color: #ffffff;
+  border: 0px;
+  cursor: pointer;
+}
+
+.btn-view {
+  border-radius: 35px;
+  background: #ffffff;
+  border: none;
+  padding: 5px; 
+  width: 400px;
+  height: 210px;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  /* line-height: 150%; */
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.btn-view:hover{
+  background: #f0f0f0;
+}
+
+.btn-view span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view span:after {
+  content: '\00bb';
+  position: relative;
+  opacity: 0;
+  top: 0;
+  right: 50px;
+  transition: 0.5s;
+}
+
+.btn-view:hover span {
+  padding-right: 20px;
+  color: #0D5C75;
+}
+
+.btn-view:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 /*viewappointment.php Ends Here*/
+
+.leftalign{
+  text-align: left;
+  padding-bottom: 0%;
+  margin-left: 100px;
+}
+
+/* .btn-addapp{
+  background-color: #166d87;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #8d8b8b;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-addapp a{
+  color: #ffffff;
+}
+
+.btn-addapp a:hover{
+  color: #ffffff;
+  font-weight: 700;
+} */
+
+.btn-addapp {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 5px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: -5px;
+  font-weight: 500;
+}
+
+.btn-addapp span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addapp span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addapp:hover span {
+  padding-left: 15px;
+}
+
+.btn-addapp:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.tbl-addappform{
+  border:35px solid #ffffff;
+  width: 50%;
+  height: 200px;
+  margin-left:auto; 
+  margin-right:auto;
+  background-color: #ffffff;
+  border-spacing: 20px;
+  border-collapse: separate;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+}
+
+.tbl-addappform .tdtype1{
+  width: 220px;
+  /*border:1px solid #b3adad;*/
+  padding: 2px;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #000000;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tbl-addappform .tdtype2{
+  width: auto;
+  /*border:1px solid #b3adad;*/
+  padding: 2px;
+  padding-left: 2%;
+  padding-right: 3%;
+  color: #000000;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form-addappcontrol{
+  width: 300px;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+p{
+  text-align: right;
+  font-size: 25px;
+}
+
+/* CSS for viewprofile.php Starts Here*/
+
+.polygons {
+  text-align: center;
+  position: relative;
+}
+.square {
+  border: 2px solid #0D5C75;
+  width: 600px;
+  height: 420px;
+  background: #ffffff;
+  position: relative;
+  top: 100px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.tbl-square{
+  border-collapse: separate;
+  table-layout: fixed;
+  /* border: 1px solid black; */
+}
+
+.tbl-square .type1{
+  /* border: 1px solid black; */
+  width: 245px;
+  text-align: right;
+  font-size: 16px;
+  color: #0D5C75;
+  font-weight: 500;
+}
+
+.tbl-square .type2{
+  /* border: 1px solid black; */
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.circle {
+  border: 2px solid #0D5C75;
+  width: 250px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  left: 500px;
+  top: -15px;
+  overflow: hidden;
+}
+
+/* .circle:hover {
+  color: $primary;
+  background-color: transparent;
+  border: dashed #f7a4a7 5px;
+} */
+
+.square2 {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 430px;
+  /* border-radius: 10%; */
+}
+
+#overlap {
+  width: 10px;
+  height: 60px;
+/*   background: purple; */
+  position: relative;
+  left: -10px;
+  right: -20px;
+}
+
+.form-control2{
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* CSS for viewprofile.php Ends Here*/

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css"> 
-    <title>Pharmacy</title>
+    <title>Laboratory</title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@
         
         <form class="form-signin" method="POST">
             <br />      
-            <h2 class="form-signin-heading">Log In - Pharmacy</h2>
+            <h2 class="form-signin-heading">Log In - Laboratory</h2>
             <?php 
                 if(isset($_SESSION['login']))
                 {
@@ -77,7 +77,7 @@
         $password = mysqli_real_escape_string($conn,md5($_POST['password']));
 
         //Step 02 - SQL Query to check the username and password existance
-        $sql = "SELECT * FROM tbl_pharmacist WHERE username='$username' AND password='$password'";
+        $sql = "SELECT * FROM tbl_labtec WHERE username='$username' AND password='$password'";
 
         //Step 03 - Execute the SQL Query
         $res = mysqli_query($conn,$sql);
@@ -94,7 +94,7 @@
             $_SESSION['user'] = $username;
 
             //Redirect to home page
-            header('location:'.SITEURL.'pharmacy/pharmacy_home.php');
+            header('location:'.SITEURL.'laboratory/lab_home.php');
 
         }
         else
@@ -103,7 +103,7 @@
             $_SESSION['login'] = "<div class='error'>Username or Password did not match</div>";
 
             //Redirect to login page
-            header('location:'.SITEURL.'pharmacy/login.php');
+            header('location:'.SITEURL.'laboratory/login.php');
         }
     }
 

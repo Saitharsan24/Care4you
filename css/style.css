@@ -116,12 +116,14 @@ a{
 .form-signin-username{
     font-size: 25px;
     margin: 0px;
+    font-weight: 600;
 }
 
 .form-signin-password{
     font-size: 25px;
     margin: 0px;
     margin-top: 15px;
+    font-weight: 600;
 }
 
 .btn:hover{
@@ -254,3 +256,13 @@ a{
 .step.active {
     display: block;
 }
+
+/* Pharmacy,Lab Login Starts Here */
+
+.error{
+    color: red;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Pharmacy,Lab Login Ends Here */

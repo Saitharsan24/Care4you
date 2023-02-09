@@ -26,53 +26,64 @@
         </div>
         <div class="main_content"> 
             <div class="info">
+            <?php 
+                if(isset($_SESSION['respond'])){
+                    echo $_SESSION['respond'];
+                    unset($_SESSION['respond']);
+
+                }
+            ?>
             <span>
                 <table class="tbl-main">
                     <thead>
                         <tr>
                             <td>Order ID</td>
-                            <td>Patient ID</td>
                             <td>Patient Name</td>
                             <td>Ordered Date</td>
                             <td></td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>24</td>
-                            <td>Mr. Sandakoon</td>
-                            <td>14/11/2022</td>
-                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>13</td>
-                            <td>Ms. Weerakoon</td>
-                            <td>14/11/2022</td>
-                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>42</td>
-                            <td>Mr. Thanushan</td>
-                            <td>15/11/2022</td>
-                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>55</td>
-                            <td>Ms. Sivamayoury</td>
-                            <td>15/11/2022</td>
-                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
-                        </tr>
-                        <tr>
-                            <td>05</td>
-                            <td>65</td>
-                            <td>Mr. Jonathan</td>
-                            <td>15/11/2022</td>
-                            <td><a href="pharmacy_vieworder.php"><button class="btn-blue1"><span>View Order</span></button></a></td>
-                        </tr>
+                    <tbody>                    
+                    <?php
+                        //Query to get all data from tbl_neworder table
+                        $sql = "SELECT * FROM tbl_neworder";
+                        //Exeute the Query                                    
+                        $res = mysqli_query($conn, $sql);
+
+                        //Check Query executed or not
+                        if($res == TRUE)
+                        {
+                            //Count rows in tbl_neworder table
+                            $count = mysqli_num_rows($res);
+                            //Check whther data available in database
+                            if($count > 0)
+                            {
+                                //Data available in database
+                                while($row = mysqli_fetch_assoc($res))
+                                {
+                                    $order_id = $row['order_id'];
+                                    $pname = $row['pname'];
+                                    $orderdate = $row['orderdate'];
+
+                                    //Display data in the table
+                    ?>
+                                        <tr>
+                                            <td><?php echo $order_id;?></td>
+                                            <td><?php echo $pname;?></td>
+                                            <td><?php echo $orderdate;?></td>
+                                            <td><a href="<?php echo SITEURL;  ?>pharmacy/pharmacy_vieworder.php?id=<?php echo $order_id;?>"><button class="btn-blue1"><span>View Order</span></button></a></td>
+                                        </tr>
+                    <?php
+                                    
+                                }
+                            }
+                            else
+                            {
+                                //No any order details yet
+                            }
+                        }
+
+                    ?>
                     </tbody>
                 </table>
             </span>

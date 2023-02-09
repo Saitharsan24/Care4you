@@ -12,19 +12,19 @@ body{
     height: 100vh;
 }
 
-.navbar {
+.navbar{
     background-color: #ffffff;
     display: flex;
-    height: 80px;
+    height: 90px;
     justify-content: space-between;
     align-items:center; 
     font-weight: bold;
-
 }
 
 .logo{
     width: 200px;
     margin-top: 5px;
+    margin-left: 10px;
 }
 
 a{
@@ -42,6 +42,7 @@ a{
     margin-right:30px;
     display: flex;
     align-items: center;
+    font-size: 20px;
 }
 
 .item5{
@@ -96,6 +97,29 @@ a{
 
 .active-btn{
     background-color: #1B7B99;
+}
+
+.heading-tag{
+    position: absolute;
+    width: 800px;
+    height: 50px;
+    left: 110px;
+    top: 350px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 75px;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+    color: #035B68;
+}
+
+.sub{
+    top: 440px;
+    left: 175px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #000000;
 }
 
 /* Sigin In */

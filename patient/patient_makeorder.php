@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/patient.css" />
     <title>Home</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="main-div">
@@ -27,10 +28,11 @@
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>
-        <div class="signout"><a href="#">Sign Out</a></div>
+        <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
+        <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
-        <div class="makeorder-heading"><h2>Make Pharmacy order</h2></div>
+        <div class="makeorder-heading"><h2>Make Pharmacy Order</h2></div>
         <?php 
         if(isset($_SESSION['upload']))
           {
@@ -55,7 +57,7 @@
             </div>
             <div class="form-itm">
                 <p>NIC No :</p>
-                <input type="text" name="nic" required/>
+                <input type="text" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" required/>
             </div>
             <div class="form-itm other-order">
                 <p>Address :</p>

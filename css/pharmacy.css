@@ -694,14 +694,14 @@ p{
 }
 
 /* CSS for login */
-.tbl-login{
+/* .tbl-login{
   border-radius: 7%;
   background-image: url(../images/login-bg.jpg);
   margin-left:auto; 
   margin-right:auto;
   margin-top: 10%;
   margin-bottom: 10%;
-  /*border:5px solid #083746;*/
+  border:5px solid #083746;
   width: 50%;
   height: 50%;
   outline: 0px solid white;
@@ -801,7 +801,7 @@ p{
 .login__submit:hover {
 	border-color: #6A679E;
 	outline: none;
-}
+} */
 
 /* CSS for viewprofile.php Starts Here*/
 

@@ -612,7 +612,7 @@ input::-webkit-file-upload-button{
 
 .my-apt-table{
     display: flex;
-    background:#107c9d;
+
     flex-direction: column;
     width: 1200px;
     height: 500px;

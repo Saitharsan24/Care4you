@@ -137,7 +137,7 @@
                     $_SESSION['user'] = $username;
 
                     //Redirect to home page
-                    header('location:'.SITEURL.'assistant/assistant_home.php');
+                    header('location:'.SITEURL.'assistant/asst_home.php');
                 }
                 elseif($usertype=="admin")
                 {

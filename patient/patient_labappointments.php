@@ -12,18 +12,18 @@
     <div class="main-div">
       <div class="home-left">
         <div class="nav-logo">
-          <a href="./patient_home.html">
-            <img src="./images/logo.png" alt="logo" />
+          <a href="./patient_home.php">
+            <img src="../images/logo.png" alt="logo" />
           </a>
         </div>
         <div class="profile-image">
-          <img src="./images/user.png" alt="profile-image" />
+          <img src="../images/user.png" alt="profile-image" />
         </div>
         <div class="nav-links">
-          <a href="./patient_home.html">Home</a>
-          <a href="./patient_appointments.html" style="color: #0c5c75; font-weight: bold">Appointments</a>
-          <a href="./patient_pharmorders.html">Orders</a>
-          <a href="./patient_medicalrecords.html">Medical records</a>
+          <a href="./patient_home.php">Home</a>
+          <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
+          <a href="./patient_medicalrecords.php">Medical records</a>
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>
@@ -32,7 +32,7 @@
       </div>
       <div class="home-right">
         <div class="text-content">
-          <div class="my-doc-apt"><h2>My Doctor Appointments</h2></div>
+          <div class="my-doc-apt"><h2>My Lab Appointments</h2></div>
         </div>
         <div class="my-apt-table">
           <div class="mydoc-apt-header">
@@ -56,14 +56,10 @@
             <div class="mydoc-apt-lists-06">10.00 a.m</div>
             <div class="mydoc-apt-lists-07">Pending</div>
             <div class="mydoc-apt-lists-08">Confirmed</div>
-            <div class="mydoc-apt-lists-09"><a href="./patient_viewdocappointment.html"><Button>View</Button></a></div>
+            <div class="mydoc-apt-lists-09"><a href=""><Button>View</Button></a></div>
           </div>
       </div>
-      <div>
-        <div class="make-apt-btn"><a href="./patient_makedocappointment.html"><button>Make Doctor appointments</button></a></div>
-      </div>
-        
-        
+      <div class="make-apt-btn"><a href="./patient_makelabappointment.php"><button>Make Lab appointments</button></a></div>
       </div>
     </div>
   </body>

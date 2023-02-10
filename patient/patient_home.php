@@ -15,7 +15,7 @@
     <div class="main-div">
       <div class="home-left">
         <div class="nav-logo">
-          <a href="./patient_home.html">
+          <a href="./patient_home.php">
             <img src="../images/logo.png" alt="logo" />
           </a>
         </div>
@@ -23,10 +23,10 @@
           <img src="../images/user.png" alt="profile-image" />
         </div>
         <div class="nav-links">
-          <a href="./patient_home.html" style="color: #0c5c75; font-weight: bold">Home</a>
-          <a href="./patient_appointments.html">Appointments</a>
-          <a href="./patient_pharmorders.html">Orders</a>
-          <a href="./patient_medicalrecords.html">Medical records</a>
+          <a href="./patient_home.php" style="color: #0c5c75; font-weight: bold">Home</a>
+          <a href="./patient_appointments.php">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
+          <a href="./patient_medicalrecords.php">Medical records</a>
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>
@@ -55,11 +55,11 @@
            
           </div>
           <div class="right-page-content">
-            <div><a href="./patient_makedocappointment.html"><button>Make doctor appointment</button></a></div>
+            <div><a href="./patient_makedocappointment.php"><button>Make doctor appointment</button></a></div>
             <div class="home-divider"></div>
             <div><a href="./patient_makeorder.php"><button>Order medicine</button></a></div>
             <div class="home-divider"></div>
-            <div><a href="./patient_makelabappointment.html"><button>Make lab appointment</button></a></div>
+            <div><a href="./patient_makelabappointment.php"><button>Make lab appointment</button></a></div>
           </div>
         </div>
       </div>

@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    background-color: #A7D1E1;
+}
+
+.navbar{
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: #ffffff;
+}
+
+.logo{
+    position: absolute;
+    width:100% ;
+}
+
+.logo img{
+    position: absolute;
+    width: 100%;
+}
+
+.profile{
+    position: absolute;
+    width: 100%;
+
+}
+
+.profile img{
+    
+    position: absolute;
+    left: 50px;
+    top: 140px;
+    width: 100px;
+    height: 100px;
+}
+
+.home label{
+    position: absolute;
+    left: 28%;
+    top: 37%;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    /* identical to box height, or 32px */
+    
+    cursor: pointer; 
+    color: #000000;
+}
+
+
+
+.session label{
+    position: absolute;
+    left: 24%;
+    top: 43.5%;
+    
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    /* identical to box height, or 32px */
+    
+    cursor: pointer;
+    color: #000000; 
+}
+
+.view-profile label{
+    position: absolute;
+    left: 22%;
+    top: 50%;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    
+    cursor: pointer;
+    color: #000000;
+}
+
+
+.signout label{
+    position: absolute;
+    left: 30%;
+    right: 20.57%;
+    top: 90%;
+    bottom: 100%;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+
+    
+    cursor: pointer;
+    color: #0C5C75;
+}
+.Profile-2{
+    position: absolute;
+    left: 40%;
+    top: 5%; 
+
+}
+.Profile-2 img{
+    position: absolute;
+    left: 200px;
+    top: 53px;
+    width: 100px;
+    height: 100px;
+}
+
+input{
+    margin-left: 25px;
+    padding-left: 5px;
+    width: 310px;
+    height: 23px;
+    border-radius: 6px;
+    background: #FFFFFF; 
+
+}
+
+.name-1{
+    position: absolute;
+   
+    top: 220px;
+    left: 673px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+
+}
+
+
+
+.username-1{
+    position: absolute;
+    top: 274px;
+    left: 619px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+
+
+.email-1{
+    position: absolute;
+    top: 326px;
+    left: 582px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+
+.nic-1{
+    position: absolute;
+    top: 382px;
+    left: 606px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+
+.con-1{
+    position: absolute;
+    top: 440px;
+    left: 555px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+.divider button{
+    width: 160px;
+    height: 64px;
+
+    margin-left: 1050px;
+    margin-top: 560px;
+    border-radius: 999px;
+    background: #0C5C75;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+
+    color: #FFFFFF;
+}
+
+
+
+/*edite profile Css*/
+
+
+
+
+
+.change_password label{
+    position: absolute;
+    left: 40%;
+    right: 20.57%;
+    top: 75%;
+    bottom: 100%;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+
+    
+    cursor: pointer;
+    color: #0C5C75;
+}
+
+.change_profile{
+
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+
+    cursor: pointer;
+    color: #0C5C75;
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    
+}
+
+
+
+/*change password Css*/
+.change_password_1{
+
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+}
+
+
+.old_password-1{
+    
+    position: absolute;
+   
+    top: 273px;
+    left: 592px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+.new_passwoed-1{
+    
+    position: absolute;
+    top: 332px;
+    left: 582px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+.con_password{
+    position: absolute;
+    top: 386px;
+    left: 533px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+/*assistant session Css*/
+
+
+table{
+    
+    position: absolute;
+    top: 82px;
+    left: 325px;
+    width: 62%;
+   
+    border-width: 0px;
+
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    text-align: center;
+    font-family: 'poppins';
+}
+
+
+
+.head th{
+    background-color: #FFFFFF;
+    height: 50px;
+    width: 1100px;
+    border: 0px solid #ddd;
+
+    color: #0C5C75;
+    
+}
+
+
+
+.th-1{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+.th-2{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.body-1{
+    
+    padding: center;
+    background-color: #EFEFEF;
+    height: 50px;
+    width: 1100px;  
+    border-radius: 10px;
+
+}
+
+.td-1{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+
+}
+.td-2{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.button{
+    background-color:#0C5C75;
+    border-radius: 5px;
+    border-width: 0px;
+    color: #FFFFFF;
+    font-family: 'poppins';
+    font-size: 18px;
+}
+
+
+/*assistant Home Css*/
+
+.welcome{
+  position: absolute;
+  margin-left: 42%;
+  margin-top: 5%;
+  font-family: 'poppins';
+  font-size: 43px;
+  font-weight: 500;
+}
+
+.name{
+    color:#0C5C75;
+}
+
+.box-1{
+    position: absolute;
+  margin-left: 39%;
+  margin-top: 15%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 508px;
+  height: 135px;
+  border-radius: 47px;
+  text-align: center;
+  font-size: 37px;
+  font-size: 500;
+  font-family: 'poppions';
+  padding-top: 35px;
+}
+
+.box-2{
+    position: absolute;
+  margin-left: 20%;
+  margin-top: 30%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 457px;
+  height: 187px;
+  border-radius: 47px;
+  text-align: center;
+  font-size: 37px;
+  font-size: 500;
+  font-family: 'poppions';
+  padding-top: 35px;
+}
+
+.box-3{
+    position: absolute;
+  margin-left: 57%;
+  margin-top: 30%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 508px;
+  height: 187px;
+  border-radius: 47px;
+  text-align: center;
+  font-size: 37px;
+  font-size: 500;
+  font-family: 'poppions';
+  padding-top: 35px;
+}
+

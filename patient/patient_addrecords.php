@@ -12,18 +12,18 @@
     <div class="main-div">
       <div class="home-left">
         <div class="nav-logo">
-          <a href="./patient_home.html">
-            <img src="./images/logo.png" alt="logo" />
+          <a href="./patient_home.php">
+            <img src="../images/logo.png" alt="logo" />
           </a>
         </div>
         <div class="profile-image">
-          <img src="./images/user.png" alt="profile-image" />
+          <img src="../images/user.png" alt="profile-image" />
         </div>
         <div class="nav-links">
-          <a href="./patient_home.html">Home</a>
-          <a href="./patient_appointments.html" style="color: #0c5c75; font-weight: bold">Appointments</a>
-          <a href="./patient_pharmorders.html">Orders</a>
-          <a href="./patient_medicalrecords.html">Medical records</a>
+          <a href="#" style="color: #0c5c75; font-weight: bold">Home</a>
+          <a href="./patient_appointments.php">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
+          <a href="./patient_medicalrecords.php">Medical records</a>
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>
@@ -32,16 +32,19 @@
       </div>
       <div class="home-right">
         <div class="text-content">
-          <div class="appointments-head"><h2>My Appointments</h2></div>
+          Welcome
+          <div class="user-name">Name</div>
         </div>
-        <div class="appointment-page-content">
-          <div class="appointment-left-page-content">
+        <div class="page-content">
+          <div class="left-page-content">
            
           </div>
-          <div class="appointment-right-page-content">
-            <div><a href="./patient_docappointments.html"><button>Doctor appointments</button></a></div>
-            <div class="appointments-divider"></div>
-            <div><a href="./patient_labappointments.html"><button>Lab appointments</button></a></div>
+          <div class="right-page-content">
+            <div><a href="./patient_makedocappointment.php"><button>Make doctor appointment</button></a></div>
+            <div class="home-divider"></div>
+            <div><a href="./patient_makeorder.php"><button>Order medicine</button></a></div>
+            <div class="home-divider"></div>
+            <div><a href="./patient_makelabappointment.php"><button>Make lab appointment</button></a></div>
           </div>
         </div>
       </div>

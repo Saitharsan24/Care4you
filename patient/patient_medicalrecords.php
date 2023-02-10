@@ -12,18 +12,18 @@
     <div class="main-div">
       <div class="home-left">
         <div class="nav-logo">
-          <a href="./patient_home.html">
-            <img src="./images/logo.png" alt="logo" />
+          <a href="./patient_home.php">
+            <img src="../images/logo.png" alt="logo" />
           </a>
         </div>
         <div class="profile-image">
-          <img src="./images/user.png" alt="profile-image" />
+          <img src="../images/user.png" alt="profile-image" />
         </div>
         <div class="nav-links">
-          <a href="./patient_home.html">Home</a>
-          <a href="./patient_appointments.html">Appointments</a>
-          <a href="./patient_pharmorders.html">Orders</a>
-          <a href="./patient_medicalrecords.html" style="color: #0c5c75; font-weight: bold">Medical records</a>
+          <a href="./patient_home.php">Home</a>
+          <a href="./patient_appointments.php">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
+          <a href="./patient_medicalrecords.php" style="color: #0c5c75; font-weight: bold">Medical records</a>
           <a href="">View doctors</a>
           <a href="#">View profile</a>
         </div>
@@ -36,11 +36,11 @@
            
         </div>
         <div class="record-buttons">
-          <div><a href="./patient_docappointments.html"><button>Doctor prescriptions</button></a></div>
+          <div><a href="./patient_docappointments.php"><button>Doctor prescriptions</button></a></div>
           <div class="appointments-divider"></div>
-          <div><a href="./patient_labappointments.html"><button>Lab reports</button></a></div>
+          <div><a href="./patient_labappointments.php"><button>Lab reports</button></a></div>
           <div class="appointments-divider"></div>
-          <div><a href="./patient_labappointments.html"><button>Other records</button></a></div>
+          <div><a href="./patient_labappointments.php"><button>Other records</button></a></div>
         </div>
       </div>
     </div>

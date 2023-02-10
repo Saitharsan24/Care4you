@@ -40,7 +40,7 @@
 
             <div class="signout">
             
-                <a href="#">
+                <a href="../logout.php">
                     <label>Sign Out</label>   
                    
                 </a>

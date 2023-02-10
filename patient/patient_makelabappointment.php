@@ -12,18 +12,18 @@
     <div class="main-div">
       <div class="home-left">
         <div class="nav-logo">
-          <a href="./patient_home.html">
-            <img src="./images/logo.png" alt="logo" />
+          <a href="./patient_home.php">
+            <img src="../images/logo.png" alt="logo" />
           </a>
         </div>
         <div class="profile-image">
-          <img src="./images/user.png" alt="profile-image" />
+          <img src="../images/user.png" alt="profile-image" />
         </div>
         <div class="nav-links">
-          <a href="./patient_home.html">Home</a>
-          <a href="./patient_appointments.html">Appointments</a>
-          <a href="./patient_pharmorders.html" style="color: #0c5c75; font-weight: bold">Orders</a>
-          <a href="./patient_medicalrecords.html">Medical records</a>
+          <a href="./patient_home.php">Home</a>
+          <a href="./patient_appointments.php">Appointments</a>
+          <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
+          <a href="./patient_medicalrecords.php">Medical records</a>
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>
@@ -67,7 +67,7 @@
               <input type="text">
           </div>
             <div class="apt-btn order-btn">
-                <div class="apt-btn-css"><a href="./patient_labappointments.html"><button>Back</button></a></div>
+                <div class="apt-btn-css"><a href="./patient_labappointments.php"><button>Back</button></a></div>
                 <div class="apt-btn-space"></div>
                 <div class="apt-btn-css"><a href=""><button>Pay now</button></a></div>
             </div>

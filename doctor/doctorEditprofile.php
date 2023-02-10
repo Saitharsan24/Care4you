@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/doctor.css"> 
     <title>Doctor</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -19,12 +20,12 @@
                 <li><a href="doctorViewpatient.php">View patients</a></li>
                 <li><a href="doctorViewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="logout_process.php">Sign Out</a></div>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
             <figure>
-                <img src="../images/user.png" alt="user" class="imgframe">
+                <img src="../images/doctor.jpg" alt="user" class="imgframe">
                 <figcaption class="figcaption" >Change Profile Picture</figcaption>
             </figure>
             <span>
@@ -51,7 +52,7 @@
                     <td><input type="text" class="form-control" name="contactnumber" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td></br><a href="doc_changepassword.php"><div class="hrefmodtext">Change Password</div></a></td>
+                    <td></br><a href="doctorChangepassword.php"><div class="hrefmodtext">Change Password</div></a></td>
                 </tr>
             </table>
             <button class="btn-blue" type="submit">Save Changes</button>

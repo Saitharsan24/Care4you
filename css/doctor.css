@@ -58,6 +58,31 @@ body{
   border-radius: 10%;
 }
 
+.signouttext{
+  color: #0D5C75;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 50px;
+  left: 35px;
+}
+
+.wrapper .sidebar .signouttext a{
+  color: #0D5C75;
+  display: block;
+}
+
+.wrapper .sidebar .signouttext a:hover{
+  color: #000000;
+  font-weight: 700;
+  display: block;
+}
+
+.fa-solid{
+  font-size: 17px;
+}
+
 .wrapper{
   display: flex;
   position: relative;

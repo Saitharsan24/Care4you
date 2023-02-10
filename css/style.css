@@ -98,6 +98,29 @@ a {
     background-color: #1B7B99;
 }
 
+.heading-tag{
+    position: absolute;
+    width: 800px;
+    height: 50px;
+    left: 110px;
+    top: 350px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 75px;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+    color: #035B68;
+}
+
+.sub{
+    top: 440px;
+    left: 175px;
+    font-weight: 400;
+    font-size: 25px;
+    color: #000000;
+}
+
 /* Sigin In */
 
 .wrapper {

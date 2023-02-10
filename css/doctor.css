@@ -251,6 +251,24 @@ table td {
   font-size: 15px;
 }
 
+.btn-blue2{
+  /* margin-left: 60%; */
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  width: 150px;
+}
+
+.btn-blue2 a{
+  color: #ffffff;
+}
+
 .btn-blue{
   margin-left: 60%;
   background-color: #0D5C75;
@@ -269,16 +287,17 @@ table td {
 }
 
 .btn-green{
-  margin-left: 60%;
-  background-color: #18c338;
+  /* margin-left:1; */
+  background-color: #17852b;
   padding: 10px;
   padding-left: 2%;
   padding-right: 2%;
   border-radius: 25px;
   border: 1px solid #ccc;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
+  width: 120px;
 }
 
 .btn-blue a{

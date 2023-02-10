@@ -51,7 +51,7 @@
                                 <td>2</td>
                                 <td>3</td>
                                 <td><button class="btn-green">Confirmed</button></td>
-                                <td><button class="btn-blue"><a href="doctorAppointments.php">View Appointments</button></td>
+                                <td><button class="btn-blue2"><a href="doctorAppointments.php">View Appointments</button></td>
                             </tr>  
                         <?php        
                             }

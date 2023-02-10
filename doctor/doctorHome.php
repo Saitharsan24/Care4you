@@ -36,7 +36,7 @@
 
                 }
             ?>
-            <div class="welcometext">Welcome <div class="usernametext"><?php echo $row["d_fname"]." ".$row["d_lname"] ?></div></div>
+            <div class="welcometext">Welcome <div class="usernametext"><?php echo $_SESSION['user']; ?></div></div>
             <span>
             <table>
                 <tr>

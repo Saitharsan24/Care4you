@@ -144,7 +144,7 @@
                     {
                         $_SESSION['upload'] = "Failed to upload Prescription! Please Retry";
                         //Redirect to place order page
-                        header('location:'.SITEURL.'patient_pharmorder.php'); //***page name should change here
+                        header('location:'.SITEURL.'patient_pharmorders.php'); //***page name should change here
                         //Stop the process
                         die();
                     }

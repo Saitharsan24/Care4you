@@ -1,87 +1,51 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/asst.css">
-    <title>change_password</title>
+    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <title>Pharmacy</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="navbar">
-
-        <div class="logo">
-        <img src="../images/logo.png"/>
-         </div>
-
-        <div class="profile">
-            <img src="../images/profile.png"/>
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
+            <ul>
+                <li><a href="asst_home.php">Home</a></li>
+                <li><a href="asst_session.php">Sessions</a></li>
+                <li><a href="asst_view.php"><div class="highlighttext">View Profile</div></a></li>
+            </ul>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
-
-            <div class="home">
-                <a href="asst_home.php">
-            <label>Home</label>
-                </a>
+        <div class="main_content"> 
+            <div class="info">
+            <img src="../images/assist-user.jpg" alt="user" class="imgframe">
+            <h2 style="margin-left: 60px; margin-top:15px;">Change Password</h2>
+            <span>
+            <form>
+            <table class="formtable">
+                <tr>
+                    <td>Old Password :</td>
+                    <td><input type="password" class="form-control" name="oldpwd" required="" autofocus="true"/></td>
+                </tr>
+                <tr>
+                    <td>New Password :</td>
+                    <td><input type="password" class="form-control" name="newpwd" required="" autofocus="true"/></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password :</td>
+                    <td><input type="password" class="form-control" name="confirmpwd" required="" autofocus="true"/></td>
+                </tr>
+            </table>
+            <button class="btn-blue" type="submit">Save Password</button>
+            </form>
+            </span>
             </div>
-        
-            <div class="session">
-                <a href="asst_session.php">
-            <label>Sessions</label>
-                </a>
-            </div>
-        
-            <div class="view-profile">
-                <a href="asst_view.php">
-            <label>View Profile</label>
-                </a>
-            </div>
-    
-
-            <div class="signout">
-            
-                <a href="#">
-                    <label>Sign Out</label>   
-                   
-                </a>
-               
-           </div>
         </div>
-
- <div class="Profile-2">
-
-</div>
-<div class="change_password_1">
-    change password
-</div>
-<form >
-    <div class="old_password-1">
-        <label for="oldpassword" > old password: </lable>
-            <input id="name" type="text" >
     </div>
-
-
-    <div class="new_passwoed-1">
-        <label for="newpassword" >New password: </lable>
-            <input id="newpassword" type="text" >
-    </div>
-
-        
-
-
-    <div class="con_password">
-        <label for="conpassword" >Conform passowrd: </lable>
-            <input id="conpassword" type="text" >
-    </div>
-
-    
-</form>
-
-<a href="./signin.php" class="nav-signin"><div class="item5 active-btn">Sign In</div></a>
-<div class="divider">
-    <button type="button">Save</button>
-</div>
-
-        
-
 </body>
 </html>

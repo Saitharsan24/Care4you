@@ -20,7 +20,7 @@
                 <li><a href="doctorViewpatient.php">View Patients</a></li>
                 <li><a href="doctorViewprofile.php">View Profile</a></li>
             </ul>
-            <div class="signouttext"><a href="logout_process.php">Sign Out</a></div>
+            <div class="signouttext"><a href="../logout.php">Sign Out</a></div>
         </div>
         <div class="main_content"> 
             <div class="info">

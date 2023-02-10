@@ -1,9 +1,5 @@
-<?php include_once "login_check.php";
-include_once "dbconnection.php";
-$sql = "SELECT * FROM doctors WHERE d_id='".$_SESSION['id']."'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-?>
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

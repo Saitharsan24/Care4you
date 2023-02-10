@@ -1,13 +1,15 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< Updated upstream
-=======
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/patient.css" />
     <title>Home</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="main-div">
@@ -28,7 +30,8 @@
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>
-        <div class="signout"><a href="../logout.php">Sign Out</a></div>
+        <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
+        <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
         <div class="text-content">
@@ -39,53 +42,12 @@
                 if(isset($_SESSION['login'])){
                     echo $_SESSION['login'];
                     unset($_SESSION['login']);
->>>>>>> Stashed changes
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/patient.css">
-    <title>Home | Patient</title>
-</head>
+                }
+                if(isset($_SESSION['no-login-message'])){
+                    echo $_SESSION['no-login-message'];
+                    unset($_SESSION['no-login-message']);
 
-<<<<<<< Updated upstream
-<body>
-    <div class="wrapper">
-        <div class="sidebar">
-            <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user.png" alt="user" class="imgframe">
-            <ul>
-                <li><a href="patient_home.php">Home</a></li>
-                <li><a href="#">Appointments</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Medical records</a></li>
-                <li><a href="#">Lab reports</a></li>
-                <li><a href="patient_viewprofile.php">View Profile</a></li>
-            </ul>
-            <div class="signouttext"><a href="#">Sign Out</a></div>
-        </div>
-        <div class="right-content">
-            <div class="welcome-text">
-                <p>Welcome</p>
-                <p class="coloured-name">Laxshan</p>
-            </div>
-            <div class="dash-btn">
-                <div class="dashboard">
-                    <div class="dash-element">
-                        <p>UPCOMING</p>
-                        <p>APPOINTMENTS</p>
-                        <p class="count">05</p>
-                    </div>
-                </div>
-
-                <div class="button-set">
-                    <button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button>
-                    <button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button>
-                    <button class="btn-blue1"><a href="pharmacy_vieworder.php">View Order</a></button>
-                </div>
-            </div>
-=======
                 }
             ?>
         <div class="page-content">
@@ -99,11 +61,8 @@
             <div class="home-divider"></div>
             <div><a href="./patient_makelabappointment.php"><button>Make lab appointment</button></a></div>
           </div>
->>>>>>> Stashed changes
         </div>
+      </div>
     </div>
-     
-
-</body>
-
+  </body>
 </html>

@@ -14,7 +14,7 @@
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user.jpg" alt="user" class="imgframe">
+            <img src="../images/assist-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="asst_home.php"><div class="highlighttext">Home</div></a></li>
                 <li><a href="asst_session.php">Sessions</a></li>
@@ -43,7 +43,7 @@
             <span>
             <table class="center">
                 <tr>
-                    <td style="padding-left: 50px;">
+                    <td style="padding-left: 70px;">
                         <p id="rcorners">
                             Number of Sessions
                             </br></br></br>

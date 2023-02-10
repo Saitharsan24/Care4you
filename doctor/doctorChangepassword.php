@@ -18,7 +18,7 @@
                 <li><a href="doctorHome.php">Home</a></li>
                 <li><a href="doctorSession.php">Sessions</a></li>
                 <li><a href="doctorViewpatient.php">View Patients</a></li>
-                <li><a href="doctorViewprofile.php">View Profile</a></li>
+                <li><a href="doctorViewprofile.php"><div class="highlighttext">View Profile</div></a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

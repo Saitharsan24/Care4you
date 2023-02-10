@@ -16,7 +16,7 @@
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/doctor.jpg" alt="user" class="imgframe">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#"><div class="highlighttext">Home</div></a></li>
                 <li><a href="doctorSession.php">Sessions</a></li>
                 <li><a href="doctorViewpatient.php">View Patients</a></li>
                 <li><a href="doctorViewprofile.php">View Profile</a></li>

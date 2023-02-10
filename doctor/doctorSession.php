@@ -17,7 +17,7 @@
             <img src="../images/doctor.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="doctorHome.php">Home</a></li>
-                <li><a href="#">Sessions</a></li>
+                <li><a href="#"><div class="highlighttext">Sessions</div></a></li>
                 <li><a href="doctorViewpatient.php">View Patients</a></li>
                 <li><a href="doctorViewprofile.php">View Profile</a></li>
             </ul>
@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            $query = "SELECT * FROM appoiments,sessions where a_s_id = s_id and s_d_id = '".$_SESSION['id']."'";
+                            $query = "SELECT * FROM sessions";
                             $result = $conn->query($query);                            ;
                             while($row = $result->fetch_assoc()){
                         ?>
@@ -48,9 +48,9 @@
                                 <td><?php echo $row['s_id']?></td>
                                 <td><?php echo $row['s_date']?></td>
                                 <td><?php echo $row['s_timeslot']?></td>
-                                <td><?php echo $row['s_id']?></td>
-                                <td><?php echo $row['a_room']?></td>
-                                <td><button class="btn-green"><?php echo $row['a_stat']?></button></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td><button class="btn-green">Confirmed</button></td>
                                 <td><button class="btn-blue"><a href="doctorAppointments.php">View Appointments</button></td>
                             </tr>  
                         <?php        

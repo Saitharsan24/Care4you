@@ -82,6 +82,11 @@ body{
 .fa-solid{
   font-size: 17px;
 }
+.highlighttext{
+  color: #0D5C75;
+  font-weight: 600;
+  display: inline;
+}
 
 .wrapper{
   display: flex;
@@ -263,6 +268,22 @@ table td {
   color: #ffffff;
 }
 
+.btn-green{
+  margin-left: 60%;
+  background-color: #18c338;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-blue a{
+  color: #ffffff;
+}
 .hrefmodtext{
   color: #000000;
   text-align: center;

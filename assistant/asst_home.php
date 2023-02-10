@@ -21,7 +21,7 @@
 
             <div class="home">
                 <a href="asst_home.php">
-            <label>Home</label>
+            <label style="color: #0c5c75; font-weight: bold">Home</label>
                 </a>
             </div>
         

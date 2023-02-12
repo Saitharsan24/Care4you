@@ -77,7 +77,7 @@
             <div class="apt-btn order-btn">
                 <div class="apt-btn-css"><a href="./patient_pharmorders.php"><button>Back</button></a></div>
                 <div class="apt-btn-space"></div>
-                <div class="apt-btn-css"><a href="./patient_pharmorders.php"><button type="submit" name="order">Place order</button></a></div>
+                <div class="apt-btn-css"><a href="patient_pharmorders.php"><button type="submit" name="order">Place order</button></a></div>
             </div>
         </div>
         </form>
@@ -134,7 +134,7 @@
                     $source_path = $_FILES['prescription']['tmp_name'];
 
                     //Give the destination path
-                    $destination_path = "../images/pharmacy-orders/".$prescription_name; //***path should change here
+                    $destination_path = "../images/pharmacy-orders/".$prescription_name; 
 
                     //Upload the prescription
                     $upload = move_uploaded_file($source_path,$destination_path);
@@ -144,7 +144,7 @@
                     {
                         $_SESSION['upload'] = "Failed to upload Prescription! Please Retry";
                         //Redirect to place order page
-                        header('location:'.SITEURL.'patient_pharmorders.php'); //***page name should change here
+                        header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
                         //Stop the process
                         die();
                     }
@@ -180,14 +180,14 @@
             //Query executed and order details saved in database
             $_SESSION['add-order'] = "<div class='success'>Order placed successfully</div>";
             //Redirect to home page
-            header('location:'.SITEURL.'patient_pharmorders.php'); //***page name should change here
+            header('location:'.SITEURL.'/patient/patient_makeorder.php'); 
         }
         else
         {
             //Failed to execute the query
             $_SESSION['add-order'] = "<div class='error'>Failed to place order</div>";
             //Redirect to placeorder page
-            header('location:'.SITEURL.'patient_makeorder.php'); //***page name should change here
+            header('location:'.SITEURL.'/patient/patient_makeorder.php'); 
         }
     } 
 

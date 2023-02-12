@@ -28,6 +28,9 @@
 
     <!-- Sign in form -->
     <div class="wrapper">
+    <div class= "container">
+    <div class="container_content">
+    <div class="container_content_inner">
         <form class="form-signin" action="#" method="POST">       
             <h2 class="form-signin-heading">Sign In</h2>
             <?php 
@@ -43,12 +46,13 @@
 
                 }
             ?>
+            <div class="par">
             <p class="form-signin-username">User Name</p>
-            <input type="text" class="form-control" name="username" placeholder="User name" required="" autofocus="true"/><br />
+            <input type="text" class="form-control" name="username" placeholder="Enter username here" required="" autofocus="true"/><br />
             
             <p class="form-signin-password">Password</p>
-            <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-            
+            <input type="password" class="form-control" name="password" placeholder="Enter password here" required=""/>
+
             <div  class="forgot-password">
                 <a href="" class="forgot-password">Forgot password?</a>
             </div>
@@ -56,12 +60,16 @@
             <br />
             <br />
 
-            <a href="./signup1.php" class="donothave-account">Do not have an account?</a>  
+            <a href="signup.php" class="donothave-account">Do not have an account?</a>  
 
-            <button class="btn signin" name="submit" type="submit">Sign In</button>   
+            <button class="btn signin" name="submit" type="submit">Sign In</button>
+            </div>   
         </form>
+    </div> 
+    </div> 
+    </div> 
     </div>
-
+    <div class="overlay"></div>
 </body>
 </html>
 

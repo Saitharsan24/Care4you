@@ -3,7 +3,8 @@
 /* Commom */
 
 body {
-    margin: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     background: url(../images/background.jpg);
     background-position: center;
@@ -12,6 +13,16 @@ body {
     height: 100vh;
 }
 
+/* SUCCESS/ERROR MSG style */
+ 
+.error{
+    color:#ff4757;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* SUCCESS/ERROR MSG style */
+
 .navbar {
     background-color: #ffffff;
     display: flex;
@@ -19,7 +30,6 @@ body {
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
-
 }
 
 .logo {
@@ -138,11 +148,13 @@ a {
 
 .form-signin-username {
     font-size: 25px;
+    font-weight: 600;
     margin: 0px;
 }
 
 .form-signin-password {
     font-size: 25px;
+    font-weight: 600;
     margin: 0px;
     margin-top: 15px;
 }
@@ -162,7 +174,7 @@ a {
     font-weight: bold;
     cursor: pointer;
     color: #ffffff;
-    margin-left: 150px;
+    margin-left: 350px;
 }
 
 .forgot-password {
@@ -178,17 +190,23 @@ a {
 }
 
 .form-control {
-    width: 25%;
-    padding: 15px;
-    border-radius: 25px;
+    /* width: 25%; */
+    padding: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 15px;
+    height: 100%;
+    position: relative;
+    width: 250px;
+    overflow: hidden;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #ccc;
 }
 
 .donothave-account {
     color: #0C5C75;
     font-weight: bold;
-
 }
 
 .donothave-account:hover {
@@ -280,3 +298,76 @@ a {
 .btn-signup {
     margin: 30px 0px 0px 0px;
 }
+
+
+/* Page Transition CSS */
+
+:root {
+    --secondary-color: #FFFFFF;
+    --contrast-image: url(../images/background.jpg);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: -10;
+    background-color: var(--contrast-image);
+}
+  
+.container {
+    opacity: 0.85;
+    display:flex;
+    height: 75vh;
+    width: 85vh;
+    /* justify-content: space-around; */
+    justify-content: left;
+    align-items: center;
+    color: #000000;
+    animation: slideIn .9s ease forwards;
+    background-color: var(--secondary-color);
+    border-radius: 7%;
+    position: relative;
+    transition: all .9s ease;
+}
+  
+.container_content {
+   width: 50%;
+}
+  
+.container_content_inner {
+    width: 100%;
+    margin-left: 55px;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateX(0px) scale(.2);
+    }
+    100% {
+      transform: translateX(0px) scale(1);
+    }
+}
+  
+@keyframes slideUp {
+    0% {
+      transform: translateY(300px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+}
+  
+@keyframes expand{
+    0% {
+      transform: translateX(500px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+}
+
+/* Page Transition CSS */

@@ -4,6 +4,26 @@ body{
     background-color: #A7D1E1;
 }
 
+/* SUCCESS/ERROR MSG style */
+
+.success{
+  color: #2ed573;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
+.error{
+  color:#ff4757;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
+}
 
 /* navigation bar */
 .navbar{

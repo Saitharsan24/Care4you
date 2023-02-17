@@ -23,7 +23,7 @@
                 <li><a href="#">View Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
-                <li><a href="Admin-view-profile.php">View Profile</a></li>
+                <li><a href="admin_viewprofile.php">View Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

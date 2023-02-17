@@ -24,7 +24,7 @@
           <a href="./patient_home.php">Home</a>
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
-          <a href="./patient_medicalrecords.php">Medical records</a>
+          <a href="./patient_medicalrecords.php">Medical Records</a>
           <a href="#">View doctors</a>
           <a href="#">View profile</a>
         </div>

@@ -1,3 +1,5 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,99 +7,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
-    <title>Session</title>
+    <title>ADMIN</title>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="navbar">
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
+            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <ul>
+                <li><a href="admin_home.php"><div class="highlighttext">Home</div></a></li>
+                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="#">View Patient</a></li>
+                <li><a href="#">View Orders</a></li>
+                <li><a href="#">View Appointments</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="admin-system-users.php">System Users</a></li>
+                <li><a href="Admin-view-profile.php">View Profile</a></li>
+            </ul>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
+        </div>
+        <div class="main_content"> 
+            <div class="info">
+            <?php 
+                if(isset($_SESSION['login'])){
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
 
-<div class="logo">
-<img src="../images/logo.png"/>
- </div>
+                }
+                if(isset($_SESSION['no-login-message'])){
+                    echo $_SESSION['no-login-message'];
+                    unset($_SESSION['no-login-message']);
 
-<div class="profile">
-    <img src="../images/profile.png"/>
-</div>
+                }
+            ?>
+            <div class="welcometext">Welcome <div class="usernametext">
+                <?php echo $_SESSION['user']; ?>
+            </div>
+        </div>
+            <span>
+                 <!-- Content-->
 
-    <div class="home">
-        <a href="admin_home.php">
-    <label>Home</label>
-        </a>
+                <!-- <div class="system-users">System Users </div> -->
+                <div class="doc-1">
+                <button class="button-doc" onclick="location.href='admin-doc-view.php'">Doctor</button>
+                </div>
+
+                <div class="pat-1">
+                <button class="button-pat" onclick="location.href='admin-patient-view.php'">Laboratory</button>
+                </div>
+
+                <div class="asst-1">
+                <button class="button-asst" onclick="location.href='admin-asst-view.php'">Assistant</button>
+                </div>
+
+                <div class="phar-1">
+                <button class="button-phar" onclick="location.href='#'">Pharmacist</button>
+                </div>              
+            </span>
+            </div>
+        </div>
     </div>
-
-    <div class="session">
-        <a href="admin-session.php">
-    <label>Sessions</label>
-        </a>
-    </div>
-
-    <div class="view-patient">
-        <a href="#">
-    <label>View patient</label>
-        </a>
-    </div>
-
-
-    <div class="view-order">
-        <a href="#">
-    <label>View orders</label>
-        </a>
-    </div>
-
-    
-    <div class="view-appointment">
-        <a href="#">
-    <label>View Appointments</label>
-        </a>
-    </div>
-
-    <div class="report">
-        <a href="#">
-    <label>Reports</label>
-        </a>
-    </div>
-
-    
-    <div class="system-user">
-        <a href="admin-system-users.php">
-    <label>System users</label>
-        </a>
-    </div>
-
-
-    <div class="view-profile">
-        <a href="admin-view-profile.php">
-    <label>View Profile</label>
-        </a>
-    </div>
-
-
-    <div class="signout">
-    
-        <a href="#">
-            <label>Sign Out</label>   
-        </a>
-   </div>
-</div>
-
-<!-- navgation-->
-<div class="system-users">System Users </div>
-<div class="doc-1">
-<button class="button-doc" onclick="location.href='admin-doc-view.php'">Doctor</button>
-</div>
-
-
-<div class="pat-1">
-<button class="button-pat" onclick="location.href='admin-patient-view.php'">Laboratory</button>
-</div>
-
-
-<div class="asst-1">
-<button class="button-asst" onclick="location.href='admin-asst-view.php'">Assistant</button>
-</div>
-
-
-<div class="phar-1">
-<button class="button-phar" onclick="location.href='#'">Pharmacist</button>
-</div>
 </body>
 </html>

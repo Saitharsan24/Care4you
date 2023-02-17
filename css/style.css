@@ -228,6 +228,9 @@ a {
     scrollbar-width: none;
     /* this will hide the scrollbar in internet explorers */
     -ms-overflow-style: none;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
 }
 .wrapper-signup::-webkit-scrollbar { 
     width: 0;
@@ -279,24 +282,30 @@ a {
 }
 
 .signup-row input {
-    border-radius: 25px;
+    border-radius: 5px;
     width: 70%;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     padding: 0.5rem 0.75rem;
     border: 1px solid #ccc;
+    outline: 0;
+    border-width: 0 0 2px;
+    /* border-color: #1B7B99; */
 }
 
 .wrapper-signup select {
     display: block;
-    border-radius: 25px;
+    border-radius: 5px;
     width: 78%;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     padding: 0.5rem 0.75rem;
     border: 1px solid #ccc;
+    outline: 0;
+    border-width: 0 0 2px;
+    /* border-color: #1B7B99; */
 }
 
 .btn-signup {
-    margin: 30px 0px 0px 0px;
+    margin: 50px 0px 0px 190px;
 }
 
 

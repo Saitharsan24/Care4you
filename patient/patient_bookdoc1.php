@@ -62,12 +62,12 @@
                 <label>Others</label>
             </div>
             <div class="form-itm radio-itm">
-              <p>Agree to give access to doctor to view my record :</p>
-              <input type="radio" name="apt-for">
-              <label>Myself</label>
-              <div class="radio-gap"></div>
-              <input type="radio" name="apt-for">
-              <label>Others</label>
+              <p>Records access to doctor :</p>
+              <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+</label>
+
           </div>
             <div class="apt-btn">
                 <div class="apt-btn-css"><a href="./patient_makedocappointment.php"><button>Back</button></a></div>

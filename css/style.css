@@ -231,6 +231,7 @@ a {
     animation: slideIn .9s ease forwards;
     position: relative;
     transition: all .9s ease;
+    /* background-color: #ffffff; */
 }
 .wrapper-signup::-webkit-scrollbar { 
     width: 0;

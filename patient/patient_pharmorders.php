@@ -34,7 +34,7 @@
         <div class="text-content">
           <div class="my-doc-apt"><h2>My Orders</h2></div>
         </div>
-        <div class="my-apt-table">
+       <!-- <div class="my-apt-table">
           <div class="mydoc-apt-header">
             <div>Reference No</div>
             <div>Appointment No</div>
@@ -58,9 +58,41 @@
             <div class="mydoc-apt-lists-08">Confirmed</div>
             <div class="mydoc-apt-lists-09"><a href=""><Button>View</Button></a></div>
           </div>
-      </div>
+      </div>  -->
+
+      <span>
+                <table class="tbl-main-phaorder">
+                    <thead>
+                        <tr>
+                            <td>Order Id</td>
+                            <td>Name</td>
+                            <td>Order Status</td>
+
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form>
+                        <tr>
+                            <td><input type="text" class="search-phaorder" name="asst-id"  autofocus="true"/></td>
+                            <td><input type="text" class="search-phaorder" name="asst-name"  autofocus="true"/></td>
+                            <td><input type="text" class="search-phaorder" name="asst-id"  autofocus="true"/></td>
+                            <td></td>
+                        </tr>
+                        </form>
+                        <tr>
+                            <td>02</td>
+                            <td>Ms. Weerakoon</td>
+                            <td></td>
+                            <td><button class="btn-view-phaorder-detail" onclick="location.href='patient_pharmorder_view_details.php'"><span>View Details</span></button></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </span>
+
       <div>
-        <div class="make-apt-btn"><a href="patient_makeorder.php "><button>Make Pharmacy Order</button></a></div>
+        <div class="make-apt-btn-phaorder"><a href="patient_makeorder.php "><button>Make Pharmacy Order</button></a></div>
       </div>
         
         

@@ -29,42 +29,45 @@
         </div>
         <div class="main_content">
             <div class="info">
-              <div class="head-asst"> Register Assistant</div>
-              <div class="square-reg-asst">
+            <div class="detail-txt-asst">ID <div class="id-txt-asst">XXX </div>Assistant's Detail
+        </div>
+              <div class="square-detail-asst">
 
-              <div class="form-asst">
-              <form>
-            <table class="formtable-asst">
+              <div class="detail-asst">
+        
+            <table class="detail-table-asst-deatil">
+                <tr>
+                    <td>Assistant ID :</td>
+                    <td></td>
+                </tr>
+                
                 <tr>
                     <td>Assistant Name :</td>
-                    <td><input type="text" class="form-control-asst" name="name" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
+                
                 <tr>
                     <td>Username :</td>
-                    <td><input type="text" class="form-control-asst" name="username" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                    <td>password :</td>
-                    <td><input type="password" class="form-control-asst" name="password" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                    <td>Conform password :</td>
-                    <td><input type="password" class="form-control-asst" name="con-password" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Phone Number :</td>
-                    <td><input type="text" class="form-control-asst" name="phonenumber" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Email ID :</td>
-                    <td><input type="text" class="form-control-asst" name="email" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 
+                
             </table>
-            <button class="btn-reg-asst" type="submit">Register</button>
-            <button class="btn-view-asst" onclick="location.href='admin-asst-view.php'">View Assistant</button>
-            </form>
-                            </div>
+            <button class="btn-del-asst " >Delete Account</button>
+            <button class="btn-del-back-asst" onclick="location.href='admin-asst-view.php'">Back</button>
+            
+            
+            
+            
+        </div>
         </div>            
         </div>
             

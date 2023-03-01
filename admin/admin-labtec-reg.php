@@ -1,6 +1,34 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
+
+<?php
+if(isset($_POST['reg'])){
+    
+    
+    $name=$_POST['name'];
+    $username= $_POST['username'];
+    $password=$_POST['password'];
+    $con_password=$_POST['con-password'];
+    $phone_number=$_POST['phonenumber'];
+    $email=$_POST['email']; 
+
+    $sql = "INSERT INTO tbl_lebtec (labtec_id,user_name,phone_number,email,SLMC_number,charges,specialization)
+VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";
+
+    if (mysqli_query($conn, $sql)) {
+       
+      header("Location: /Care4you/admin/admin-doc-view.php");
+    } else {
+       
+   echo "Error: " . $sql . "<br>" . mysqli_error($conn); die();
+    }
+    
+    }
+
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,40 +57,40 @@
         </div>
         <div class="main_content">
             <div class="info">
-              <div class="head-asst"> Register Assistant</div>
-              <div class="square-reg-asst">
+              <div class="head-lab"> Register Laptechnician</div>
+              <div class="square-reg-lab">
 
-              <div class="form-asst">
+              <div class="form-lab">
               <form>
-            <table class="formtable-asst">
+            <table class="formtable-lab">
                 <tr>
-                    <td>Assistant Name :</td>
-                    <td><input type="text" class="form-control-asst" name="name" required="" autofocus="true"/></td>
+                    <td>Labtec Full Name :</td>
+                    <td><input type="text" class="form-control-lab" name="name" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
                     <td>Username :</td>
-                    <td><input type="text" class="form-control-asst" name="username" required="" autofocus="true"/></td>
+                    <td><input type="text" class="form-control-lab" name="username" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
                     <td>password :</td>
-                    <td><input type="password" class="form-control-asst" name="password" required="" autofocus="true"/></td>
+                    <td><input type="password" class="form-control-lab" name="password" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
                     <td>Conform password :</td>
-                    <td><input type="password" class="form-control-asst" name="con-password" required="" autofocus="true"/></td>
+                    <td><input type="password" class="form-control-lab" name="con-password" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
                     <td>Phone Number :</td>
-                    <td><input type="text" class="form-control-asst" name="phonenumber" required="" autofocus="true"/></td>
+                    <td><input type="text" class="form-control-lab" name="phonenumber" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
                     <td>Email ID :</td>
-                    <td><input type="text" class="form-control-asst" name="email" required="" autofocus="true"/></td>
+                    <td><input type="text" class="form-control-lab" name="email" required="" autofocus="true"/></td>
                 </tr>
                 
             </table>
-            <button class="btn-reg-asst" type="submit">Register</button>
-            <button class="btn-view-asst" onclick="location.href='admin-asst-view.php'">View Assistant</button>
+            <button class="btn-reg-lab" type="submit">Register</button>
+            <button class="btn-view-lab" onclick="location.href='admin-lab-view.php'">View labtechnicians</button>
             </form>
                             </div>
         </div>            

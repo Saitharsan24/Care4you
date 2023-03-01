@@ -97,7 +97,7 @@
         {
             
             $row = mysqli_fetch_assoc($res);
-            if(password_verify($password,$row['password']))
+            if(password_verify($password,$row['password']) && $row['status']==1)
             {
 
                 $userid = $row['userid'];
@@ -169,6 +169,14 @@
                     //Redirect to home page
                     header('location:'.SITEURL.'patient/patient_home.php');
                 }
+            }
+            elseif($row['status']==0)
+            {
+             //User not found and Login Fail
+             $_SESSION['login'] = "<div class='error'>User doesn't exists!</div>";
+
+             //Redirect to login page
+             header('location:'.SITEURL.'signin.php');       
             }
             else
             {

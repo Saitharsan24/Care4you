@@ -17,7 +17,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="pat-1">
-                <button class="button-pat" onclick="location.href='admin-patient-view.php'">Laboratory</button>
+                <button class="button-pat" onclick="location.href='admin-labtec-view.php'">Laboratory</button>
                 </div>
 
                 <div class="asst-1">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="phar-1">
-                <button class="button-phar" onclick="location.href='#'">Pharmacist</button>
+                <button class="button-phar" onclick="location.href='admin-pha-view.php'">Pharmacist</button>
                 </div>              
             </span>
             </div>

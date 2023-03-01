@@ -29,42 +29,48 @@
         </div>
         <div class="main_content">
             <div class="info">
-              <div class="head-asst"> Register Assistant</div>
-              <div class="square-reg-asst">
+            <div class="detail-txt-lab">ID <div class="id-txt-lab">XXX </div>Labtechnician's Detail
+        </div>
+              <div class="square-detail-lab">
 
-              <div class="form-asst">
-              <form>
-            <table class="formtable-asst">
+              <div class="detail-lab">
+        
+            <table class="detail-table-lab-detail">
                 <tr>
-                    <td>Assistant Name :</td>
-                    <td><input type="text" class="form-control-asst" name="name" required="" autofocus="true"/></td>
+                    <td>Labtechnician ID :</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Labtechnician Name :</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Username :</td>
-                    <td><input type="text" class="form-control-asst" name="username" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>password :</td>
-                    <td><input type="password" class="form-control-asst" name="password" required="" autofocus="true"/></td>
+                    <td>Password :</td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>Conform password :</td>
-                    <td><input type="password" class="form-control-asst" name="con-password" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                    <td>Phone Number :</td>
-                    <td><input type="text" class="form-control-asst" name="phonenumber" required="" autofocus="true"/></td>
+                    <td>Conform Password :</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Email ID :</td>
-                    <td><input type="text" class="form-control-asst" name="email" required="" autofocus="true"/></td>
+                    <td></td>
                 </tr>
-                
+                <tr>
+                    <td>Phone Numder :</td>
+                    <td></td>
+                </tr>
             </table>
-            <button class="btn-reg-asst" type="submit">Register</button>
-            <button class="btn-view-asst" onclick="location.href='admin-asst-view.php'">View Assistant</button>
-            </form>
-                            </div>
+            <button class="btn-del-lab" >Delete Account</button>
+            <button class="btn-del-back-lab" onclick="location.href='admin-labtec-view.php'">Back</button>
+            
+            
+            
+         </div>
         </div>            
         </div>
             

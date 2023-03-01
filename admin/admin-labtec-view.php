@@ -17,7 +17,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -29,42 +29,42 @@
 
             <div class="main_content">
             <div class="info">
-              <div class="asst-list"></div>
-              <button class="to-reg-asst-page" onclick="location.href='admin-asst-reg.php'">To Register</button>
-              <button class="back-asst-view" onclick="location.href='admin-system-users.php'">Back</button>
+              <div class="doc-list"></div>
+              <button class="to-reg-lab-page" onclick="location.href='admin-labtec-reg.php'">To Register</button>
+              <button class="back-lab-view" onclick="location.href='admin-system-users.php'">Back</button>
               <span>
-                <table class="tbl-main-asst">
+                <table class="tbl-main-lab">
                     <thead>
                         <tr>
-                            <td>Assistant ID ID</td>
-                            <td>Assistant Name</td>
+                            <td>Laptechnician ID</td>
+                            <td>Labtechnician Name</td>
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
                         <form>
                         <tr>
-                            <td><input type="text" class="search-asst" name="asst-id"  autofocus="true"/></td>
-                            <td><input type="text" class="search-asst" name="asst-name"  autofocus="true"/></td>
-                            <td><button class="btn-view-asst-detail" ><span>Search</span></button></td>
+                            <td><input type="text" class="search-lab" name="lab-id"  autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-name"  autofocus="true"/></td>
+                            <td><button class="btn-view-lab-detail" ><span>Search</span></button></td>
                         </tr>
                         </form>
                         <tr>
                             <td>02</td>
                             <td>Ms. Weerakoon</td>
                            
-                            <td><button class="btn-view-asst-detail" onclick="location.href='admin-asst-view-detail.php'"><span>Assistant Details</span></button></td>
+                            <td><button class="btn-view-lab-detail" onclick="location.href='admin-labtec-view-detail.php'"><span>Labtachnician Details</span></button></td>
                         </tr>
                         <tr>
                             <td>03</td>
                             <td>Mr. Thanushan</td>
                            
-                            <td><button class="btn-view-asst-detail" onclick="location.href='admin-asst-view-detail.php'"><span>Assistant Details</span></button></td>
+                            <td><button class="btn-view-lab-detail" onclick="location.href='admin-labtec-view-detail.php'"><span>Labtachnician Details</span></button></td>
                         </tr>
                         <tr>
                             <td>04</td>
                             <td>Ms. Sivamayoury</td>
-                            <td><button class="btn-view-asst-detail" onclick="location.href='admin-asst-view-detail.php'"><span>Assistant Details</span></button></td>
+                            <td><button class="btn-view-lab-detail" onclick="location.href='admin-labtec-view-detail.php'"><span>Labtachnician Details</span></button></td>
                         </tr>
                     </tbody>
                 </table>

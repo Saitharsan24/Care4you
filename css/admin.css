@@ -166,19 +166,6 @@ body{
   margin-left: -827px;
 }
 
-.welcometext{
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  bottom: 50px;
-  left: 80px;
-  display: inline;
-}
-
-.usernametext{
-  color: #0D5C75;
-  display: inline;
-}
 
 .highlighttext{
   color: #0D5C75;
@@ -195,6 +182,21 @@ table {
   /*border:1px solid #b3adad;*/
   border-collapse:collapse;
 }
+
+.welcometext{
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  bottom: 50px;
+  left: 80px;
+  display: inline;
+}
+
+.usernametext{
+  color: #0D5C75;
+  display: inline;
+}
+
 
 table.center {
   margin-top: 5%;
@@ -323,978 +325,10 @@ table td {
   color: #ffffff;
 }
 
-/* admin_viewprofile.php Ends Here*/
+/*admin_viewprofile.php end Here*/
 
 
-/* navigation bar */
-/* .navbar{
-    position: absolute;
-    width: 15%;
-    height: 100%;
-    left: 0px;
-    top: 0px;
-    background-color: #ffffff;
-}
-
-.logo{
-    position: absolute;
-    width:100% ;
-}
-
-.logo img{
-    position: absolute;
-    width: 100%;
-}
-
-.profile{
-    position: absolute;
-    width: 100%;
-
-}
-
-.profile img{
-    
-    position: absolute;
-    left: 50px;
-    top: 140px;
-    width: 100px;
-    height: 100px;
-}
-
-
-.home label{
-    position: absolute;
-    left: 31%;
-    top: 37%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-   
-    
-    cursor: pointer; 
-    color: #000000;
-}
-
-
-
-.session label{
-    position: absolute;
-    left: 27%;
-    top: 41.75%;
-    
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    
-    cursor: pointer;
-    color: #000000; 
-}
-
-.view-patient label{
-    
-    position: absolute;
-    left: 20%;
-    top: 46.5%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    cursor: pointer;
-    color: #000000;
-}
-
-.view-order label{
-    
-    
-    position: absolute;
-    left: 22%;
-    top: 51.75%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    cursor: pointer;
-    color: #000000;
-}
-
-.view-appointment label{
- 
-    position: absolute;
-    left: 9%;
-    top: 57%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    cursor: pointer;
-    color: #000000;
-}
-
-.report label{
-    
-    position: absolute;
-    left: 28%;
-    top: 62.5%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    cursor: pointer;
-    color: #000000;
-}
-
-
-.system-user label{
-    
-    position: absolute;
-    left: 19%;
-    top: 68%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    cursor: pointer;
-    color: #000000;
-}
-.view-profile label{
-    position: absolute;
-    left: 23.5%;
-    top: 73.5%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-    
-    cursor: pointer;
-    color: #000000;
-}
-
-
-
-
-.signout label{
-    position: absolute;
-    left: 30%;
-    right: 20.57%;
-    top: 90%;
-    bottom: 100%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 100%;
-
-    
-    cursor: pointer;
-    color: #0C5C75;
-} */
-
-/* Admin Home page */
-
-
-.welcome{
-    position: absolute;
-    margin-left: 42%;
-    margin-top: 5%;
-    font-family: 'poppins';
-    font-size: 43px;
-    font-weight: 500;
-  }
-
-  .box-1{
-    position: absolute;
-  margin-left: 25%;
-  margin-top: 12%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 375px;
-  height: 147px;
-  border-radius: 47px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'poppions';
-  padding-top: 35px;
-  }
-
-  .in-box-1{
-    text-align: center;
-    font-size: 37px;
-    font-size: 500;
-    font-family: 'poppions';
-    padding-top: 25px;
-    font-weight: 500;
-    color:  #0C5C75;
-  }
-  
-  .box-2{
-    position: absolute;
-  margin-left: 60%;
-  margin-top: 12%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 375px;
-  height: 164px;
-  border-radius: 47px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'poppions';
-  padding-top: 35px;
-  }
-
-  
-  .in-box-2{
-    text-align: center;
-    font-size: 37px;
-    font-size: 500;
-    font-family: 'poppions';
-    padding-top: 25px;
-    font-weight: 500;
-    color:  #0C5C75;
-  }
-  
-  .box-3{
-    position: absolute;
-  margin-left: 25%;
-  margin-top: 28.5%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 375px;
-  height: 181px;
-  border-radius: 47px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'poppions';
-  padding-top: 35px;
-  }
-
-  
-  .in-box-3{
-    text-align: center;
-    font-size: 37px;
-    font-size: 500;
-    font-family: 'poppions';
-    padding-top: 5px;
-    font-weight: 500;
-    color:  #0C5C75;
-  }
-  
-  .box-4{
-    position: absolute;
-  margin-left: 60%;
-  margin-top: 28.5%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 375px;
-  height: 218px;
-  border-radius: 47px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'poppions';
-  padding-top: 35px;
-  }
-
-  
-
-  .in-box-4{
-    text-align: center;
-    font-size: 37px;
-    font-size: 500;
-    font-family: 'poppions';
-    padding-top: 1px;
-    font-weight: 500;
-    color:  #0C5C75;
-  }
-
-  
-/*  admin view page */
-
-  .Profile-2{
-    position: absolute;
-    left: 40%;
-    top: 0%; 
-
-}
-.Profile-2 img{
-    position: absolute;
-    left: 200px;
-    top: 53px;
-    width: 100px;
-    height: 100px;
-}
-
-input{
-    margin-left: 25px;
-    padding-left: 5px;
-    width: 310px;
-    height: 23px;
-    border-radius: 6px;
-    background: #FFFFFF; 
-
-}
-
-
-.name-1{
-  position: absolute;
-  top: 195px;
-  left: 672px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-
-.username-1{
-    position: absolute;
-    top: 253px;
-    left: 619px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-
-.email-1{
-    position: absolute;
-    top: 304px;
-    left: 582px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-.nic-1{
-    position: absolute;
-    top: 356px;
-    left: 606px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-.age-1{
-
-  position: absolute;
-  top: 411px;
-  left: 695px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.con-1{
-    position: absolute;
-    top: 466px;
-    left: 555px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.add-1{
-  position: absolute;
-    top: 519px;
-    left: 652px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.divider button{
-    width: 160px;
-    height: 64px;
-
-    margin-left: 1050px;
-    margin-top: 569px;
-    border-radius: 999px;
-    background: #0C5C75;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 100%;
-
-    color: #FFFFFF;
-}
-
-.add-view-profile-back-button{
-  
-  width: 160px;
-  height: 64px;
-
-  margin-left: 1050px;
-  margin-top: 569px;
-  border-radius: 999px;
-  background: #0C5C75;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 100%;
-
-  color: #FFFFFF;
-}
-
-
-.change_profile{
-
-    
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 100%;
-
-  cursor: pointer;
-  color: #0C5C75;
-
-  position: absolute;
-  left: 50%;
-  top: 20.5%;
-  
-}
-
-
-.change_password label{
-  position: absolute;
-  left: 38%;
-  top: 86%;
-  
-  
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 100%;
-
-  
-  cursor: pointer;
-  color: #0C5C75;
-}
-
-
-
-/*  admin change password page */
-
-.oldpassword-1{
-  position: absolute;
-  top: 253px;
-  left: 590px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-
-.newpassword-1{
-  position: absolute;
-  top: 304px;
-  left: 582px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-.conformpassword-1{
-  position: absolute;
-  top: 356px;
-  left: 532px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.divider-save button{
-  width: 160px;
-  height: 64px;
-
-  margin-left: 1050px;
-  margin-top: 504px;
-  border-radius: 999px;
-  background: #0C5C75;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 100%;
-
-  color: #FFFFFF;
-}
-
-.divider-back button{
-  width: 160px;
-  height: 64px;
-
-  margin-left: 1050px;
-  margin-top: 569px;
-  border-radius: 999px;
-  background: #0C5C75;
-
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 100%;
-
-  color: #FFFFFF;
-}
-
-
-
-/*  admin session*/
-
-table{
-    
-  position: absolute;
-  top: 82px;
-  left: 425px ;
-  width: 62%;
- 
-  border-width: 0px;
-
-  border-collapse: separate;
-  border-spacing: 0 15px;
-
-  text-align: center;
-  font-family: 'poppins';
-}
-
-
-
-.head th{
-  background-color: #FFFFFF;
-  height: 50px;
-  width: 1100px;
-  border: 0px solid #ddd;
-
-  color: #0C5C75;
-  
-}
-
-
-
-.th-1{
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-
-}
-.th-2{
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
-.body-1{
-  
-  padding: center;
-  background-color: #EFEFEF;
-  height: 50px;
-  width: 1100px;  
-  border-radius: 10px;
-
-}
-
-.td-1{
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-
-
-}
-.td-2{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.button{
-  background-color:#0C5C75;
-  border-radius: 5px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 18px;
-}
-
-.button-session{
-  background-color: #0C5C75;
-    border-radius: 5px;
-    border-width: 0px;
-    color: #FFFFFF;
-    font-family: 'poppins';
-    font-size: 18px;
-    position: relative;
-    margin-top: 40%;
-    margin-left: 25%;
-}
-
-/*  admin view appointment*/
-.view{
-
-  position: absolute;
-  margin-left: 41%;
-  margin-top: 5%;
-  font-family: 'poppins';
-  font-size: 32px;
-  font-weight: 500;
-  display: flex;
-  flex-direction: row;
-}
-
-.id{
-  color:#0C5C75;
-}
-
-.main_content-view-app{
-  position: absolute;
-  margin-left: 31%;
-  margin-top: 10%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 850px;
-  height: 331px;
-  border-radius: 66px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'Poppins';
-  padding-top: 35px;
-}
-
-.doctor_name-1{
-  
-  position: absolute;
-  width: 85%;
-  top: 31px;
-  left: 70px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-
-.date-1{
-  
-  position: absolute;
-  width: 85%;
-  top: 97px;
-  left: 117px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-.time-1{
-  
-  position: absolute;
-  width: 85%;
-  top: 163px;
-  left: 120px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-.no_patient-1{
-  
-  position: absolute;
-  width: 85%;
-  top: 227px;
-  left: 73px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-.room_no-1{
-  
-  position: absolute;
-  width: 85%;
-  top: 294px;
-  left: 73px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-
-.edit_button-view{
-  position: absolute;
-  width: 248px;
-  height: 58px;
-  left: 1134px;
-  top: 623px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 23px;
-  font-weight: 500;
-}
-
-.back_button-view-app{
-  position: absolute;
-  width: 143px;
-  height: 50px;
-  left: 542px;
-  top: 623px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 29px;
-  font-weight: 500;
-}
-
-/*  admin add session*/
-.main_content-create-session{
-  position: absolute;
-  margin-left: 31.5%;
-  margin-top: 10%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 850px;
-  height: 331px;
-  border-radius: 66px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'Poppins';
-  padding-top: 35px;
-}
-
-.doctor_name-2{
-  
-  position: absolute;
-  width: 85%;
-  top: 31px;
-  left: 70px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-
-.date-2{
-  
-  position: absolute;
-  width: 85%;
-  top: 97px;
-  left: 117px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-.time-2{
-  
-  position: absolute;
-  width: 85%;
-  top: 163px;
-  left: 120px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-.no_patient-2{
-  
-  position: absolute;
-  width: 85%;
-  top: 227px;
-  left: 51px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-.room_no-2{
-  
-  position: absolute;
-  width: 85%;
-  top: 294px;
-  left: 73px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-font-size: 22px;
-color: #000000;
-}
-
-
-.add-button{
-  position: absolute;
-  width: 143px;
-  height: 50px;
-  left: 1250px;
-  top: 571px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 29px;
-  font-weight: 500;
-
-}
-
-.back_button-create-app{
-  position: absolute;
-  width: 143px;
-  height: 50px;
-  left: 558px;
-  top: 571px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 29px;
-  font-weight: 500;
-
-}
-
-.create-session{
-  
-  position: absolute;
-  margin-left: 42%;
-  margin-top: 3%;
-  font-family: 'poppins';
-  font-size: 43px;
-  font-weight: 500;
-}
-
-/*  admin edit appointment*/
-
-.main_content-edit-app{
-  position: absolute;
-  margin-left: 27%;
-  margin-top: 5%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 850px;
-  height: 331px;
-  border-radius: 66px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'Poppins';
-  padding-top: 35px;
-}
-
-
-.edit_button{
-  position: absolute;
-  width: 143px;
-  height: 50px;
-  left: 1176px;
-  top: 522px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 29px;
-  font-weight: 500;
-}
-
-.save_button{
-  position: absolute;
-  width: 143px;
-  height: 50px;
-  left: 1175px;
-  top: 587px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 29px;
-  font-weight: 500;
-}
-
-
-.back_button-edit-app{
-  position: absolute;
-  width: 143px;
-  height: 50px;
-  left: 470px;
-  top: 565px;
-  background-color:#0C5C75;
-  border-radius: 26px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 29px;
-  font-weight: 500;
-}
-
-/*  admin system users*/
+/*  admin-system-users.php page start here*/
 .system-users{
   color: #000000;
   font-size: 40px;
@@ -1304,14 +338,6 @@ color: #000000;
   display: flex; 
   margin-top: 3%;
   margin-left: 39%;
-  /* position: absolute;
-  margin-left: 20%;
-  margin-top: 5%;
-  font-family: 'poppins';
-  font-size: 32px;
-  font-weight: 500;
-  display: flex;
-  flex-direction: row; */
 }
 
 .button-doc{    
@@ -1388,529 +414,1214 @@ color: #000000;
   font-weight: 700;
 }
 
-.button-1{
-  background-color: #0C5C75;
-    border-radius: 5px;
-    border-width: 0px;
-    color: #FFFFFF;
-    font-family: 'poppins';
-    font-size: 18px;
-    position: relative;
-    margin-top: 40%;
-    margin-left: 17%;
-}
+/*  admin-system-users.php page end here*/
 
+/*  admin-doc-reg.php page start here*/
 
-
-/*reg part of assistant  */
-
-.reg-asst{
-  position: absolute;
-  margin-left: 46%;
-  margin-top: 2.5%;
-  font-family: 'poppins';
+.head-doc{
+  position:absolute;
+  color: #000000;
   font-size: 32px;
-  font-weight: 400; 
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+  display: inline;
+
 }
 
-.main_content-reg-asst{
-  position: absolute;
-  margin-left: 31%;
-  margin-top: 6%;
-  background-color: #FFFFFF;
+.square-reg-doc{
+  border: 2px solid #0D5C75;
+  width: 844px;
+  height: 780px;
+  background: #ffffff;
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  border-radius: 3%;
+  margin-top: 10px;
+}
+
+.form-doc{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+.form-control-doc{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-reg-doc{
+  position: relative;
+
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin:0px 0px 45px 0px;
+}
+
+.doc-reg-btn-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.doc-reg-divider{
+  width: 300px;
+  height: 30px;
+}
+
+
+.btn-view-doc{
+  position: relative;
+  background-color: #0D5C75;
+  height: 48px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin:0px 0px 45px 0px;
+}
+
+/*  admin-doc-reg.php page end here*/
+
+/* admin-doc-view.php page start here*/
+
+.doc-list{
+  position:absolute;
   color: #000000;
-  width: 850px;
-  height: 579px;
-  border-radius: 66px;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+
+}
+.btn-view-doc-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
   text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'Poppins';
-  padding-top: 35px;
-}
-
-
-.asst-id-1{
-  position: absolute;
-    width: 85%;
-    top: 54px;
-    left: 46px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    color: #000000;
-}
-
-.asst-username-1{    
-  position: absolute;
-  width: 85%;
-  top: 201px;
-  left: 56px;
-  font-family: 'Poppins';
-  font-style: normal;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
   font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.asst-name-1{
-  position: absolute;
-  width: 85%;
-  top: 127px;
-  left: 85px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.asst-password-1{
-  position: absolute;
-  width: 85%;
-  top: 279px;
-  left: 60px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.asst-phoneno-1{
-  position: absolute;
-    width: 85%;
-    top: 357px;
-    left: 32px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    color: #000000;
 }
 
-.asst-email-1{
-  position: absolute;
-  width: 85%;
-  top: 435px;
-  left: 73px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-
-}
-
-.asst-reg-button{
-  
-  background-color: #0C5C75;
-  border-radius: 22px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 18px;
+.btn-view-doc-detail span {
+  cursor: pointer;
+  display: inline-block;
   position: relative;
-  margin-top: 57%;
-  margin-left: 56%;
-  width: 114px;
-  height: 50px;
-
+  transition: 0.5s;
 }
 
-
-.asst-back-button{
-  
-  background-color: #0C5C75;
-  border-radius: 22px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 18px;
-  position: relative;
-  margin-top: -7%;
-  margin-left: 56%;
-  width: 114px;
-  height: 50px;
-
-}
-
-
-/* admin asst view page*/
-
-table{
-    
+.btn-view-doc-detail span:after {
+  content: '\00bb';
   position: absolute;
-  top: 82px;
-  left: 425px ;
-  width: 62%;
- 
-  border-width: 0px;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
+.btn-view-doc-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-view-doc-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.tbl-main-doc{
+  position: absolute;
+  left: 375px;
+  top: 110px;
+  width: 1068px;
+  margin-left:auto; 
+  margin-right:auto;
   border-collapse: separate;
   border-spacing: 0 15px;
+}
 
+.tbl-main-doc tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-doc thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-doc td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
   text-align: center;
-  font-family: 'poppins';
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
 }
 
-
-
-.head th{
-  background-color: #FFFFFF;
-  height: 50px;
-  width: 1100px;
-  border: 0px solid #ddd;
-
-  color: #0C5C75;
-  
+.tbl-main-doc td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
 }
 
-
-
-.th-1{
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-
-}
-.th-2{
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
+.tbl-main-doc td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
 }
 
-.body-1{
-  
-  padding: center;
-  background-color: #EFEFEF;
-  height: 50px;
-  width: 1100px;  
+.search-doc{
+  width: 185px;
+  padding: 2px;
   border-radius: 10px;
-
+  font-size: 15px;
 }
 
-.td-1{
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-
-
-}
-.td-2{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.button-1{
-  background-color:#0C5C75;
-  border-radius: 5px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 18px;
-}
-
-
-/* admin reg patient page*/
-
-.reg-patient{
+.to-reg-doc-page{
   position: absolute;
-  margin-left: 46%;
-  margin-top: 2.5%;
-  font-family: 'poppins';
+  width: 184px;
+  left: 1122px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-doc-view{
+  position: absolute;
+  width: 158px;
+  left: 905px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+/* admin-doc-view.php page end here */
+
+/* admin-doc-detail.php page start here */
+
+.detail-txt-doc{
+  position: absolute;
+  top: 35px;
+  left: 673px;
+  color: #000000;
   font-size: 32px;
-  font-weight: 400; 
+  font-weight: 600;
+  bottom: 50px;
+  display: inline;
 }
 
-.main_content-reg-patient{
+.id-txt-doc{
+  color: #0D5C75;
+  display: inline;
+}
+
+
+.square-detail-doc{
+  border: 2px solid #0D5C75;
+  width: 725px;
+  height: 574px;
+  background: #ffffff;
   position: absolute;
-  margin-left: 31%;
-  margin-top: 6%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 850px;
-  height: 635px;
-  border-radius: 66px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'Poppins';
-  padding-top: 35px;
+  top: 86px;
+  left: 520px;
+  display: inline-block;
+  border-radius: 10%;
 }
 
-
-.patient-id-patient{
+.btn-detail-doc{
   position: absolute;
-  width: 85%;
-  top: 39px;
-  left: 46px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-.username-patient{    
-  position: absolute;
-  width: 85%;
-  top: 115px;
-  left: 45px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.name-patient{
-  position: absolute;
-  width: 85%;
-  top: 189px;
-  left: 68px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.password-patient{   
-   position: absolute;
-  width: 85%;
-  top: 336px;
-  left: 47px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.phoneno-patient{
-  position: absolute;
-  width: 85%;
-  top: 265px;
-  left: 69px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-.email-patient{
-  position: absolute;
-  width: 85%;
-  top: 421px;
-  left: 45px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-
-
-
-.patient-reg-button{
-  background-color: #0C5C75;
-    border-radius: 22px;
-    border-width: 0px;
-    color: #FFFFFF;
-    font-family: 'poppins';
-    font-size: 18px;
-    position: relative;
-    margin-top: 58%;
-    margin-left: 82%;
-    width: 114px;
-    height: 50px;
-
-}
-
-
-.patient-back-button{
-  background-color: #0C5C75;
-  border-radius: 22px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
   font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-del-doc{
+  position: absolute;
+  left: 425px;
+    bottom: -62px;
+    width: 180px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-del-back-doc{
+  position: absolute;
+  left: 78px;
+    bottom: -62px;
+  background-color: #0D5C75;
+  width: 113px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+
+.detail-table-lab-deatil{
   position: relative;
-  margin-top: -7%;
-  margin-left: 83%;
-  width: 114px;
-  height: 50px;
-
+  top: 41px;
+  left: 25px;
 }
 
-/* admin reg doc page*/
+/* admin-doc-detail.php page end here */
 
-.reg-doc{
-  position: absolute;
-  margin-left: 46%;
-  margin-top: 2.5%;
-  font-family: 'poppins';
+/* admin-laboratory-view.php page start here */
+
+.lab-list{
+  position:absolute;
+  color: #000000;
   font-size: 32px;
-  font-weight: 400; 
-}
-
-.main_content-reg-doc{
-  position: absolute;
-  margin-left: 31%;
-  margin-top: 6%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 850px;
-  height: 635px;
-  border-radius: 66px;
-  text-align: center;
-  font-size: 37px;
-  font-size: 500;
-  font-family: 'Poppins';
-  padding-top: 35px;
-}
-
-
-.doc-id-doc{
-  position: absolute;
-  width: 85%;
-  top: 39px;
-  left: 46px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-
-
-.slmc-doc{
-  position: absolute;
-  width: 85%;
-  top: 492px;
-  left: 55px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.username-doc{    
-  position: absolute;
-  width: 85%;
-  top: 115px;
-  left: 61px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.name-doc{
-  position: absolute;
-    width: 85%;
-    top: 189px;
-    left: 40px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    color: #000000;
-}
-.password-doc{
-  position: absolute;
-  width: 85%;
-  top: 279px;
-  left: 60px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-.phoneno-doc{
-
-  position: absolute;
-  width: 85%;
-  top: 265px;
-  left: 45px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-.email-doc{
-
-  position: absolute;
-  width: 85%;
-  top: 421px;
-  left: 58px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-
-.charge-doc{
-  position: absolute;
-  width: 85%;
-  top: 342px;
-  left: 51px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
 
 }
-
-
-.sap-doc{
-
-  position: absolute;
-  width: 85%;
-  top: 566px;
-  left: 26px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  color: #000000;
-}
-
-
-
-.doc-back-button{
-  
-  background-color: #0C5C75;
-  border-radius: 22px;
-  border-width: 0px;
+.btn-view-lab-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
   color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 18px;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view-lab-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view-lab-detail span:after {
+  content: '\00bb';
   position: absolute;
-  margin-top: 69%;
-  margin-left: -48%;
-  width: 114px;
-  height: 50px;
-
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
 }
 
-.doc-reg-button{
-  background-color: #0C5C75;
-    border-radius: 22px;
-    border-width: 0px;
-    color: #FFFFFF;
-    font-family: 'poppins';
-    font-size: 18px;
-    position: absolute;
-    margin-top: 69%;
-    margin-left: 36%;
-    width: 114px;
-    height: 50px;
+.btn-view-lab-detail:hover span {
+  padding-right: 15px;
+}
 
+.btn-vieworder:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 
+.tbl-main-lab{
+  position: absolute;
+  left: 375px;
+  top: 110px;
+  width: 1068px;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main-lab tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-lab thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-lab td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main-lab td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main-lab td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.search-lab{
+  width: 185px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.to-reg-lab-page{
+  position: absolute;
+  width: 184px;
+  left: 1122px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-lab-view{
+  position: absolute;
+  width: 158px;
+  left: 905px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* admin-labtec-view.php end here */
 
 
+/* admin-labtec-reg.php start here */
+
+
+.head-lab{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+  display: inline;
+
+}
+
+.square-reg-lab{
+  border: 2px solid #0D5C75;
+  width: 844px;
+  height: 613px;
+  background: #ffffff;
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.form-lab{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+.form-control-lab{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-reg-lab{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-view-lab{
+  position: absolute;
+  left: 121px;
+  bottom:-32px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* admin-labtec-reg.php end here */
+
+/* admin-labtec-view-details.php start here */
+
+.detail-txt-lab{
+  position: absolute;
+  top: 35px;
+  left: 673px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  bottom: 50px;
+  display: inline;
+}
+
+.id-txt-lab{
+  color: #0D5C75;
+  display: inline;
+}
+
+
+.square-detail-lab{
+  border: 2px solid #0D5C75;
+  width: 725px;
+  height: 574px;
+  background: #ffffff;
+  position: absolute;
+  top: 86px;
+  left: 520px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.btn-detail-lab{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-del-lab{
+  position: absolute;
+  left: 425px;
+    bottom: -62px;
+    width: 180px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-del-back-lab{
+  position: absolute;
+  left: 78px;
+    bottom: -62px;
+  background-color: #0D5C75;
+  width: 113px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+
+.detail-lab{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+
+
+/* admin-labtec-view-details.php end here */
+
+/* admin-asst-view.php start here */
+.asst-list{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+
+}
+.btn-view-asst-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view-asst-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view-asst-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-view-asst-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-view-asst-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.tbl-main-asst{
+  position: absolute;
+  left: 375px;
+  top: 110px;
+  width: 1068px;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main-asst tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-asst thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-asst td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main-asst td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main-asst td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.search-asst{
+  width: 185px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.to-reg-asst-page{
+  position: absolute;
+  width: 184px;
+  left: 1122px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-asst-view{
+  position: absolute;
+  width: 158px;
+  left: 905px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+
+/* admin-asst-view.php end here */
+
+/* admin-asst-view-details.php start here */
+
+.detail-txt-asst{
+  position: absolute;
+  top: 35px;
+  left: 673px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  bottom: 50px;
+  display: inline;
+}
+
+.id-txt-asst{
+  color: #0D5C75;
+  display: inline;
+}
+
+
+.square-detail-asst{
+  border: 2px solid #0D5C75;
+  width: 725px;
+  height: 574px;
+  background: #ffffff;
+  position: absolute;
+  top: 86px;
+  left: 520px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.btn-detail-asst{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-del-asst{
+  position: absolute;
+  left: 425px;
+    bottom: -62px;
+    width: 180px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-del-back-asst{
+  position: absolute;
+  left: 78px;
+    bottom: -62px;
+  background-color: #0D5C75;
+  width: 113px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+
+.detail-asst{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+
+
+/* admin-asst-view-details.php end here */
+
+/* admin-asst-reg.php start here */
+
+
+.head-asst{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+  display: inline;
+
+}
+
+.square-reg-asst{
+  border: 2px solid #0D5C75;
+  width: 844px;
+  height: 613px;
+  background: #ffffff;
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.form-asst{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+.form-control-asst{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-reg-asst{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-view-asst{
+  position: absolute;
+  left: 121px;
+  bottom:-32px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* admin-asst-reg.php end here */
+
+
+/* admin-pha-reg.php start here */
+
+
+.head-pha{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+  display: inline;
+
+}
+
+.square-reg-pha{
+  border: 2px solid #0D5C75;
+  width: 844px;
+  height: 613px;
+  background: #ffffff;
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  border-radius: 3%;
+}
+
+.form-pha{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+.form-control-pha{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-reg-pha{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-view-pha{
+  position: absolute;
+  left: 121px;
+  bottom:-32px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* admin-pha-reg.php end here */
+
+/* admin-pha-view.php start here */
+.pha-list{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+
+}
+.btn-view-pha-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view-pha-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view-pha-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-view-pha-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-view-pha-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.tbl-main-pha{
+  position: absolute;
+  left: 375px;
+  top: 110px;
+  width: 1068px;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main-pha tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-pha thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-pha td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main-pha td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main-pha td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.search-pha{
+  width: 185px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.to-reg-pha-page{
+  position: absolute;
+  width: 184px;
+  left: 1122px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.back-pha-view{
+  position: absolute;
+  width: 158px;
+  left: 905px;
+  top: 42px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+
+/* admin-pha-view.php end here */
+
+
+/* admin-pha-view-details.php start here */
+
+.detail-txt-pha{
+  position: absolute;
+  top: 35px;
+  left: 673px;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  bottom: 50px;
+  display: inline;
+}
+
+.id-txt-pha{
+  color: #0D5C75;
+  display: inline;
+}
+
+
+.square-detail-pha{
+  border: 2px solid #0D5C75;
+  width: 725px;
+  height: 574px;
+  background: #ffffff;
+  position: absolute;
+  top: 86px;
+  left: 520px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.btn-detail-pha{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-del-pha{
+  position: absolute;
+  left: 425px;
+    bottom: -62px;
+    width: 180px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-del-back-pha{
+  position: absolute;
+  left: 78px;
+    bottom: -62px;
+  background-color: #0D5C75;
+  width: 113px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+
+.detail-pha{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+
+
+/* admin-pha-view-details.php end here */

@@ -1,20 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Commom */
+/* Common CSS Starts*/
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: url(../images/background.jpg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+  
+.top {
+    flex: 0.1;
+}
+  
+.bottom {
+    flex: 1;
+    background-image: url(../images/bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
 }
 
-/* SUCCESS/ERROR MSG style */
- 
+/* ERROR MSG style */
 .error{
     color:#ff4757;
     font-size: 13px;
@@ -22,6 +31,14 @@ body {
 }
 
 /* SUCCESS/ERROR MSG style */
+
+/* Common CSS Starts*/
+
+
+
+
+
+/* Navigation Bar CSS Starts*/
 
 .navbar {
     background-color: #ffffff;
@@ -35,6 +52,7 @@ body {
 .logo {
     width: 200px;
     margin-top: 5px;
+    margin-left: 5px;
 }
 
 a {
@@ -50,29 +68,19 @@ a {
 .nav-item {
     margin: 10px;
     margin-right: 30px;
+    font-size: 18px;
     display: flex;
     align-items: center;
 }
 
 .item5 {
+    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #0C5C75;
-    height: 50px;
-    width: 100px;
-    border-radius: 25px;
-    transition: .4s;
-    color: #ffffff;
-}
-
-.item6 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0C5C75;
-    height: 50px;
-    width: 100px;
+    height: 40px;
+    width: 120px;
     border-radius: 25px;
     transition: .4s;
     color: #ffffff;
@@ -80,24 +88,20 @@ a {
 
 .normal-link a:hover {
     transition: .4s;
-    color: #1B7B99;
+    color: #12566a;
 }
 
 .item5:hover {
     background-color: #1B7B99;
 }
 
-.item6:hover {
-    background-color: #1B7B99;
-}
-
 .divider {
-    width: 50px;
+    width: 25px;
 }
 
 .normal-link {
     display: flex;
-    margin-right: 80px;
+    margin-right: 0px;
 }
 
 .active-link {
@@ -107,6 +111,14 @@ a {
 .active-btn {
     background-color: #1B7B99;
 }
+
+/* Navigation Bar CSS Starts*/
+
+
+
+
+
+/* index.php CSS Starts */
 
 .heading-tag{
     position: absolute;
@@ -131,7 +143,37 @@ a {
     color: #000000;
 }
 
-/* Sigin In */
+/* index.php CSS Ends */
+
+
+
+
+
+/* services.php CSS Starts */
+
+/* services.php CSS Ends */
+
+
+
+
+
+/* about.php CSS Starts */
+
+/* about.php CSS Ends */
+
+
+
+
+
+/* contactus.php CSS Starts */
+
+/* contactus.php CSS Ends */
+
+
+
+
+
+/* signin.php CSS Starts */
 
 .wrapper {
     display: flex;
@@ -214,102 +256,6 @@ a {
     transition: .4s;
 }
 
-/* Sign UP */
-
-.wrapper-signup {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    height: 50vh;
-    margin: 30px 0px 0px 140px;
-    overflow: auto;
-    /* this will hide the scrollbar in mozilla based browsers */
-    overflow: -moz-scrollbars-none;
-    scrollbar-width: none;
-    /* this will hide the scrollbar in internet explorers */
-    -ms-overflow-style: none;
-    animation: slideIn .9s ease forwards;
-    position: relative;
-    transition: all .9s ease;
-    /* background-color: #ffffff; */
-}
-.wrapper-signup::-webkit-scrollbar { 
-    width: 0;
-    display: none; 
-  }
-.wrapper-signup p {
-    margin: 0px;
-    font-size: 18px;
-}
-
-.signup-heading {
-    margin: 30px 0px 0px 150px;
-}
-
-.signup-heading1 {
-    color: #0C5C75;
-    font-size: 35px;
-    margin: 0px
-}
-
-.signup-heading2 {
-    font-size: 18px;
-    color: #0C5C75;
-    margin: 0px;
-}
-
-.signup-row {
-    display: flex;
-    margin: 0px 0px 15px 0px;
-}
-
-.row-item {
-    width: 100%;
-}
-
-.signup-address {
-    display: flex;
-    flex-direction: column;
-}
-
-.signup-address input {
-    margin: 0px 0px 10px 0px;
-    width: 85%;
-    display: block;
-    border-radius: 25px;
-    background-color: #ffffff;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
-}
-
-.signup-row input {
-    border-radius: 5px;
-    width: 70%;
-    /* background-color: #ffffff; */
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
-    outline: 0;
-    border-width: 0 0 2px;
-    /* border-color: #1B7B99; */
-}
-
-.wrapper-signup select {
-    display: block;
-    border-radius: 5px;
-    width: 78%;
-    /* background-color: #ffffff; */
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
-    outline: 0;
-    border-width: 0 0 2px;
-    /* border-color: #1B7B99; */
-}
-
-.btn-signup {
-    margin: 50px 0px 0px 190px;
-}
-
-
 /* Page Transition CSS */
 
 :root {
@@ -381,3 +327,119 @@ a {
 }
 
 /* Page Transition CSS */
+
+/* signin.php CSS Ends */
+
+
+
+
+
+/* signup.php CSS Starts */
+
+.wrapper-signup {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 50vh;
+    margin: 30px 0px 0px 140px;
+    overflow: auto;
+    /* this will hide the scrollbar in mozilla based browsers */
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    /* this will hide the scrollbar in internet explorers */
+    -ms-overflow-style: none;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+    /* background-color: #ffffff; */
+}
+
+.wrapper-signup::-webkit-scrollbar { 
+    width: 0;
+    display: none; 
+}
+
+.wrapper-signup p {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.signup-heading {
+    margin: 30px 0px 0px 150px;
+}
+
+.signup-heading1 {
+    color: #0C5C75;
+    font-size: 35px;
+    margin-top: 5px;
+    margin-left: -10px;
+}
+
+.signup-heading2 {
+    font-size: 18px;
+    color: #0C5C75;
+    margin-top: -30px;
+    margin-left: -10px;
+}
+
+.signup-row {
+    display: flex;
+    margin: 0px 0px 15px 0px;
+}
+
+.row-item {
+    width: 100%;
+}
+
+/* .signup-address {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-address input {
+    margin: 0px 0px 10px 0px;
+    width: 85%;
+    display: block;
+    border-radius: 7px;
+    background-color: #ffffff;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+} */
+
+textarea{
+    outline: 0;
+    resize: none;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    border-width: 0 0 2px;
+    padding: 0.5rem 0.75rem;
+}
+
+.signup-row input {
+    border-radius: 7px;
+    width: 70%;
+    /* background-color: #ffffff; */
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    outline: 0;
+    border-width: 0 0 2px;
+    /* border-color: #1B7B99; */
+}
+
+.wrapper-signup select {
+    display: block;
+    border-radius: 5px;
+    width: 78%;
+    /* background-color: #ffffff; */
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    outline: 0;
+    border-width: 0 0 2px;
+    /* border-color: #1B7B99; */
+}
+
+.btn-signup {
+    margin: 50px 0px 0px 190px;
+}
+
+/* signup.php CSS Ends */

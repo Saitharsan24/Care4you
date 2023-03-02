@@ -42,7 +42,7 @@
             <div class="welcometext">Welcome <div class="usernametext">
                 <?php echo $_SESSION['user']; ?>
             </div>
-        </div>
+            </div>
             <span>
             <table class="center">
                 <tr>

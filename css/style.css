@@ -167,6 +167,276 @@ a {
 
 /* contactus.php CSS Starts */
 
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.background {
+    display: flex;
+    min-height: 70vh;
+}
+
+.contact-container {
+    flex: 0 1 750px;
+    margin-left: 50px;
+    margin-top: 70px;
+    padding: 10px;
+    opacity: 0.75;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.screen {
+    position:relative;
+    background: #ffffff;
+    border-radius: 15px;
+    /* opacity: inherit; */
+}
+
+.screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #0C5C75;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.screen-header-left {
+    margin-right: auto;
+}
+
+.screen-header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: white;
+}
+
+.screen-header-button.close {
+    background: #ed1c6f;
+}
+
+.screen-header-button.maximize {
+    background: #e8e925;
+}
+
+.screen-header-button.minimize {
+    background: #74c54f;
+}
+
+.screen-header-right {
+    display: flex;
+}
+
+.screen-header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: #999;
+}
+
+.screen-body {
+    display: flex;
+}
+
+.screen-body-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #0C5C75;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: #035B68;
+}
+
+.app-content {
+    margin-top: 25px;
+    font-size: 9px;
+    font-weight: 700;
+    color: #035B68;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.iconstyle{
+    font-size: 30px;
+}
+
+.app-contact {
+    margin-top: auto;
+    font-size: 12px;
+    color: #035B68;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.app-form-group {
+    margin-left: -100px;
+    margin-bottom: 15px;
+}
+
+.app-form-group.message {
+    margin-left: -100px;
+    margin-top: 30px;
+}
+
+.app-form-group.buttons {
+    margin-left: -100px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #12566a;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    font-size: 14px;
+    /* text-transform: uppercase; */
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.app-form-control::placeholder {
+    color: #666;
+}
+
+.app-form-control:focus {
+    border-bottom-color: #ddd;
+}
+
+.msg-textarea{
+    overflow: hidden;
+    resize: none;
+}
+
+.app-permission {
+    margin-left: -50px;
+    margin-top: auto;
+    font-size: 9px;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.checkbox{
+    width: 8px;
+    height: 8px;
+}
+
+.app-form-button {
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    color: #035B68;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.app-form-button:hover {
+    color: #0C5C75;
+}
+
+.credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.credits-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dribbble {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 520px) 
+{
+    .screen-body {
+        flex-direction: column;
+   }
+    .screen-body-item.left {
+        margin-bottom: 30px;
+   }
+    .app-title {
+        flex-direction: row;
+   }
+    .app-title span {
+        margin-right: 12px;
+   }
+    .app-title:after {
+        display: none;
+   }
+}
+
+@media screen and (max-width: 600px)
+{
+    .screen-body {
+        padding: 40px;
+   }
+    .screen-body-item {
+        padding: 0;
+   }
+}
+
 /* contactus.php CSS Ends */
 
 
@@ -406,7 +676,7 @@ a {
     border: 1px solid #ccc;
 } */
 
-textarea{
+.textarea{
     outline: 0;
     resize: none;
     border-radius: 7px;

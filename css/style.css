@@ -30,9 +30,9 @@ body {
     font-weight: 600;
 }
 
-/* SUCCESS/ERROR MSG style */
+/* ERROR MSG style */
 
-/* Common CSS Starts*/
+/* Common CSS Ends*/
 
 
 
@@ -78,7 +78,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0C5C75;
+    background-color: #1B7B99;
     height: 40px;
     width: 120px;
     border-radius: 25px;
@@ -92,7 +92,7 @@ a {
 }
 
 .item5:hover {
-    background-color: #1B7B99;
+    background-color: #0C5C75;
 }
 
 .divider {
@@ -159,6 +159,57 @@ a {
 
 /* about.php CSS Starts */
 
+.about-container {
+    /* flex: 0 1 650px; */
+    width: 650px;
+    margin-top: 100px;
+    margin-left: 100px;
+    padding: 20px;
+    opacity: 0.75;
+    background-color: #fff;
+    border-radius: 25px;
+    opacity: 0.75;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.leftquote{
+    /* margin-top: 100px; */
+    /* margin-left: 70px; */
+    font-size: 45px;
+    color: #035B68;
+}
+
+.rightquote{
+    margin-top: 5px;
+    margin-left: 510px;
+    font-size: 45px;
+    color: #035B68;
+}
+
+.heading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    font-style: italic;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+    color: #035B68;
+}
+
+.contenttxt{
+    text-align: justify;
+    width: 500px;
+    margin-left: 50px;
+    font-weight: 300;
+    font-size: 15px;
+    font-style: italic;
+    color: #000000;
+}
+
+
 /* about.php CSS Ends */
 
 
@@ -213,7 +264,7 @@ a {
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background: #0C5C75;
+    background: #1B7B99;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
@@ -273,7 +324,7 @@ a {
     display: flex;
     flex-direction: column;
     position: relative;
-    color: #0C5C75;
+    color: #1B7B99;
     font-family: 'Poppins', sans-serif;
     font-size: 26px;
     font-weight: 700;
@@ -287,14 +338,14 @@ a {
     bottom: -10px;
     width: 25px;
     height: 4px;
-    background: #035B68;
+    background: #1B7B99;
 }
 
 .app-content {
     margin-top: 25px;
     font-size: 9px;
     font-weight: 700;
-    color: #035B68;
+    color: #1B7B99;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
@@ -303,10 +354,18 @@ a {
     font-size: 30px;
 }
 
+.app-gmail {
+    margin-top: 120px;
+    font-size: 11px;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
 .app-contact {
     margin-top: auto;
-    font-size: 12px;
-    color: #035B68;
+    font-size: 11px;
+    color: #1B7B99;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
@@ -526,78 +585,6 @@ a {
     transition: .4s;
 }
 
-/* Page Transition CSS */
-
-:root {
-    --secondary-color: #FFFFFF;
-    --contrast-image: url(../images/background.jpg);
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    z-index: -10;
-    background-color: var(--contrast-image);
-}
-  
-.container {
-    opacity: 0.85;
-    display:flex;
-    height: 75vh;
-    width: 85vh;
-    /* justify-content: space-around; */
-    justify-content: left;
-    align-items: center;
-    color: #000000;
-    animation: slideIn .9s ease forwards;
-    background-color: var(--secondary-color);
-    border-radius: 7%;
-    position: relative;
-    transition: all .9s ease;
-}
-  
-.container_content {
-   width: 50%;
-}
-  
-.container_content_inner {
-    width: 100%;
-    margin-left: 55px;
-}
-
-@keyframes slideIn {
-    0% {
-      transform: translateX(0px) scale(.2);
-    }
-    100% {
-      transform: translateX(0px) scale(1);
-    }
-}
-  
-@keyframes slideUp {
-    0% {
-      transform: translateY(300px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-}
-  
-@keyframes expand{
-    0% {
-      transform: translateX(500px);
-    }
-    100% {
-      transform: translateX(0px);
-    }
-}
-
-/* Page Transition CSS */
-
 /* signin.php CSS Ends */
 
 
@@ -713,3 +700,80 @@ a {
 }
 
 /* signup.php CSS Ends */
+
+
+
+
+
+/* Extra */
+/* Page Transition CSS */
+
+:root {
+    --secondary-color: #FFFFFF;
+    --contrast-image: url(../images/background.jpg);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: -10;
+    background-color: var(--contrast-image);
+}
+  
+.container {
+    opacity: 0.85;
+    display:flex;
+    height: 75vh;
+    width: 85vh;
+    /* justify-content: space-around; */
+    justify-content: left;
+    align-items: center;
+    color: #000000;
+    animation: slideIn .9s ease forwards;
+    background-color: var(--secondary-color);
+    border-radius: 7%;
+    position: relative;
+    transition: all .9s ease;
+}
+  
+.container_content {
+   width: 50%;
+}
+  
+.container_content_inner {
+    width: 100%;
+    margin-left: 55px;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translateX(0px) scale(.2);
+    }
+    100% {
+      transform: translateX(0px) scale(1);
+    }
+}
+  
+@keyframes slideUp {
+    0% {
+      transform: translateY(300px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+}
+  
+@keyframes expand{
+    0% {
+      transform: translateX(50px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+}
+
+/* Page Transition CSS */

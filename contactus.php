@@ -57,7 +57,8 @@
                             <i class="fa-brands fa-square-instagram iconstyle"></i> &emsp;
                             <i class="fa-brands fa-square-twitter iconstyle"></i>
                         </div>
-                        <div class="app-contact">Contact Info : +94 112 220 666</div>
+                        <div class="app-gmail"><i class="fa-solid fa-envelope"></i> &nbsp; Gmail Info : care4you@gmail.com</div>
+                        <div class="app-contact"><i class="fa-solid fa-phone"></i> &nbsp; Contact Info : +94 112 220 666 </div>
                     </div>
 
                     <div class="screen-body-item">

@@ -27,7 +27,15 @@
         </div>
     </div>
     <div class="bottom">
-        
+        <div class="about-container">
+        <i class="fa-solid fa-quote-left leftquote" style="font-style: italic;"></i>
+        <p class="contenttxt">
+        <span class="heading">CareForYou</span> a healthcare provider committed to providing exceptional medical care to patients 24/7. Our team of highly skilled medical professionals is dedicated to providing personalized care to every patient since 2015 using the latest medical technology and techniques.
+        <br/><br/>
+        We are committed to enhancing the quality of life of our patients through excellent medical care and clinical outcomes and We believe in delivering exceptional patient care and are committed to ensuring that our patients receive the best possible medical treatment in a comfortable and supportive environment. <br/>
+        <i class="fa-solid fa-quote-right rightquote" style="font-style: italic;"></i>
+        </p>
+        </div>
     </div>
 </body>
 </html>

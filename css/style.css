@@ -332,11 +332,11 @@ a {
 }
 
 .contact-container {
-    flex: 0 1 750px;
-    margin-left: 50px;
+    flex: 0 1 60%;
+    margin-left: 20%;
     margin-top: 70px;
     padding: 10px;
-    opacity: 0.75;
+    opacity: 0.9;
     animation: slideIn .9s ease forwards;
     position: relative;
     transition: all .9s ease;

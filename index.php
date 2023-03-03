@@ -27,8 +27,10 @@
         </div>
     </div>
     <div class="bottom">
+        <div class="index-container">
         <div class="heading-tag">CARING FOR LIFE</div>
-        <div class="heading-tag sub">Leading the Way in Medical Excellence</div>
+        <div class="sub">Leading the Way in Medical Excellence</div>
+        </div>
     </div>
 </body>
 </html>

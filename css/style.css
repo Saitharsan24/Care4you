@@ -120,12 +120,18 @@ a {
 
 /* index.php CSS Starts */
 
-.heading-tag{
+.index-container{
     position: absolute;
     width: 800px;
     height: 50px;
     left: 110px;
-    top: 350px;
+    top: 275px;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.heading-tag{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -136,8 +142,15 @@ a {
 }
 
 .sub{
-    top: 440px;
-    left: 175px;
+    margin-left: 75px;
+    margin-top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 75px;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+    color: #035B68;
     font-weight: 400;
     font-size: 25px;
     color: #000000;
@@ -150,6 +163,89 @@ a {
 
 
 /* services.php CSS Starts */
+
+.container01{
+    border: 5px solid #F9F9F9;
+    box-shadow: 5px 10px 20px #666;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 9%;
+    /* margin-bottom: 10%; */
+    width: 20%;
+    height: 75%;
+    padding: 20px;
+    opacity: 0.85;
+    background-color: #fff;
+    border-radius: 25px;
+    text-align: center;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.container02{
+    border: 5px solid #F9F9F9;
+    box-shadow: 5px 10px 20px #666;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 10%;
+    /* margin-bottom: 10%; */
+    width: 20%;
+    height: 75%;
+    padding: 20px;
+    opacity: 0.85;
+    background-color: #fff;
+    border-radius: 25px;
+    text-align: center;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.container03{
+    border: 5px solid #F9F9F9;
+    box-shadow: 5px 10px 20px #666;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 10%;
+    /* margin-bottom: 10%; */
+    width: 20%;
+    height: 75%;
+    padding: 20px;
+    opacity: 0.85;
+    background-color: #fff;
+    border-radius: 25px;
+    text-align: center;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.caption{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.iconlogo{
+    margin-bottom: 30px;
+    font-size: 70px;
+    color: #1B7B99;
+}
+
+.abt-txt{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.abt-link{
+    font-size: 15px;
+    font-weight: 700;
+    color: #0C5C75;
+}
+
+.abt-link:hover{
+    color: #052934;
+}
 
 /* services.php CSS Ends */
 
@@ -168,7 +264,6 @@ a {
     opacity: 0.75;
     background-color: #fff;
     border-radius: 25px;
-    opacity: 0.75;
     animation: slideIn .9s ease forwards;
     position: relative;
     transition: all .9s ease;

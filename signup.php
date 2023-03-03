@@ -13,12 +13,13 @@
 </head>
 
 <body>
+
     <div class="top">
         <div class="navbar">
             <a href="./index.php"><img src="./images/logo.png" alt="logo" class="logo"></a>
             <div class="nav-link">
                 <div class="normal-link">
-                    <div class="nav-item item1"><a href="./index.php" class="active-link">Home</a></div>
+                    <div class="nav-item item1"><a href="./index.php">Home</a></div>
                     <div class="nav-item item2"><a href="./services.php">Services</a></div>
                     <div class="nav-item item3"><a href="./about.php">About</a></div>
                     <div class="nav-item item4"><a href="./contactus.php">Contact Us</a></div>   
@@ -46,12 +47,12 @@
             <div class="signup-row">
                 <div class="row-item">
                     <p class="form-text">First Name</p>
-                    <input type="text" class="signup-input" name="first_name" placeholder="Ex: Amal" required="" autofocus="true" />
+                    <input type="text" class="signup-input" name="fname" placeholder="Ex: Amal" required="" autofocus="true" />
                 </div>
 
                 <div class="row-item">
                     <p class="form-text">Last Name</p>
-                    <input type="text" class="signup-input" name="last_name" placeholder="Ex: Perera" required="" />
+                    <input type="text" class="signup-input" name="lname" placeholder="Ex: Perera" required="" />
                 </div>
             </div>
 
@@ -62,13 +63,13 @@
                     <select name="gender" id="gender">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Female">Preferred not to Say</option>
+                        <option value="Not Given">Preferred not to Say</option>
                     </select>
                 </div>
 
                 <div class="row-item">
                     <p class="form-text">Date of Birth</p>
-                    <input type="Date" class="signup-input" name="date_of_birth"  required="" />
+                    <input type="Date" class="signup-input" name="dateofbirth"  required="" />
                 </div>
             </div>
 
@@ -76,19 +77,19 @@
             <div class="signup-row">
                 <div class="row-item">
                     <p class="form-text">NIC Number</p>
-                    <input type="text" class="signup-input" name="nic_no" pattern="[0-9]{9}[Vv0-9]{1,3}" placeholder="Ex: 200017172432" required="" />
+                    <input type="text" class="signup-input" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" placeholder="Ex: 200017172432" required="" />
                 </div>
 
                 <div class="row-item">
-                    <p class="form-text">Phone Number</p>
-                    <input type="text" class="signup-input" name="phone_no" pattern="[0-0]{1}[0-9]{9}" placeholder="Ex: 0771234567" required="" />
+                    <p class="form-text">Contact Number</p>
+                    <input type="text" class="signup-input" name="contactnumber" pattern="[0-0]{1}[0-9]{9}" placeholder="Ex: 0771234567" required="" />
                 </div>
             </div>
 
             <!-- Row 04 -->
             <div class="signup-address">
                 <p class="form-text">Address</p>
-                <textarea name="address" id="address" cols="69" rows="3" placeholder="Type your address here"></textarea>
+                <textarea class="textarea" name="address" id="address" cols="66" rows="3" placeholder="Type your address here" required=""></textarea>
             </div>
 
             <!-- Row 05 -->
@@ -99,7 +100,7 @@
                 </div>
 
                 <div class="row-item">
-                    <p class="form-text">User Name</p>
+                    <p class="form-text">Username</p>
                     <input type="text" class="signup-input" name="username" placeholder="" required="" /><br />
                 </div>
             </div>
@@ -128,6 +129,34 @@
     </form>
 
     </div>
+
 </body>
 
 </html>
+
+<?php
+
+    //Check whether the Sign Up button is clicked
+    if(isset($_POST['submit']))
+    {
+        //echo "Button Clicked";
+        
+        //Get the patient details from the form
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+
+        if (isset($_POST['gender']))
+        {
+        $gender = $_POST['gender'];
+        }
+        $dateofbirth = $_POST['dateofbirth'];
+        $nic = $_POST['nic'];
+        $contactnumber = $_POST['contactnumber'];
+        $address = $_POST['address'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $confirmpassword = $_POST['confirmpassword'];
+    }    
+
+?>

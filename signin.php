@@ -16,7 +16,7 @@
             <a href="./index.php"><img src="./images/logo.png" alt="logo" class="logo"></a>
             <div class="nav-link">
                 <div class="normal-link">
-                    <div class="nav-item item1"><a href="./index.php" class="active-link">Home</a></div>
+                    <div class="nav-item item1"><a href="./index.php">Home</a></div>
                     <div class="nav-item item2"><a href="./services.php">Services</a></div>
                     <div class="nav-item item3"><a href="./about.php">About</a></div>
                     <div class="nav-item item4"><a href="./contactus.php">Contact Us</a></div>   

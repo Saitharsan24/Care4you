@@ -1,27 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Commom */
+/* Common CSS Starts*/
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: url(../images/background.jpg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+  
+.top {
+    flex: 0.1;
+}
+  
+.bottom {
+    flex: 1;
+    background-image: url(../images/bg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
 }
 
 /* SUCCESS/ERROR MSG style */
- 
+
+.success{
+    color:#2ed573;
+    font-size: 12px;
+    font-weight: 600;
+}
+
 .error{
     color:#ff4757;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
 }
 
 /* SUCCESS/ERROR MSG style */
+
+/* Common CSS Ends*/
+
+
+
+
+
+/* Navigation Bar CSS Starts*/
 
 .navbar {
     background-color: #ffffff;
@@ -35,6 +59,7 @@ body {
 .logo {
     width: 200px;
     margin-top: 5px;
+    margin-left: 5px;
 }
 
 a {
@@ -50,29 +75,19 @@ a {
 .nav-item {
     margin: 10px;
     margin-right: 30px;
+    font-size: 18px;
     display: flex;
     align-items: center;
 }
 
 .item5 {
+    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0C5C75;
-    height: 50px;
-    width: 100px;
-    border-radius: 25px;
-    transition: .4s;
-    color: #ffffff;
-}
-
-.item6 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #0C5C75;
-    height: 50px;
-    width: 100px;
+    background-color: #1B7B99;
+    height: 40px;
+    width: 120px;
     border-radius: 25px;
     transition: .4s;
     color: #ffffff;
@@ -80,24 +95,20 @@ a {
 
 .normal-link a:hover {
     transition: .4s;
-    color: #1B7B99;
+    color: #12566a;
 }
 
 .item5:hover {
-    background-color: #1B7B99;
-}
-
-.item6:hover {
-    background-color: #1B7B99;
+    background-color: #0C5C75;
 }
 
 .divider {
-    width: 50px;
+    width: 25px;
 }
 
 .normal-link {
     display: flex;
-    margin-right: 80px;
+    margin-right: 0px;
 }
 
 .active-link {
@@ -108,12 +119,26 @@ a {
     background-color: #1B7B99;
 }
 
-.heading-tag{
+/* Navigation Bar CSS Starts*/
+
+
+
+
+
+/* index.php CSS Starts */
+
+.index-container{
     position: absolute;
     width: 800px;
     height: 50px;
     left: 110px;
-    top: 350px;
+    top: 275px;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.heading-tag{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -124,14 +149,471 @@ a {
 }
 
 .sub{
-    top: 440px;
-    left: 175px;
+    margin-left: 75px;
+    margin-top: 2px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 75px;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+    color: #035B68;
     font-weight: 400;
     font-size: 25px;
     color: #000000;
 }
 
-/* Sigin In */
+/* index.php CSS Ends */
+
+
+
+
+
+/* services.php CSS Starts */
+
+.container01{
+    border: 5px solid #F9F9F9;
+    box-shadow: 5px 10px 20px #666;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 9%;
+    /* margin-bottom: 10%; */
+    width: 20%;
+    height: 75%;
+    padding: 20px;
+    opacity: 0.85;
+    background-color: #fff;
+    border-radius: 25px;
+    text-align: center;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.container02{
+    border: 5px solid #F9F9F9;
+    box-shadow: 5px 10px 20px #666;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 10%;
+    /* margin-bottom: 10%; */
+    width: 20%;
+    height: 75%;
+    padding: 20px;
+    opacity: 0.85;
+    background-color: #fff;
+    border-radius: 25px;
+    text-align: center;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.container03{
+    border: 5px solid #F9F9F9;
+    box-shadow: 5px 10px 20px #666;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 10%;
+    /* margin-bottom: 10%; */
+    width: 20%;
+    height: 75%;
+    padding: 20px;
+    opacity: 0.85;
+    background-color: #fff;
+    border-radius: 25px;
+    text-align: center;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.caption{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.iconlogo{
+    margin-bottom: 30px;
+    font-size: 70px;
+    color: #1B7B99;
+}
+
+.abt-txt{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.abt-link{
+    font-size: 15px;
+    font-weight: 700;
+    color: #0C5C75;
+}
+
+.abt-link:hover{
+    color: #052934;
+}
+
+/* services.php CSS Ends */
+
+
+
+
+
+/* about.php CSS Starts */
+
+.about-container {
+    /* flex: 0 1 650px; */
+    width: 650px;
+    margin-top: 100px;
+    margin-left: 100px;
+    padding: 20px;
+    opacity: 0.75;
+    background-color: #fff;
+    border-radius: 25px;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.leftquote{
+    /* margin-top: 100px; */
+    /* margin-left: 70px; */
+    font-size: 45px;
+    color: #035B68;
+}
+
+.rightquote{
+    margin-top: 5px;
+    margin-left: 510px;
+    font-size: 45px;
+    color: #035B68;
+}
+
+.heading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    font-style: italic;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+    color: #035B68;
+}
+
+.contenttxt{
+    text-align: justify;
+    width: 500px;
+    margin-left: 50px;
+    font-weight: 300;
+    font-size: 15px;
+    font-style: italic;
+    color: #000000;
+}
+
+
+/* about.php CSS Ends */
+
+
+
+
+
+/* contactus.php CSS Starts */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.background {
+    display: flex;
+    min-height: 70vh;
+}
+
+.contact-container {
+    flex: 0 1 60%;
+    margin-left: 20%;
+    margin-top: 70px;
+    padding: 10px;
+    opacity: 0.9;
+    animation: slideIn .9s ease forwards;
+    position: relative;
+    transition: all .9s ease;
+}
+
+.screen {
+    position:relative;
+    background: #ffffff;
+    border-radius: 15px;
+    /* opacity: inherit; */
+}
+
+.screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #1B7B99;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.screen-header-left {
+    margin-right: auto;
+}
+
+.screen-header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: white;
+}
+
+.screen-header-button.close {
+    background: #ed1c6f;
+}
+
+.screen-header-button.maximize {
+    background: #e8e925;
+}
+
+.screen-header-button.minimize {
+    background: #74c54f;
+}
+
+.screen-header-right {
+    display: flex;
+}
+
+.screen-header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: #999;
+}
+
+.screen-body {
+    display: flex;
+}
+
+.screen-body-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: #1B7B99;
+}
+
+.app-content {
+    margin-top: 25px;
+    font-size: 9px;
+    font-weight: 700;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.iconstyle{
+    font-size: 30px;
+    color: #1B7B99;
+}
+
+.app-gmail {
+    margin-top: 120px;
+    font-size: 11px;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.app-gmail a{
+    margin-top: 120px;
+    font-size: 11px;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.app-contact {
+    margin-top: auto;
+    font-size: 11px;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.app-form-group {
+    margin-left: -100px;
+    margin-bottom: 15px;
+}
+
+.app-form-group.message {
+    margin-left: -100px;
+    margin-top: 30px;
+}
+
+.app-form-group.buttons {
+    margin-left: -100px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #12566a;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    font-size: 14px;
+    /* text-transform: uppercase; */
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.app-form-control::placeholder {
+    color: #666;
+}
+
+.app-form-control:focus {
+    border-bottom-color: #ddd;
+}
+
+.msg-textarea{
+    overflow: hidden;
+    resize: none;
+}
+
+.app-permission {
+    margin-left: -50px;
+    margin-top: auto;
+    font-size: 9px;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.checkbox{
+    width: 8px;
+    height: 8px;
+}
+
+.app-form-button {
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    color: #035B68;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+}
+
+.app-form-button:hover {
+    color: #0C5C75;
+}
+
+.credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #1B7B99;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.credits-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dribbble {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 520px) 
+{
+    .screen-body {
+        flex-direction: column;
+   }
+    .screen-body-item.left {
+        margin-bottom: 30px;
+   }
+    .app-title {
+        flex-direction: row;
+   }
+    .app-title span {
+        margin-right: 12px;
+   }
+    .app-title:after {
+        display: none;
+   }
+}
+
+@media screen and (max-width: 600px)
+{
+    .screen-body {
+        padding: 40px;
+   }
+    .screen-body-item {
+        padding: 0;
+   }
+}
+
+/* contactus.php CSS Ends */
+
+
+
+
+
+/* signin.php CSS Starts */
 
 .wrapper {
     display: flex;
@@ -214,7 +696,13 @@ a {
     transition: .4s;
 }
 
-/* Sign UP */
+/* signin.php CSS Ends */
+
+
+
+
+
+/* signup.php CSS Starts */
 
 .wrapper-signup {
     display: flex;
@@ -233,10 +721,12 @@ a {
     transition: all .9s ease;
     /* background-color: #ffffff; */
 }
+
 .wrapper-signup::-webkit-scrollbar { 
     width: 0;
     display: none; 
-  }
+}
+
 .wrapper-signup p {
     margin: 0px;
     font-size: 18px;
@@ -249,13 +739,15 @@ a {
 .signup-heading1 {
     color: #0C5C75;
     font-size: 35px;
-    margin: 0px
+    margin-top: 5px;
+    margin-left: -10px;
 }
 
 .signup-heading2 {
     font-size: 18px;
     color: #0C5C75;
-    margin: 0px;
+    margin-top: -30px;
+    margin-left: -10px;
 }
 
 .signup-row {
@@ -267,7 +759,7 @@ a {
     width: 100%;
 }
 
-.signup-address {
+/* .signup-address {
     display: flex;
     flex-direction: column;
 }
@@ -276,14 +768,23 @@ a {
     margin: 0px 0px 10px 0px;
     width: 85%;
     display: block;
-    border-radius: 25px;
+    border-radius: 7px;
     background-color: #ffffff;
     padding: 0.5rem 0.75rem;
     border: 1px solid #ccc;
+} */
+
+.textarea{
+    outline: 0;
+    resize: none;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    border-width: 0 0 2px;
+    padding: 0.5rem 0.75rem;
 }
 
 .signup-row input {
-    border-radius: 5px;
+    border-radius: 7px;
     width: 70%;
     /* background-color: #ffffff; */
     padding: 0.5rem 0.75rem;
@@ -309,7 +810,13 @@ a {
     margin: 50px 0px 0px 190px;
 }
 
+/* signup.php CSS Ends */
 
+
+
+
+
+/* Extra */
 /* Page Transition CSS */
 
 :root {
@@ -373,7 +880,7 @@ a {
   
 @keyframes expand{
     0% {
-      transform: translateX(500px);
+      transform: translateX(50px);
     }
     100% {
       transform: translateX(0px);

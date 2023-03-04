@@ -2,7 +2,8 @@
 <?php include('../login_access.php') ?>
 
 <?php
-$query = "SELECT * FROM tbl_doctor";
+//$query = "SELECT * FROM tbl_doctor";
+$query="SELECT * FROM tbl_doctor INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid ";
 $result = mysqli_query($conn, $query);
 $no_row = mysqli_num_rows($result);
 
@@ -28,7 +29,7 @@ $no_row = mysqli_num_rows($result);
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -53,6 +54,7 @@ $no_row = mysqli_num_rows($result);
                                     <td>Doctor Name</td>
                                     <td>Specialization</td>
                                     <td>SLMC_number</td>
+                                    <td>Account Status</td>
                                     <td></td>
                                 </tr>
                             </thead>
@@ -63,7 +65,7 @@ $no_row = mysqli_num_rows($result);
                                         <td><input type="text" class="search-doc" name="doc-name" autofocus="true" /></td>
                                         <td><input type="text" class="search-doc" name="Specialize" autofocus="true" /></td>
                                         <td><input type="text" class="search-doc" name="Slmc" autofocus="true" /></td>
-                                        <td><input type="text" class="search-doc" name="Slmc" autofocus="true" /></td>
+                                        <td><input type="text" class="search-doc" name="status" autofocus="true" /></td>
                                         <td><button class="btn-view-lab-detail"><span>Search</span></button></td>
                                     </tr>
                                 </form>
@@ -77,35 +79,21 @@ $no_row = mysqli_num_rows($result);
                                             <td><?php echo $row['doc_name'];  ?></td>
                                             <td><?php echo $row['specialization'];  ?></td>
                                             <td><?php echo $row['SLMC_number'];  ?></td>
-
-                                            <?php
-                                            if ($result) {
-                                                while ($row = mysqli_fetch_array($result)) {
-                                            ?>
-                                        <tr>
-                                            <td><?php echo $row['pharmacist_id']; ?></td>
-                                            <td><?php echo $row['fullname']; ?></td>
-                                            <th><?php
-                                                    if ($row['status'] == 1) {
-                                                        echo '<span class="active-status"> Active </span>';
-                                                    } else {
-                                                        echo '<span class="passive-status"> Passive </span>';
-                                                    }
-                                                ?></th>
-                                            <td><button class="btn-view-pha-detail" onclick='location.href="admin-pha-view-detail.php?id=<?php echo $row["pharmacist_id"]; ?>"'><span>Pharmacist Details</span></button></td>
-                                        </tr>
-                                        <?php
-                                                }
+                                            <td><?php
+                                            if ($row['status']==1){
+                                                echo '<span class="active-status">Active</span>';
+                                            }else{
+                                                echo '<span class="passive-status">Passive</span>';
                                             }
-                                        ?>
-                                <td><button class="btn-view-lab-detail" onclick='location.href="admin-doc-view-detail.php?id=<?php echo $row["doctor_id"]; ?>"'><span>View Doctor Details</span></button></td>
-                                </tr>
-                        <?php
+                                            ?>
+                                            </td>
+                                            <td><button class="btn-view-doc-detail" onclick='location.href="admin-doc-view-detail.php?id=<?php echo $row["doctor_id"]; ?>"'><span>Doctor Details</span></button></td>
+                                        </tr>
+                                        <?php 
                                     }
                                 }
-
-
-                        ?>
+                                ?>
+                          
                             </tbody>
                         </table>
                     </span>

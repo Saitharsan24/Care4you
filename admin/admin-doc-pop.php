@@ -12,7 +12,7 @@
   <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
-      <h1><?php echo $status ?> Phamacist Account</h1>
+      <h1><?php echo $status ?> Doctor Account</h1>
       <p>Are you sure you want to <?php echo $status ?>?</p>
     
       <div class="clearfix">

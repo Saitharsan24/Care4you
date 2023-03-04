@@ -16,7 +16,7 @@
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>

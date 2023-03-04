@@ -1,5 +1,50 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+
+<?php
+$id = $_GET['id'];
+
+$query="SELECT * FROM tbl_labtec INNER JOIN tbl_sysusers ON tbl_labtec.userid = tbl_sysusers.userid WHERE labtec_id = $id";
+$result=mysqli_query($conn,$query);
+$row = mysqli_fetch_assoc($result);
+
+?>
+
+<?php
+   
+
+   if(isset($_GET['disable'])){
+    $userid = $_GET['disable'];
+    $query_del = "UPDATE tbl_sysusers
+    SET status = 0
+    WHERE userid = $userid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-labtec-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+
+   if(isset($_GET['enable'])){
+    $userid = $_GET['enable'];
+    $query_del = "UPDATE tbl_sysusers
+    SET status = 1
+    WHERE userid = $userid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-labtec-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+   //$result=mysqli_query($conn, $sql);
+
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +62,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -29,7 +74,7 @@
         </div>
         <div class="main_content">
             <div class="info">
-            <div class="detail-txt-lab">ID <div class="id-txt-lab">XXX </div>Labtechnician's Detail
+            <div class="detail-txt-lab">ID <div class="id-txt-lab"><?php echo $row['labtec_id'];  ?> </div>Labtechnician's Detail
         </div>
               <div class="square-detail-lab">
 
@@ -38,34 +83,51 @@
             <table class="detail-table-lab-detail">
                 <tr>
                     <td>Labtechnician ID :</td>
-                    <td></td>
+                    <td><?php echo $row['labtec_id'];  ?></td>
                 </tr>
                 <tr>
                     <td>Labtechnician Name :</td>
-                    <td></td>
+                    <td><?php echo $row['full_name'];  ?></td>
                 </tr>
                 <tr>
                     <td>Username :</td>
-                    <td></td>
+                    <td><?php echo $row['username'];  ?></td>
                 </tr>
-                <tr>
-                    <td>Password :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Conform Password :</td>
-                    <td></td>
-                </tr>
-                <tr>
+                    <tr>
                     <td>Email ID :</td>
-                    <td></td>
+                    <td><?php echo $row['email'];  ?></td>
                 </tr>
                 <tr>
                     <td>Phone Numder :</td>
-                    <td></td>
+                    <td><?php echo $row['contact_number'];  ?></td>
                 </tr>
             </table>
-            <button class="btn-del-lab" >Delete Account</button>
+          <?php
+                if ($row['status'] == 1) { ?>
+                    <?php 
+                     
+                       
+                        $status = "Disable";
+                        include('./admin-labtec-pop.php');
+                        
+                        ?>
+                        <button class="btn-lactec-disable" onclick="document.getElementById('id01').style.display='block'; 
+                document.getElementById('del').action = '?id=<?php echo $row['labtec_id']?>&disable=<?php echo $row['userid']?> ';
+                " >Disable Account</button>
+                <?php
+                }
+            
+            else {
+                
+                $status = "Enable";
+                include('./admin-labtec-pop.php');
+                ?>
+                 <button class="btn-lactec-enable" onclick="document.getElementById('id01').style.display='block'; 
+                document.getElementById('del').action = '?id=<?php echo $row['labtec_id']?>&enable=<?php echo $row['userid']?> ';
+                " >Enable Account</button> 
+
+            <?php };
+            ?>
             <button class="btn-del-back-lab" onclick="location.href='admin-labtec-view.php'">Back</button>
             
             

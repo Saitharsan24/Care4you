@@ -9,6 +9,7 @@ $result=mysqli_query($conn,$query);
 $row = mysqli_fetch_assoc($result);
 
 ?>
+
 <?php
    
 
@@ -61,7 +62,7 @@ $row = mysqli_fetch_assoc($result);
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -112,22 +113,25 @@ $row = mysqli_fetch_assoc($result);
             if ($row['status'] == 1) { ?>
             <?php 
 
-                include('./admin-pha-pop.php');
+               
                 $status = "Disable";
+                include('./admin-pha-pop.php');
                 
                 ?>
         
-                <button class="btn-del-pha" onclick="document.getElementById('id01').style.display='block'; 
+                <button class="btn-disable-pha" onclick="document.getElementById('id01').style.display='block'; 
                 document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id']?>&disable=<?php echo $row['userid']?> ';
                 " >Disable Account</button>
 
                 <?php 
             }
             else {
+                
                 $status = "Enable";
+                include('./admin-pha-pop.php');
                 ?>
 
-                 <button class="btn-del-pha" onclick="document.getElementById('id01').style.display='block'; 
+                 <button class="btn-enable-pha" onclick="document.getElementById('id01').style.display='block'; 
                 document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id']?>&enable=<?php echo $row['userid']?> ';
                 " >Enable Account</button> 
 

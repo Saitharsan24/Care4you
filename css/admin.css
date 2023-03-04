@@ -591,7 +591,7 @@ table td {
 }
 
 .search-doc{
-  width: 185px;
+  width: 155px;
   padding: 2px;
   border-radius: 10px;
   font-size: 15px;
@@ -654,7 +654,7 @@ table td {
 .square-detail-doc{
   border: 2px solid #0D5C75;
   width: 725px;
-  height: 574px;
+  height: 609px;
   background: #ffffff;
   position: absolute;
   top: 86px;
@@ -666,7 +666,7 @@ table td {
 .btn-detail-doc{
   position: absolute;
   left: 570px;
-  bottom:-30px;
+  bottom:25px;
   background-color: #0D5C75;
   padding: 10px;
   padding-left: 2%;
@@ -680,12 +680,29 @@ table td {
 }
 
 
-.btn-del-doc{
+.btn-del-doc-enable{
   position: absolute;
-  left: 425px;
-    bottom: -62px;
+  left: 462px;
+  bottom: 25px;
     width: 180px;
-  background-color: #0D5C75;
+  background-color: #008000;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-del-doc-disable{
+  position: absolute;
+  left: 462px;
+    bottom: 25px;
+    width: 180px;
+  background-color: #800000;
   padding: 10px;
   padding-left: 2%;
   padding-right: 2%;
@@ -699,8 +716,8 @@ table td {
 
 .btn-del-back-doc{
   position: absolute;
-  left: 78px;
-    bottom: -62px;
+  left: 125px;
+    bottom: 25px;
   background-color: #0D5C75;
   width: 113px;
   padding: 10px;
@@ -952,12 +969,12 @@ table td {
 
 .square-detail-lab{
   border: 2px solid #0D5C75;
-  width: 725px;
-  height: 574px;
+  width: 695px;
+  height: 562px;
   background: #ffffff;
   position: absolute;
-  top: 86px;
-  left: 520px;
+  top: 96px;
+  left: 559px;
   display: inline-block;
   border-radius: 10%;
 }
@@ -979,12 +996,28 @@ table td {
 }
 
 
-.btn-del-lab{
+.btn-lactec-disable{
   position: absolute;
-  left: 425px;
-    bottom: -62px;
+  left: 414px;
+    bottom: -95px;
     width: 180px;
-  background-color: #0D5C75;
+  background-color: #800000;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-lactec-enable{
+  position: absolute;
+  left: 414px;
+    bottom: -95px;
+    width: 180px;
+  background-color: #008000;
   padding: 10px;
   padding-left: 2%;
   padding-right: 2%;
@@ -999,7 +1032,7 @@ table td {
 .btn-del-back-lab{
   position: absolute;
   left: 78px;
-    bottom: -62px;
+  bottom: -95px;
   background-color: #0D5C75;
   width: 113px;
   padding: 10px;
@@ -1017,7 +1050,7 @@ table td {
 
 .detail-lab{
   position: relative;
-  top: 41px;
+  top: 71px;
   left: 25px;
 }
 
@@ -1180,14 +1213,14 @@ table td {
 
 .square-detail-asst{
   border: 2px solid #0D5C75;
-  width: 725px;
-  height: 574px;
-  background: #ffffff;
-  position: absolute;
-  top: 86px;
-  left: 520px;
-  display: inline-block;
-  border-radius: 10%;
+    width: 659px;
+    height: 537px;
+    background: #ffffff;
+    position: absolute;
+    top: 109px;
+    left: 532px;
+    display: inline-block;
+    border-radius: 10%;
 }
 
 .btn-detail-asst{
@@ -1207,12 +1240,12 @@ table td {
 }
 
 
-.btn-del-asst{
+.btn-enable-asst{
   position: absolute;
   left: 425px;
     bottom: -62px;
     width: 180px;
-  background-color: #0D5C75;
+  background-color: #008000;
   padding: 10px;
   padding-left: 2%;
   padding-right: 2%;
@@ -1224,10 +1257,27 @@ table td {
   cursor: pointer;
 }
 
+
+.btn-disable-asst{
+  position: absolute;
+  left: 378px;
+  bottom: -90px;
+  width: 180px;
+  background-color: #800000;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
 .btn-del-back-asst{
   position: absolute;
-  left: 78px;
-    bottom: -62px;
+  left: 92px;
+  bottom: -95px;
   background-color: #0D5C75;
   width: 113px;
   padding: 10px;
@@ -1245,8 +1295,8 @@ table td {
 
 .detail-asst{
   position: relative;
-  top: 41px;
-  left: 25px;
+  top: 47px;
+  left: 22px;
 }
 
 
@@ -1528,7 +1578,13 @@ table td {
   cursor: pointer;
 }
 
+.active-status{
+  color:  #008000;
+}
 
+.passive-status{
+  color: #800000;
+}
 
 /* admin-pha-view.php end here */
 
@@ -1581,12 +1637,29 @@ table td {
 }
 
 
-.btn-del-pha{
+.btn-enable-pha{
   position: absolute;
   left: 425px;
     bottom: -62px;
     width: 180px;
-  background-color: #0D5C75;
+  background-color: #008000;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-disable-pha{
+  position: absolute;
+  left: 425px;
+    bottom: -62px;
+    width: 180px;
+  background-color: #800000;
   padding: 10px;
   padding-left: 2%;
   padding-right: 2%;

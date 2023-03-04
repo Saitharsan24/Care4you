@@ -1,5 +1,48 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+
+<?php
+$id = $_GET['id'];
+
+$query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid WHERE Assistant_ID = $id";
+$result=mysqli_query($conn,$query);
+$row = mysqli_fetch_assoc($result);
+
+?>
+
+<?php
+   
+
+   if(isset($_GET['disable'])){
+    $userid = $_GET['disable'];
+    $query_del = "UPDATE tbl_sysusers
+    SET status = 0
+    WHERE userid = $userid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-asst-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+
+   if(isset($_GET['enable'])){
+    $userid = $_GET['enable'];
+    $query_del = "UPDATE tbl_sysusers
+    SET status = 1
+    WHERE userid = $userid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-asst-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+   //$result=mysqli_query($conn, $sql);
+
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +60,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -29,7 +72,7 @@
         </div>
         <div class="main_content">
             <div class="info">
-            <div class="detail-txt-asst">ID <div class="id-txt-asst">XXX </div>Assistant's Detail
+            <div class="detail-txt-asst">ID <div class="id-txt-asst"><?php echo $row['Assistant_ID']?> </div>Assistant's Detail
         </div>
               <div class="square-detail-asst">
 
@@ -38,30 +81,63 @@
             <table class="detail-table-asst-deatil">
                 <tr>
                     <td>Assistant ID :</td>
-                    <td></td>
+                    <td><?php echo $row['Assistant_ID']?></td>
                 </tr>
                 
                 <tr>
                     <td>Assistant Name :</td>
-                    <td></td>
+                    <td><?php echo $row['name']?></td>
                 </tr>
                 
                 <tr>
                     <td>Username :</td>
-                    <td></td>
+                    <td><?php echo $row['username']?></td>
                 </tr>
                 <tr>
                     <td>Phone Number :</td>
-                    <td></td>
+                    <td><?php echo $row['name']?></td>
+                </tr>
+                <tr>
+                    <td>NIC no :</td>
+                    <td><?php echo $row['nic']?></td>
                 </tr>
                 <tr>
                     <td>Email ID :</td>
-                    <td></td>
+                    <td><?php echo $row['email']?></td>
                 </tr>
                 
                 
             </table>
-            <button class="btn-del-asst " >Delete Account</button>
+            <?php
+            if ($row['status'] == 1) { ?>
+            <?php 
+
+               
+                $status = "Disable";
+                include('./admin-asst-pop.php');
+                
+                ?>
+        
+                <button class="btn-disable-asst" onclick="document.getElementById('id01').style.display='block'; 
+                document.getElementById('del').action = '?id=<?php echo $row['Assistant_ID']?>&disable=<?php echo $row['userid']?> ';
+                " >Disable Account</button>
+
+                <?php 
+            }
+            else {
+                
+                $status = "Enable";
+                include('./admin-asst-pop.php');
+                ?>
+
+                 <button class="btn-enable-asst" onclick="document.getElementById('id01').style.display='block'; 
+                document.getElementById('del').action = '?id=<?php echo $row['Assistant_ID']?>&enable=<?php echo $row['userid']?> ';
+                " >Enable Account</button> 
+
+            <?php };
+            ?>
+
+           
             <button class="btn-del-back-asst" onclick="location.href='admin-asst-view.php'">Back</button>
             
             

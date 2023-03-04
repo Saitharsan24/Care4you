@@ -1,12 +1,11 @@
-<?php include('../config/constants.php') ?>
-<?php include('../login_access.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-session.css">
     <title>ADMIN</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
@@ -17,7 +16,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -29,48 +28,49 @@
         </div>
         <div class="main_content">
             <div class="info">
-            <div class="detail-txt-detail-session">Details of Session ID<div class="id-txt-detail-session">XXX </div>
+            <div class="detail-txt-session">Detail of Session ID <div class="id-txt-session">xxx </div>
         </div>
               <div class="square-detail-session">
 
               <div class="detail-session">
         
-            <table class="detail-table-session-detail">
+            <table class="detail-table-session-deatil">
                 <tr>
-                    <td>Labtechnician ID :</td>
+                    <td>Doctor ID :</td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Doctor Name :</td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Date :</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Labtechnician Name :</td>
+                    <td>Room :</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Username :</td>
+                    <td>Time Slot :</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>Password :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Conform Password :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Email ID :</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Phone Numder :</td>
-                    <td></td>
-                </tr>
+                
+                
+                
             </table>
-            <button class="btn-del-session-detail" >Delete Account</button>
-            <button class="btn-del-back-session-detail" onclick="location.href='admin-session-view.php'">Back</button>
+        
+            <button class="btn-del-session" >Delete Session</button> 
+
+           
+            <button class="btn-back-session" onclick="location.href='admin-session-view.php'">Back</button>
             
             
             
-         </div>
+            
+        </div>
         </div>            
         </div>
             

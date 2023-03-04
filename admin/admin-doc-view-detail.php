@@ -19,7 +19,7 @@ if (isset($_GET['disable'])) {
     WHERE userid = $userid";
 
     if (mysqli_query($conn, $query_del)) {
-        header("Location: /Care4you/admin/admin-pha-view.php");
+        header("Location: /Care4you/admin/admin-doc-view.php");
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }
@@ -32,7 +32,7 @@ if (isset($_GET['enable'])) {
     WHERE userid = $userid";
 
     if (mysqli_query($conn, $query_del)) {
-        header("Location: /Care4you/admin/admin-pha-view.php");
+        header("Location: /Care4you/admin/admin-doc-view.php");
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
     }
@@ -61,7 +61,7 @@ if (isset($_GET['enable'])) {
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -75,7 +75,7 @@ if (isset($_GET['enable'])) {
         </div>
         <div class="main_content">
             <div class="info">
-                <div class="detail-txt-doc">ID <div class="id-txt-doc">XXX </div>Doctor's Detail
+                <div class="detail-txt-doc">ID <div class="id-txt-doc"><?php echo $row['doctor_id']; ?> </div>Doctor's Detail
                 </div>
                 <div class="square-detail-doc">
 
@@ -118,13 +118,13 @@ if (isset($_GET['enable'])) {
                         </table>
                         <?php
 
-                        include('./admi-doc-pop.php');
                         if ($row['status'] == 1) {
 
                             $status = "Disable";
+                            include('./admin-doc-pop.php');
                         ?>
 
-                            <button class="btn-del-pha" onclick="document.getElementById('id01').style.display='block'; 
+                            <button class="btn-del-doc-disable" onclick="document.getElementById('id01').style.display='block'; 
                             document.getElementById('del').action = '?id=<?php echo $row['doctor_id'] ?>&disable=<?php echo $row['userid'] ?> ';
                             ">Disable Account</button>
 
@@ -132,11 +132,12 @@ if (isset($_GET['enable'])) {
                         } else {
 
                             $status = "Enable";
+                            include('./admin-doc-pop.php');
 
                         ?>
 
 
-                            <button class="btn-del-pha" onclick="document.getElementById('id01').style.display='block'; 
+                            <button class="btn-del-doc-enable" onclick="document.getElementById('id01').style.display='block'; 
                             document.getElementById('del').action = '?id=<?php echo $row['doctor_id'] ?>&enable=<?php echo $row['userid'] ?> ';
                             ">Enable Account</button>
 

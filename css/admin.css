@@ -122,7 +122,7 @@ body{
   font-size: 20px;
   font-weight: 600;
   position: absolute;
-  bottom: 50px;
+  bottom: 4px;
   left: 65px;
 }
 
@@ -1671,6 +1671,24 @@ table td {
   cursor: pointer;
 }
 
+.btn-edit-pha{
+  position: absolute;
+  left: 227px;
+    bottom: -62px;
+  background-color: #0D5C75;
+  width: 158px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
 .btn-del-back-pha{
   position: absolute;
   left: 78px;
@@ -1698,3 +1716,91 @@ table td {
 
 
 /* admin-pha-view-details.php end here */
+
+
+/* admin-pha-edit.php start here */
+
+.polygons {
+  text-align: center;
+  position: relative;
+}
+.square {
+  border: 2px solid #0D5C75;
+  width: 600px;
+  height: 420px;
+  background: #ffffff;
+  position: relative;
+  top: 100px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.tbl-square{
+  border-collapse: separate;
+  table-layout: fixed;
+  /* border: 1px solid black; */
+}
+
+.tbl-square .type1{
+  /* border: 1px solid black; */
+  width: 245px;
+  text-align: right;
+  font-size: 16px;
+  color: #0D5C75;
+  font-weight: 500;
+}
+
+.tbl-square .type2{
+  /* border: 1px solid black; */
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.circle {
+  border: 2px solid #0D5C75;
+  width: 250px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  left: 500px;
+  top: -15px;
+  overflow: hidden;
+}
+
+/* .circle:hover {
+  color: $primary;
+  background-color: transparent;
+  border: dashed #f7a4a7 5px;
+} */
+
+.square2 {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 430px;
+  /* border-radius: 10%; */
+}
+
+#overlap {
+  width: 10px;
+  height: 60px;
+/*   background: purple; */
+  position: relative;
+  left: -10px;
+  right: -20px;
+}
+
+.form-control2{
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
+/* admin-pha-edit.php end here */

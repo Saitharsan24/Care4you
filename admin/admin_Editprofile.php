@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <link rel="stylesheet" href="../css/admin-view-profile.css"> 
     <title>ADMIN</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
@@ -64,8 +64,9 @@
                     <td></br><a href="admin_changepassword.php"><div class="hrefmodtext">Change Password</div></a></td>
                 </tr>
             </table>
-            <button class="btn-blue" type="submit">Save Changes</button>
+            <button class="btn-save-change" type="submit">Save Changes</button>
             </form>
+            <button class="btn-back" type="submit" onclick="location.href='admin_viewprofile.php'">Back</button>
             </span>
             </div>
         </div>

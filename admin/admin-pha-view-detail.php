@@ -139,6 +139,7 @@ $row = mysqli_fetch_assoc($result);
             ?>
 
             <button class="btn-del-back-pha"  onclick="location.href='admin-pha-view.php'">Back</button>
+            <button class="btn-edit-pha"  onclick="location.href='admin-pha-edit.php'">Edit Account</button>
             
             
             

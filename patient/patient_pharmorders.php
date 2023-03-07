@@ -32,70 +32,56 @@
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
       <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
     </div>
+
+
     <div class="home-right">
       <div class="text-content">
-        <div class="my-doc-apt">
+        <div class="my-doc-apt order-heading">
           <h2>My Orders</h2>
+        </div>
+        <div>
+          <div class="make-apt-btn"><a href="patient_makeorder.php "><button>Make Pharmacy Order</button></a></div>
         </div>
       </div>
 
-      <div>
-        <div class="make-apt-btn"><a href="patient_makeorder.php "><button>Make Pharmacy Order</button></a></div>
-      </div>
-
-        <span>
-          <table class="tbl-main-pha" id="tbl-main-pha">
-            <thead>
-              <tr>
-                <th>Pharmacist ID</th>
-                <th>Pharmacist Name</th>
-                <th>Account Status</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <th><input type="text" class="search-pha" name="pha-id" id="phar_id" autofocus="true" onchange="filterPharId()"></td>
-                <th><input type="text" class="search-pha" name="pha-name" id="phar_name" autofocus="true" onchange="filterPharName()"></td>
-                <th></th>
-                <th><button class="btn-view-pha-detail"><span>Search</span></button></td>
-              </tr>
-
-
-              <?php
-              if ($result) {
-                while ($row = mysqli_fetch_array($result)) {
-              ?>
-                  <tr>
-                    <td><?php echo $row['pharmacist_id']; ?></td>
-                    <td><?php echo $row['fullname']; ?></td>
-                    <th><?php
-                        if ($row['status'] == 1) {
-                          echo '<span class="active-status"> Active </span>';
-                        } else {
-                          echo '<span class="passive-status"> Passive </span>';
-                        }
-                        ?></th>
-                    <td><button class="btn-view-pha-detail" onclick='location.href="admin-pha-view-detail.php?id=<?php echo $row["pharmacist_id"]; ?>"'><span>Pharmacist Details</span></button></td>
-                  </tr>
-              <?php
-                }
-              }
-
-              ?>
-
-
-            </tbody>
+      <div class="table-order-details">
+        <div class="order-tbl-heading">
+          <div>Order ID</div>
+          <div class="divide-order divide-order-01"></div>
+          <div>Name</div>
+          <div class="divide-order divide-order-02"></div>
+          <div>Phone No</div>
+          <div class="divide-order divide-order-03"></div>
+          <div>Order status</div>
+        </div>
+        <div class="order-tbl-search">
+          <table>
+            <tr><input type="text" class="search-row1" autofocus="true" /></tr>
+            <tr><input type="text" class="search-row2" autofocus="true" /></tr>
+            <tr><input type="text" class="search-row3" autofocus="true" /></tr>
+            <tr><input type="text" class="search-row4" autofocus="true" /></tr>
           </table>
-        </span>
+        </div>
+
+        <div class="order-tbl-list">
+          <table>
+            <tr>
+              <td><input type="text" class="search-row1" autofocus="true" /></td>
+              <td><input type="text" class="search-row2" autofocus="true" /></td>
+              <td><input type="text" class="search-row3" autofocus="true" /></td>
+              <td><input type="text" class="search-row4" autofocus="true" /></td>
+              <td><button class="btn-view-pha-detail order-btn"><span>Pharmacist Details</span></button></td>
+            </tr>
+          </table>
+        </div>
       </div>
-
-
-
-
-
     </div>
+
+
+
+
+
+  </div>
   </div>
 </body>
 

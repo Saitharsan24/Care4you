@@ -1,5 +1,13 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php
+$query="SELECT * FROM tbl_labtec INNER JOIN tbl_sysusers ON tbl_labtec.userid = tbl_sysusers.userid ";
+$result=mysqli_query($conn,$query);
+$no_row=mysqli_num_rows($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +25,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session-view.php">Sessions</a></li>
+                <li><a href="admin-session-view-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -38,34 +46,41 @@
                         <tr>
                             <td>Laptechnician ID</td>
                             <td>Labtechnician Name</td>
+                            <td>Account Status</td>
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
-                        <form>
+                    
                         <tr>
                             <td><input type="text" class="search-lab" name="lab-id"  autofocus="true"/></td>
                             <td><input type="text" class="search-lab" name="lab-name"  autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-status"  autofocus="true"/></td>
                             <td><button class="btn-view-lab-detail" ><span>Search</span></button></td>
                         </tr>
-                        </form>
+                        <?php 
+                    if($result){
+                      while($row=mysqli_fetch_array($result)){
+                           ?>
                         <tr>
-                            <td>02</td>
-                            <td>Ms. Weerakoon</td>
+                            <td><?php echo $row['labtec_id']; ?></td>
+                            <td><?php echo $row['full_name']; ?></td>
+                            <td><?php
+                              if($row['status']==1){
+                                echo '<span class="active-status"> Active </span>';
+                              }else{
+                                echo '<span class="passive-status"> Passive </span>';
+                              }   
+                              ?>    </td>
+                            </td>
                            
-                            <td><button class="btn-view-lab-detail" onclick="location.href='admin-labtec-view-detail.php'"><span>Labtachnician Details</span></button></td>
+                            <td><button class="btn-view-lab-detail" onclick='location.href="admin-labtec-view-detail.php?id=<?php echo $row["labtec_id"]; ?>"'><span>Labtech Details</span></button></td>
                         </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>Mr. Thanushan</td>
-                           
-                            <td><button class="btn-view-lab-detail" onclick="location.href='admin-labtec-view-detail.php'"><span>Labtachnician Details</span></button></td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>Ms. Sivamayoury</td>
-                            <td><button class="btn-view-lab-detail" onclick="location.href='admin-labtec-view-detail.php'"><span>Labtachnician Details</span></button></td>
-                        </tr>
+                        <?php
+                      }
+                    }
+                    ?>
+                     
                     </tbody>
                 </table>
             </span>

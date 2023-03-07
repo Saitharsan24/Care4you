@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <link rel="stylesheet" href="../css/admin-view-profile.css"> 
     <title>ADMIN</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
@@ -16,7 +16,7 @@
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -64,8 +64,9 @@
                     <td></br><a href="admin_changepassword.php"><div class="hrefmodtext">Change Password</div></a></td>
                 </tr>
             </table>
-            <button class="btn-blue" type="submit">Save Changes</button>
+            <button class="btn-save-change" type="submit">Save Changes</button>
             </form>
+            <button class="btn-back" type="submit" onclick="location.href='admin_viewprofile.php'">Back</button>
             </span>
             </div>
         </div>

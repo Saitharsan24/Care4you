@@ -1,5 +1,13 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php
+$query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid ";
+$result=mysqli_query($conn,$query);
+$no_row=mysqli_num_rows($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +25,7 @@
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -36,36 +44,41 @@
                 <table class="tbl-main-asst">
                     <thead>
                         <tr>
-                            <td>Assistant ID ID</td>
+                            <td>Assistant ID</td>
                             <td>Assistant Name</td>
+                            <td>Account status</td>
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
-                        <form>
                         <tr>
                             <td><input type="text" class="search-asst" name="asst-id"  autofocus="true"/></td>
                             <td><input type="text" class="search-asst" name="asst-name"  autofocus="true"/></td>
+                            <td><input type="text" class="search-asst" name="asst-status"  autofocus="true"/></td>
                             <td><button class="btn-view-asst-detail" ><span>Search</span></button></td>
                         </tr>
-                        </form>
+                        <?php
+                        if($result){
+                            while($row=mysqli_fetch_array($result)){
+                                 ?>
                         <tr>
-                            <td>02</td>
-                            <td>Ms. Weerakoon</td>
+                            <td><?php echo $row['Assistant_ID']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
                            
-                            <td><button class="btn-view-asst-detail" onclick="location.href='admin-asst-view-detail.php'"><span>Assistant Details</span></button></td>
+                            <td><?php
+                              if($row['status']==1){
+                                echo '<span class="active-status"> Active </span>';
+                              }else{
+                                echo '<span class="passive-status"> Passive </span>';
+                              }
+                              ?>
+                            </td>
+                            <td><button class="btn-view-asst-detail" onclick='location.href="admin-asst-view-detail.php?id=<?php echo $row["Assistant_ID"]; ?>"'><span>Assistant Details</span></button></td>
                         </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>Mr. Thanushan</td>
-                           
-                            <td><button class="btn-view-asst-detail" onclick="location.href='admin-asst-view-detail.php'"><span>Assistant Details</span></button></td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>Ms. Sivamayoury</td>
-                            <td><button class="btn-view-asst-detail" onclick="location.href='admin-asst-view-detail.php'"><span>Assistant Details</span></button></td>
-                        </tr>
+                        <?php
+                            }
+                        }
+                       ?>
                     </tbody>
                 </table>
             </span>

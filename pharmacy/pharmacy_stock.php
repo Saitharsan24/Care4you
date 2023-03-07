@@ -92,7 +92,7 @@
                                             <a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_updatedrug.php?id=<?php echo $id;?>" class="btn-update">Update</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_deletedrug.php?id=<?php echo $id;?>" class="btn-delete">Delete</a>
+                                            <a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_deletedrug.php?id=<?php echo $id;?>" class="btn-delete delete-btn">Delete</a>
                                         
                                         </td>
                                     </tr>
@@ -112,5 +112,17 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    $('.delete-btn').click(function(e) {
+        e.preventDefault();
+        var confirmDelete = confirm("Are you sure you want to delete this drug?");
+        if (confirmDelete) {
+        window.location.href = $(this).attr('href');
+        }
+    });
+    });
+    </script>
 </body>
 </html>

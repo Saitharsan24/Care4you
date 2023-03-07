@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin-view-profile.css"> 
+    <link rel="stylesheet" href="../css/admin.css"> 
     <title>ADMIN</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
@@ -28,26 +28,43 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
-            <h2 style="margin-left: 60px; margin-top:15px;">Change Password</h2>
+            <figure>
+                <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+                <figcaption style="margin-left: 55px;">Change Profile Picture</figcaption>
+            </figure>
             <span>
+
+            <?php
+                
+            ?>
+
             <form>
             <table class="formtable">
                 <tr>
-                    <td>Old Password :</td>
-                    <td><input type="password" class="form-control" name="oldpwd" required="" autofocus="true"/></td>
+                    <td>Name :</td>
+                    <td><input type="text" class="form-control" name="name" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>New Password :</td>
-                    <td><input type="password" class="form-control" name="newpwd" required="" autofocus="true"/></td>
+                    <td>Username :</td>
+                    <td><input type="text" class="form-control" name="username" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>Confirm Password :</td>
-                    <td><input type="password" class="form-control" name="confirmpwd" required="" autofocus="true"/></td>
+                    <td>Email Address :</td>
+                    <td><input type="text" class="form-control" name="email" required="" autofocus="true"/></td>
+                </tr>
+                <tr>
+                    <td>NIC Number :</td>
+                    <td><input type="text" class="form-control" name="nic" required="" autofocus="true"/></td>
+                </tr>
+                <tr>
+                    <td>Contact Numer :</td>
+                    <td><input type="text" class="form-control" name="contactnumber" required="" autofocus="true"/></td>
+                </tr>
+                <tr>
+                    <td></br><a href="admin_changepassword.php"><div class="hrefmodtext">Change Password</div></a></td>
                 </tr>
             </table>
-            <button class="btn-change-password" type="submit">Save Password</button>
-            <button class="btn-change-password-back" type="submit" onclick="location.href='admin_editprofile.php'">Back</button>
+            <button class="btn-blue" type="submit">Save Changes</button>
             </form>
             </span>
             </div>

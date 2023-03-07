@@ -13,12 +13,24 @@ if(isset($_POST['reg'])){
     $phone_number=$_POST['phonenumber'];
     $email=$_POST['email']; 
 
-    $sql = "INSERT INTO tbl_lebtec (labtec_id,user_name,phone_number,email,SLMC_number,charges,specialization)
-VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";
+    /*$sql = "INSERT INTO tbl_lebtec (labtec_id,full_name,username,email,nic,contact_number,password)
+VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";*/
+
+$sql = "INSERT INTO tbl_sysusers (actortype, username,password)
+VALUES ('Labtechnician', '$username', '$password')";
+
+$res1=mysqli_query($conn,$sql);
+
+
+$last_id=$conn->insert_id;
+
+$sql = "INSERT INTO tbl_labtec (full_name,userid,email,contact_number,nic)
+VALUES ('$name', '$last_id','$email','$phone_number','$nic')";
+
 
     if (mysqli_query($conn, $sql)) {
        
-      header("Location: /Care4you/admin/admin-doc-view.php");
+      header("Location: /Care4you/admin/admin-labtec-view.php");
     } else {
        
    echo "Error: " . $sql . "<br>" . mysqli_error($conn); die();
@@ -45,7 +57,7 @@ VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$spe
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session.php">Sessions</a></li>
+                <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="#">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
@@ -61,7 +73,7 @@ VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$spe
               <div class="square-reg-lab">
 
               <div class="form-lab">
-              <form>
+              <form action="" method="POST">
             <table class="formtable-lab">
                 <tr>
                     <td>Labtec Full Name :</td>
@@ -89,7 +101,7 @@ VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$spe
                 </tr>
                 
             </table>
-            <button class="btn-reg-lab" type="submit">Register</button>
+            <button class="btn-reg-lab" type="submit" name="reg">Register</button>
             <button class="btn-view-lab" onclick="location.href='admin-lab-view.php'">View labtechnicians</button>
             </form>
                             </div>

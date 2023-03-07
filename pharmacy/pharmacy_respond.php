@@ -370,7 +370,7 @@
         else
         {
             //No medicine details added to respond
-            $_SESSION['emptymed'] = '<div class="error">Add Medicine Details to send respond!</div>';
+            $_SESSION['emptymed'] = '<div class="error">Fail to Send Respond! Add Medicine Details and Try Again.</div>';
             $_SESSION['id'] = $order_id;
             //Redirect to the pharmacy_respond.php page
             //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');

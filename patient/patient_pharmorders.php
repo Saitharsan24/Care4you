@@ -66,21 +66,17 @@
         <div class="order-tbl-list">
           <table>
             <tr>
-              <td><input type="text" class="search-row1" autofocus="true" /></td>
-              <td><input type="text" class="search-row2" autofocus="true" /></td>
-              <td><input type="text" class="search-row3" autofocus="true" /></td>
-              <td><input type="text" class="search-row4" autofocus="true" /></td>
-              <td><button class="btn-view-pha-detail order-btn"><span>Pharmacist Details</span></button></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><a href="./patient_pharmorderViewDetails.php"><button class="btn-view-pha-detail order-btn"><span>View Details</span></button></a></td>
+              
             </tr>
           </table>
         </div>
       </div>
     </div>
-
-
-
-
-
   </div>
   </div>
 </body>

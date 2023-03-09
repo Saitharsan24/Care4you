@@ -921,16 +921,21 @@ input::-webkit-file-upload-button {
     border: 1px solid;
     background: white;
     font-size: 16px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .order-tbl-search {
+    margin-bottom: 5px;
+    height:50px;
+    width:1000px;
+    margin: 0px 0px 0px 52px;
+    border-radius: 15px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .search-row1 {
-    margin-left: 55px;
+    margin-left: 5px;
     width: 120px;
 }
 
@@ -951,7 +956,30 @@ input::-webkit-file-upload-button {
 
 .order-tbl-list {
     margin-bottom: 5px;
+    background: white;
+    height:50px;
+    width:1000px;
+    margin: 0px 0px 0px 50px;
+    border-radius: 15px;
 }
+
+.order-tbl-list .search-row1{
+    border: none;
+    text-align: center;
+}
+.order-tbl-list .search-row2{
+    border: none;
+    text-align: center;
+}
+.order-tbl-list .search-row3{
+    border: none;
+    text-align: center;
+}
+.order-tbl-list .search-row4{
+    border: none;
+    text-align: center;
+}
+
 
 .btn-view-pha-detail {
     border-radius: 10px;
@@ -964,27 +992,34 @@ input::-webkit-file-upload-button {
     width: 175px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin: 8px 5px 5px 5px;
     font-weight: 500;
-}
-
-.btn-view-pha-detail span:after {
+  }
+  
+  .btn-view-pha-detail span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .btn-view-pha-detail span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-}
-
-.btn-view-pha-detail:hover span {
+  }
+  
+  .btn-view-pha-detail:hover span {
     padding-right: 15px;
-}
-
-.btn-view-pha-detail:hover span:after {
+  }
+  
+  .btn-view-pha-detail:hover span:after {
     opacity: 1;
     right: 0;
-}
+  }
 
 .td{
     display: table-cell;
@@ -1001,4 +1036,99 @@ input::-webkit-file-upload-button {
 
 .order-btn{
     margin-left: 20px
+}
+
+
+/* Patient_pahrmorderViewDetails.php STYLES */
+
+.view-order-heading{
+    font-size: 20px;
+    color: #093e4e;
+    margin: 25px 0px 0px 100px;
+}
+
+.view-order-details{
+    border-radius: 15px;
+    background: white;
+    height: 500px;
+    width: 500px;
+    margin: 30px 0px 0px 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 0px 30px;
+}
+
+.view-orderdetails-row div {
+    width: 250px;
+    height: 28px;
+    margin: 0px 40px 0px 15px;
+}
+
+.view-orderdetails-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 15px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 550;
+    color: #093e4e;
+}
+
+.view-orderdetails-row div {
+    width: 250px;
+    height: 28px;
+    margin: 0px 40px 0px 15px;
+}
+
+.view-order-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin: 25px 30px 0px 0px;
+}
+
+.view-order-btn01 button {
+    border-radius: 25px;
+    height: 35px;
+    width: 140px;
+    background: #BD1010;
+    color: #ffffff;
+    border: none;
+}
+
+.view-order-btn02 button {
+    border-radius: 25px;
+    height: 35px;
+    width: 140px;
+    background: #0C5C75;
+    color: #ffffff;
+    border: none;
+}
+
+.view-apt-divider {
+    width: 30px;
+}
+
+.view-order-btn02 button:hover {
+    cursor: pointer;
+    background: #107c9d;
+    transition: .3s;
+}
+
+.view-order-btn01 button:hover {
+    cursor: pointer;
+    background: #db1616;
+    transition: .3s;
+}
+
+.view-order-back-btn {
+    margin: 30px 0px 0px 530px;
+}
+
+.view-order-back-btn button:hover {
+    cursor: pointer;
+    background: #107c9d;
+    transition: .3s;
 }

@@ -291,24 +291,6 @@ body{
     cursor: pointer;
   }
   
-  .back-session-view{
-    position: absolute;
-    width: 158px;
-    left: 905px;
-    top: 42px;
-    background-color: #0D5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  
   
   /* admin-session-view.php end here */
 

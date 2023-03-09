@@ -26,7 +26,7 @@ $no_row=mysqli_num_rows($result);
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view-view.php">Sessions</a></li>
-                <li><a href="#">View Patient</a></li>
+                <li><a href="admin-patient-view.php">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
                 <li><a href="#">Reports</a></li>

@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="#">View Patient</a></li>
+                <li><a href="admin-patient-view.php">View Patient</a></li>
                 <li><a href="#">View Orders</a></li>
                 <li><a href="#">View Appointments</a></li>
                 <li><a href="#">Reports</a></li>
@@ -31,7 +31,7 @@
             <div class="info">
               <div class="asst-list"></div>
               <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">To Create Session</button>
-              <button class="back-session-view" onclick="location.href='#'">Back</button>
+              
               <span>
                 <table class="tbl-main-session">
                     <thead>

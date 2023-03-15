@@ -75,7 +75,7 @@
                 <textarea name="remarks"></textarea>
             </div>
             <div class="apt-btn order-btn">
-                <div class="apt-btn-css"><a href="./patient_pharmorders.php"><button type="button" >Back</button></a></div>
+                <div class="><a href="./patient_pharmorders.php"><button type="button" >Back</button></a></div>
                 <div class="apt-btn-space"></div>
                 <div class="apt-btn-css"><a href="patient_pharmorders.php"><button type="submit" name="order">Place order</button></a></div>
             </div>

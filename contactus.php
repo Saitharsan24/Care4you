@@ -146,7 +146,7 @@
                 //echo "Data Inserted";
 
                 //Create Session Variable to display message
-                $_SESSION['contact'] = '<div class="success"> Your Message Send Successfully</div>';
+                $_SESSION['contact'] = '<div class="success"> Your Message Recorded Successfully</div>';
                 //Redirect to the pharmacy_respond.php page
                 // header("location:".SITEURL.'contactus.php');
                 echo "<script> window.location.href='http://localhost/Care4you/contactus.php';</script>";

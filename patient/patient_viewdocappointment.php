@@ -40,6 +40,7 @@
           <div class="view-details-row"><p>Appointment time :</p><div><p></p></div></div>
           <div class="view-details-row"><p>Room No :</p><div><p></p></div></div>
           <div class="view-details-row"><p>Patient name :</p><div><p></p></div></div>
+          <div class="view-details-row"><p>Session status :</p><div><p></p></div></div>
           <div class="view-details-row"><p>NIC No :</p><div><p></p></div></div>
           <div class="view-details-row"><p>Total Amount :</p><div><p></p></div></div>
           <div class="view-apt-btn">

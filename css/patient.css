@@ -195,7 +195,7 @@ a {
     height: 90px;
     width: 220px;
     background: #0C5C75;
-    border-radius: 20px;
+    border-radius: 25px;
     font-size: 22px;
     font-weight: 500;
     color: white;
@@ -204,9 +204,9 @@ a {
 }
 
 .right-page-content button:hover {
-    background: #f0f2f4;
-    color: #093e4e;
-    font-weight: bold;
+    background: #107c9d;
+    color: white ;
+    font-weight: 600;
     transition: .2s;
     cursor: pointer;
 }
@@ -285,10 +285,10 @@ a {
 }
 
 .search-btn button:hover {
-    background: #eaedef;
-    color: #093e4e;
-    font-weight: bold;
-    transition: .2s;
+    background: #107c9d;
+    color: #ffffff;
+    font-weight: 600;
+    transition: .3s;
     cursor: pointer;
 }
 
@@ -422,10 +422,10 @@ input:focus {
 }
 
 .apt-btn button {
-    height: 50px;
+    height: 40px;
     width: 120px;
     background: #0C5C75;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 15px;
     font-weight: 500;
     color: white;
@@ -434,10 +434,10 @@ input:focus {
 
 
 .apt-btn button:hover {
-    background: #ffffff;
-    color: #093e4e;
-    font-weight: bold;
-    transition: .2s;
+    background: #107c9d;
+    color: #ffffff;
+    font-weight: 600;
+    transition: .3s;
     cursor: pointer;
 }
 
@@ -590,7 +590,7 @@ input::-webkit-file-upload-button {
 .view-apt-details {
     border-radius: 15px;
     background: white;
-    height: 500px;
+    height: 520px;
     width: 500px;
     margin: 30px 0px 0px 200px;
     display: flex;
@@ -620,7 +620,7 @@ input::-webkit-file-upload-button {
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    margin: 25px 30px 0px 0px;
+    margin: 10px 30px 0px 0px;
 }
 
 .view-apt-btn01 button {
@@ -649,22 +649,25 @@ input::-webkit-file-upload-button {
     cursor: pointer;
     background: #107c9d;
     transition: .3s;
+    font-weight:600;
 }
 
 .view-apt-btn01 button:hover {
     cursor: pointer;
     background: #db1616;
     transition: .3s;
+    font-weight:600;
 }
 
 .view-apt-back-btn {
-    margin: 30px 0px 0px 570px;
+    margin: 20px 0px 0px 570px;
 }
 
 .view-apt-back-btn button:hover {
-    background: #ffffff;
-    color: #093e4e;
-    font-weight: 650;
+    background: #107c9d;
+    color: #ffffff;
+    font-weight: 600;
+    transition:.3s;
 }
 
 /* DOC APPOINTMENTS style */
@@ -722,12 +725,12 @@ input::-webkit-file-upload-button {
     height: 80px;
     width: 180px;
     background: #0C5C75;
-    border-radius: 20px;
+    border-radius: 25px;
     font-size: 18px;
     font-weight: 500;
     color: white;
     border: none;
-    margin: 0px 0px 0px 250px;
+    margin: 0px 0px 0px 25px;
 }
 
 .make-apt-btn a {
@@ -735,10 +738,10 @@ input::-webkit-file-upload-button {
 }
 
 .make-apt-btn button:hover {
-    background: #157997;
+    background: #107c9d;
     color: #ffffff;
-    font-weight: 500;
-    transition: .2s;
+    font-weight: 600;
+    transition: .3s;
     cursor: pointer;
 }
 
@@ -1050,7 +1053,7 @@ input::-webkit-file-upload-button {
 .view-order-details{
     border-radius: 15px;
     background: white;
-    height: 500px;
+    height: 450px;
     width: 500px;
     margin: 30px 0px 0px 200px;
     display: flex;
@@ -1115,12 +1118,14 @@ input::-webkit-file-upload-button {
     cursor: pointer;
     background: #107c9d;
     transition: .3s;
+    font-weight:600;
 }
 
 .view-order-btn01 button:hover {
     cursor: pointer;
     background: #db1616;
     transition: .3s;
+    font-weight:600;
 }
 
 .view-order-back-btn {
@@ -1132,3 +1137,107 @@ input::-webkit-file-upload-button {
     background: #107c9d;
     transition: .3s;
 }
+
+
+/* Patient_pahrmorderViewReview.php STYLES */
+
+.view-review-details{
+    border-radius: 15px;
+    background: white;
+    height: 450px;
+    width: 700px;
+    margin: 30px 0px 0px 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 0px 30px;
+}
+
+.view-orderreview-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 15px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 550;
+    color: #093e4e;
+}
+
+.view-orderreview-row div {
+    width: 420px;
+    height: 28px;
+    margin: 0px 40px 0px 15px;
+    display: flex;
+    justify-content: left;
+}
+
+
+.tbl-addmed{
+    width: 80%;
+    margin-left:auto; 
+    margin-right:auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  
+  .tbl-addmed thead tr{
+    background-color: #bcbcbc;
+  }
+  
+  .tbl-addmed thead td{
+    text-align: center; 
+    color: #000000;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 12px;
+  }
+  
+  .tbl-addmed tbody tr{
+    background-color: #F7F7F7;
+  }
+  
+  .tbl-addmed td:first-child, th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .tbl-addmed td:last-child, th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .tbl-addmedform{
+    border:35px solid #ffffff;
+    width: 50%;
+    height: 200px;
+    margin-top: 100px;
+    margin-left:auto; 
+    margin-right:auto;
+    background-color: #ffffff;
+    border-spacing: 20px;
+    border-collapse: separate;
+    border-radius: 20px;
+    border: 3px solid #ffffff;
+  }
+  
+  .form-addmedcontrol{
+    width: 300px;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+
+  .review-order-btn01 button{
+    border-radius: 25px;
+    height: 35px;
+    width: 140px;
+    background: #0C5C75;
+    color: #ffffff;
+    border: none;
+  }
+
+  .review-order-btn01 button:hover{
+    cursor: pointer;
+    background: #107c9d;
+    transition: .3s;
+    font-weight: 600;
+  }

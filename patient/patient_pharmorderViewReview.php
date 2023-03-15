@@ -31,25 +31,29 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
-        <div class="view-order-heading"><h2>My Order Details</h2></div>
-        <div class="view-order-details">
-          <div class="view-orderdetails-row"><p>Order ID :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Name :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Address :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Contact No :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Order date :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Order status :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Prescription : </p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>NIC No :</p><div><p></p></div></div>
-        
+        <div class="view-order-heading"><h2>My Order Review</h2></div>
+        <div class="view-review-details">
+          <div class="view-orderreview-row"><p>Order ID :</p><div><p></p></div></div>
+          <div class="view-orderreview-row"><p>Reviewed date :</p><div><p></p></div></div>
+          <div class="view-orderreview-row"><p>Available medicines :</p><div><p></p></div></div>
+          <table class="tbl-addmed">
+                            <thead>
+                                <tr>
+                                    <td>Drug Name</td>
+                                    <td>Strength</td>
+                                    <td>Unit Price (Rs.)</td>
+                                    <td>Quantity</td>
+                                    <td>Total (Rs.)</td>
+                                </tr>
+                            </thead>
+          </table>
+          <div class="view-orderreview-row"><p>Net amount :</p><div><p></p></div></div>
+          <div class="view-orderreview-row"><p>Unavailable medicines :</p><div><p></p></div></div>
           <div class="view-order-btn">
-            <div class="view-order-btn02"><a href="./patient_pharmorderViewReview.php"><button>View review</button></a></div>
+            <div class="view-order-btn02"><a href="./patient_pharmorderViewDetails.php"><button>Back</button></a></div>
             <div class="view-apt-divider"></div>
-            <div class="view-order-btn01"><a href=""><button>Cancel Order</button></a></div>
+            <div class="review-order-btn01"><a href=""><button>Pay now</button></a></div>
           </div>
-        </div>
-        <div class="view-order-back-btn">
-          <div class="view-order-btn02"><a href="./patient_pharmorders.php"><button>Back</button></a></div>
         </div>
       </div>
     </div>

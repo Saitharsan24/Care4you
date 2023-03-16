@@ -41,7 +41,7 @@
                 <div class="fgtpwd-txt" style="margin-top: 10px;">Confirm Password</div>
                 <input type="password" class="fgtpwd-pwd" name="confirmpassword" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]{8,}$" placeholder="Confirm password" required="" oninvalid="setCustomValidity('Please enter a Password\n- contain one or more uppercase characters\n- contain one or more lowercase characters\n- contain one or more numeric values\n- contain one or more special characters\n- at least 8 characters long')" onchange="try{setCustomValidity('')}catch(e){}"/>
                 <br/>
-            <input type="submit" class="btn_continue" name="verify" value="Continue">
+            <input type="submit" class="btn_continue" name="verify" value="Reset">
             </form>
         </div> 
         </div> 

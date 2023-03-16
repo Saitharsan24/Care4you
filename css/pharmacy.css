@@ -10,7 +10,11 @@
 }
 
 body{
-   background-color: #A5D1E1;
+  background-color: #A5D1E1;
+  /* background-image: url(../images/pharm-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 /*CSS for Scroll Bar*/

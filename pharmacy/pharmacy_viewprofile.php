@@ -12,51 +12,7 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php
-    if(isset($_SESSION['user'])) //User is logged in 
-    {
-        //Get the username
-        $user  = $_SESSION['user'];
-        //echo $user;
-        //Query to get userid from tbl_sysusers
-        $sql = "SELECT userid FROM tbl_sysusers WHERE username='$user' ";
-        //echo $sql;
-        //Exeute the Query                                    
-        $res = mysqli_query($conn, $sql);
-
-        //Check Query executed or not
-        if($res == TRUE)
-        {
-            $count =mysqli_num_rows($res);
-            if($count == 1)
-            {
-                $row = mysqli_fetch_assoc($res);
-                $userid = $row['userid'];
-            }
-        }
-
-        //Query to get all data from tbl_pharmacist
-        $sql2 = "SELECT * FROM tbl_pharmacist WHERE userid=$userid";
-        //Exeute the Query                                    
-        $res2 = mysqli_query($conn, $sql2);
-
-        //Check Query executed or not
-        if($res2 == TRUE)
-        {
-            $count2 =mysqli_num_rows($res2);
-            if($count2 == 1)
-            {
-                $row2 = mysqli_fetch_assoc($res2);
-                $userid = $row2['userid'];
-                $fullname = $row2['fullname'];
-                $email = $row2['email'];
-                $nic = $row2['nic'];
-                $contact_number = $row2['contact_number'];
-                
-            }
-        }
-    }
-    ?>
+<?php include('pharmacy_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -71,36 +27,43 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-                <div class="polygons">
-                    <div class="square">
-                        <br /><br /><br /><br /><br /><br /><br />
-                        <table class="tbl-square">
-                            <tr>
-                                <td class="type1">Name :</td>
-                                <td class="type2"><?php echo $fullname; ?></td>
-                            </tr>
-                            <tr>
-                                <td class="type1">Username :</td>
-                                <td class="type2"><?php echo $user; ?></td>
-                            </tr>
-                            <tr>
-                                <td class="type1">Email Address :</td>
-                                <td class="type2"><?php echo $email; ?></td>
-                            </tr>
-                            <tr>
-                                <td class="type1">NIC Number :</td>
-                                <td class="type2"><?php echo $nic; ?></td>
-                            </tr>
-                            <tr>
-                                <td class="type1">Contact Numer :</td>
-                                <td class="type2"><?php echo $contact_number; ?></td>
-                            </tr>
-                        </table> 
-                    </div>
-                        <a href="pharmacy_editprofile.php"><button class="btn-blue square2">Edit Profile</button></a>                      
-                        <img src="../images/user.jpg" alt="user" class="circle" />
-                        <div id="overlap"></div>
+            <?php 
+                if(isset($_SESSION['update-user'])){
+                    echo $_SESSION['update-user'];
+                    unset($_SESSION['update-user']);
+
+                }
+            ?>
+            <div class="polygons">
+                <div class="square">
+                    <br /><br /><br /><br /><br /><br /><br />
+                    <table class="tbl-square">
+                        <tr>
+                            <td class="type1">Name :</td>
+                            <td class="type2"><?php echo $fullname; ?></td>
+                        </tr>
+                        <tr>
+                            <td class="type1">Username :</td>
+                            <td class="type2"><?php echo $user; ?></td>
+                        </tr>
+                        <tr>
+                            <td class="type1">Email Address :</td>
+                            <td class="type2"><?php echo $email; ?></td>
+                        </tr>
+                        <tr>
+                            <td class="type1">NIC Number :</td>
+                            <td class="type2"><?php echo $nic; ?></td>
+                        </tr>
+                        <tr>
+                            <td class="type1">Contact Numer :</td>
+                            <td class="type2"><?php echo $contact_number; ?></td>
+                        </tr>
+                    </table> 
                 </div>
+                    <a href="pharmacy_editprofile.php"><button class="btn-blue square2">Edit Profile</button></a>                      
+                    <img src="../images/<?php echo $profile_picture; ?>" alt="user" class="circle" />
+                    <div id="overlap"></div>
+            </div>
             </div>
         </div>
     </div>

@@ -11,6 +11,8 @@ $con_password=$_POST['con-password'];
 $phone_number=$_POST['phonenumber'];
 $email=$_POST['email'];
 $nic=$_POST['nic'];
+$profile_picture=$_POST['profile_picture'];
+
 
 $sql = "INSERT INTO tbl_sysusers (actortype, username,password)
 VALUES ('pharmacist', '$username', '$password')";
@@ -19,8 +21,8 @@ $res1 = mysqli_query($conn, $sql);
 
 $last_id = $conn->insert_id;
 
-$sql = "INSERT INTO tbl_pharmacist (fullname,userid,email,contact_number,nic)
-VALUES ('$name', '$last_id','$email','$phone_number','$nic')";
+$sql = "INSERT INTO tbl_pharmacist (fullname,userid,email,contact_number,nic,profile_picture)
+VALUES ('$name', '$last_id','$email','$phone_number','$nic','$profile_picture')";
 
 $res2 = mysqli_query($conn, $sql);
 
@@ -98,6 +100,7 @@ if ($res1 && $res2) {
                     <td>NIC Number :</td>
                     <td><input type="text" class="form-control-pha" name="nic" required="" autofocus="true"/></td>
                 </tr>
+                <input type="hidden" name="profile_picture" value="user.png" />
                 
                 
             </table>

@@ -41,9 +41,7 @@
 
                 }
             ?>
-            <div class="welcometext">Welcome <div class="usernametext">
-                <?php echo $_SESSION['user']; ?>
-            </div>
+            <div class="welcometext">Access System Users</div>
         </div>
             <span>
                  <!-- Content-->

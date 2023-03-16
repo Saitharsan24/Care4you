@@ -12,10 +12,11 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('pharmacy_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user.jpg" alt="user" class="imgframe">
+            <img src="../images/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php">Home</a></li>
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>

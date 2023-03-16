@@ -18,6 +18,7 @@
 	// Define variables and set to empty values
 	$firstNameErr = $lastNameErr = $nicNumberErr = $contactNumberErr = $emailErr = "";
     $userNameErr = $passwordErr = $confirmPasswordErr = $addressErr = "";
+    $isValid = true;
 
 	// Function to validate input and prevent malicious code injection
 	function validateInput($data) {
@@ -32,72 +33,86 @@
 		// Validate first name
 		if (empty($_POST["firstName"])) {
 			$firstNameErr = "*First name is required";
+            $isValid = false;
 		} else {
 			$firstName = validateInput($_POST["firstName"]);
 			// Check if name only contains letters and whitespace
 			if (!preg_match("/^[a-zA-Z ]*$/",$firstName)) {
 				$firstNameErr = "*Enter a valid name";
+                $isValid = false;
 			}
 		}
 		
 		// Validate last name
 		if (empty($_POST["lastName"])) {
 			$lastNameErr = "*Last name is required";
+            $isValid = false;
 		} else {
 			$lastName = validateInput($_POST["lastName"]);
 			// Check if name only contains letters and whitespace
 			if (!preg_match("/^[a-zA-Z ]*$/",$lastName)) {
 				$lastNameErr = "*Enter a valid name";
+                $isValid = false;
 			}
 		}
 		
 		// Validate NIC number
 		if (empty($_POST["nic"])) {
 			$nicNumberErr = "*NIC number is required";
+            $isValid = false;
 		} else {
 			$nicNumber = validateInput($_POST["nic"]);
 			// Check if NIC number is in one of the valid formats
 			if (!preg_match("/^(?!0)[0-9]{12}$|^([0-9]{9}[vV])$/", $nicNumber)) {
 				$nicNumberErr = "*Enter a valid NIC number";
+                $isValid = false;
 			}
 		}
 		
 		// Validate contact number
 		if (empty($_POST["contactNumber"])) {
 			$contactNumberErr = "*Contact number is required";
+            $isValid = false;
 		} else {
 			$contactNumber = validateInput($_POST["contactNumber"]);
 			// Check if contact number is a valid 10-digit number
 			if (!preg_match("/^[0-9]{10}$/", $contactNumber)) {
 				$contactNumberErr = "*Enter 10-digit contact number";
+                $isValid = false;
 			}
 		}
 
         //Validation for address
         if (empty($_POST["address"])) {
             $addressErr = "*Address is required";
+            $isValid = false;
         }
 
 		// Validate email
 		if (empty($_POST["email"])) {
 			$emailErr = "*Email is required";
+            $isValid = false;
 		} else {
 			$email = validateInput($_POST["email"]);
 			// Check if email address is valid
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				$emailErr = "*Enter a valid email address";
+                $isValid = false;
 			}
 		}
 
         // Validate username
         if (empty($_POST['userName'])) {
             $userNameErr = "*Username is required";
+            $isValid = false;
         } else {
             if (strlen($_POST['userName']) < 5) {
                 $userNameErr = "*Username must contain at least 5 characters";
+                $isValid = false;
             } else {
                 if (!preg_match("/^[a-zA-Z0-9_-]*$/", $_POST['userName'])) {
                     $userNameErr = "*Invalid username";
+                    $isValid = false;
                 } else {
                     $userName = $_POST['userName'];
                     $sql = "SELECT * FROM tbl_sysusers WHERE username='$userName'";
@@ -105,6 +120,7 @@
 
                     if (mysqli_num_rows($result) > 0) {
                         $userNameErr = "*Username already exists";
+                        $isValid = false;
                     }
 
                     mysqli_close($conn);
@@ -114,23 +130,31 @@
 
         if(empty($_POST['password'])){
             $passwordErr = "*Password is required";
+            $isValid = false;
         } elseif(strlen($_POST['password']) < 12){
             $passwordErr = "*Must have atleast 12 characters";
+            $isValid = false;
         } elseif(!preg_match("#[a-z]+#", $_POST['password'])){
             $passwordErr = "*Must have atleast one lowercase letter";
+            $isValid = false;
         } elseif(!preg_match("#[A-Z]+#", $_POST['password'])){
             $passwordErr = "*Must have atleast one uppercase letter";
+            $isValid = false;
         } elseif(!preg_match("#[0-9]+#", $_POST['password'])){
             $passwordErr = "*Must contain atleast one number";
+            $isValid = false;
         } elseif(!preg_match("#\W+#", $_POST['password'])){
             $passwordErr = "*Must contain atleast one special character";
+            $isValid = false;
         }
         
         if(empty($_POST['confirmPassword'])){
             $confirmPasswordErr = "*Please confirm password";
+            $isValid = false;
         } else{
             if($_POST['password'] != $_POST['confirmPassword']){
                 $confirmPasswordErr = "*Passwords do not match";
+                $isValid = false;
             }
         }
     }

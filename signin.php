@@ -56,7 +56,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Enter password here" required=""/>
 
                 <div  class="forgot-password">
-                    <a href="" class="forgot-password">Forgot password?</a>
+                    <a href="pwd-forgetpassword.php" class="forgot-password">Forgot password?</a>
                 </div>
 
                 <br />

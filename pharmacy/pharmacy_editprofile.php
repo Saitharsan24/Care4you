@@ -28,14 +28,94 @@
         <div class="main_content"> 
             <div class="info">
             <figure>
-                <img src="../images/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
-                <figcaption style="margin-left: 55px;">Change Profile Picture</figcaption>
+                <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
+                <form id="upload-form" method="POST" enctype="multipart/form-data">
+                    <figcaption style="margin-left: 55px;"><a href="#" id="file-link">Change Profile Picture</a></figcaption>
+                    <input type="file" name="file" id="file-input">
+                    <input type="hidden" name="ppUpdate" value="1">
+                </form>
+
+                <?php
+                    if(isset($_SESSION['upload']))
+                    {
+                    echo $_SESSION['upload'];
+                    unset($_SESSION['upload']);
+                    }
+                ?>
+
+                <!-- Code for hide the submit button -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                    $(document).ready(function(){
+                        $('#file-link').click(function(){
+                            $('#file-input').click();
+                        });
+
+                        $('#file-input').change(function(){
+                            $('#upload-form').submit();
+                        });
+                    });
+                </script>
+
+                <?php
+                // Check if the profile photo has been submitted
+                if (isset($_POST['ppUpdate'])) 
+                {
+                    // Check if a file has been selected
+                    if (isset($_FILES['file'])) 
+                    {
+                        // Get the filename and extension
+                        $ppname = basename($_FILES['file']['name']);
+                        $extension = pathinfo($ppname, PATHINFO_EXTENSION);
+
+                        // Generate a unique filename
+                        $new_ppname = 'User_' . $pharmacist_id . '_Updated' . '.' . $extension;
+
+                        // Move the file to a permanent location
+                        $destination= "../images/user-profilepic/pharmacist/".$new_ppname;
+
+                        //Upload the Profile Picture
+                        $upload = move_uploaded_file($_FILES['file']['tmp_name'], $destination);
+
+                        //Check whether the Profile Picture is uploaded or not
+                        if($upload == FALSE)
+                        {
+                            $_SESSION['upload'] = "Failed to upload Profile Picture! Please Retry";
+                            //Redirect to edit profile page
+                            header('location:'.SITEURL.'/pharmacy/pharmacy_editprofile.php'); 
+                            //Stop the process
+                            die();
+                        }
+                        else
+                        {
+                            // Store the filename in the database
+                            $sqlpp = "UPDATE tbl_pharmacist SET profile_picture='$new_ppname' WHERE pharmacist_id ='$pharmacist_id'";
+
+                            //Execute the query and Save profile picture name in database
+                            $respp = mysqli_query($conn ,$sqlpp);
+                            
+                            //Check the execution of query
+                            if($respp == TRUE)
+                            {
+                                $_SESSION['upload'] = '<div class="ppUpdatedS">Profile Picture Updated Successfully</div>';
+                                //Redirect to edit profile page
+                                header('location:'.SITEURL.'/pharmacy/pharmacy_editprofile.php'); 
+                            }
+                            else
+                            {
+                                $_SESSION['upload'] = "Failed to Update Profile Picture! Please Retry";
+                                //Redirect to edit profile page
+                                header('location:'.SITEURL.'/pharmacy/pharmacy_editprofile.php');
+                            }
+
+                        }
+                    }
+                }
+                ?>
+
             </figure>
             <span>
 
-            <?php
-                
-            ?>
 
             <form action="" method="POST">
             <table class="formtable">

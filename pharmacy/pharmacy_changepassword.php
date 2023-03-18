@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('pharmacy_getinfo.php') ?>    
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -26,7 +27,7 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-            <img src="../images/user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <h2 style="margin-left: 60px; margin-top:15px;">Change Password</h2>
             <span>
             <form>

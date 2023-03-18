@@ -16,7 +16,7 @@
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php">Home</a></li>
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>

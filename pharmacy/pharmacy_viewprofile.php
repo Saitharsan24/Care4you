@@ -61,7 +61,7 @@
                     </table> 
                 </div>
                     <a href="pharmacy_editprofile.php"><button class="btn-blue square2">Edit Profile</button></a>                      
-                    <img src="../images/<?php echo $profile_picture; ?>" alt="user" class="circle" />
+                    <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="circle" />
                     <div id="overlap"></div>
             </div>
             </div>

@@ -87,7 +87,7 @@ $row = mysqli_fetch_assoc($result);
                 </tr>
                 <tr>
                     <td>Labtechnician Name :</td>
-                    <td><?php echo $row['full_name'];  ?></td>
+                    <td><?php echo $row['fullname'];  ?></td>
                 </tr>
                 <tr>
                     <td>Username :</td>

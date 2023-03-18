@@ -6,26 +6,28 @@
 if(isset($_POST['reg'])){
     
     
-    $name=$_POST['name'];
+    $fullname=$_POST['name'];
     $username= $_POST['username'];
     $password=$_POST['password'];
     $con_password=$_POST['con-password'];
     $phone_number=$_POST['phonenumber'];
     $email=$_POST['email']; 
+    $nic=$_POST['nic'];
+    $profile_picture=$_POST['profile_picture'];
 
     /*$sql = "INSERT INTO tbl_lebtec (labtec_id,full_name,username,email,nic,contact_number,password)
 VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";*/
 
 $sql = "INSERT INTO tbl_sysusers (actortype, username,password)
-VALUES ('Labtechnician', '$username', '$password')";
+VALUES ('labtec', '$username', '$password')";
 
 $res1=mysqli_query($conn,$sql);
 
 
 $last_id=$conn->insert_id;
 
-$sql = "INSERT INTO tbl_labtec (full_name,userid,email,contact_number,nic)
-VALUES ('$name', '$last_id','$email','$phone_number','$nic')";
+$sql = "INSERT INTO tbl_labtec (fullname,userid,email,contact_number,nic,profile_picture)
+VALUES ('$fullname', '$last_id','$email','$phone_number','$nic','$profile_picture')";
 
 
     if (mysqli_query($conn, $sql)) {
@@ -76,7 +78,7 @@ VALUES ('$name', '$last_id','$email','$phone_number','$nic')";
               <form action="" method="POST">
             <table class="formtable-lab">
                 <tr>
-                    <td>Labtec Full Name :</td>
+                    <td>Laboratory Tecnician Name :</td>
                     <td><input type="text" class="form-control-lab" name="name" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
@@ -84,21 +86,26 @@ VALUES ('$name', '$last_id','$email','$phone_number','$nic')";
                     <td><input type="text" class="form-control-lab" name="username" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>password :</td>
+                    <td>Password :</td>
                     <td><input type="password" class="form-control-lab" name="password" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>Conform password :</td>
+                    <td>Confirm Password :</td>
                     <td><input type="password" class="form-control-lab" name="con-password" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>Phone Number :</td>
+                    <td>Contact Number :</td>
                     <td><input type="text" class="form-control-lab" name="phonenumber" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>Email ID :</td>
+                    <td>Email Address :</td>
                     <td><input type="text" class="form-control-lab" name="email" required="" autofocus="true"/></td>
                 </tr>
+                <tr>
+                   <td>NIC Number :</td>
+                    <td><input type="text" class="form-control-lab" name="nic" required="" autofocus="true"/></td>
+                </tr> 
+                <input type="hidden" name="profile_picture" value="user.png" />
                 
             </table>
             <button class="btn-reg-lab" type="submit" name="reg">Register</button>

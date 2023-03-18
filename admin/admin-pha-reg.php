@@ -81,25 +81,25 @@ if ($res1 && $res2) {
                     <td><input type="text" class="form-control-pha" name="username" required="" autofocus="ture" autocomplete="off"/></td>
                 </tr>
                 <tr>
-                    <td>password :</td>
+                    <td>Password :</td>
                     <td><input type="password" class="form-control-pha" name="password" required="" autofocus="ture" autocomplete="off"/></td>
                 </tr>
                 <tr>
-                    <td>Conform password :</td>
+                    <td>Confirm Password :</td>
                     <td><input type="password" class="form-control-pha" name="con-password" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>Phone Number :</td>
+                    <td>Contact Number :</td>
                     <td><input type="text" class="form-control-pha" name="phonenumber" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>Email ID :</td>
+                    <td>Email Address :</td>
                     <td><input type="text" class="form-control-pha" name="email" required="" autofocus="true"/></td>
                 </tr>
                 <tr>
-                    <td>NIC Number :</td>
+                   <td>NIC Number :</td>
                     <td><input type="text" class="form-control-pha" name="nic" required="" autofocus="true"/></td>
-                </tr>
+                </tr> 
                 <input type="hidden" name="profile_picture" value="user.png" />
                 
                 

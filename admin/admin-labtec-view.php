@@ -64,7 +64,7 @@ $no_row=mysqli_num_rows($result);
                            ?>
                         <tr>
                             <td><?php echo $row['labtec_id']; ?></td>
-                            <td><?php echo $row['full_name']; ?></td>
+                            <td><?php echo $row['fullname']; ?></td>
                             <td><?php
                               if($row['status']==1){
                                 echo '<span class="active-status"> Active </span>';

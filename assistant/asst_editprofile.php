@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="asst_home.php">Home</a></li>
                 <li><a href="asst_session.php">Sessions</a></li>
-                <li><a href="asst_view.php"><div class="highlighttext">View Profile</div></a></li>
+                <li><a href="asst_viewprofile.php"><div class="highlighttext">View Profile</div></a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

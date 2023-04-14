@@ -15,15 +15,15 @@ if(isset($_POST['reg'])){
     $slmc=$_POST['slmc'];
     $specialize=$_POST['specialize'];
 
-    $sql = "INSERT INTO tbl_sysusers (actortype, username, password)
-    VALUES ('doctor', '$username', '$password')";
+    $sql = "INSERT INTO tbl_sysusers (actortype, username, password,email)
+    VALUES ('doctor', '$username', '$password','$email')";
 
     $res1 = mysqli_query($conn, $sql);
 
     $last_id = $conn->insert_id;
 
-    $sql = "INSERT INTO tbl_doctor (doc_name,phone_number,email,SLMC_number,charges,specialization,userid)
-    VALUES ('$name', '$phone_number','$email',' $charges','$slmc','$specialize',$last_id)";
+    $sql = "INSERT INTO tbl_doctor (doc_name,phone_number,SLMC_number,charges,specialization,userid)
+    VALUES ('$name', '$phone_number',' $charges','$slmc','$specialize',$last_id)";
 
     $res2 = mysqli_query($conn, $sql);
 

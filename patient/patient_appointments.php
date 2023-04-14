@@ -37,7 +37,7 @@
         <div class="appointment-page-content">
           <div class="appointment-left-page-content">
            
-          </div>
+          </div> 
           <div class="appointment-right-page-content">
             <div><a href="./patient_docappointments.php"><button>Doctor appointments</button></a></div>
             <div class="appointments-divider"></div>

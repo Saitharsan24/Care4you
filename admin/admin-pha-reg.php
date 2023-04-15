@@ -3,7 +3,6 @@
 
 if(isset($_POST['reg'])){
     
-    
 $name=$_POST['name'];
 $username= $_POST['username'];
 $password=$_POST['password'];

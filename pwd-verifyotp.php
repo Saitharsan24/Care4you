@@ -18,6 +18,10 @@
             session_start();
         }
 
+        //Retrieving session variables
+        $email = $_SESSION['email'];
+        //$mailSent = $_SESSION['mailSent'];
+
         $otpErr='';
 
          // Function to validate input and prevent malicious code injection
@@ -30,6 +34,9 @@
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+            //unsetting success message session variable
+            $_SESSION['mailSent']= '';
             
             //getting each digit of OTP
             $code1= $_POST['code1'];
@@ -39,9 +46,8 @@
             $code5= $_POST['code5'];
             $code6= $_POST['code6'];
 
-            //getting email, otp code and current time stamp
+            //getting otp code
             $otp= $code1.$code2.$code3.$code4.$code5.$code6;
-            $email = $_GET['email'];
 
             $current_timestamp = time();
 
@@ -95,7 +101,8 @@
         <div class= "container2">
         <div class="container_content2">
         <div class="container_content_inner2">
-            <div class="fgtpwd-heading">Verify OTP</div><br/>
+            <div class="fgtpwd-heading">Verify OTP</div>
+            <p class="message-sent"><?php echo $_SESSION['mailSent'];?></p>
             <div class="fgtpwd-txt">Please enter the OTP code that has sent to.</div>
             <form class="form-signin" method="POST">
             <div class="otp-container">

@@ -24,6 +24,11 @@
 
         //Load Composer's autoloader
             require './plugins/PHPMailer/vendor/autoload.php';
+        
+         //starting session
+        if (session_status() === PHP_SESSION_DISABLED) {
+            session_start();
+        }
 
         $emailNotFound = "";
 
@@ -84,8 +89,12 @@
                     $mail->send();
                     echo 'Message has been sent';
 
+                    //storing success message in session variable
+                    $_SESSION['mailSent'] = "The OPT has been sent to your mail";
+                    $_SESSION['email'] = $email;
+
                     // Redirect the user to the OTP verification page
-                    header("Location: pwd-verifyotp.php?email=" . urlencode($email));
+                    header("Location: pwd-verifyotp.php?" . session_name() . '=' . session_id());
                     exit();
 
                 } catch (Exception $e) {

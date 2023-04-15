@@ -796,6 +796,12 @@ a {
     margin-top: 20px;
 }
 
+.message-sent{
+    font-size: 15px;
+    color: green;
+    font-weight: 500;
+}
+
 /* pwd-verifyotp.php CSS Ends */
 
 

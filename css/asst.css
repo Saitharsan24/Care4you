@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+   background-color: #A5D1E1;
+}
+
+/*CSS for Scroll Bar*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #ffffff; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #012836; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #698f9d;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 250px;
+  height: 100%;
+  background: #FFFFFF;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.logo{
+  width: 200px;
+  margin-top: 0px;
+  margin-left: 25px;
+}
+
+.imgframe{
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  margin-left: 65px;
+  border: 1px solid #083746;
+  border-radius: 50%;
+}
+
+.wrapper .sidebar ul{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 10px;
+  vertical-align: middle;
+}    
+
+.wrapper .sidebar ul li a{
+  color: #000000;
+  display: block;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #0D5C75;
+}
+
+.signouttext{
+  color: #0D5C75;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 50px;
+  left: 65px;
+}
+
+.wrapper .sidebar .signouttext a{
+  color: #0D5C75;
+  display: block;
+}
+
+.wrapper .sidebar .signouttext a:hover{
+  color: #000000;
+  font-weight: 700;
+  display: block;
+}
+
+.fa-solid{
+  font-size: 17px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 250px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #000000;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+.wrapper .right-button{
+  margin-left: 470px;
+}
+
+.wrapper .left-button{
+  margin-left: -827px;
+}
+
+.welcometext{
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  bottom: 50px;
+  left: 80px;
+  display: inline;
+}
+
+.usernametext{
+  color: #0D5C75;
+  display: inline;
+}
+
+.highlighttext{
+  color: #0D5C75;
+  font-weight: 600;
+  display: inline;
+}
+
+table {
+    /*border:1px solid #b3adad;*/
+    border-collapse:collapse;
+  }
+  
+  table.center {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto; 
+    margin-right: auto;
+  }
+  
+  table td {
+    width: 750px;
+    /*border:1px solid #b3adad;*/
+    text-align:center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  #rcorners {
+    border-radius: 35px;
+    background: #ffffff;
+    padding: 35px; 
+    width: 450px;
+    height: 200px;
+    color: #000000;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;  
+  }
+
+/* ------------- */
+
+.Profile-2{
+    position: absolute;
+    left: 40%;
+    top: 5%; 
+
+}
+.Profile-2 img{
+    position: absolute;
+    left: 200px;
+    top: 53px;
+    width: 100px;
+    height: 100px;
+}
+
+input{
+    margin-left: 25px;
+    padding-left: 5px;
+    width: 310px;
+    height: 23px;
+    border-radius: 6px;
+    background: #FFFFFF; 
+
+}
+
+.name-1{
+    position: absolute;
+   
+    top: 220px;
+    left: 673px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+
+}
+
+
+
+.username-1{
+    position: absolute;
+    top: 274px;
+    left: 619px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+
+
+.email-1{
+    position: absolute;
+    top: 326px;
+    left: 582px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+
+.nic-1{
+    position: absolute;
+    top: 382px;
+    left: 606px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+
+.con-1{
+    position: absolute;
+    top: 440px;
+    left: 555px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+.divider button{
+    width: 160px;
+    height: 64px;
+
+    margin-left: 1050px;
+    margin-top: 560px;
+    border-radius: 999px;
+    background: #0C5C75;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+
+    color: #FFFFFF;
+}
+
+
+
+/*edite profile Css*/
+
+
+
+
+
+.change_password label{
+    position: absolute;
+    left: 40%;
+    right: 20.57%;
+    top: 75%;
+    bottom: 100%;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 100%;
+
+    
+    cursor: pointer;
+    color: #0C5C75;
+}
+
+.change_profile{
+
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+
+    cursor: pointer;
+    color: #0C5C75;
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    
+}
+
+
+
+/*change password Css*/
+.change_password_1{
+
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+
+
+    position: absolute;
+    left: 50%;
+    top: 25%;
+}
+
+
+.old_password-1{
+    
+    position: absolute;
+   
+    top: 273px;
+    left: 592px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+.new_passwoed-1{
+    
+    position: absolute;
+    top: 332px;
+    left: 582px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+
+.con_password{
+    position: absolute;
+    top: 386px;
+    left: 533px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+font-size: 22px;
+color: #023C4E;
+}
+/*assistant session Css*/
+
+
+table{
+    
+    position: absolute;
+    top: 82px;
+    left: 325px;
+    width: 62%;
+   
+    border-width: 0px;
+
+    border-collapse: separate;
+    border-spacing: 0 15px;
+
+    text-align: center;
+    font-family: 'poppins';
+}
+
+
+
+.head th{
+    background-color: #FFFFFF;
+    height: 50px;
+    width: 1100px;
+    border: 0px solid #ddd;
+
+    color: #0C5C75;
+    
+}
+
+
+
+.th-1{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+.th-2{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.body-1{
+    
+    padding: center;
+    background-color: #EFEFEF;
+    height: 50px;
+    width: 1100px;  
+    border-radius: 10px;
+
+}
+
+.td-1{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+
+}
+.td-2{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.button{
+    background-color:#0C5C75;
+    border-radius: 5px;
+    border-width: 0px;
+    color: #FFFFFF;
+    font-family: 'poppins';
+    font-size: 18px;
+}
+
+
+/*assistant Home Css*/
+
+.welcome{
+  position: absolute;
+  margin-left: 42%;
+  margin-top: 5%;
+  font-size: 43px;
+  font-weight: 500;
+}
+
+.name{
+    color:#0C5C75;
+}
+
+.box-1{
+    position: absolute;
+  margin-left: 39%;
+  margin-top: 15%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 508px;
+  height: 135px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 37px;
+  padding-top: 35px;
+}
+
+.box-2{
+    position: absolute;
+  margin-left: 20%;
+  margin-top: 30%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 457px;
+  height: 187px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 37px;
+  padding-top: 35px;
+}
+
+.box-3{
+    position: absolute;
+  margin-left: 57%;
+  margin-top: 30%;
+  background-color: #FFFFFF;
+  color: #000000;
+  width: 508px;
+  height: 187px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 37px;
+  padding-top: 35px;
+}
+

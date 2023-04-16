@@ -84,7 +84,7 @@
                     $query = mysqli_query($conn, $sql) or die(mysqli_eror());
 
                     session_destroy();   
-                    header("Location: pwd-resetpassword.php?" . session_name() . '=' . session_id());
+                    header("Location: signin.php");
        
         }
     } 

@@ -137,6 +137,7 @@
             }
         }
 
+        //validate password
         if(empty($_POST['password'])){
             $passwordErr = "*Password is required";
             $isValid = false;

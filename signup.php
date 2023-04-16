@@ -1,4 +1,8 @@
-<?php include('./config/constants.php') ?>
+<?php 
+    include('./config/constants.php'); 
+    include('./libraries/NICValidation/nic_validation.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +71,19 @@
 				$nicNumberErr = "*Enter a valid NIC number";
                 $isValid = false;
 			}
-		}
+
+            //function to extract DOB and Age from NIC number
+            $ageAndDob = getDOBAndAgeFromNIC($nicNumber);
+            
+            $age = $ageAndDob['age'];
+            $dob = $ageAndDob['dob'];
+
+            //checking is user above 18 years
+            if($age < 18){
+                $nicNumberErr = "*User should be above 18 years";
+                $isValid = false;
+            }
+		} 
 		
 		// Validate contact number
 		if (empty($_POST["contactNumber"])) {

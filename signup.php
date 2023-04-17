@@ -185,8 +185,8 @@
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
             <div class="signup-heading">
-                <h2 class="signup-heading1">Sign Up</h2>
-                <p class="signup-heading2">Fill your detials to get registered</p>
+                <h2 class="signup-heading01">Sign Up</h2>
+                <p class="signup-heading02">Fill your detials to get registered</p>
             </div>
 
             <!-- Form step1 -->

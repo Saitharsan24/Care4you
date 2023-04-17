@@ -735,6 +735,7 @@ a {
     font-size: 15px;
     text-align: center;
     color: #303030;
+    outline: none;
 }
 
 .fgtpwd-input::placeholder {
@@ -743,13 +744,24 @@ a {
 }
 
 .btn_continue {
-    margin-top: 30px;
+    /* margin-top: 30px; */
     background-color: #0C5C75;
     color: white;
     padding: 5px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.forgot-err-msg{
+    color: red;
+    font-size: 13px;
+    margin-bottom: 0px;
+
+}
+
+.forgot-continue{
+    margin-top: 10px;
 }
 
 /* pwd-forgetpassword.php CSS Ends */
@@ -780,6 +792,16 @@ a {
     border-color: #0C5C75;
 }  
 
+.opt-btn{
+    margin-top: 20px;
+}
+
+.message-sent{
+    font-size: 15px;
+    color: green;
+    font-weight: 500;
+}
+
 /* pwd-verifyotp.php CSS Ends */
 
 
@@ -795,11 +817,17 @@ a {
     border-radius: 10px;
     box-shadow: 1px 2px 2px 1px #1B7B99;
     padding: 10px;
+    outline: none;
+    text-align: center;
 }
 
 .fgtpwd-pwd::placeholder {
     text-align: center;
     font-size: 12px;
+}
+
+.reset-btn{
+    margin-top: 4px;
 }
 
 /* pwd-resetpassword.php CSS Ends */
@@ -1017,8 +1045,8 @@ label{
 }
 
 .container2mod{
-    margin-top: 7%;
-    height: 50vh;
+    margin-top: 5%;
+    height: 60vh;
 }
 
 @keyframes slideIn {

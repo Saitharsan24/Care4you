@@ -16,16 +16,16 @@ if (isset($_POST['reg'])) {
     /*$sql = "INSERT INTO tbl_lebtec (labtec_id,full_name,username,email,nic,contact_number,password)
 VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";*/
 
-    $sql = "INSERT INTO tbl_sysusers (actortype, username,password)
-VALUES ('Assistant', '$username', '$password')";
+    $sql = "INSERT INTO tbl_sysusers (actortype, username,password,email)
+VALUES ('Assistant', '$username', '$password','$email')";
 
     $res1 = mysqli_query($conn, $sql);
 
 
     $last_id = $conn->insert_id;
 
-    $sql = "INSERT INTO tbl_assistant (name,userid,email,phoneno,nic)
-VALUES ('$name', '$last_id','$email','$phone_number','$nic')";
+    $sql = "INSERT INTO tbl_assistant (name,userid,phoneno,nic)
+VALUES ('$name', '$last_id','$phone_number','$nic')";
 
 
     if (mysqli_query($conn, $sql)) {

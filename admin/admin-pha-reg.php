@@ -3,7 +3,6 @@
 
 if(isset($_POST['reg'])){
     
-    
 $name=$_POST['name'];
 $username= $_POST['username'];
 $password=$_POST['password'];
@@ -14,15 +13,15 @@ $nic=$_POST['nic'];
 $profile_picture=$_POST['profile_picture'];
 
 
-$sql = "INSERT INTO tbl_sysusers (actortype, username,password)
-VALUES ('pharmacist', '$username', '$password')";
+$sql = "INSERT INTO tbl_sysusers (actortype, username,password,email)
+VALUES ('pharmacist', '$username', '$password','$email')";
 
 $res1 = mysqli_query($conn, $sql);
 
 $last_id = $conn->insert_id;
 
-$sql = "INSERT INTO tbl_pharmacist (fullname,userid,email,contact_number,nic,profile_picture)
-VALUES ('$name', '$last_id','$email','$phone_number','$nic','$profile_picture')";
+$sql = "INSERT INTO tbl_pharmacist (fullname,userid,contact_number,nic,profile_picture)
+VALUES ('$name', '$last_id','$phone_number','$nic','$profile_picture')";
 
 $res2 = mysqli_query($conn, $sql);
 

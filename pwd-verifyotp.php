@@ -11,6 +11,75 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <?php
+        //starting the session
+        if (session_status() === PHP_SESSION_DISABLED) {
+            session_start();
+        }
+
+        //Retrieving session variables
+        $email = $_SESSION['email'];
+        //$mailSent = $_SESSION['mailSent'];
+
+        $otpErr='';
+
+         // Function to validate input and prevent malicious code injection
+        function validateInput($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+            //unsetting success message session variable
+            $_SESSION['mailSent']= '';
+            
+            //getting each digit of OTP
+            $code1= $_POST['code1'];
+            $code2= $_POST['code2'];
+            $code3= $_POST['code3'];
+            $code4= $_POST['code4'];
+            $code5= $_POST['code5'];
+            $code6= $_POST['code6'];
+
+            //getting otp code
+            $otp= $code1.$code2.$code3.$code4.$code5.$code6;
+
+            $current_timestamp = time();
+
+            // Verify the OTP code
+            $sql = "SELECT * FROM tbl_password_reset WHERE email = '$email' ORDER BY created_at DESC LIMIT 1 ";
+            $result = mysqli_query($conn, $sql) or die(mysqli_error());
+
+            $row = $result -> fetch_assoc();
+            $tableOTP = $row['otp'];
+            $otpTimeStamp = $row['created_at'];
+
+            //Storing session varibles
+            $_SESSION['email'] = $email;
+            $_SESSION['otp_id'] =$row['id'];
+
+            if ($otp == $tableOTP && strtotime($current_timestamp) - strtotime($otpTimeStamp) < 600 && $row['used'] == 0){
+
+                //Redirecting to password change page
+                header("Location: pwd-resetpassword.php?" . session_name() . '=' . session_id());
+                exit();
+
+            } else {
+                $otpErr = "*Invalid OTP number!";
+            }
+
+
+
+        }
+
+    ?>
+
+
     <div class="top">
         <div class="navbar">
             <a href="./index.php"><img src="./images/logo.png" alt="logo" class="logo"></a>
@@ -32,16 +101,17 @@
         <div class= "container2">
         <div class="container_content2">
         <div class="container_content_inner2">
-            <div class="fgtpwd-heading">Verify OTP</div><br/>
-            <div class="fgtpwd-txt">Please enter the OTP code that has sent to .</div>
+            <div class="fgtpwd-heading">Verify OTP</div>
+            <p class="message-sent"><?php echo $_SESSION['mailSent'];?></p>
+            <div class="fgtpwd-txt">Please enter the OTP code that has sent to.</div>
             <form class="form-signin" method="POST">
             <div class="otp-container">
-                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" autofocus="true" required>
-                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
-                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
-                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
-                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
-                <input type="text" class="otp-input" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
+                <input type="text" class="otp-input" name="code1" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" autofocus="true" required>
+                <input type="text" class="otp-input" name="code2" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
+                <input type="text" class="otp-input" name="code3" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
+                <input type="text" class="otp-input" name="code4" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
+                <input type="text" class="otp-input" name="code5" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
+                <input type="text" class="otp-input" name="code6" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" required>
             </div>
             <script>
             //Disable entering any character other than numbers
@@ -77,7 +147,10 @@
                 });
             });
             </script>
-            <input type="submit" class="btn_continue" name="verify" value="Continue">
+
+            <input type="submit" class="btn_continue opt-btn" name="verify" value="Continue">
+            <p class="forgot-err-msg"><?php echo $otpErr;?></p>
+
             </form>
         </div> 
         </div> 
@@ -87,7 +160,3 @@
     </div>
 </body>
 </html>
-
-<?php
-
-?>

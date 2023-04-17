@@ -1,4 +1,8 @@
-<?php include('./config/constants.php') ?>
+<?php 
+    include('./config/constants.php'); 
+    include('./libraries/NICValidation/nic_validation.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +71,19 @@
 				$nicNumberErr = "*Enter a valid NIC number";
                 $isValid = false;
 			}
-		}
+
+            //function to extract DOB and Age from NIC number
+            $ageAndDob = getDOBAndAgeFromNIC($nicNumber);
+            
+            $age = $ageAndDob['age'];
+            $dob = $ageAndDob['dob'];
+
+            //checking is user above 18 years
+            if($age < 18){
+                $nicNumberErr = "*User should be above 18 years";
+                $isValid = false;
+            }
+		} 
 		
 		// Validate contact number
 		if (empty($_POST["contactNumber"])) {
@@ -99,6 +115,15 @@
 				$emailErr = "*Enter a valid email address";
                 $isValid = false;
 			}
+
+            $sql = "SELECT * FROM tbl_sysusers WHERE username='$email'";
+            $result = mysqli_query($conn, $sql);
+            
+            if (mysqli_num_rows($result) > 0) {
+                $userNameErr = "*User already registered";
+                $isValid = false;
+            }
+
 		}
 
         // Validate username
@@ -128,11 +153,12 @@
             }
         }
 
+        //validate password
         if(empty($_POST['password'])){
             $passwordErr = "*Password is required";
             $isValid = false;
-        } elseif(strlen($_POST['password']) < 12){
-            $passwordErr = "*Must have atleast 12 characters";
+        } elseif(strlen($_POST['password']) < 8){
+            $passwordErr = "*Must have atleast 8 characters";
             $isValid = false;
         } elseif(!preg_match("#[a-z]+#", $_POST['password'])){
             $passwordErr = "*Must have atleast one lowercase letter";
@@ -143,7 +169,7 @@
         } elseif(!preg_match("#[0-9]+#", $_POST['password'])){
             $passwordErr = "*Must contain atleast one number";
             $isValid = false;
-        } elseif(!preg_match("#\W+#", $_POST['password'])){
+        } elseif(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_POST['password'])){
             $passwordErr = "*Must contain atleast one special character";
             $isValid = false;
         }
@@ -182,6 +208,7 @@
         </div>
     </div>
     <div class="bottom">
+        
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
             <div class="signup-heading">

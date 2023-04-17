@@ -1,4 +1,8 @@
-<?php include('./config/constants.php') ?>
+<?php 
+    include('./config/constants.php'); 
+    include('./libraries/NICValidation/nic_validation.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +71,19 @@
 				$nicNumberErr = "*Enter a valid NIC number";
                 $isValid = false;
 			}
-		}
+
+            //function to extract DOB and Age from NIC number
+            $ageAndDob = getDOBAndAgeFromNIC($nicNumber);
+            
+            $age = $ageAndDob['age'];
+            $dob = $ageAndDob['dob'];
+
+            //checking is user above 18 years
+            if($age < 18){
+                $nicNumberErr = "*User should be above 18 years";
+                $isValid = false;
+            }
+		} 
 		
 		// Validate contact number
 		if (empty($_POST["contactNumber"])) {
@@ -137,6 +153,7 @@
             }
         }
 
+        //validate password
         if(empty($_POST['password'])){
             $passwordErr = "*Password is required";
             $isValid = false;
@@ -195,8 +212,8 @@
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
             <div class="signup-heading">
-                <h2 class="signup-heading1">Sign Up</h2>
-                <p class="signup-heading2">Fill your detials to get registered</p>
+                <h2 class="signup-heading01">Sign Up</h2>
+                <p class="signup-heading02">Fill your detials to get registered</p>
             </div>
 
             <!-- Form step1 -->

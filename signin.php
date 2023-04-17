@@ -47,6 +47,12 @@
                         unset($_SESSION['no-login-message']);
 
                     }
+                    if(isset($_SESSION['signup']))
+                    {
+                        echo $_SESSION['signup'];
+                        unset($_SESSION['signup']);
+
+                    }
                 ?>
                 <div class="par">
                 <p class="form-signin-username">User Name</p>

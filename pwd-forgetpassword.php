@@ -23,7 +23,7 @@
             use PHPMailer\PHPMailer\Exception;
 
         //Load Composer's autoloader
-            require './plugins/PHPMailer/vendor/autoload.php';
+            require './libraries/PHPMailer/vendor/autoload.php';
         
          //starting session
         if (session_status() === PHP_SESSION_DISABLED) {

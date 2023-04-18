@@ -279,7 +279,7 @@ body{
     width: 245px;
     left: 1122px;
     top: 42px;
-    background-color: #0D5C75;
+    background-color: #0C5C75;
     padding: 10px;
     padding-left: 2%;
     padding-right: 2%;
@@ -288,6 +288,14 @@ body{
     color: #ffffff;
     font-size: 18px;
     font-weight: 500;
+    cursor: pointer;
+  }
+
+  .to-create-session-page:hover{
+    background: #107c9d;
+    color: #ffffff;
+    font-weight: 600;
+    transition: .3s;
     cursor: pointer;
   }
   

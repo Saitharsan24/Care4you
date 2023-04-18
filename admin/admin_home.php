@@ -18,12 +18,12 @@
             <ul>
                 <li><a href="admin_home.php"><div class="highlighttext">Home</div></a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="admin-patient-view.php">View Patient</a></li>
-                <li><a href="#">View Orders</a></li>
-                <li><a href="#">View Appointments</a></li>
+                <li><a href="admin-patient-view.php">Patient</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
-                <li><a href="admin_viewprofile.php">View Profile</a></li>
+                <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

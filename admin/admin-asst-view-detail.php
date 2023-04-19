@@ -59,7 +59,7 @@ $row = mysqli_fetch_assoc($result);
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
-            <li><a href="admin_home.php">Home</a></li>
+                <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="#">Orders</a></li>

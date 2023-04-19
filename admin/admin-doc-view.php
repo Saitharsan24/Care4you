@@ -9,7 +9,6 @@ $no_row = mysqli_num_rows($result);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,14 +18,16 @@ $no_row = mysqli_num_rows($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
@@ -41,9 +42,12 @@ $no_row = mysqli_num_rows($result);
 
             <div class="main_content">
                 <div class="info">
-                    <div class="doc-list"></div>
-                    <button class="to-reg-doc-page" onclick="location.href='admin-doc-reg.php'">To Register</button>
-                    <button class="back-doc-view" onclick="location.href='admin-system-users.php'">Back</button>
+
+                    <button class="btn-addnew"  onclick="location.href='admin-doc-reg.php'"><span>add new doctor</span></button>
+                    <div class="back" onclick="location.href='admin-system-users.php'">
+                        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+                    </div>
+
                     <span>
                         <table class="tbl-main-doc">
                             <thead>
@@ -51,7 +55,7 @@ $no_row = mysqli_num_rows($result);
                                     <td>Doctor ID</td>
                                     <td>Doctor Name</td>
                                     <td>Specialization</td>
-                                    <td>SLMC_number</td>
+                                    <td>SLMC Number</td>
                                     <td>Account Status</td>
                                     <td></td>
                                 </tr>
@@ -64,7 +68,7 @@ $no_row = mysqli_num_rows($result);
                                         <td><input type="text" class="search-doc" name="Specialize" autofocus="true" /></td>
                                         <td><input type="text" class="search-doc" name="Slmc" autofocus="true" /></td>
                                         <td><input type="text" class="search-doc" name="status" autofocus="true" /></td>
-                                        <td><button class="btn-view-lab-detail"><span>Search</span></button></td>
+                                        <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                                     </tr>
                                 </form>
                                 <?php
@@ -79,9 +83,9 @@ $no_row = mysqli_num_rows($result);
                                             <td><?php echo $row['SLMC_number'];  ?></td>
                                             <td><?php
                                             if ($row['status']==1){
-                                                echo '<span class="active-status">Active</span>';
+                                                echo '<button class="active-status">Active</button>';
                                             }else{
-                                                echo '<span class="passive-status">Passive</span>';
+                                                echo '<button class="passive-status">Disabled</button>';
                                             }
                                             ?>
                                             </td>

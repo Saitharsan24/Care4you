@@ -30,7 +30,7 @@
         <div class="main_content">
             <div class="info">
               <div class="asst-list"></div>
-              <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">To Create Session</button>
+              <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">Create Session</button>
               
               <span>
                 <table class="tbl-main-session">

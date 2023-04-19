@@ -1,3 +1,14 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+
+<?php
+$query="SELECT * FROM tbl_assistant ";
+$result=mysqli_query($conn,$query);
+//print_r($result);die();
+$no_row=mysqli_num_rows($result);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,9 +63,19 @@
                         </tr>
                         </form>
                         <tr>
-                            <td>02</td>
+                            <td>
+                                <?php 
+                                if($result){
+                                    while($row=mysqli_fetch_array($result)){
+                                        
+                                    }
+                                }
+
+
+?>
+                            </td>
                             <td>Ms. Weerakoon</td>
-                            <td>Ms. Weerakoon</td>                           
+                            <td></td>                           
                             <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php'"><span>Session Details</span></button></td>
                         </tr>
                         

@@ -555,4 +555,7 @@ table td {
   left: 22px;
 }
 
+.hidden {
+  display: none;
+}
   /* admin-session-view-details.php end here */

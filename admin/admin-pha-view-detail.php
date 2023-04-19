@@ -79,7 +79,7 @@ $row = mysqli_fetch_assoc($result);
               <div class="square-detail-pha">
 
               <div class="detail-pha">
-        <form method="post">
+       <!-- <form method="post"> -->
             <table class="detail-table-pha-deatil">
                 <tr>
                     <td>Pharmacist ID :</td>
@@ -110,10 +110,8 @@ $row = mysqli_fetch_assoc($result);
                 
             </table>
             <?php
-            if ($row['status'] == 1) { ?>
-            <?php 
-
-               
+            if ($row['status'] == 1) { 
+            
                 $status = "Disable";
                 include('./admin-pha-pop.php');
                 
@@ -141,7 +139,7 @@ $row = mysqli_fetch_assoc($result);
             
             <button class="btn-edit-pha"  onclick="location.href='#'" type="submit" name="edit">Edit Account</button>
             
-        </form>
+        <!--</form>-->
             <button class="btn-del-back-pha"  onclick="location.href='admin-pha-view.php'">Back</button>
             
                             </div>

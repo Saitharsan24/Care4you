@@ -17,7 +17,6 @@ $sql = "INSERT INTO tbl_sysusers (actortype, username,password,email)
 VALUES ('pharmacist', '$username', '$password','$email')";
 
 $res1 = mysqli_query($conn, $sql);
-
 $last_id = $conn->insert_id;
 
 $sql = "INSERT INTO tbl_pharmacist (fullname,userid,contact_number,nic,profile_picture)

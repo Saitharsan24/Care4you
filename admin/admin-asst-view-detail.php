@@ -5,7 +5,7 @@
 <?php
 $id = $_GET['id'];
 
-$query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid WHERE Assistant_ID = $id";
+$query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid WHERE assistant_id = $id";
 $result=mysqli_query($conn,$query);
 $row = mysqli_fetch_assoc($result);
 
@@ -59,7 +59,7 @@ $row = mysqli_fetch_assoc($result);
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/admin-user.jpg" alt="user" class="imgframe">
             <ul>
-            <li><a href="admin_home.php">Home</a></li>
+                <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="#">Orders</a></li>
@@ -72,7 +72,7 @@ $row = mysqli_fetch_assoc($result);
         </div>
         <div class="main_content">
             <div class="info">
-            <div class="detail-txt-asst">ID <div class="id-txt-asst"><?php echo $row['Assistant_ID']?> </div>Assistant's Detail
+            <div class="detail-txt-asst">ID <div class="id-txt-asst"><?php echo $row['assistant_id']?> </div>Assistant's Detail
         </div>
               <div class="square-detail-asst">
 
@@ -81,7 +81,7 @@ $row = mysqli_fetch_assoc($result);
             <table class="detail-table-asst-deatil">
                 <tr>
                     <td>Assistant ID :</td>
-                    <td><?php echo $row['Assistant_ID']?></td>
+                    <td><?php echo $row['assistant_id']?></td>
                 </tr>
                 
                 <tr>
@@ -119,7 +119,7 @@ $row = mysqli_fetch_assoc($result);
                 ?>
         
                 <button class="btn-disable-asst" onclick="document.getElementById('id01').style.display='block'; 
-                document.getElementById('del').action = '?id=<?php echo $row['Assistant_ID']?>&disable=<?php echo $row['userid']?> ';
+                document.getElementById('del').action = '?id=<?php echo $row['assistant_id']?>&disable=<?php echo $row['userid']?> ';
                 " >Disable Account</button>
 
                 <?php 
@@ -131,7 +131,7 @@ $row = mysqli_fetch_assoc($result);
                 ?>
 
                  <button class="btn-enable-asst" onclick="document.getElementById('id01').style.display='block'; 
-                document.getElementById('del').action = '?id=<?php echo $row['Assistant_ID']?>&enable=<?php echo $row['userid']?> ';
+                document.getElementById('del').action = '?id=<?php echo $row['assistant_id']?>&enable=<?php echo $row['userid']?> ';
                 " >Enable Account</button> 
 
             <?php };

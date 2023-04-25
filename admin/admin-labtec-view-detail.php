@@ -4,7 +4,6 @@
 
 <?php
 $id = $_GET['id'];
-
 $query="SELECT * FROM tbl_labtec INNER JOIN tbl_sysusers ON tbl_labtec.userid = tbl_sysusers.userid WHERE labtec_id = $id";
 $result=mysqli_query($conn,$query);
 $row = mysqli_fetch_assoc($result);

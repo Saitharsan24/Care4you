@@ -23,11 +23,14 @@ VALUES ('Assistant', '$username', '$password','$email')";
 
 
     $last_id = $conn->insert_id;
+    
 
     $sql = "INSERT INTO tbl_assistant (name,userid,phoneno,nic)
 VALUES ('$name', '$last_id','$phone_number','$nic')";
 
+$res2 = mysqli_query($conn, $sql);
 
+//print_r($res2);die();
     if (mysqli_query($conn, $sql)) {
 
         header("Location: /Care4you/admin/admin-asst-view.php");

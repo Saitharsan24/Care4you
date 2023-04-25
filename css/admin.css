@@ -10,7 +10,15 @@
 }
 
 body{
-   background-color: #A5D1E1;
+  background-color: #A5D1E1;
+}
+
+.back{
+  position: absolute;
+  left: 275px;
+  top: 30px;
+  color: #0D5C75;
+  cursor: pointer;
 }
 
 /* SUCCESS/ERROR MSG Style Starts*/
@@ -122,7 +130,7 @@ body{
   font-size: 20px;
   font-weight: 600;
   position: absolute;
-  bottom: 4px;
+  bottom: 25px;
   left: 65px;
 }
 
@@ -199,13 +207,13 @@ table {
 
 
 table.center {
+  width: 75%;
   margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: -3%; 
+  margin-left: 9%; 
   margin-right: auto;
 }
 
-table td {
+table td{
   width: 750px;
   /*border:1px solid #b3adad;*/
   text-align:center;
@@ -329,175 +337,114 @@ table td {
 
 
 /*  admin-system-users.php page start here*/
+
 .system-users{
   color: #000000;
   font-size: 40px;
   font-weight: 600;
-  bottom: 50px;
-  left: 80px;
-  display: flex; 
-  margin-top: 3%;
-  margin-left: 39%;
+  left: 75px;
+  display: inline;
 }
 
-.button-doc{    
-  position: absolute;
-  width: 320px;
-  height: 151px;
-  left: 500px;
-  top: 226px;
-  background-color: #0C5C75;
-  border-radius: 25px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 69px;
-  font-weight: 700;
-}
-
-.button-doc{    
-  position: absolute;
-  width: 320px;
-  height: 151px;
-  left: 980px;
-  top: 226px;
-  background-color: #0C5C75;
-  border-radius: 25px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 49px;
-  font-weight: 700;
-}
-
-.button-pat{    
-  position: absolute;
-  width: 320px;
-  height: 151px;
-  left: 500px;
-  top: 448px;
-  background-color: #0C5C75;
-  border-radius: 25px;
-  border-width: 0px;
-  color: #FFFFFF;
-  font-family: 'poppins';
-  font-size: 49px;
-  font-weight: 700;
-}
 .button-asst{    
   position: absolute;
   width: 320px;
-  height: 151px;
+  height: 140px;
   left: 980px;
-  top: 448px;
+  top: 200px;
   background-color: #0C5C75;
   border-radius: 25px;
   border-width: 0px;
   color: #FFFFFF;
   font-family: 'poppins';
-  font-size: 49px;
+  font-size: 35px;
   font-weight: 700;
+}
+
+.button-asst:hover{
+  background-color: #e1ebef;
+  color: #0C5C75;
+  cursor: pointer;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
 }
 
 .button-phar{    
   position: absolute;
   width: 320px;
-  height: 151px;
+  height: 140px;
   left: 500px;
-  top: 226px;
+  top: 448px;
   background-color: #0C5C75;
   border-radius: 25px;
   border-width: 0px;
   color: #FFFFFF;
   font-family: 'poppins';
-  font-size: 49px;
+  font-size: 35px;
   font-weight: 700;
+}
+
+.button-phar:hover{
+  background-color: #e1ebef;
+  color: #0C5C75;
+  cursor: pointer;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.button-lab{    
+  position: absolute;
+  width: 320px;
+  height: 140px;
+  left: 980px;
+  top: 448px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.button-lab:hover{
+  background-color: #e1ebef;
+  color: #0C5C75;
+  cursor: pointer;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.button-doc{    
+  position: absolute;
+  width: 320px;
+  height: 140px;
+  left: 500px;
+  top: 200px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.button-doc:hover{
+  background-color: #e1ebef;
+  color: #0C5C75;
+  cursor: pointer;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
 }
 
 /*  admin-system-users.php page end here*/
 
-/*  admin-doc-reg.php page start here*/
 
-.head-doc{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-  display: inline;
-
-}
-
-.square-reg-doc{
-  border: 2px solid #0D5C75;
-  width: 844px;
-  height: 780px;
-  background: #ffffff;
-  position: relative;
-  top: 18px;
-  display: inline-block;
-  border-radius: 3%;
-  margin-top: 10px;
-}
-
-.form-doc{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-.form-control-doc{
-  width: 350px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.btn-reg-doc{
-  position: relative;
-
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  margin:0px 0px 45px 0px;
-}
-
-.doc-reg-btn-div{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.doc-reg-divider{
-  width: 300px;
-  height: 30px;
-}
-
-
-.btn-view-doc{
-  position: relative;
-  background-color: #0D5C75;
-  height: 48px;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  margin:0px 0px 45px 0px;
-}
-
-/*  admin-doc-reg.php page end here*/
 
 /* admin-doc-view.php page start here*/
 
@@ -510,6 +457,47 @@ table td {
   left: 726px;
 
 }
+
+.btn-search{
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-search span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-search span:after {
+  content: '🔍︎';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-search:hover span {
+  padding-right: 15px;
+}
+
+.btn-search:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 .btn-view-doc-detail {
   border-radius: 10px;
   background-color: #0D5C75;
@@ -597,7 +585,339 @@ table td {
   font-size: 15px;
 }
 
-.to-reg-doc-page{
+.btn-addnew {
+  position: absolute;
+  left: 1285px;
+  top: 42px;
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-addnew span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addnew span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addnew:hover span {
+  padding-left: 15px;
+}
+
+.btn-addnew:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.back{
+  position: absolute;
+  left: 275px;
+  top: 30px;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
+/* admin-doc-view.php page end here */
+
+/* admin-doc-detail.php page start here */
+
+.view-doc{
+  margin-top: 7%;
+  margin-bottom: 5%;
+  margin-left: auto; 
+  margin-right: auto;
+  width: 65%;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.view-doc tr td{
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.view-doc td.typeR{
+  text-align: right;
+  color: #0D5C75;
+  font-weight: 600;
+}
+
+.view-doc td.typeL{
+  text-align: left;
+  font-weight: 600;
+}
+
+.ppframe{
+  width: 200px;
+  height: 200px;
+  border: 1px solid #083746;
+  border-radius: 50%;
+}
+
+.btn-del-doc-enable{ 
+  width: 200px;
+  border-radius: 25px;
+  background-color: #38E54D;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-del-doc-enable:hover{ 
+  background-color: #1c7226;
+  color: white;
+}
+
+.btn-del-doc-disable{
+  width: 200px;
+  border-radius: 25px;
+  background-color: #FF0303;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-del-doc-disable:hover{
+  background-color: #730101;
+}
+
+/* admin-doc-detail.php page end here */
+
+
+
+/*  admin-doc-reg.php page start here*/
+
+.head-doc{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+  display: inline;
+
+}
+
+.square-reg-doc{
+  border: 2px solid #0D5C75;
+  width: 844px;
+  height: 780px;
+  background: #ffffff;
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  border-radius: 3%;
+  margin-top: 10px;
+}
+
+.form-doc{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+.form-control-doc{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-reg-doc{
+  position: relative;
+
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin:0px 0px 45px 0px;
+}
+
+.doc-reg-btn-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.doc-reg-divider{
+  width: 300px;
+  height: 30px;
+}
+
+
+.btn-view-doc{
+  position: relative;
+  background-color: #0D5C75;
+  height: 48px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin:0px 0px 45px 0px;
+}
+
+/*  admin-doc-reg.php page end here*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* admin-pha-view.php start here */
+
+.btn-view-pha-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view-pha-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view-pha-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-view-pha-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-view-pha-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.tbl-main-pha{
+  position: absolute;
+  left: 375px;
+  top: 110px;
+  width: 1068px;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main-pha tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-pha thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-pha td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main-pha td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main-pha td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.search-pha{
+  width: 185px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.to-reg-pha-page{
   position: absolute;
   width: 184px;
   left: 1122px;
@@ -614,7 +934,7 @@ table td {
   cursor: pointer;
 }
 
-.back-doc-view{
+.back-pha-view{
   position: absolute;
   width: 158px;
   left: 905px;
@@ -630,11 +950,35 @@ table td {
   font-weight: 500;
   cursor: pointer;
 }
-/* admin-doc-view.php page end here */
 
-/* admin-doc-detail.php page start here */
+.active-status{
+  border: 1px solid #38E54D;
+  border-radius: 25px;
+  padding: 5px;
+  width: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color:  #38E54D;
+  color: #000000;
+}
 
-.detail-txt-doc{
+.passive-status{
+  border: 1px solid #FF0303;
+  border-radius: 25px;
+  padding: 5px;
+  width: 100px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #FF0303;
+  color: #ffffff;
+}
+
+/* admin-pha-view.php end here */
+
+
+/* admin-pha-view-details.php start here */
+
+.detail-txt-pha{
   position: absolute;
   top: 35px;
   left: 673px;
@@ -645,16 +989,16 @@ table td {
   display: inline;
 }
 
-.id-txt-doc{
+.id-txt-pha{
   color: #0D5C75;
   display: inline;
 }
 
 
-.square-detail-doc{
+.square-detail-pha{
   border: 2px solid #0D5C75;
   width: 725px;
-  height: 609px;
+  height: 574px;
   background: #ffffff;
   position: absolute;
   top: 86px;
@@ -663,10 +1007,10 @@ table td {
   border-radius: 10%;
 }
 
-.btn-detail-doc{
+.btn-detail-pha{
   position: absolute;
   left: 570px;
-  bottom:25px;
+  bottom:-30px;
   background-color: #0D5C75;
   padding: 10px;
   padding-left: 2%;
@@ -680,10 +1024,10 @@ table td {
 }
 
 
-.btn-del-doc-enable{
+.btn-enable-pha{
   position: absolute;
-  left: 462px;
-  bottom: 25px;
+  left: 425px;
+    bottom: -62px;
     width: 180px;
   background-color: #008000;
   padding: 10px;
@@ -697,10 +1041,10 @@ table td {
   cursor: pointer;
 }
 
-.btn-del-doc-disable{
+.btn-disable-pha{
   position: absolute;
-  left: 462px;
-    bottom: 25px;
+  left: 425px;
+    bottom: -62px;
     width: 180px;
   background-color: #800000;
   padding: 10px;
@@ -714,10 +1058,28 @@ table td {
   cursor: pointer;
 }
 
-.btn-del-back-doc{
+.btn-edit-pha{
   position: absolute;
-  left: 125px;
-    bottom: 25px;
+  left: 227px;
+    bottom: -62px;
+  background-color: #0D5C75;
+  width: 158px;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+.btn-del-back-pha{
+  position: absolute;
+  left: 78px;
+    bottom: -62px;
   background-color: #0D5C75;
   width: 113px;
   padding: 10px;
@@ -733,13 +1095,117 @@ table td {
 }
 
 
-.detail-table-lab-deatil{
+.detail-pha{
   position: relative;
   top: 41px;
   left: 25px;
 }
 
-/* admin-doc-detail.php page end here */
+
+/* admin-pha-view-details.php end here */
+
+/* admin-pha-reg.php start here */
+
+
+.head-pha{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+  display: inline;
+
+}
+
+.square-reg-pha{
+  border: 2px solid #0D5C75;
+  width: 844px;
+  height: 613px;
+  background: #ffffff;
+  position: relative;
+  top: 18px;
+  display: inline-block;
+  border-radius: 3%;
+}
+
+.form-pha{
+  position: relative;
+  top: 41px;
+  left: 25px;
+}
+.form-control-pha{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-reg-pha{
+  position: absolute;
+  left: 570px;
+  bottom:-30px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+.btn-view-pha{
+  position: absolute;
+  left: 121px;
+  bottom:-32px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* admin-pha-reg.php end here */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* admin-laboratory-view.php page start here */
 
@@ -999,8 +1465,8 @@ table td {
 .btn-lactec-disable{
   position: absolute;
   left: 414px;
-    bottom: -95px;
-    width: 180px;
+  bottom: -95px;
+  width: 180px;
   background-color: #800000;
   padding: 10px;
   padding-left: 2%;
@@ -1012,6 +1478,7 @@ table td {
   font-weight: 500;
   cursor: pointer;
 }
+
 .btn-lactec-enable{
   position: absolute;
   left: 414px;
@@ -1373,350 +1840,6 @@ table td {
 }
 
 /* admin-asst-reg.php end here */
-
-
-/* admin-pha-reg.php start here */
-
-
-.head-pha{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-  display: inline;
-
-}
-
-.square-reg-pha{
-  border: 2px solid #0D5C75;
-  width: 844px;
-  height: 613px;
-  background: #ffffff;
-  position: relative;
-  top: 18px;
-  display: inline-block;
-  border-radius: 3%;
-}
-
-.form-pha{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-.form-control-pha{
-  width: 350px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.btn-reg-pha{
-  position: absolute;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-view-pha{
-  position: absolute;
-  left: 121px;
-  bottom:-32px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-/* admin-pha-reg.php end here */
-
-/* admin-pha-view.php start here */
-.pha-list{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-
-}
-.btn-view-pha-detail {
-  border-radius: 10px;
-  background-color: #0D5C75;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  /* font-size: 15px; */
-  padding: 5px;
-  width: 175px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-}
-
-.btn-view-pha-detail span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn-view-pha-detail span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn-view-pha-detail:hover span {
-  padding-right: 15px;
-}
-
-.btn-view-pha-detail:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-.tbl-main-pha{
-  position: absolute;
-  left: 375px;
-  top: 110px;
-  width: 1068px;
-  margin-left:auto; 
-  margin-right:auto;
-  border-collapse: separate;
-  border-spacing: 0 15px;
-}
-
-.tbl-main-pha tr{
-  background-color: #ffffff;
-}
-
-.tbl-main-pha thead td{
-  color: #0D5C75;
-  font-weight: 700;
-  padding: 5px;
-}
-
-.tbl-main-pha td{
-  /*border:1px solid #b3adad;*/
-  color: #000000;
-  text-align: center;
-  width: 300px;
-  padding: 15px;
-  padding-left: 0%;
-  padding-right: 0%;
-}
-
-.tbl-main-pha td:first-child, th:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.tbl-main-pha td:last-child, th:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-.search-pha{
-  width: 185px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.to-reg-pha-page{
-  position: absolute;
-  width: 184px;
-  left: 1122px;
-  top: 42px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.back-pha-view{
-  position: absolute;
-  width: 158px;
-  left: 905px;
-  top: 42px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.active-status{
-  color:  #008000;
-}
-
-.passive-status{
-  color: #800000;
-}
-
-/* admin-pha-view.php end here */
-
-
-/* admin-pha-view-details.php start here */
-
-.detail-txt-pha{
-  position: absolute;
-  top: 35px;
-  left: 673px;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  bottom: 50px;
-  display: inline;
-}
-
-.id-txt-pha{
-  color: #0D5C75;
-  display: inline;
-}
-
-
-.square-detail-pha{
-  border: 2px solid #0D5C75;
-  width: 725px;
-  height: 574px;
-  background: #ffffff;
-  position: absolute;
-  top: 86px;
-  left: 520px;
-  display: inline-block;
-  border-radius: 10%;
-}
-
-.btn-detail-pha{
-  position: absolute;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-enable-pha{
-  position: absolute;
-  left: 425px;
-    bottom: -62px;
-    width: 180px;
-  background-color: #008000;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn-disable-pha{
-  position: absolute;
-  left: 425px;
-    bottom: -62px;
-    width: 180px;
-  background-color: #800000;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn-edit-pha{
-  position: absolute;
-  left: 227px;
-    bottom: -62px;
-  background-color: #0D5C75;
-  width: 158px;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-
-}
-
-.btn-del-back-pha{
-  position: absolute;
-  left: 78px;
-    bottom: -62px;
-  background-color: #0D5C75;
-  width: 113px;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-
-}
-
-
-.detail-pha{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-
-
-/* admin-pha-view-details.php end here */
-
 
 /* admin-pha-edit.php start here */
 

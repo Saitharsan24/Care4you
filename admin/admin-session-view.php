@@ -1,3 +1,13 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+
+<?php
+$query="SELECT * FROM tbl_docsession ";
+$result=mysqli_query($conn,$query);
+//$no_row=mysqli_num_rows($result);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +40,7 @@
         <div class="main_content">
             <div class="info">
               <div class="asst-list"></div>
-              <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">To Create Session</button>
+              <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">Create Session</button>
               
               <span>
                 <table class="tbl-main-session">
@@ -51,12 +61,21 @@
                             <td><button class="btn-view-session-detail" ><span>Search</span></button></td>
                         </tr>
                         </form>
+                        <?php 
+                        if($result){
+                            while($row=mysqli_fetch_array($result)){
+                         
+                      ?>
                         <tr>
-                            <td>02</td>
-                            <td>Ms. Weerakoon</td>
-                            <td>Ms. Weerakoon</td>                           
-                            <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php'"><span>Session Details</span></button></td>
+                            <td><?php echo $row['session_id'];  ?> </td>
+                            <td><?php echo $row['room_no'];  ?></td>
+                            <td><?php echo $row['status'];?></td>                           
+                            <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php?id=<?php echo $row['session_id']; ?>'"><span>Session Details</span></button></td>
                         </tr>
+                        
+                          <?php     
+                    }
+                        }?>
                         
                     </tbody>
                 </table>

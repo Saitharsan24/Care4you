@@ -13,6 +13,18 @@ body{
    background-color: #A5D1E1;
 }
 
+.back{
+  position: absolute;
+  left: 275px;
+  top: 30px;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
 /*CSS for Scroll Bar*/
 
 /* width */
@@ -712,3 +724,32 @@ p{
 }
 
 /* CSS for viewprofile.php Ends Here*/
+
+/* editprofile.php CSS Starts */
+
+#file-input {
+  display: none;
+}
+
+#file-link {
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+#file-link:hover {
+  text-decoration: none;
+}
+
+.ppUpdatedS{
+  color: #54B435;
+  margin-top: -10px;
+  margin-left: 55px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ppUpdatedF{
+  color: red;
+}
+
+/* editprofile.php CSS Ends */

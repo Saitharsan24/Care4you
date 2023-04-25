@@ -1,4 +1,5 @@
 <?php include('../config/constants.php'); ?>
+<?php include('../login_access.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +135,7 @@
                         <td class="typeL"><?php echo $row['contact_number']; ?></td>
                     </tr>
                     <tr>
-                        <td class="typeR">Eamil Address :</td>
+                        <td class="typeR">Email Address :</td>
                         <td class="typeL"><?php echo $row['email']; ?></td>
                     </tr>
 

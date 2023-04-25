@@ -4,6 +4,7 @@
 <?php
 $query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid ";
 $result=mysqli_query($conn,$query);
+//print_r($result);die();
 $no_row=mysqli_num_rows($result);
 
 ?>
@@ -62,7 +63,7 @@ $no_row=mysqli_num_rows($result);
                             while($row=mysqli_fetch_array($result)){
                                  ?>
                         <tr>
-                            <td><?php echo $row['Assistant_ID']; ?></td>
+                            <td><?php echo $row['assistant_id']; ?></td>
                             <td><?php echo $row['name']; ?></td>
                            
                             <td><?php
@@ -73,7 +74,7 @@ $no_row=mysqli_num_rows($result);
                               }
                               ?>
                             </td>
-                            <td><button class="btn-view-asst-detail" onclick='location.href="admin-asst-view-detail.php?id=<?php echo $row["Assistant_ID"]; ?>"'><span>Assistant Details</span></button></td>
+                            <td><button class="btn-view-asst-detail" onclick='location.href="admin-asst-view-detail.php?id=<?php echo $row["assistant_id"]; ?>"'><span>Assistant Details</span></button></td>
                         </tr>
                         <?php
                             }

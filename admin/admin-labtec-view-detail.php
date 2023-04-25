@@ -1,6 +1,49 @@
 <?php include('../config/constants.php'); ?>
 <?php include('../login_access.php') ?>
 
+
+<?php
+$id = $_GET['id'];
+$query="SELECT * FROM tbl_labtec INNER JOIN tbl_sysusers ON tbl_labtec.userid = tbl_sysusers.userid WHERE labtec_id = $id";
+$result=mysqli_query($conn,$query);
+$row = mysqli_fetch_assoc($result);
+
+?>
+
+<?php
+   
+
+   if(isset($_GET['disable'])){
+    $userid = $_GET['disable'];
+    $query_del = "UPDATE tbl_sysusers
+    SET status = 0
+    WHERE userid = $userid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-labtec-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+
+   if(isset($_GET['enable'])){
+    $userid = $_GET['enable'];
+    $query_del = "UPDATE tbl_sysusers
+    SET status = 1
+    WHERE userid = $userid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-labtec-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+   //$result=mysqli_query($conn, $sql);
+
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

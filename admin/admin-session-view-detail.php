@@ -1,4 +1,20 @@
 
+<?php include('../config/constants.php'); ?>
+<?php
+$id = $_GET['id'];
+
+//$query = "SELECT * FROM tbl_docsession  WHERE session_id= $id";
+$query="SELECT * FROM tbl_docsession 
+INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+INNER JOIN tbl_assistant ON tbl_docsession.assistant_id = tbl_assistant.assistant_id
+WHERE session_id = $id";
+
+
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+//print_r($row);die();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +44,7 @@
         </div>
         <div class="main_content">
             <div class="info">
-            <div class="detail-txt-session">Detail of Session ID <div class="id-txt-session">xxx </div>
+            <div class="detail-txt-session">Detail of Session ID <div class="id-txt-session"><?php echo $row['doctor_id']; ?></div>
         </div>
               <div class="square-detail-session">
 
@@ -37,25 +53,34 @@
             <table class="detail-table-session-deatil">
                 <tr>
                     <td>Doctor ID :</td>
-                    <td></td>
+                    <td><?php echo $row['doctor_id']; ?></td>
                 </tr>
                 
                 <tr>
                     <td>Doctor Name :</td>
-                    <td></td>
+                    <td><?php echo $row['doc_name']; ?></td>
+                </tr>
+                <tr>
+                    <td>Doctor ID :</td>
+                    <td><?php echo $row['doctor_id']; ?></td>
+                </tr>
+            
+                <tr>
+                    <td>Assitant Name :</td>
+                    <td><?php echo $row['name']; ?></td>
                 </tr>
                 
                 <tr>
                     <td>Date :</td>
-                    <td></td>
+                    <td><?php echo $row['date']; ?></td>
                 </tr>
                 <tr>
                     <td>Room :</td>
-                    <td></td>
+                    <td><?php echo $row['room_no']; ?></td>
                 </tr>
                 <tr>
                     <td>Time Slot :</td>
-                    <td></td>
+                    <td><?php echo $row['time_slot']; ?></td>
                 </tr>
                 
                 

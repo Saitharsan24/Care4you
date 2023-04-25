@@ -5,7 +5,7 @@
 <?php
 if(isset($_POST['reg'])){
     
-    
+    //$labtec_id=$POST['labtec_id'];
     $fullname=$_POST['name'];
     $username= $_POST['username'];
     $password=$_POST['password'];
@@ -26,8 +26,8 @@ $res1=mysqli_query($conn,$sql);
 
 $last_id=$conn->insert_id;
 
-$sql = "INSERT INTO tbl_labtec (fullname,userid,contact_number,nic,profile_picture)
-VALUES ('$fullname', '$last_id','$phone_number','$nic','$profile_picture')";
+$sql = "INSERT INTO tbl_labtec (fullname,userid,contact_number,nic)
+VALUES ('$fullname', '$last_id','$phone_number','$nic')";
 
 
     if (mysqli_query($conn, $sql)) {

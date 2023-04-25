@@ -344,7 +344,7 @@ body{
   }
   
   .btn-create-session{
-    position: absolute;
+    position:relative;
     left: 570px;
     bottom:-30px;
     background-color: #0D5C75;
@@ -563,4 +563,7 @@ table td {
   left: 22px;
 }
 
+.hidden {
+  display: none;
+}
   /* admin-session-view-details.php end here */

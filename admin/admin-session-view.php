@@ -3,10 +3,9 @@
 
 
 <?php
-$query="SELECT * FROM tbl_assistant ";
+$query="SELECT * FROM tbl_docsession ";
 $result=mysqli_query($conn,$query);
-//print_r($result);die();
-$no_row=mysqli_num_rows($result);
+//$no_row=mysqli_num_rows($result);
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +40,7 @@ $no_row=mysqli_num_rows($result);
         <div class="main_content">
             <div class="info">
               <div class="asst-list"></div>
-              <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">To Create Session</button>
+              <button class="to-create-session-page" onclick="location.href='admin-session-create.php'">Create Session</button>
               
               <span>
                 <table class="tbl-main-session">
@@ -62,22 +61,21 @@ $no_row=mysqli_num_rows($result);
                             <td><button class="btn-view-session-detail" ><span>Search</span></button></td>
                         </tr>
                         </form>
+                        <?php 
+                        if($result){
+                            while($row=mysqli_fetch_array($result)){
+                         
+                      ?>
                         <tr>
-                            <td>
-                                <?php 
-                                if($result){
-                                    while($row=mysqli_fetch_array($result)){
-                                        
-                                    }
-                                }
-
-
-?>
-                            </td>
-                            <td>Ms. Weerakoon</td>
-                            <td></td>                           
-                            <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php'"><span>Session Details</span></button></td>
+                            <td><?php echo $row['session_id'];  ?> </td>
+                            <td><?php echo $row['room_no'];  ?></td>
+                            <td><?php echo $row['status'];?></td>                           
+                            <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php?id=<?php echo $row['session_id']; ?>'"><span>Session Details</span></button></td>
                         </tr>
+                        
+                          <?php     
+                    }
+                        }?>
                         
                     </tbody>
                 </table>

@@ -3,8 +3,7 @@
 
 <?php
 if(isset($_POST['reg'])){
-    
-    
+
     $name=$_POST['name'];
     $username= $_POST['username'];
     $password=$_POST['password'];
@@ -14,9 +13,10 @@ if(isset($_POST['reg'])){
     $charges=$_POST['charges'];
     $slmc=$_POST['slmc'];
     $specialize=$_POST['specialize'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO tbl_sysusers (actortype, username, password,email)
-    VALUES ('doctor', '$username', '$password','$email')";
+    VALUES ('doctor', '$username', '$hashed_password','$email')";
 
     $res1 = mysqli_query($conn, $sql);
 
@@ -49,19 +49,20 @@ if(isset($_POST['reg'])){
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="admin-patient-view.php">View Patient</a></li>
-                <li><a href="#">View Orders</a></li>
-                <li><a href="#">View Appointments</a></li>
+                <li><a href="admin-patient-view.php">Patients</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="admin-system-users.php"><div class="highlighttext">System Users</a></li>
-                <li><a href="admin_viewprofile.php">View Profile</a></li>
+                <li><a href="admin-system-users.php"><div class="highlighttext">System Users</div></a></li>
+                <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

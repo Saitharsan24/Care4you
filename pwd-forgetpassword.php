@@ -60,7 +60,7 @@
 
                 // Insert the OTP data into the tbl_password_reset table
                 $sql = "INSERT INTO tbl_password_reset (email, otp, created_at) VALUES ('$email','$otp','$current_timestamp')";
-                $res = mysqli_query($conn, $sql) or die(mysqli_error());
+                $res = mysqli_query($conn, $sql) or die($res);
                
                 // Send the OTP code to the user's email address using PHPMailer
 
@@ -73,10 +73,10 @@
                     $mail->Host       = 'smtp.gmail.com';                //Set the SMTP server to send through
                     $mail->SMTPAuth   = true;                            //Enable SMTP authentication
                     $mail->Username   = 'care4u.242000@gmail.com';       //SMTP username
-                    $mail->Password   = 'wiqcpxxdswcbfchw';              //SMTP password
-                    $mail->SMTPSecure = 'ssl';                           //Enable implicit TLS encryption
-                    $mail->Port       = 465;                             //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-                
+                    $mail->Password   = 'zycbeglgbinzqlgh';                  //SMTP password
+                    $mail->SMTPSecure = 'tls';                           //Enable implicit TLS encryption
+                    $mail->Port       = 587;                             //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
                     //Recipients
                     $mail->setFrom('care4u.242000@gmail.com', 'Admin');
                     $mail->addAddress($email, '');                       //Add a recipient 

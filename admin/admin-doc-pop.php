@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" href="../css/pha-del-pop.css">
-
 </head>
 <body>
-    
-
-</html>
+  
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" id="del" action="" method="POST">
@@ -35,3 +32,4 @@ window.onclick = function(event) {
 }
 </script>
 </body>
+</html>

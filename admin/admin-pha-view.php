@@ -18,35 +18,37 @@ $no_row = mysqli_num_rows($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
     <script src="../script/filter.js"></script>
 </head>
 
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="admin-patient-view.php">View Patient</a></li>
-                <li><a href="#">View Orders</a></li>
-                <li><a href="#">View Appointments</a></li>
+                <li><a href="admin-patient-view.php">Patients</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="admin-system-users.php">
-                        <div class="highlighttext">System Users
-                    </a></li>
-                <li><a href="admin_viewprofile.php">View Profile</a></li>
+                <li><a href="admin-system-users.php"><div class="highlighttext">System Users</div></a></li>
+                <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
 
             <div class="main_content">
                 <div class="info">
-                    <div class="pha-list"></div>
-                    <button class="to-reg-pha-page" onclick="location.href='admin-pha-reg.php'">To Register</button>
-                    <button class="back-pha-view" onclick="location.href='admin-system-users.php'">Back</button>
-                    <span>
+
+                    <button class="btn-addnew" style="left: 1265px; width:170px;" onclick="location.href='admin-pha-reg.php'"><span>add new pharmacist</span></button>
+                    <div class="back" onclick="location.href='admin-system-users.php'">
+                        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+                    </div>
+
                         <table class="tbl-main-pha" id="tbl-main-pha">
                             <thead>
                                 <tr>
@@ -62,7 +64,7 @@ $no_row = mysqli_num_rows($result);
                                     <th><input type="text" class="search-pha" name="pha-id" id="phar_id" autofocus="true" onchange="filterPharId()"></td>
                                     <th><input type="text" class="search-pha" name="pha-name" id="phar_name" autofocus="true" onchange="filterPharName()"></td>
                                     <th></th>
-                                    <th><button class="btn-view-pha-detail"><span>Search</span></button></td>
+                                    <th><button class="btn-search"><span>Search&emsp;</span></button></td>
                                 </tr>
 
 
@@ -75,9 +77,9 @@ $no_row = mysqli_num_rows($result);
                                             <td><?php echo $row['fullname']; ?></td>
                                             <th><?php
                                                 if ($row['status'] == 1) {
-                                                    echo '<span class="active-status"> Active </span>';
+                                                    echo '<button class="active-status"> Active </button>';
                                                 } else {
-                                                    echo '<span class="passive-status"> Passive </span>';
+                                                    echo '<button class="passive-status"> Disabled </button>';
                                                 }
                                                 ?></th>
                                             <td><button class="btn-view-pha-detail" onclick='location.href="admin-pha-view-detail.php?id=<?php echo $row["pharmacist_id"]; ?>"'><span>Pharmacist Details</span></button></td>

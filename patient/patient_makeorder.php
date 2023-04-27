@@ -1,4 +1,17 @@
+
 <?php include('../config/constants.php')?>
+<?php 
+        // displaying First name and nic from database
+        $user_id = $_SESSION['user_id'];
+
+        $query="SELECT * FROM tbl_patient where userid = '$user_id'";
+        $result = mysqli_query($conn, $query);
+    
+        $row = $result -> fetch_assoc();
+        $p_name = $row['first_name'];
+        $p_nic = $row['nic'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,23 +46,25 @@
       </div>
       <div class="home-right">
         <div class="makeorder-heading"><h2>Make Pharmacy Order</h2></div>
+
         <?php 
-        if(isset($_SESSION['upload']))
-          {
-          echo $_SESSION['upload'];
-          unset($_SESSION['upload']);
-          }
-          if(isset($_SESSION['add-order']))
-          {
-              echo $_SESSION['add-order'];
-              unset($_SESSION['add-order']);
-          }
+            if(isset($_SESSION['upload']))
+              {
+                echo $_SESSION['upload'];
+                unset($_SESSION['upload']);
+              }
+              if(isset($_SESSION['add-order']))
+              {
+                echo $_SESSION['add-order'];
+                unset($_SESSION['add-order']);
+              }
         ?>
+
         <form action="" method="POST" enctype="multipart/form-data">
         <div class="form-content make-order">
             <div class="form-itm">
                 <p>Name :</p>
-                <input type="text" name="pname" required/>
+                <input type="text" name="pname" value="<?php echo $p_name;?>" readonly/>
             </div>
             <div class="form-itm">
                 <p>Contact No :</p>
@@ -57,7 +72,7 @@
             </div>
             <div class="form-itm">
                 <p>NIC No :</p>
-                <input type="text" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" required/>
+                <input type="text" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" value="<?php echo $p_nic;?>" readonly/>
             </div>
             <div class="form-itm other-order">
                 <p>Address :</p>
@@ -91,7 +106,6 @@
     //Check whether the Place Order button is clicked
     if(isset($_POST['order']))
     {
-        //echo "Button Clicked";
 
         //Get the order placed date
         date_default_timezone_set('Asia/Kolkata');
@@ -101,11 +115,12 @@
         //echo "TIME - ".$time;
 
         //Get the order details from the form
-        $pname = $_POST['pname'];
+        $pname = $p_name; 
         $paddress = $_POST['paddress'];
-        $nic = $_POST['nic'];
+        $nic = $p_nic;
         $contactnumber = $_POST['contactnumber'];
         $remarks = $_POST['remarks'];
+        
 
         //Check whether the prescription is uploaded or not
             //print_r($_FILES['prescription']);
@@ -144,7 +159,7 @@
                     {
                         $_SESSION['upload'] = "Failed to upload Prescription! Please Retry";
                         //Redirect to place order page
-                        header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
+                        // header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
                         //Stop the process
                         die();
                     }
@@ -160,19 +175,21 @@
                     
 
         //SQL Query to insert Order to database
-        $sql = "INSERT INTO tbl_neworder SET
-                pname = '$pname',
-                paddress = '$paddress',
-                nic = '$nic',
-                contactnumber = '$contactnumber',
-                prescription_name = '$prescription_name',
-                remarks = '$remarks',
-                orderdate = '$date',
-                ordertime = '$time'
-                ";
+        $sql = "INSERT INTO tbl_neworder (pname,paddress,nic,contactnumber,prescription_name,remarks,orderdate,ordertime,userid) 
+                VALUES ('$pname','$paddress','$nic','$contactnumber','$prescription_name','$remarks','$date','$time','$user_id')";
+                // pname = '$pname',
+                // paddress = '$pname',
+                // nic = '$nic',
+                // contactnumber = '$contactnumber',
+                // prescription_name = '$prescription_name',
+                // remarks = '$remarks',
+                // orderdate = '$date',
+                // ordertime = '$time'
+                // ";
 
         //Execute the query and Save order details in database
         $res = mysqli_query($conn ,$sql);
+
 
         //Check the execution of query
         if($res == TRUE)
@@ -180,14 +197,14 @@
             //Query executed and order details saved in database
             $_SESSION['add-order'] = "<div class='success'>Order placed successfully</div>";
             //Redirect to home page
-            header('location:'.SITEURL.'/patient/patient_makeorder.php'); 
+            header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
         }
         else
         {
             //Failed to execute the query
             $_SESSION['add-order'] = "<div class='error'>Failed to place order</div>";
             //Redirect to placeorder page
-            header('location:'.SITEURL.'/patient/patient_makeorder.php'); 
+            header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
         }
     } 
 

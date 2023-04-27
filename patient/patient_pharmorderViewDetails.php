@@ -1,5 +1,33 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+<?php
+    $order_id = $_GET['id'];
+    $order_status = $_GET['status'];
+
+    if($order_status == 0){
+      $sql = "SELECT * FROM tbl_neworder WHERE order_id = '$order_id'";
+    } else {
+      $sql = "SELECT * FROM tbl_respondedorders WHERE order_id = '$order_id'";
+    }
+
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $pname = $row['pname'];
+    $paddress = $row['paddress'];
+    $contact = $row['contactnumber'];
+    $order_date = $row['orderdate'];
+    $nic = $row['nic'];
+    $prescription = $row['prescription_name'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,6 +36,8 @@
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
+
+  
   <body>
     <div class="main-div">
       <div class="home-left">
@@ -27,20 +57,21 @@
           <a href="./patient_medicalrecords.php">View doctors</a>
           <a href="#">View profile</a>
         </div>
-        <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
         <div class="view-order-heading"><h2>My Order Details</h2></div>
         <div class="view-order-details">
-          <div class="view-orderdetails-row"><p>Order ID :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Name :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Address :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Contact No :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Order date :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Order status :</p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>Prescription : </p><div><p></p></div></div>
-          <div class="view-orderdetails-row"><p>NIC No :</p><div><p></p></div></div>
+          
+
+          <div class="view-orderdetails-row">Order ID :<?php echo ' '.$order_id; ?></div>
+          <div class="view-orderdetails-row">Name :</div>
+          <div class="view-orderdetails-row">Address :</div>
+          <div class="view-orderdetails-row">Contact No :</div>
+          <div class="view-orderdetails-row">Order date :</div>
+          <div class="view-orderdetails-row">Order status :</div>
+          <div class="view-orderdetails-row">Prescription :</div>
+          <div class="view-orderdetails-row">NIC No :</div>
         
           <div class="view-order-btn">
             <div class="view-order-btn02"><a href="./patient_pharmorderViewReview.php"><button>View review</button></a></div>

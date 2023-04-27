@@ -17,7 +17,7 @@ if (isset($_POST['reg'])) {
 VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";*/
 
     $sql = "INSERT INTO tbl_sysusers (actortype, username,password,email)
-VALUES ('Assistant', '$username', '$password','$email')";
+VALUES ('assistant', '$username', '$password','$email')";
 
     $res1 = mysqli_query($conn, $sql);
 
@@ -28,9 +28,7 @@ VALUES ('Assistant', '$username', '$password','$email')";
     $sql = "INSERT INTO tbl_assistant (name,userid,phoneno,nic)
 VALUES ('$name', '$last_id','$phone_number','$nic')";
 
-$res2 = mysqli_query($conn, $sql);
 
-//print_r($res2);die();
     if (mysqli_query($conn, $sql)) {
 
         header("Location: /Care4you/admin/admin-asst-view.php");

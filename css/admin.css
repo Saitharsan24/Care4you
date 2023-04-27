@@ -688,7 +688,7 @@ table td{
 .btn-del-doc-enable{ 
   width: 200px;
   border-radius: 25px;
-  background-color: #38E54D;
+  background-color: #6ECB63;
   color: black;
   font-size: 15px;
   font-weight: 600;
@@ -703,7 +703,7 @@ table td{
 .btn-del-doc-disable{
   width: 200px;
   border-radius: 25px;
-  background-color: #FF0303;
+  background-color: #F45050;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -719,83 +719,118 @@ table td{
 
 /*  admin-doc-reg.php page start here*/
 
-.head-doc{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-  display: inline;
-
-}
-
-.square-reg-doc{
-  border: 2px solid #0D5C75;
-  width: 844px;
-  height: 780px;
-  background: #ffffff;
-  position: relative;
-  top: 18px;
-  display: inline-block;
-  border-radius: 3%;
-  margin-top: 10px;
-}
-
-.form-doc{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-.form-control-doc{
-  width: 350px;
-  padding: 2px;
+.reg-heading{
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color:#0D5C75;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 800;
+  color: #fff;
   border-radius: 10px;
+}
+
+.reg-container {
+  width: 90%;
+  margin-top: -27px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 20px;
+  background-color:#fff;
+  border: 2px solid #0D5C75;
+  border-radius: 10px;
+  /* animation: slideIn .9s ease forwards;
+  position: relative;
+  transition: all .9s ease; */
+}
+
+.reg-container-col {
+  display:inline-block;
+  width: 30%;
+  margin:auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  vertical-align: top;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  /* animation: slideIn .9s ease forwards;
+  position: relative;
+  transition: all .9s ease; */
+}
+
+.mid{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.labeltag{
+  text-align: left;
   font-size: 15px;
+  font-weight: 600;
+  color: #0D5C75;
 }
 
-.btn-reg-doc{
-  position: relative;
-
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
+.inputtab{
+  padding: 5px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  margin:0px 0px 45px 0px;
-}
-
-.doc-reg-btn-div{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.doc-reg-divider{
-  width: 300px;
-  height: 30px;
-}
-
-
-.btn-view-doc{
+  font-size: 14px;
   position: relative;
-  background-color: #0D5C75;
-  height: 48px;
+  width: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+option{
+  font-size: 10px;
+}
+
+.reg-foot{
+  width: 12%;
+  position: absolute;
+  top: 92%;
+  left: 52%;
   padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
+  background-color:#0D5C75;
+  text-align: center;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 10px;
   cursor: pointer;
-  margin:0px 0px 45px 0px;
+}
+
+.reg-foot span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.reg-foot span:after {
+  content: '✔';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.7s;
+}
+
+.reg-foot:hover{
+  background-color: #008000;
+}
+
+.reg-foot:hover span {
+  padding-right: 15px;
+}
+
+.reg-foot:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 /*  admin-doc-reg.php page end here*/
@@ -952,24 +987,24 @@ table td{
 }
 
 .active-status{
-  border: 1px solid #38E54D;
+  border: 1px solid #6ECB63;
   border-radius: 25px;
   padding: 5px;
   width: 100px;
   font-size: 15px;
   font-weight: 600;
-  background-color:  #38E54D;
+  background-color:  #6ECB63;
   color: #000000;
 }
 
 .passive-status{
-  border: 1px solid #FF0303;
+  border: 1px solid #F45050;
   border-radius: 25px;
   padding: 5px;
   width: 100px;
   font-size: 15px;
   font-weight: 600;
-  background-color: #FF0303;
+  background-color: #F45050;
   color: #ffffff;
 }
 

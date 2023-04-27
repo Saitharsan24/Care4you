@@ -119,6 +119,7 @@
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
+                    $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
                     header('location:'.SITEURL.'doctor/doctorHome.php');
@@ -130,6 +131,7 @@
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
+                    $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
                     header('location:'.SITEURL.'pharmacy/pharmacy_home.php');
@@ -141,6 +143,7 @@
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
+                    $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
                     header('location:'.SITEURL.'laboratory/lab_home.php');
@@ -152,6 +155,7 @@
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
+                    $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
                     header('location:'.SITEURL.'assistant/asst_home.php');
@@ -163,6 +167,7 @@
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
+                    $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
                     header('location:'.SITEURL.'admin/admin_home.php');
@@ -174,6 +179,7 @@
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
+                    $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
                     header('location:'.SITEURL.'patient/patient_home.php');

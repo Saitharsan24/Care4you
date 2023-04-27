@@ -579,6 +579,8 @@ input::-webkit-file-upload-button {
     margin-top: 35px;
 }
 
+
+
 /* VIEW DOC APPOINTMENT style */
 
 .view-apt-heading {
@@ -891,7 +893,7 @@ input::-webkit-file-upload-button {
     background: white;
     border-radius: 15px;
     height: 45px;
-    width: 800px;
+    width: 670px;
     margin: 50px 0px 0px 50px;
     color: #093e4e;
     font-weight: bold;
@@ -902,16 +904,17 @@ input::-webkit-file-upload-button {
     margin: 0px 0px 0px 30px;
 }
 
+
 .divide-order-01 {
     width: 80px;
 }
 
 .divide-order-02 {
-    width: 110px;
+    width: 100px;
 }
 
 .divide-order-03 {
-    width: 40px;
+    width: 100px;
 }
 
 .search-row1,
@@ -921,7 +924,7 @@ input::-webkit-file-upload-button {
     height: 40px;
     padding: 10px;
     border-radius: 15px;
-    border: 1px solid;
+    border: 0px solid;
     background: white;
     font-size: 16px;
     /* text-align: center; */
@@ -931,10 +934,9 @@ input::-webkit-file-upload-button {
     margin-bottom: 5px;
     height:50px;
     width:1000px;
-    margin: 0px 0px 0px 52px;
+    margin: 0px 0px 12px 52px;
     border-radius: 15px;
     margin-top: 10px;
-    margin-bottom: 20px;
 }
 
 .search-row1 {
@@ -942,28 +944,24 @@ input::-webkit-file-upload-button {
     width: 120px;
 }
 
-.search-row2 {
-    margin-left: 35px;
-    width: 230px;
-}
-
 .search-row3 {
-    margin-left: 25px;
+    margin-left: 81px;
     width: 200px;
 }
 
 .search-row4 {
-    margin-left: 25px;
-    width: 150px;
+    margin-left: 60px;
+    width: 200px;
 }
 
-.order-tbl-list {
-    margin-bottom: 5px;
+.order-tbl-list table {
     background: white;
     height:50px;
-    width:1000px;
-    margin: 0px 0px 0px 50px;
+    width:880px;
+    margin: 10px 0px 5px 50px;
     border-radius: 15px;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 .order-tbl-list .search-row1{
@@ -1038,8 +1036,53 @@ input::-webkit-file-upload-button {
 }
 
 .order-btn{
-    margin-left: 20px
+    margin: 20px 0px 0px 20px;
 }
+
+.order-btn-view{
+    margin: 0px 0px 0px 30px;
+}
+
+.order-data01{
+    width: 130px;
+    text-align: center;
+}
+
+.order-data03{
+    width: 350px;
+    text-align: center;
+    border-left: 160px;
+}
+
+.order-data04{
+    width: 172px;
+    text-align: center;
+}
+
+.order-st01{
+    color:  rgb(135, 135, 15);
+    border-radius: 25px;
+    width: 175px;
+}
+
+.order-st02{
+    color: #c95000;
+    border-radius: 25px;
+    width: 175px;
+}
+
+.order-st03{
+    color: #0daa12;;
+    border-radius: 25px;
+    width: 175px;
+}
+
+.order-st04{
+    color: #b51111;
+    border-radius: 25px;
+    width: 175px;
+}
+
 
 
 /* Patient_pahrmorderViewDetails.php STYLES */
@@ -1152,6 +1195,10 @@ input::-webkit-file-upload-button {
     padding: 25px 0px 0px 30px;
 }
 
+.order-only-details{
+    margin-right: 200px;
+}
+
 .view-orderreview-row{
     display: flex;
     flex-direction: row;
@@ -1161,6 +1208,7 @@ input::-webkit-file-upload-button {
     font-size: 16px;
     font-weight: 550;
     color: #093e4e;
+    width: 200px;
 }
 
 .view-orderreview-row div {
@@ -1241,3 +1289,5 @@ input::-webkit-file-upload-button {
     transition: .3s;
     font-weight: 600;
   }
+
+

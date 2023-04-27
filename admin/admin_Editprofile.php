@@ -75,7 +75,7 @@
                         $extension = pathinfo($ppname, PATHINFO_EXTENSION);
 
                         // Generate a unique filename
-                        $new_ppname = 'User_' . $adminid . '_Updated' . '.' . $extension;
+                        $new_ppname = 'User_' . $Admin_adminid . '_Updated' . '.' . $extension;
 
                         // Move the file to a permanent location
                         $destination= "../images/user-profilepic/admin/".$new_ppname;
@@ -95,7 +95,7 @@
                         else
                         {
                             // Store the filename in the database
-                            $sqlpp = "UPDATE tbl_admin SET profile_picture='$new_ppname' WHERE adminid ='$adminid'";
+                            $sqlpp = "UPDATE tbl_admin SET profile_picture='$new_ppname' WHERE adminid ='$Admin_adminid'";
 
                             //Execute the query and Save profile picture name in database
                             $respp = mysqli_query($conn ,$sqlpp);

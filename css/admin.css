@@ -719,7 +719,119 @@ table td{
 
 /*  admin-doc-reg.php page start here*/
 
+.reg-heading{
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color:#0D5C75;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 800;
+  color: #fff;
+  border-radius: 10px;
+}
 
+.reg-container {
+  width: 90%;
+  margin-top: -27px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 20px;
+  background-color:#fff;
+  border: 2px solid #0D5C75;
+  border-radius: 10px;
+  /* animation: slideIn .9s ease forwards;
+  position: relative;
+  transition: all .9s ease; */
+}
+
+.reg-container-col {
+  display:inline-block;
+  width: 30%;
+  margin:auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  vertical-align: top;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  /* animation: slideIn .9s ease forwards;
+  position: relative;
+  transition: all .9s ease; */
+}
+
+.mid{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.labeltag{
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0D5C75;
+}
+
+.inputtab{
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+option{
+  font-size: 10px;
+}
+
+.reg-foot{
+  width: 12%;
+  position: absolute;
+  top: 92%;
+  left: 52%;
+  padding: 10px;
+  background-color:#0D5C75;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.reg-foot span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.reg-foot span:after {
+  content: '✔';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.7s;
+}
+
+.reg-foot:hover{
+  background-color: #008000;
+}
+
+.reg-foot:hover span {
+  padding-right: 15px;
+}
+
+.reg-foot:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 /*  admin-doc-reg.php page end here*/
 

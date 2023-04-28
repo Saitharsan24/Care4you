@@ -8,13 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/asst.css">
     <title>Assistant</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('asst_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/assist-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/assistant/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="asst_home.php"><div class="highlighttext">Home</div></a></li>
                 <li><a href="asst_session.php">Sessions</a></li>
@@ -39,42 +41,10 @@
             <div class="welcometext">Welcome <div class="usernametext">
                 <?php echo $_SESSION['user']; ?>
             </div>
-        </div>
-            <span>
-            <table class="center">
-                <tr>
-                    <td style="padding-left: 70px;">
-                        <p id="rcorners">
-                            Number of Sessions
-                            </br></br></br>
-                            <span style="color:#0D5C75; font-size: 70px; font-weight: 700;">
-                            12
-                            </span>
-                        </p>
-                    </td>
-                    <td>
-                        <p id="rcorners">
-                            Number of Appointmets
-                            </br></br></br>
-                            <span style="color:#0D5C75; font-size: 70px; font-weight: 700;">
-                            23
-                            </span>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan=2 style="padding-left: 335px; padding-top: 50px;">
-                        <p id="rcorners">
-                        Date
-                            </br></br></br>
-                            <span style="color:#0D5C75; font-size: 50px; font-weight: 700;">
-                            10/01/2023
-                            </span>
-                        </p>
-                    </td>
-                </tr>
-            </table>
-            </span>
+            </div>
+
+            
+
             </div>
         </div>
     </div>

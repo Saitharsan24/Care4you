@@ -32,11 +32,30 @@
       </div>
       <div class="home-right">
         <div class="apt-heading"><h2>Channel a Doctor</h2></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function(){
+            $("#doc_name").onchange(function(){
+              var searchText = $(this).val();
+              $.ajax({
+                url: './search_Ajax/ajax.php',
+                type: 'post',
+                data: {search: searchText},
+                success: function(response){
+                              console.log(response);
+                  $("#details").html(response);
+                }
+              });
+            });
+          });
+        </script>
+
         <div class="search-apt">  
           <form action="#">
             <div class="search-row">
               <p class="form-text">Doctor Name:</p>
-              <select name="gender" id="gender">
+              <select id="doc_name" name="gender" id="gender">
                 <option value="Male">Saitharsan</option>
               </select>
             </div>

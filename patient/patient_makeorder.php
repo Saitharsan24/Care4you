@@ -91,6 +91,7 @@
     //Check whether the Place Order button is clicked
     if(isset($_POST['order']))
     {
+      
         //echo "Button Clicked";
 
         //Get the order placed date
@@ -113,6 +114,7 @@
         
             if(isset($_FILES['prescription']['name']))
             {
+              
                 //Upload the prescription
                 //To upload the prescription we need the file name, source path and destination path
 
@@ -128,6 +130,8 @@
                     $ext = end(explode('.',$prescription_name));
 
                     //Rename the prescription
+
+                    
                     $prescription_name = "Order_".date('d_m_y_h_i_s_A').".".$ext;
 
                     //Get the source path

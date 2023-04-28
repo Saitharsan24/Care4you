@@ -18,6 +18,7 @@ $no_row=mysqli_num_rows($result);
     <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/filter.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -36,13 +37,13 @@ $no_row=mysqli_num_rows($result);
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
 
-            <div class="main_content">
+            <div class="main_content" >
             <div class="info">
               <div class="asst-list"></div>
               <button class="to-reg-asst-page" onclick="location.href='admin-asst-reg.php'">To Register</button>
               <button class="back-asst-view" onclick="location.href='admin-system-users.php'">Back</button>
               <span>
-                <table class="tbl-main-asst">
+                <table class="tbl-main-asst" id="tbl-main-asst">
                     <thead>
                         <tr>
                             <td>Assistant ID</td>
@@ -53,10 +54,10 @@ $no_row=mysqli_num_rows($result);
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="search-asst" name="asst-id"  autofocus="true"/></td>
-                            <td><input type="text" class="search-asst" name="asst-name"  autofocus="true"/></td>
-                            <td><input type="text" class="search-asst" name="asst-status"  autofocus="true"/></td>
-                            <td><button class="btn-view-asst-detail" ><span>Search</span></button></td>
+                            <td><input type="text" class="search-asst" name="asst-id" id="asst-id" autofocus="true" onchange="filterAsstID()"/></td>
+                            <td><input type="text" class="search-asst" name="asst-name" id="asst-name"  autofocus="true" onchange="filterAsstName()"/></td>
+                            <td><input type="text" class="search-asst" name="asst-status" id="asst-status"  autofocus="true" onchange="filterAsstStatus()"/></td>
+                            <td><button class="btn-search" ><span>Search</span></button></td>
                         </tr>
                         <?php
                         if($result){

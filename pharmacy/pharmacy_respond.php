@@ -80,7 +80,7 @@
                             //Check whether the prescription name is available or not
                             if($prescription_name!= "")
                             {
-                                //Prescription available
+                                //Prescription availabl-3-+
                                 ?>
                                 <?php
                                     //Get the extension of the prescription
@@ -91,11 +91,18 @@
                                     if($ext=='gif'||$ext=='png'||$ext=='jpg'||$ext=='jpeg'||$ext=='tiff')
                                     {
                                         ?>
-                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
+                                        <a title="Open in new window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
                                         <img src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" width="400px">
                                         </a>
                                         <?php
                                     }
+                                    else if($ext=='pdf')
+                                    {?>
+                                        <iframe src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" frameborder="0" height="100%" width="100%" onclick="location.href='<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>'"></iframe>
+                                        <a title="Open in new window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
+                                        <?php echo "Order".$order_id."-Prescription.".$ext; ?>
+                                        </a>
+                                    <?php }
                                     else
                                     {
                                         ?>
@@ -113,6 +120,7 @@
                         ?>
                     </td>
                 </tr>
+                
                 <?php
                 if($remarks != "")
                     {

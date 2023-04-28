@@ -1,3 +1,21 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+
+
+<?php
+
+    $userid = $_SESSION['user_id'];
+
+    $query = "SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_neworder WHERE userid='$userid'
+                  UNION
+              SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_respondedorders WHERE userid='$userid'
+                  ORDER BY order_id;";
+
+    $result = mysqli_query($conn, $query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,8 +65,6 @@
       <div class="table-order-details">
         <div class="order-tbl-heading">
           <div>Order ID</div>
-          <div class="divide-order divide-order-01"></div>
-          <div>Name</div>
           <div class="divide-order divide-order-02"></div>
           <div>Phone No</div>
           <div class="divide-order divide-order-03"></div>
@@ -56,25 +72,58 @@
         </div>
         <div class="order-tbl-search">
           <table>
-            <tr><input type="text" class="search-row1" autofocus="true" /></tr>
-            <tr><input type="text" class="search-row2" autofocus="true" /></tr>
-            <tr><input type="text" class="search-row3" autofocus="true" /></tr>
-            <tr><input type="text" class="search-row4" autofocus="true" /></tr>
-          </table>
-        </div>
-
-        <div class="order-tbl-list">
-          <table>
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><a href="./patient_pharmorderViewDetails.php"><button class="btn-view-pha-detail order-btn"><span>View Details</span></button></a></td>
-              
+              <td><input type="text" class="search-row1" autofocus="true" /></td>
+              <td><input type="text" class="search-row3" autofocus="true" /></td>
+              <td><input type="text" class="search-row4" autofocus="true" /></td>
             </tr>
           </table>
         </div>
+
+       
+
+         
+            <?php
+            if ($result) {
+              while ($row = mysqli_fetch_array($result)) {
+            ?>
+
+            <div class="order-tbl-list">
+            <table>
+              <tr>
+                  <td class="order-data01"><?php echo $row['order_id'];  ?></td>
+                  <td class="order-data03"><?php echo $row['contactnumber'];  ?></td>
+                  <?php
+                      if ($row['order_status'] == 0) { ?>
+                        <td class="order-data04 order-st01"> <?php  echo 'Response pending';?></td>
+                  <?php
+                      } else if($row['order_status'] == 1) { ?>
+                        <td class="order-data04 order-st02"> <?php  echo 'Response pending';?></td>
+                  <?php
+                      } else if($row['order_status'] == 2) { ?>
+                        <td class="order-data04 order-st03"> <?php  echo 'Complete'; ?></td>
+                  <?php
+                      } else if($row['order_status'] == 3) { ?>
+                        <td class="order-data04 order-st04"> <?php  echo 'Cancelled'; ?></td>
+                  <?php
+                      }
+                      ?>
+                  
+                  <td><a href="./patient_pharmorderViewDetails.php?id=<?php echo $row['order_id'];?>&status=<?php echo $row['order_status'];?>"><button class="btn-view-pha-detail order-btn-view"><span>View Details</span></button></a></td>
+              </tr>
+            </table>
+            </div>
+
+            <?php
+              }
+            } else {
+              ?>
+            <h3>No orders yet</h3>
+
+            
+            <?php
+              }
+            ?>
       </div>
     </div>
   </div>

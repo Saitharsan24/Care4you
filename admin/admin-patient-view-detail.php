@@ -38,6 +38,20 @@
                     <span>
                     <div class="main_content"> 
             <div class="info">
+
+
+            <?php
+                  $id=$_GET['id'];    //Get thr id from patient view page
+                  
+                  $query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.id = tbl_sysusers.userid WHERE id = $id";
+                  $result=mysqli_query($conn,$query);
+                  $row = mysqli_fetch_assoc($result);
+                // $query="SELECT * FROM tbl_patient  WHERE id = $id";
+                // $result=mysqli_query($conn,$query);
+                // $row = mysqli_fetch_assoc($result);
+
+
+            ?>
            
             <span>
                 <div class="square-patient-view">
@@ -46,39 +60,39 @@
                 <table class="tbl-square-view-patient">
                             <tr>
                                 <td class="type1">Patient ID :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['id']; ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Patient Name :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['first_name'] ?><?php echo " ";echo $row['last_name']; ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">User Name :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['username'] ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Gender :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['gender'] ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Address :</td>
-                                <td class="type2-address"></td>
+                                <td class="type2-address"><?php echo $row['address'] ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Contact Number :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['contact'] ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Email :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['email'] ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Date of birth :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['dob'] ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">NIC :</td>
-                                <td class="type2"></td>
+                                <td class="type2"><?php echo $row['nic'] ?></td>
                             </tr>
                         </table>
                         <td><button class="btn-edit-patient-detail" onclick='location.href="admin-patient-edit-detail.php"'><span>Edit Patient Details</span></button></td>

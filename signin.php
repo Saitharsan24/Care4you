@@ -100,7 +100,8 @@
         $res = mysqli_query($conn,$sql);
 
         //Step 04 - Count rows to check the user exists or not
-        $count = mysqli_num_rows($res); 
+        $count = mysqli_num_rows($res);
+        // print_r($count);die(); 
 
         if($count == 1)
         {
@@ -108,6 +109,7 @@
             $row = mysqli_fetch_assoc($res);
             if(password_verify($password,$row['password']) && $row['status']==1)
             {
+                
 
                 $userid = $row['userid'];
                 $usertype = $row['actortype'];

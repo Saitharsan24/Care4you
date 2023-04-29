@@ -719,6 +719,7 @@ table td{
 
 /*  admin-doc-reg.php page start here*/
 
+
 .reg-heading{
   width: 60%;
   margin: auto;
@@ -767,11 +768,42 @@ table td{
   margin-right: 3%;
 }
 
+
+.error_1{
+  color:#ff4757;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
+}   /* error mge for doctor reg validation  */
+
+.success_1{
+  color: #2ed573;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
+
 .labeltag{
   text-align: left;
   font-size: 15px;
   font-weight: 600;
   color: #0D5C75;
+}
+
+.labeltag.success input{
+  border-color: #0cc477;
+}
+
+
+.labeltag.success input{
+  border-color: #c40c0c;
+
 }
 
 .inputtab{

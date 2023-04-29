@@ -80,7 +80,7 @@ $no_row = mysqli_num_rows($result);
                                             
                                
                                             </td>
-                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-patient-view-detail.php"'><span>Patient Details</span></button></td>
+                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-patient-view-detail.php?id=<?php echo $row["id"] ?>"'><span>Patient Details</span></button></td>
                                         </tr>
                                         <?php
                                     }

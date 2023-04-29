@@ -34,6 +34,12 @@ if ($res1 && $res2) {
 
 ?>
 
+<?php
+// define variables and set to empty values
+$nameErr = $usernameErr = $passwordErr= $con_passwordErr =$phone_numberErr=$emailErr=$nicErr= "";
+$name = $email = $gender = $comment = $website = "";
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

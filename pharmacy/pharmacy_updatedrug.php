@@ -45,7 +45,6 @@
                         $row = mysqli_fetch_assoc($res);
                         $id = $row['medicine_id'];
                         $med_name = $row['med_name'];
-                        $strength = $row['strength'];
                         $quantity = $row['quantity'];
                         $unit_price = $row['unit_price']; 
                     }
@@ -67,10 +66,6 @@
                     <tr>
                         <td class="tdtype1">Drug Name :</td>
                         <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="name" value="<?php echo $med_name; ?>" readonly required/></td>
-                    </tr>
-                    <tr>
-                        <td class="tdtype1">Drug Strength :</td>
-                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="strength" value="<?php echo $strength; ?>" readonly required/></td>
                     </tr>
                     <tr>
                         <td class="tdtype1">Quantity :</td>
@@ -98,14 +93,12 @@
         //Get all the values from form to update
         $id = $_POST['id'];
         $med_name =$_POST['name'];
-        $strength = $_POST['strength'];
         $quantity = $_POST['qty'];
         $unit_price = $_POST['price'];
 
         //Create sql query to update drug
         $sql2 = "UPDATE tbl_medicine SET 
         med_name = '$med_name',
-        strength = '$strength',
         quantity = '$quantity',
         unit_price = '$unit_price'
         WHERE medicine_id = '$id'";

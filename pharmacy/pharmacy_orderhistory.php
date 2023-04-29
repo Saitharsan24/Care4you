@@ -1,5 +1,47 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php 
+    if(!isset($_GET['pendingid']) && !isset($_GET['tobeid']) && !isset($_GET['completeid'])){
+        $sql = "SELECT * FROM tbl_respondedorders ";
+
+        $result = mysqli_query($conn, $sql);
+
+        $btn_all = "btn-press";
+
+    }
+    if(isset($_GET['pendingid'])){
+
+        $pending_id = $_GET['pendingid'];
+        $sql = "SELECT * FROM tbl_respondedorders WHERE order_status=1";
+
+        $result = mysqli_query($conn, $sql);
+
+        $btn_pending = "btn-pressed";
+
+    }  if( isset($_GET['tobeid'])){
+        
+        $tobe_id = $_GET['tobeid'];
+        $sql = "SELECT * FROM tbl_respondedorders WHERE order_status=2";
+
+        $result = mysqli_query($conn, $sql);
+
+        $btn_tobe = "btn-pressed";
+
+    } if( isset($_GET['completeid'])) {
+
+        $complete_id = $_GET['completeid'];
+        $sql = "SELECT * FROM tbl_respondedorders WHERE order_status=3";
+
+        $result = mysqli_query($conn, $sql);
+
+        $btn_complete = "btn-pressed";
+    } 
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +70,20 @@
         </div>
         <div class="main_content">
         
-        <div class="right-button">
-            <a href="pharmacy_pendingorders.php"><button class="btn-press">Pending</button></a>
-            <a href="pharmacy_tobeorders.php"><button class="btn-press">To be delivered</button></a>
-            <a href="pharmacy_completeorders.php"><button class="btn-press">Completed</button></a>
-        </div>
+            <div class="order-filter-btn">
+                <div class="right-button order-filter-main-btn">
+                    <a href="?pendingid"><button class="btn-press <?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
+                    <a href="?tobeid"><button class="btn-press <?php echo $btn_tobe ?>" name="tobedelivered">To be delivered</button></a>
+                    <a href="?completeid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Completed</button></a>
+                </div>
+
+                <?php 
+                    if(isset($_GET['pendingid']) || isset($_GET['tobeid']) || isset($_GET['completeid'])){ ?>
+                        <div class="clearfilt-order"><a href="./pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>Clear filter</a></div>
+                <?php }?>
+
+            </div>
+        
             <div class="info">
             <span>
                 <table class="tbl-main">
@@ -46,48 +97,42 @@
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <?php
+                        if ($result) {
+                        while ($row = mysqli_fetch_array($result)) {
+                    ?>
                         <tr>
-                            <td>01</td>
-                            <td>Mr. Sandakoon</td>
-                            <td>15/11/2022</td>
-                            <td><button class="btn-yellow">Pending</button></td>
-                            <td><button class="btn-vieworder"><span>View Order Details</span></button></td>
+                            <td><?php echo $row['order_id']; ?></td>
+                            <td><?php echo $row['pname']; ?></td>
+                            <td><?php echo $row['responddate']; ?></td>
+
+                        <?php
+                             if($row['order_status'] == 1) { ?>
+                                <td><button class="btn-yellow"> <?php echo 'Payment pending';?> </button></td>
+                        <?php
+                            } else if($row['order_status'] == 2) { ?>
+                                <td><button class="btn-yellow"> <?php echo 'To be Delivered'; ?> </button></td>
+                        <?php
+                            } else if($row['order_status'] == 3) { ?>
+                                <td><button class="btn-yellow"> <?php echo 'Complete'; ?> </button></td>
+                        <?php
+                            } else if($row['order_status'] == 4) { ?>
+                                <td><button class="btn-yellow"> <?php echo 'Cancelled'; ?> </button></td>
+                        <?php
+                            } ?>
+                            <td><a href="./pharmacy_vieworder.php?id=<?php echo $row['order_id'];?>"><button class="btn-vieworder"><span>View Details</span></button></a></td>
                         </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>Ms. Weerakoon</td>
-                            <td>15/11/2022</td>
-                            <td><button class="btn-red">Failed</button></td>
-                            <td><button class="btn-vieworder"><span>View Order Details</span></button></td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>Mr. Thanushan</td>
-                            <td>16/11/2022</td>
-                            <td><button class="btn-yellow">Pending</button></td>
-                            <td><button class="btn-vieworder"><span>View Order Details</span></button></td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>Ms. Sivamayoury</td>
-                            <td>16/11/2022</td>
-                            <td><button class="btn-green">Success</button></td>
-                            <td><button class="btn-vieworder"><span>View Order Details</span></button></td>
-                        </tr>
-                        <tr>
-                            <td>05</td>
-                            <td>Mr. Jonathan</td>
-                            <td>16/11/2022</td>
-                            <td><button class="btn-green">Success</button></td>
-                            <td><button class="btn-vieworder"><span>View Order Details</span></button></td>
-                        </tr>
-                        <tr>
-                            <td>06</td>
-                            <td>Mr. Saitharsan</td>
-                            <td>18/11/2022</td>
-                            <td><button class="btn-yellow">Pending</button></td>
-                            <td><button class="btn-vieworder"><span>View Order Details</span></button></td>
-                        </tr>
+                        <?php } ?>
+
+                        <?php
+                            } else {
+                        ?>
+                            <h3>No orders yet</h3>
+                        <?php
+                            }
+                        ?>                            
+
                     </tbody>
                 </table>
             </span>

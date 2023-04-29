@@ -1,6 +1,14 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 
+<?php
+$query = "SELECT * FROM tbl_patient ";
+$result = mysqli_query($conn, $query);
+$no_row = mysqli_num_rows($result);
+
+?>
+
+
 
 
 
@@ -51,7 +59,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <form>
                                     <tr>
                                         <td><input type="text" class="search-patient" name="patient-id" autofocus="true" /></td>
                                         <td><input type="text" class="search-patient" name="patient-name" autofocus="true" /></td>
@@ -59,11 +66,15 @@
                                         <td><input type="text" class="search-patient" name="status" autofocus="true" /></td>
                                         <td><button class="btn-view-patient-detail"><span>Search</span></button></td>
                                     </tr>
-                                </form>
+                                    <?php 
+                                   if($result){
+                                    while ($row = mysqli_fetch_array($result)) {
+
+                                   ?>
                                 <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td><?php echo $row['id'];?></td>
+                                            <td><?php echo $row['first_name'];?></td>
+                                            <td><?php echo $row['contact'];?></td>
                                             <td></td>
                                            
                                             
@@ -71,6 +82,11 @@
                                             </td>
                                             <td><button class="btn-view-patient-detail" onclick='location.href="admin-patient-view-detail.php"'><span>Patient Details</span></button></td>
                                         </tr>
+                                        <?php
+                                    }
+                                }
+
+                                      ?>
     
                           
                             </tbody>

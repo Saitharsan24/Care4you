@@ -63,8 +63,8 @@ $no_row = mysqli_num_rows($result);
                                 <tr>
                                     <td><input type="text" class="search-pha" name="pha-id" id="phar_id" autofocus="true" onchange="filterPharId()"></td>
                                     <td><input type="text" class="search-pha" name="pha-name" id="phar_name" autofocus="true" onchange="filterPharName()"></td>
-                                    <td></th>
-                                    <td><button class="btn-search"><span>Search&emsp;</span></button></td>
+                                    <td><input type="text" class="search-pha" name="pha-id" id="phar_status" autofocus="true" onchange="filterPharStatus()"></th>
+                                    <td><button class="search-doc"><span>Search&emsp;</span></button></td>
                                 </tr>
 
 

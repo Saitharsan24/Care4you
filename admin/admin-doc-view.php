@@ -20,6 +20,7 @@ $no_row = mysqli_num_rows($result);
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/filter.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@ $no_row = mysqli_num_rows($result);
                     </div>
 
                     <span>
-                        <table class="tbl-main-doc">
+                        <table class="tbl-main-doc" id="tbl-main-doc">
                             <thead>
                                 <tr>
                                     <td>Doctor ID</td>
@@ -63,11 +64,11 @@ $no_row = mysqli_num_rows($result);
                             <tbody>
                                 <form>
                                     <tr>
-                                        <td><input type="text" class="search-doc" name="doc-id" autofocus="true" /></td>
-                                        <td><input type="text" class="search-doc" name="doc-name" autofocus="true" /></td>
-                                        <td><input type="text" class="search-doc" name="Specialize" autofocus="true" /></td>
-                                        <td><input type="text" class="search-doc" name="Slmc" autofocus="true" /></td>
-                                        <td><input type="text" class="search-doc" name="status" autofocus="true" /></td>
+                                        <td><input type="text" class="search-doc" name="doc-id" id="doc-id" autofocus="true" onchange="filterDoctorId()" /></td>
+                                        <td><input type="text" class="search-doc" name="doc-name" id="doc-name" autofocus="true" onchange="filterDoctorName()" /></td>
+                                        <td><input type="text" class="search-doc" name="Specialize" id="doc-Specialize" autofocus="true" /></td>
+                                        <td><input type="text" class="search-doc" name="Slmc" id="doc-slmc" autofocus="true" /></td>
+                                        <td><input type="text" class="search-doc" name="status"  id="status" autofocus="true" /></td>
                                         <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                                     </tr>
                                 </form>

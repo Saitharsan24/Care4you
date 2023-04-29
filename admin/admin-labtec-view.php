@@ -18,6 +18,7 @@ $no_row=mysqli_num_rows($result);
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/filter.js"></script>
 </head>
 <body>
 <?php include('admin_getinfo.php') ?>
@@ -44,7 +45,7 @@ $no_row=mysqli_num_rows($result);
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
               </div>
 
-                <table class="tbl-main-lab">
+                <table class="tbl-main-lab" id="tbl-main-lab">
                     <thead>
                         <tr>
                             <td>Lab Technician ID</td>
@@ -56,9 +57,9 @@ $no_row=mysqli_num_rows($result);
                     <tbody>
                     
                         <tr>
-                            <td><input type="text" class="search-lab" name="lab-id"  autofocus="true"/></td>
-                            <td><input type="text" class="search-lab" name="lab-name"  autofocus="true"/></td>
-                            <td><input type="text" class="search-lab" name="lab-status"  autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-id" id="lab-id" onchange="filterLabId()"  autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-name" id="lab-name" onchange="filterLabName()" autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-status"  id="lab-status"onchange="filterLabStatus()" autofocus="true"/></td>
                             <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                         </tr>
                         <?php 

@@ -7,14 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/asst.css">
-    <title>Pharmacy</title>
+    <title>Assistant</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('asst_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/assist-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/assistant/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="asst_home.php">Home</a></li>
                 <li><a href="asst_session.php"><div class="highlighttext">Sessions</div></a></li>
@@ -24,24 +26,29 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-<!--navbar-->
-    <div class="table">
-          <table>
-            <tr class="head">
-                <th class="th-1">appointmet No</th>
-                <th>Patient ID</th>
-                <th>Patient Name</th>
-                <th>Appointment Time</th>
-                <th class="th-2">Appointment Status</th>
-            </tr>
-            <tr class="body-1">
-              <td class="td-1">01</td>
-              <td>23</td>
-              <td>Ms. Yohan peries</td>
-              <td>7.20 a.m</td>
-              <td class="td-2"></td>
-            </tr>
-          </table>
+            <table class="tbl-main">
+                <thead>
+                    <tr>
+                        <td>Appointment Number</td>
+                        <td>Patient ID</td>
+                        <td>Patient Name</td>
+                        <td>Appointment Time</td>
+                        <td>Appointment Status</td>
+                        <td>Upload Prescription</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>18</td>
+                        <td>Mrs. Sanjeewani Silva</td>
+                        <td>3.00 PM - 3.20 PM</td>
+                        <td></td>
+                        <td><a href="#"><button class="btn-uploadPre"><i class="fa-solid fa-file-arrow-up"></i>&nbsp;&nbsp;&nbsp;Upload</button></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
         </div>
 </body>
 </html>

@@ -716,185 +716,6 @@ table td{
 /* admin-doc-detail.php page end here */
 
 
-
-/*  admin-doc-reg.php page start here*/
-
-
-.reg-heading{
-  width: 60%;
-  margin: auto;
-  padding: 20px;
-  background-color:#0D5C75;
-  text-align: center;
-  font-size: 45px;
-  font-weight: 800;
-  color: #fff;
-  border-radius: 10px;
-}
-
-.reg-container {
-  width: 90%;
-  margin-top: -27px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  padding: 20px;
-  background-color:#fff;
-  border: 2px solid #0D5C75;
-  border-radius: 10px;
-  /* animation: slideIn .9s ease forwards;
-  position: relative;
-  transition: all .9s ease; */
-}
-
-.reg-container-col {
-  display:inline-block;
-  width: 30%;
-  margin:auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 15px;
-  vertical-align: top;
-  border: 1px solid #888888;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-  /* animation: slideIn .9s ease forwards;
-  position: relative;
-  transition: all .9s ease; */
-}
-
-.mid{
-  margin-left: 3%;
-  margin-right: 3%;
-}
-
-
-.error_1{
-  color:#ff4757;
-  font-size: 13px;
-  font-weight: 400;
-  background-color: #F7F7F7;
-  padding-left: 2%;
-  padding-right: 3%;
-  border-radius: 10%;
-}   /* error mge for doctor reg validation  */
-
-.success_1{
-  color: #2ed573;
-  font-size: 13px;
-  font-weight: 700;
-  background-color: #F7F7F7;
-  padding-left: 2%;
-  padding-right: 3%;
-}
-
-
-.labeltag{
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-  color: #0D5C75;
-}
-
-.labeltag.success input{
-  border-color: #0cc477;
-}
-
-
-.labeltag.success input{
-  border-color: #c40c0c;
-
-}
-
-.inputtab{
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  outline: 0;
-}
-
-option{
-  font-size: 10px;
-}
-
-.reg-foot{
-  width: 12%;
-  position: absolute;
-  top: 92%;
-  left: 52%;
-  padding: 10px;
-  background-color:#0D5C75;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.reg-foot span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.reg-foot span:after {
-  content: '✔';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -30px;
-  transition: 0.7s;
-}
-
-.reg-foot:hover{
-  background-color: #008000;
-}
-
-.reg-foot:hover span {
-  padding-right: 15px;
-}
-
-.reg-foot:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-/*  admin-doc-reg.php page end here*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* admin-pha-view.php start here */
 
 .btn-view-pha-detail {
@@ -1171,109 +992,6 @@ option{
 
 /* admin-pha-view-details.php end here */
 
-/* admin-pha-reg.php start here */
-
-
-.head-pha{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-  display: inline;
-
-}
-
-.square-reg-pha{
-  border: 2px solid #0D5C75;
-  width: 844px;
-  height: 613px;
-  background: #ffffff;
-  position: relative;
-  top: 18px;
-  display: inline-block;
-  border-radius: 3%;
-}
-
-.form-pha{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-.form-control-pha{
-  width: 350px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.btn-reg-pha{
-  position: absolute;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-view-pha{
-  position: absolute;
-  left: 121px;
-  bottom:-32px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-/* admin-pha-reg.php end here */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* admin-laboratory-view.php page start here */
 
 .lab-list{
@@ -1372,114 +1090,7 @@ option{
   font-size: 15px;
 }
 
-.to-reg-lab-page{
-  position: absolute;
-  width: 184px;
-  left: 1122px;
-  top: 42px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.back-lab-view{
-  position: absolute;
-  width: 158px;
-  left: 905px;
-  top: 42px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
 /* admin-labtec-view.php end here */
-
-
-/* admin-labtec-reg.php start here */
-
-
-.head-lab{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-  display: inline;
-
-}
-
-.square-reg-lab{
-  border: 2px solid #0D5C75;
-  width: 844px;
-  height: 613px;
-  background: #ffffff;
-  position: relative;
-  top: 18px;
-  display: inline-block;
-  border-radius: 10%;
-}
-
-.form-lab{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-.form-control-lab{
-  width: 350px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.btn-reg-lab{
-  position: absolute;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-view-lab{
-  position: absolute;
-  left: 121px;
-  bottom:-32px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-/* admin-labtec-reg.php end here */
 
 /* admin-labtec-view-details.php start here */
 
@@ -1836,78 +1447,6 @@ option{
 
 /* admin-asst-view-details.php end here */
 
-/* admin-asst-reg.php start here */
-
-
-.head-asst{
-  position:absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  top: 50px;
-  left: 726px;
-  display: inline;
-
-}
-
-.square-reg-asst{
-  border: 2px solid #0D5C75;
-  width: 844px;
-  height: 613px;
-  background: #ffffff;
-  position: relative;
-  top: 18px;
-  display: inline-block;
-  border-radius: 10%;
-}
-
-.form-asst{
-  position: relative;
-  top: 41px;
-  left: 25px;
-}
-.form-control-asst{
-  width: 350px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.btn-reg-asst{
-  position: absolute;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-view-asst{
-  position: absolute;
-  left: 121px;
-  bottom:-32px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-/* admin-asst-reg.php end here */
-
 /* admin-pha-edit.php start here */
 
 .polygons {
@@ -1994,3 +1533,151 @@ option{
 
 
 /* admin-pha-edit.php end here */
+
+
+
+
+
+
+/*  admin-doc-reg.php page start here*/
+
+.reg-heading{
+  width: 60%;
+  margin: auto;
+  margin-top: 60px;
+  padding: 20px;
+  background-color:#0D5C75;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 800;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.reg-container {
+  width: 90%;
+  margin-top: -27px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 20px;
+  background-color:#fff;
+  border: 2px solid #0D5C75;
+  border-radius: 10px;
+  /* animation: slideIn .9s ease forwards;
+  position: relative;
+  transition: all .9s ease; */
+}
+
+.otheruser{
+  width: 75%;
+}
+
+.reg-container-col {
+  display:inline-block;
+  width: 30%;
+  margin:auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  vertical-align: top;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  /* animation: slideIn .9s ease forwards;
+  position: relative;
+  transition: all .9s ease; */
+}
+
+.otherusercol{
+  width: 40%;
+}
+
+.mid{
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.mid2{
+  margin-right: 5%;
+}
+
+.otherusercolbreak{
+  margin-left: 3%;
+}
+
+.labeltag{
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0D5C75;
+}
+
+.inputtab{
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  outline: 0;
+}
+
+option{
+  font-size: 10px;
+}
+
+.reg-foot{
+  width: 12%;
+  position: absolute;
+  top: 93%;
+  left: 52%;
+  padding: 10px;
+  background-color:#0D5C75;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pha{
+  width: 13%;
+}
+
+.labtec{
+  width: 14%;
+}
+
+.reg-foot span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.reg-foot span:after {
+  content: '✔';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.7s;
+}
+
+.reg-foot:hover{
+  background-image: linear-gradient(to left, #557c87, #0D5C75);
+}
+
+.reg-foot:hover span {
+  padding-right: 15px;
+}
+
+.reg-foot:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*  admin-doc-reg.php page end here*/

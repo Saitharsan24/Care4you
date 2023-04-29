@@ -155,7 +155,6 @@
                             <thead>
                                 <tr>
                                     <td>Drug Name</td>
-                                    <td>Strength</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
                                     <td>Total (Rs.)</td>
@@ -165,7 +164,7 @@
 
                                 <?php
                                     //Query to get all data from tbl_addmedicine table
-                                    $sql = "SELECT * FROM tbl_addmedicine WHERE orderid=$order_id";
+                                    $sql = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
 
                                     //Exeute the Query                                    
                                     $res = mysqli_query($conn, $sql);
@@ -184,7 +183,6 @@
 
                                                 //Use while loop to get all data in tbl_addmedicine table
                                                 $drugname = $rows['drugname'];
-                                                $strength = $rows['strength'];
                                                 $unitprice = $rows['unitprice'];
                                                 $quantity = $rows['quantity'];
                                                 $total = $rows['total'];
@@ -194,7 +192,6 @@
                                                 
                                                 <tr>
                                                     <td><?php echo $drugname ?></td>
-                                                    <td><?php echo $strength ?></td>
                                                     <td><?php echo $unitprice ?></td>
                                                     <td><?php echo $quantity ?></td>
                                                     <td><?php echo $total ?></td>
@@ -248,7 +245,7 @@
         $unavailablemedicines = $_POST['unavailablemedicines'];
 
         //Query to check medicines are added or not
-        $sql3 = "SELECT * FROM tbl_addmedicine WHERE orderid=$order_id";
+        $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
         $res3 = mysqli_query($conn, $sql3);
         if($res3 == TRUE)
         {
@@ -307,7 +304,7 @@
             }
 
             //Calculate total
-            $sql3 = "SELECT * FROM tbl_addmedicine WHERE orderid=$order_id";
+            $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
             $res3 = mysqli_query($conn, $sql3);
 
             if($res3 == TRUE)

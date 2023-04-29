@@ -1,61 +1,25 @@
-<?php include('../config/constants.php')?>
-<?php
-
-if(isset($_POST['reg'])){
-    
-$name=$_POST['name'];
-$username= $_POST['username'];
-$password=$_POST['password'];
-$con_password=$_POST['con-password'];
-$phone_number=$_POST['phonenumber'];
-$email=$_POST['email'];
-$nic=$_POST['nic'];
-$profile_picture=$_POST['profile_picture'];
-
-
-$sql = "INSERT INTO tbl_sysusers (actortype, username,password,email)
-VALUES ('pharmacist', '$username', '$password','$email')";
-
-$res1 = mysqli_query($conn, $sql);
-$last_id = $conn->insert_id;
-
-$sql = "INSERT INTO tbl_pharmacist (fullname,userid,contact_number,nic,profile_picture)
-VALUES ('$name', '$last_id','$phone_number','$nic','$profile_picture')";
-
-$res2 = mysqli_query($conn, $sql);
-
-if ($res1 && $res2) {
-  header("Location: /Care4you/admin/admin-pha-view.php");
-} else {
-  echo "Error: " . $s . "<br>" . mysqli_error($conn); die();
-}
-
-}
-
-?>
-
-<?php
-// define variables and set to empty values
-$nameErr = $usernameErr = $passwordErr= $con_passwordErr =$phone_numberErr=$emailErr=$nicErr= "";
-$name = $email = $gender = $comment = $website = "";
-?>
-
+<?php include('../config/constants.php'); ?>
+<?php include('../login_access.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
@@ -70,52 +34,93 @@ $name = $email = $gender = $comment = $website = "";
         </div>
         <div class="main_content">
             <div class="info">
-              <div class="head-pha"> Register Pharmacist</div>
-              <div class="square-reg-pha">
+            <div class="back" onclick="location.href='admin-pha-view.php'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
 
-              <div class="form-pha">
-              <form action="" method="POST">
-            <table class="formtable-pha">
-                <tr>
-                    <td>Pharmacist Name :</td>
-                    <td><input type="text" class="form-control-pha" name="name" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                    <td>Username :</td>
-                    <td><input type="text" class="form-control-pha" name="username" required="" autofocus="ture" autocomplete="off"/></td>
-                </tr>
-                <tr>
-                    <td>Password :</td>
-                    <td><input type="password" class="form-control-pha" name="password" required="" autofocus="ture" autocomplete="off"/></td>
-                </tr>
-                <tr>
-                    <td>Confirm Password :</td>
-                    <td><input type="password" class="form-control-pha" name="con-password" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                    <td>Contact Number :</td>
-                    <td><input type="text" class="form-control-pha" name="phonenumber" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                    <td>Email Address :</td>
-                    <td><input type="text" class="form-control-pha" name="email" required="" autofocus="true"/></td>
-                </tr>
-                <tr>
-                   <td>NIC Number :</td>
-                    <td><input type="text" class="form-control-pha" name="nic" required="" autofocus="true"/></td>
-                </tr> 
-                <input type="hidden" name="profile_picture" value="user.png" />
-                
-                
-            </table>
-            <button class="btn-reg-pha" type="submit" name="reg">Register</button>
-            <button class="btn-view-pha" onclick="location.href='admin-pha-view.php'">View Pharmacist</button>
-            </form>
-                            </div>
-        </div>            
+                <div class="reg-heading">
+                    <i class="fa-solid fa-pills" style="font-size: 45px;font-weight: 800;"></i>
+                    &nbsp;Pharmacist Registration
+                </div>
+
+                <form action="" method="POST">
+                <div class="reg-container otheruser">
+                    <div class="reg-container-col mid2 otherusercol">
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-user"></i>&nbsp;&nbsp;Full Name
+                        <input type="text" class="inputtab" name="fullname" placeholder="Enter Pharmacist's Fullname" required/></div>
+                        
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-id-badge"></i>&nbsp;&nbsp;NIC Number <br/>
+                        <input type="text" class="inputtab" name="nic" placeholder="Enter Pharmacist's NIC Number" required/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-phone"></i>&nbsp;&nbsp;Contact Number <br/>
+                        <input type="tel" class="inputtab" name="contact_number" placeholder="Enter Pharmacist's Contact Number" required/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;Email Address <br/>
+                        <input type="email" class="inputtab" name="email" placeholder="Enter Pharmacist's Email Address" required/></div>
+
+                    </div>
+                    <div class="reg-container-col otherusercol otherusercolbreak">
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-user-check"></i>&nbsp;&nbsp;Username
+                        <input type="text" class="inputtab" name="username" placeholder="Enter Pharmacist's Username" required/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Password
+                        <input type="password" class="inputtab" name="password" placeholder="Enter Pharmacist's Password"/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Confirm Password
+                        <input type="password" class="inputtab" name="confirmpassword" placeholder="Confirm Pharmacist's Password"/></div>
+
+                    </div>
+                </div>
+                <button name="reg" class="reg-foot pha">
+                    <span>Add Pharmacist&nbsp;</span>
+                </button>
+                </form>
+            </div>
         </div>
-            
-        
-    </div>
 </body>
+
 </html>
+
+<?php
+
+if(isset($_POST['reg']))
+{
+
+    $fullname=$_POST['fullname'];
+    $nic=$_POST['nic'];
+    $contact_number=$_POST['contact_number'];
+    $email=$_POST['email'];
+    $username= $_POST['username'];
+    $password=$_POST['password'];
+    $confirmpassword=$_POST['confirmpassword'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email)
+    VALUES ('pharmacist', '$username', '$hashed_password', '$email')";
+
+    $res1 = mysqli_query($conn, $sql);
+
+    $last_id = $conn->insert_id;
+
+    $sql = "INSERT INTO tbl_pharmacist (fullname, nic, contact_number, profile_picture, userid)
+    VALUES ('$fullname', '$nic', '$contact_number', 'user.png', '$last_id')";
+
+    $res2 = mysqli_query($conn, $sql);
+
+
+    if ($res1 && $res2) 
+    {
+        // header("Location: /Care4you/admin/admin-pha-view.php");
+        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-pha-view.php';</script>";
+    }
+    else
+    {
+        echo "Error: " . $s . "<br>" . mysqli_error($conn);
+        die();
+    }
+      
+}
+      
+?>

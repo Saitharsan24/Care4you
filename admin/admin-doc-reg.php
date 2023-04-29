@@ -41,8 +41,8 @@
             </div>
 
                 <div class="reg-heading">
-                    Doctor Registration
                     <i class="fa-solid fa-stethoscope" style="font-size: 45px;font-weight: 800;"></i>
+                    &nbsp;Doctor Registration
                 </div>
 
                 <form action="" method="POST" id="form">

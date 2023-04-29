@@ -5,7 +5,7 @@
         $user  = $_SESSION['user'];
         //echo $user;
         //Query to get userid from tbl_sysusers
-        $sql = "SELECT userid FROM tbl_sysusers WHERE username='$user' ";
+        $sql = "SELECT userid,email FROM tbl_sysusers WHERE username='$user' ";
         //echo $sql;
         //Exeute the Query                                    
         $res = mysqli_query($conn, $sql);
@@ -18,11 +18,12 @@
             {
                 $row = mysqli_fetch_assoc($res);
                 $userid = $row['userid'];
+                $email = $row['email'];
             }
         }
 
-        //Query to get all data from tbl_pharmacist
-        $sql2 = "SELECT * FROM tbl_pharmacist WHERE userid=$userid";
+        //Query to get all data from tbl_assistant
+        $sql2 = "SELECT * FROM tbl_assistant WHERE userid=$userid";
         //Exeute the Query                                    
         $res2 = mysqli_query($conn, $sql2);
 
@@ -33,12 +34,11 @@
             if($count2 == 1)
             {
                 $row2 = mysqli_fetch_assoc($res2);
-                $pharmacist_id = $row2['pharmacist_id'];
+                $assistant_id = $row2['assistant_id'];
                 $userid = $row2['userid'];
-                $fullname = $row2['fullname'];
-                $email = $row2['email'];
+                $fullname = $row2['name'];
                 $nic = $row2['nic'];
-                $contact_number = $row2['contact_number'];
+                $contact_number = $row2['phoneno'];
                 $profile_picture = $row2['profile_picture'];
                 
             }

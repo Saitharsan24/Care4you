@@ -24,7 +24,7 @@
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical records</a>
-          <a href="#">View doctors</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -61,7 +61,7 @@
                 <input type="radio" name="apt-for">
                 <label>Others</label>
             </div>
-            <div class="form-itm radio-itm">
+            <div class="form-itm radio-itm radio-itm2">
               <p>Records access to doctor :</p>
               <label class="switch">
               <input type="checkbox">

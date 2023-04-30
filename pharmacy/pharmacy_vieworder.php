@@ -34,7 +34,7 @@
                 //Get the Order ID
                 $id = $_GET['id'];
                 //Query to get all data from tbl_neworder for selected order
-                $sql = "SELECT * FROM tbl_respondedorders WHERE order_id=$id";
+                $sql = "SELECT * FROM tbl_neworder WHERE order_id=$id";
                 //Exeute the Query                                    
                  $res = mysqli_query($conn, $sql);
 

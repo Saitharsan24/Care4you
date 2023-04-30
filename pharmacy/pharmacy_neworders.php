@@ -73,7 +73,7 @@
                                             <td><?php echo $order_id;?></td>
                                             <td><?php echo $pname;?></td>
                                             <td><?php echo $orderdate;?></td>
-                                            <td><a href="<?php echo SITEURL;  ?>pharmacy/pharmacy_vieworder.php?id=<?php echo $order_id;?>"><button class="btn-blue1"><span>View Order</span></button></a></td>
+                                            <td><a href="<?php echo SITEURL;  ?>pharmacy/pharmacy_viewneworder.php?id=<?php echo $order_id;?>"><button class="btn-blue1"><span>View Order</span></button></a></td>
                                         </tr>
                     <?php
                                     

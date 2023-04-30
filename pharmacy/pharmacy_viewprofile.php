@@ -28,9 +28,16 @@
         <div class="main_content"> 
             <div class="info">
             <?php 
-                if(isset($_SESSION['update-user'])){
+                if(isset($_SESSION['update-user']))
+                {
                     echo $_SESSION['update-user'];
                     unset($_SESSION['update-user']);
+
+                }
+                if(isset($_SESSION['change-pwd']))
+                {
+                    echo $_SESSION['change-pwd'];
+                    unset($_SESSION['change-pwd']);
 
                 }
             ?>

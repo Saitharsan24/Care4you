@@ -34,8 +34,7 @@
             <div class="info">
             <div class="back" onclick="location.href='admin-pha-view.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
-            </div>
-
+                
             <?php
                 $id = $_GET['id'];
 
@@ -44,39 +43,35 @@
                 $row = mysqli_fetch_assoc($result);
 
                 ?>
+              <?php
+               if (isset($_GET['disable'])) {
+                $userid = $_GET['disable'];
+                $query_del = "UPDATE tbl_sysusers
+                SET status = 0
+                WHERE userid = $userid";
 
-                <?php
-                
-
-                if(isset($_GET['disable'])){
-                    $userid = $_GET['disable'];
-                    $query_del = "UPDATE tbl_sysusers
-                    SET status = 0
-                    WHERE userid = $userid";
-                    
-                    if (mysqli_query($conn, $query_del)) {
-                        header("Location: /Care4you/admin/admin-pha-view.php");
-                    } else {
-                        echo "Error deleting record: " . mysqli_error($conn);
-                    }
+                if (mysqli_query($conn, $query_del)) {
+                    header("Location: /Care4you/admin/admin-pha-view.php");
+                } else {
+                    echo "Error deleting record: " . mysqli_error($conn);
                 }
+            }
 
-                if(isset($_GET['activate'])){
-                    $userid = $_GET['activate'];
-                    $query_del = "UPDATE tbl_sysusers
-                    SET status = 1
-                    WHERE userid = $userid";
-                    
-                    if (mysqli_query($conn, $query_del)) {
-                        header("Location: /Care4you/admin/admin-pha-view.php");
-                    } else {
-                        echo "Error deleting record: " . mysqli_error($conn);
-                    }
+            if (isset($_GET['activate'])) {
+                $userid = $_GET['activate'];
+                $query_del = "UPDATE tbl_sysusers
+                SET status = 1
+                WHERE userid = $userid";
+
+                if (mysqli_query($conn, $query_del)) {
+                    header("Location: /Care4you/admin/admin-pha-view.php");
+                } else {
+                    echo "Error deleting record: " . mysqli_error($conn);
                 }
-                //$result=mysqli_query($conn, $sql);
+            }
+           
 
-                
-            ?>
+                ?>
 
 
                <table class="view-doc">
@@ -97,39 +92,37 @@
                     <tr>
                         <td rowspan = 2>
                         <?php
-                            if ($row['status'] == 1) { ?>
-                            <?php 
 
-                            
+                            if ($row['status'] == 1) {
+
                                 $status = "Disable";
                                 include('./admin-pha-pop.php');
-                                
-                                ?>
-                        
+                            ?>
+
                                 <button class="btn-del-doc-disable" onclick="document.getElementById('id01').style.display='block'; 
-                                document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id']?>&disable=<?php echo $row['userid']?> ';
-                                " >
+                                document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id'] ?>&disable=<?php echo $row['userid'] ?> ';
+                                ">
                                 <i class="fa-solid fa-toggle-off"></i>
                                 Disable Account
                                 </button>
 
-                                <?php 
-                            }
-                            else {
-                                
+                            <?php
+                            } else {
+
                                 $status = "Activate";
                                 include('./admin-pha-pop.php');
-                                ?>
 
+                            ?>
                                 <button class="btn-del-doc-enable" onclick="document.getElementById('id01').style.display='block'; 
-                                document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id']?>&activate=<?php echo $row['userid']?> ';
-                                " >
+                                document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id'] ?>&activate=<?php echo $row['userid'] ?> ';
+                                ">
                                 <i class="fa-solid fa-toggle-on"></i>
                                 Activate Account
-                                </button> 
+                                </button>
 
                             <?php };
                         ?>
+   
                         </td>
                         <td class="typeR">Contact Number :</td>
                         <td class="typeL"><?php echo $row['contact_number']; ?></td>

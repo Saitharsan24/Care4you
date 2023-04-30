@@ -2,6 +2,9 @@
 <?php include('../login_access.php') ?>
 
 <?php 
+
+    $btn_all = $btn_pending = $btn_tobe = $btn_complete = 'btn-press';
+
     if(!isset($_GET['pendingid']) && !isset($_GET['tobeid']) && !isset($_GET['completeid'])){
         $sql = "SELECT * FROM tbl_respondedorders ";
 
@@ -72,7 +75,7 @@
         
             <div class="order-filter-btn">
                 <div class="right-button order-filter-main-btn">
-                    <a href="?pendingid"><button class="btn-press <?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
+                    <a href="?pendingid "><button class="btn-press <?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
                     <a href="?tobeid"><button class="btn-press <?php echo $btn_tobe ?>" name="tobedelivered">To be delivered</button></a>
                     <a href="?completeid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Completed</button></a>
                 </div>

@@ -332,12 +332,100 @@ body{
   border-radius: 10px 10px 10px 10px;
 }
 
+/*Disable button */
+.btn-disable-patient-detail {
+  position: absolute;
+  left: 398px;
+  top: 326px;
+  border-radius: 10px;
+  background-color: #e75a33;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-disable-patient-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-disable-patient-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-disable-patient-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-disable-patient-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*activate button */
+.btn-activate-patient-detail {
+  position: absolute;
+  left: 398px;
+  top: 326px;
+  border-radius: 10px;
+  background-color: #4ec115;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-activate-patient-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-activate-patient-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-activate-patient-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-activate-patient-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 
 
 /* edit button */
 .btn-edit-patient-detail {
   position: absolute;
-  left: 398px;
+  left: 223px;
   top: 326px;
   border-radius: 10px;
   background-color: #0D5C75;
@@ -346,7 +434,7 @@ body{
   text-align: center;
   /* font-size: 15px; */
   padding: 5px;
-  width: 175px;
+  width: 150px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -824,4 +912,6 @@ body{
  
   
  /*  admin-patient-change-password.php end here */
+ 
+
  

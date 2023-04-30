@@ -12,9 +12,11 @@
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    
+    
 </head>
 
-<body>
+<body> 
 <?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
@@ -43,29 +45,39 @@
                     &nbsp;Doctor Registration
                 </div>
 
-                <form action="" method="POST">
+                <form action="" method="POST" id="form">
                 <div class="reg-container">
                     <div class="reg-container-col">
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-user"></i>&nbsp;&nbsp;Full Name
-                        <input type="text" class="inputtab" name="doc_name" placeholder="Enter Doctor's Fullname" required/></div>
+                        <input type="text" class="inputtab" name="doc_name" placeholder="Enter Doctor's Fullname" id="doc_name" required/>
+                        <div class="error_1"></div>
+                    </div>
                         
-                        <div class="labeltag">&nbsp;<i class="fa-solid fa-id-badge"></i>&nbsp;&nbsp;NIC Number <br/>
-                        <input type="text" class="inputtab" name="nic" placeholder="Enter Doctor's NIC Number" required/></div>
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-id-badge" id="nic"></i>&nbsp;&nbsp;NIC Number <br/>
+                        <input type="text" class="inputtab" name="nic" placeholder="Enter Doctor's NIC Number" required/>
+                        <div class="error_1"></div>
+                    </div>
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-phone"></i>&nbsp;&nbsp;Contact Number <br/>
-                        <input type="tel" class="inputtab" name="contact_number" placeholder="Enter Doctor's Contact Number" required/></div>
+                        <input type="text" class="inputtab" name="contact_number" placeholder="Enter Doctor's Contact Number" id="contact_name" required/>
+                        <div class="error_1"></div>
+                    </div>
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;Email Address <br/>
-                        <input type="email" class="inputtab" name="email" placeholder="Enter Doctor's Email Address" required/></div>
+                        <input type="email" class="inputtab" name="email" placeholder="Enter Doctor's Email Address" id="email" required/>
+                        <div class="error_1"></div>
+                    </div>
 
                     </div>
                     <div class="reg-container-col mid">
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-user-doctor"></i>&nbsp;&nbsp;SLMC Number
-                        <input type="text" class="inputtab" name="SLMC_Number" placeholder="Enter SLMC Number" required/></div>
+                        <input type="text" class="inputtab" name="SLMC_Number" placeholder="Enter SLMC Number" id="SLMC_Number" required/>
+                        <div class="error_1"></div>
+                    </div>
 
-                        <div class="labeltag">&nbsp;<i class="fa-solid fa-hospital-user"></i>&nbsp;&nbsp;Specialization
+                        <div class="labeltag" >&nbsp;<i class="fa-solid fa-hospital-user"></i>&nbsp;&nbsp;Specialization
                         <select name="specialization" id="specialization" class="inputtab">
                             <option value="Select Specialization">Select Specialization</option>
                             <option value="Addiction Psychiatrist">Addiction Psychiatrist</option>
@@ -118,26 +130,36 @@
                             <option value="X-ray Technologist">X-ray Technologist</option>
                             <option value="Yoga Therapist">Yoga Therapist</option>
                             <option value="Zygomatic Implant Surgeon">Zygomatic Implant Surgeon</option>
-                        </select></div>
+                        </select>
+                        <div class="error_1"></div>
+                    </div>
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;Charge per session (Rs.)
-                        <input type="number" step="500" class="inputtab" name="charge" placeholder="Enter Doctor Charge per Session" required/></div>
+                        <input type="number" step="500" class="inputtab" name="charge" placeholder="Enter Doctor Charge per Session" id="charge" required/>
+                        <div class="error_1"></div>
+                    </div>
 
                     </div>
                     <div class="reg-container-col">
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-user-check"></i>&nbsp;&nbsp;Username
-                        <input type="text" class="inputtab" name="username" placeholder="Enter Doctor's Username" required/></div>
+                        <input type="text" class="inputtab" name="username" placeholder="Enter Doctor's Username" id="username" required/>
+                        <div class="error_1"></div>
+                    </div>
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Password
-                        <input type="password" class="inputtab" name="password" placeholder="Enter Doctor's Password"/></div>
+                        <input type="password" class="inputtab" name="password" placeholder="Enter Doctor's Password" id ="password"/>
+                        <div class="error_1"></div>
+                    </div>
 
-                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Confirm Password
-                        <input type="password" class="inputtab" name="confirmpassword" placeholder="Confirm Doctor's Password"/></div>
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Conform Password
+                        <input type="password" class="inputtab" name="confirmpassword" placeholder="Conform Doctor's Password" id="conformpassword"/>
+                        <div class="error_1"></div>
+                    </div>
 
                     </div>
                 </div>
-                <button name="reg" class="reg-foot">
+                <button name="reg" type="submit"  class="reg-foot">
                     <span>Add Doctor&nbsp;</span>
                 </button>
                 </form>
@@ -161,7 +183,7 @@ if(isset($_POST['reg']))
     $charge=$_POST['charge'];
     $username= $_POST['username'];
     $password=$_POST['password'];
-    $confirmpassword=$_POST['confirmpassword'];
+    $confirmpassword=$_POST['conformpassword'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email)
@@ -189,5 +211,6 @@ if(isset($_POST['reg']))
     }
       
 }
-      
+
 ?>
+<script src="../script/doc-validation.js" defer></script>   

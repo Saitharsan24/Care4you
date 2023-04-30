@@ -1,7 +1,10 @@
 <?php include('../config/constants.php')?>
 <?php include('../login_access.php') ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +14,9 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+
 <?php include('pharmacy_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
@@ -87,10 +92,7 @@
                         <td class="tdtype1">Unit Price (Rs.) :</td>
                         <td class="tdtype2"><input type="number" min="0"  step="any" class="form-addmedcontrol" name="unitprice" /></td>
                     </tr> -->
-                    <tr>
-                        <td class="tdtype1">Strength :</td>
-                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="strength" placeholder="100mg"/></td>
-                    </tr>
+                
                     <tr>
                         <td class="tdtype1">Quantity :</td>
                         <td class="tdtype2"><input type="number" min="0" class="form-addmedcontrol" name="quantity" /></td>
@@ -118,11 +120,10 @@
         //Step 01 - Get the data from the form
         $orderid = $_POST['orderid'];
         $drugname = $_POST['drugname'];
-        $strength = $_POST['strength'];
         $quantity = $_POST['quantity'];
 
         //Step 02- Check the quantity amount is valid or not
-        $qtyqry = "SELECT quantity FROM tbl_medicine WHERE med_name='$drugname' AND strength='$strength'";
+        $qtyqry = "SELECT quantity FROM tbl_medicine WHERE med_name='$drugname'";
         $rsltdata = mysqli_query($conn, $qtyqry);
         if($rsltdata == TRUE)
         {
@@ -140,11 +141,11 @@
             //Update medicine table by reducing quantity
             $newqty = $validqty - $quantity;
 
-            $sql2 = "UPDATE tbl_medicine SET quantity='$newqty' WHERE med_name='$drugname' AND strength='$strength'";
+            $sql2 = "UPDATE tbl_medicine SET quantity='$newqty' WHERE med_name='$drugname'";
             $res2 = mysqli_query($conn, $sql2);
 
             //Get unit price from database
-            $unitpriceqry = "SELECT unit_price FROM tbl_medicine WHERE med_name='$drugname' AND strength='$strength'";
+            $unitpriceqry = "SELECT unit_price FROM tbl_medicine WHERE med_name='$drugname'";
             $rslt = mysqli_query($conn, $unitpriceqry);
             if($rslt == TRUE)
             {
@@ -163,9 +164,8 @@
 
             //Step 03 - SQL Query to save the data in Database
             $sql = "INSERT INTO tbl_addmedicine SET
-                    orderid = '$orderid',
+                    order_id = '$orderid',
                     drugname = '$drugname',
-                    strength = '$strength',
                     unitprice = '$unitprice',
                     quantity = '$quantity',
                     total = '$total'

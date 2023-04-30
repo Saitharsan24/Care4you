@@ -157,370 +157,181 @@ body{
   display: inline;
 }
 
+/* Assistant Home CSS Starts */
+
 table {
-    /*border:1px solid #b3adad;*/
-    border-collapse:collapse;
-  }
-  
-  table.center {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: auto; 
-    margin-right: auto;
-  }
-  
-  table td {
-    width: 750px;
-    /*border:1px solid #b3adad;*/
-    text-align:center;
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-  
-  #rcorners {
-    border-radius: 35px;
-    background: #ffffff;
-    padding: 35px; 
-    width: 450px;
-    height: 200px;
-    color: #000000;
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;  
-  }
-
-/* ------------- */
-
-.Profile-2{
-    position: absolute;
-    left: 40%;
-    top: 5%; 
-
-}
-.Profile-2 img{
-    position: absolute;
-    left: 200px;
-    top: 53px;
-    width: 100px;
-    height: 100px;
+  /*border:1px solid #b3adad;*/
+  border-collapse:collapse;
 }
 
-input{
-    margin-left: 25px;
-    padding-left: 5px;
-    width: 310px;
-    height: 23px;
-    border-radius: 6px;
-    background: #FFFFFF; 
-
-}
-
-.name-1{
-    position: absolute;
-   
-    top: 220px;
-    left: 673px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-
-}
-
-
-
-.username-1{
-    position: absolute;
-    top: 274px;
-    left: 619px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-
-.email-1{
-    position: absolute;
-    top: 326px;
-    left: 582px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-.nic-1{
-    position: absolute;
-    top: 382px;
-    left: 606px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-
-.con-1{
-    position: absolute;
-    top: 440px;
-    left: 555px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.divider button{
-    width: 160px;
-    height: 64px;
-
-    margin-left: 1050px;
-    margin-top: 560px;
-    border-radius: 999px;
-    background: #0C5C75;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 100%;
-
-    color: #FFFFFF;
-}
-
-
-
-/*edite profile Css*/
-
-
-
-
-
-.change_password label{
-    position: absolute;
-    left: 40%;
-    right: 20.57%;
-    top: 75%;
-    bottom: 100%;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 100%;
-
-    
-    cursor: pointer;
-    color: #0C5C75;
-}
-
-.change_profile{
-
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-
-    cursor: pointer;
-    color: #0C5C75;
-
-    position: absolute;
-    left: 50%;
-    top: 25%;
-    
-}
-
-
-
-/*change password Css*/
-.change_password_1{
-
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-
-
-    position: absolute;
-    left: 50%;
-    top: 25%;
-}
-
-
-.old_password-1{
-    
-    position: absolute;
-   
-    top: 273px;
-    left: 592px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.new_passwoed-1{
-    
-    position: absolute;
-    top: 332px;
-    left: 582px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-
-.con_password{
-    position: absolute;
-    top: 386px;
-    left: 533px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-font-size: 22px;
-color: #023C4E;
-}
-/*assistant session Css*/
-
-
-table{
-    
-    position: absolute;
-    top: 82px;
-    left: 325px;
-    width: 62%;
-   
-    border-width: 0px;
-
-    border-collapse: separate;
-    border-spacing: 0 15px;
-
-    text-align: center;
-    font-family: 'poppins';
-}
-
-
-
-.head th{
-    background-color: #FFFFFF;
-    height: 50px;
-    width: 1100px;
-    border: 0px solid #ddd;
-
-    color: #0C5C75;
-    
-}
-
-
-
-.th-1{
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-
-}
-.th-2{
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
-
-.body-1{
-    
-    padding: center;
-    background-color: #EFEFEF;
-    height: 50px;
-    width: 1100px;  
-    border-radius: 10px;
-
-}
-
-.td-1{
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-
-
-}
-.td-2{
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.button{
-    background-color:#0C5C75;
-    border-radius: 5px;
-    border-width: 0px;
-    color: #FFFFFF;
-    font-family: 'poppins';
-    font-size: 18px;
-}
-
-
-/*assistant Home Css*/
-
-.welcome{
-  position: absolute;
-  margin-left: 42%;
+table .center {
   margin-top: 5%;
-  font-size: 43px;
+  margin-bottom: 5%;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+table td {
+  width: 750px;
+  /*border:1px solid #b3adad;*/
+  text-align:center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#rcorners {
+  border-radius: 35px;
+  background: #ffffff;
+  padding: 35px; 
+  width: 450px;
+  height: 190px;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;  
+}
+
+/* Assistant Home CSS Starts */
+
+
+/* SUCCESS/ERROR MSG style */
+
+.success {
+  color: #2ed573;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
+.error {
+  color: #ff4757;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
+}
+
+/* SUCCESS/ERROR MSG style */
+
+
+
+/* ------------------------------------------- */
+
+/* home Starts */
+
+
+
+/* home Ends */
+
+
+
+/* sessions Starts */
+.tbl-main{
+  width: 75%;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main{
+  width: 90%;
+}
+
+.tbl-main tr{
+  background-color: #ffffff;
+}
+
+.tbl-main thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.btn-viewapp {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
   font-weight: 500;
 }
 
-.name{
-    color:#0C5C75;
+.btn-viewapp span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
 
-.box-1{
-    position: absolute;
-  margin-left: 39%;
-  margin-top: 15%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 508px;
-  height: 135px;
-  border-radius: 25px;
+.btn-viewapp span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-viewapp:hover span {
+  padding-right: 15px;
+}
+
+.btn-viewapp:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* sessions Ends */
+
+/* appointments Starts */
+
+.btn-uploadPre {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
   text-align: center;
-  font-size: 37px;
-  padding-top: 35px;
+  font-size: 13px;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 600;
 }
 
-.box-2{
-    position: absolute;
-  margin-left: 20%;
-  margin-top: 30%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 457px;
-  height: 187px;
-  border-radius: 25px;
-  text-align: center;
-  font-size: 37px;
-  padding-top: 35px;
+.btn-uploadPre:hover {
+  border: 1px solid #0D5C75;
+  background-color: #daf6ff;
+  color: #0D5C75;
 }
 
-.box-3{
-    position: absolute;
-  margin-left: 57%;
-  margin-top: 30%;
-  background-color: #FFFFFF;
-  color: #000000;
-  width: 508px;
-  height: 187px;
-  border-radius: 25px;
-  text-align: center;
-  font-size: 37px;
-  padding-top: 35px;
-}
-
+/* appointments Ends */

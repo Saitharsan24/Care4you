@@ -1072,7 +1072,13 @@ input::-webkit-file-upload-button {
 }
 
 .order-st03{
-    color: #0daa12;;
+    color: #0daa12;
+    border-radius: 25px;
+    width: 175px;
+}
+
+.order-st04{
+    color: #b51111;
     border-radius: 25px;
     width: 175px;
 }
@@ -1096,7 +1102,7 @@ input::-webkit-file-upload-button {
 .view-order-details{
     border-radius: 15px;
     background: white;
-    height: 450px;
+    height: 475px;
     width: 500px;
     margin: 30px 0px 0px 200px;
     display: flex;
@@ -1108,6 +1114,9 @@ input::-webkit-file-upload-button {
     width: 250px;
     height: 28px;
     margin: 0px 40px 0px 15px;
+    display: flex;
+    align-items: center;
+    color: #000000;
 }
 
 .view-orderdetails-row{
@@ -1124,7 +1133,7 @@ input::-webkit-file-upload-button {
 .view-orderdetails-row div {
     width: 250px;
     height: 28px;
-    margin: 0px 40px 0px 15px;
+    margin: 0px 85px 0px 15px;
 }
 
 .view-order-btn {
@@ -1132,7 +1141,7 @@ input::-webkit-file-upload-button {
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    margin: 25px 30px 0px 0px;
+    margin: 0px 35px 0px 0px;
 }
 
 .view-order-btn01 button {
@@ -1172,7 +1181,7 @@ input::-webkit-file-upload-button {
 }
 
 .view-order-back-btn {
-    margin: 30px 0px 0px 530px;
+    margin: 25px 0px 0px 530px;
 }
 
 .view-order-back-btn button:hover {
@@ -1181,55 +1190,59 @@ input::-webkit-file-upload-button {
     transition: .3s;
 }
 
-
-/* Patient_pahrmorderViewReview.php STYLES */
-
-.view-review-details{
-    border-radius: 15px;
-    background: white;
-    height: 450px;
-    width: 700px;
-    margin: 30px 0px 0px 200px;
-    display: flex;
-    flex-direction: column;
-    padding: 25px 0px 0px 30px;
+.uploaded-file a{
+    text-decoration: none;
+    color: #04313e;
 }
+
+
+/* Patient_pharmorderViewReview.php STYLES */
 
 .order-only-details{
     margin-right: 200px;
 }
 
-.view-orderreview-row{
+.view-review-details{
+    border-radius: 15px;
+    background: white;
+    height: 450px;
+    width: 650px;
+    margin: 40px 0px 0px 130px;
     display: flex;
-    flex-direction: row;
-    justify-content: right;
+    flex-direction: column;
+    padding: 25px 0px 0px 30px;
+}
+
+
+.view-orderreview-row{
     margin-bottom: 15px;
-    align-items: center;
     font-size: 16px;
     font-weight: 550;
     color: #093e4e;
-    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
 
 .view-orderreview-row div {
-    width: 420px;
-    height: 28px;
-    margin: 0px 40px 0px 15px;
-    display: flex;
-    justify-content: left;
+    margin-right: 160px;
+    margin-left: 10px;
+    width: 250px;
+    color: #000000;
 }
-
 
 .tbl-addmed{
     width: 80%;
     margin-left:auto; 
     margin-right:auto;
-    border-collapse: separate;
-    border-spacing: 0 10px;
+    border-spacing: 0 5px;
+    margin-top: -12px;
+    margin-bottom: 10px;
   }
   
   .tbl-addmed thead tr{
     background-color: #bcbcbc;
+    border-radius: 10px;
   }
   
   .tbl-addmed thead td{
@@ -1241,7 +1254,17 @@ input::-webkit-file-upload-button {
   }
   
   .tbl-addmed tbody tr{
-    background-color: #F7F7F7;
+    background-color: #f4f1f1;
+    margin-top: 10px;
+  }
+
+  .tbl-addmed tbody tr{
+    text-align: center; 
+    color: #000000;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 12px;
+    height: 4px;    
   }
   
   .tbl-addmed td:first-child, th:first-child {
@@ -1288,6 +1311,14 @@ input::-webkit-file-upload-button {
     background: #107c9d;
     transition: .3s;
     font-weight: 600;
+  }
+
+  .view-orderreview-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin: 30px 530px 0px 0px;
   }
 
 

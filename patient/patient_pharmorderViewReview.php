@@ -1,3 +1,26 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+<?php 
+    $order_id = $_GET['id'];
+    $order_status = $_GET['status'];
+
+    $sql = "SELECT * FROM tbl_respondedorders WHERE order_id = '$order_id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+
+    $respond_date = $row['responddate'];
+    $respond_time = $row['respondtime'];
+
+
+    $sql1= "SELECT * FROM tbl_addmedicine WHERE order_id = '$order_id'";
+    $result1 = mysqli_query($conn, $sql1);
+    
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,29 +56,53 @@
       <div class="home-right">
         <div class="view-order-heading"><h2>My Order Review</h2></div>
         <div class="view-review-details">
-          <div class="view-orderreview-row"><p>Order ID :</p><div><p></p></div></div>
-          <div class="view-orderreview-row"><p>Reviewed date :</p><div><p></p></div></div>
-          <div class="view-orderreview-row"><p>Available medicines :</p><div><p></p></div></div>
-          <table class="tbl-addmed">
-                            <thead>
-                                <tr>
-                                    <td>Drug Name</td>
-                                    <td>Strength</td>
-                                    <td>Unit Price (Rs.)</td>
-                                    <td>Quantity</td>
-                                    <td>Total (Rs.)</td>
-                                </tr>
-                            </thead>
-          </table>
-          <div class="view-orderreview-row"><p>Net amount :</p><div><p></p></div></div>
-          <div class="view-orderreview-row"><p>Unavailable medicines :</p><div><p></p></div></div>
-          <div class="view-order-btn">
-            <div class="view-order-btn02"><a href="./patient_pharmorderViewDetails.php"><button>Back</button></a></div>
-            <div class="view-apt-divider"></div>
-            <div class="review-order-btn01"><a href=""><button>Pay now</button></a></div>
-          </div>
+          
+          <div class="view-orderreview-row">Order ID : <div><?php echo ' '.$order_id;?></div></div>
+          <div class="view-orderreview-row">Reviewed date : <div><?php echo ' '.$respond_date.'  '.$respond_time;?></div></div>
+          <div class="view-orderreview-row">Available medicines :<div></div></div>
+                <table class="tbl-addmed">
+                                  <thead>
+                                      <tr>
+                                          <td>Drug Name</td>
+                                          <td>Unit Price (Rs.)</td>
+                                          <td>Quantity</td>
+                                          <td>Total (Rs.)</td>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                  <?php 
+                                      if (mysqli_num_rows($result1) == 0) { ?>
+                                        <tr>
+                                          <td colspan = 4>No Stock available</td>
+                                        </tr>      
+                                  <?php } else { 
+                                      
+                                      while ($row1 = mysqli_fetch_array($result1)) {
+                                  ?>
+                                        <tr>
+                                          <td><?php echo $row1['drugname']; ?></td>
+                                          <td><?php echo $row1['unitprice']; ?>/td>
+                                          <td><?php echo $row1['quantity']; ?></td>
+                                          <td><?php echo $row1['total']; ?></td>
+                                        </tr>
+                                  <?php  }
+                                        } 
+                                  ?>
+
+                                  </tbody>
+                                  
+                </table>
+          <div class="view-orderreview-row">Net amount :<div><?php echo ' Rs.'.$row['nettotal']; ?></div></div>
+          <div class="view-orderreview-row"><p>Unavailable medicines :<div><?php echo $row['unavailablemedicines']; ?></div></p></div>
         </div>
+
+        <div class="view-orderreview-btn">
+                <div class="view-order-btn02"><a href="./patient_pharmorderViewDetails.php?id=<?php echo $order_id;?>&status=<?php echo $order_status;?>"><button>Back</button></a></div>
+                <div class="view-apt-divider"></div>
+                <div class="review-order-btn01"><a href=""><button>Pay now</button></a></div>
+          </div>
       </div>
+
     </div>
   </body>
 </html>

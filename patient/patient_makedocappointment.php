@@ -1,3 +1,19 @@
+<?php include('../config/constants.php')?>
+<?php include('../login_access.php') ?>
+
+<?php 
+
+    $sql1 = "SELECT * FROM tbl_doctor";
+    $sql2 = "SELECT * FROM tbl_specializations";
+    $sql3 = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id";
+
+    $result1 = mysqli_query($conn,$sql1);
+    $result2 = mysqli_query($conn,$sql2); 
+    $result3 = mysqli_query($conn,$sql3);
+    
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +25,64 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
   <body>
+     
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          $("#doc_name").change(function(){
+            var doc_name = $(this).val();
+            var date_sel =$('#date-input').val();
+            $.ajax({
+              url: './search_Ajax/ajax.php',
+              type: 'post',
+              data: {doc: doc_name,
+              dates: date_sel},
+              success: function(response){
+                            console.log(response);
+                $("#specialization-select").html(response);
+                $( "#here" ).load(window.location.href + " #here" );
+              }
+            });
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function(){
+          $("#specialization-select").change(function(){
+            var specializations = $(this).val();
+            $.ajax({
+              url: './search_Ajax/ajax.php',
+              type: 'post',
+              data: {spec: specializations},
+              success: function(response){
+                            console.log(response);
+                $("#doc_name").html(response);
+              }
+            });
+          });
+        });
+      </script>
+      <script>
+        $(document).ready(function(){
+          $("#date-input").change(function(){
+            var doc_name = $("#doc_name").val();
+            var date_sel =$(this).val();
+            $.ajax({
+              url: './search_Ajax/ajax.php',
+              type: 'post',
+              data: {docid: doc_name,
+              dates: date_sel},
+              success: function(response){
+                            console.log(response);
+                            $( "#here" ).load(window.location.href + " #here" );
+                // $("#doc_name").html(response);
+              }
+            });
+          });
+        });
+      </script>
+
+
     <div class="main-div">
       <div class="home-left">
         <div class="nav-logo">
@@ -32,42 +106,51 @@
       </div>
       <div class="home-right">
         <div class="apt-heading"><h2>Channel a Doctor</h2></div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-          $(document).ready(function(){
-            $("#doc_name").onchange(function(){
-              var searchText = $(this).val();
-              $.ajax({
-                url: './search_Ajax/ajax.php',
-                type: 'post',
-                data: {search: searchText},
-                success: function(response){
-                              console.log(response);
-                  $("#details").html(response);
-                }
-              });
-            });
-          });
-        </script>
-
         <div class="search-apt">  
           <form action="#">
             <div class="search-row">
               <p class="form-text">Doctor Name:</p>
-              <select id="doc_name" name="gender" id="gender">
-                <option value="Male">Saitharsan</option>
+              <select id="doc_name" name="gender" >
+
+                        <option value="Select doctor name" selected disabled hidden>Select doctor name</option>
+
+                <?php 
+                  if($result1){
+                    while ($row1 = mysqli_fetch_array($result1)) {  
+                ?>
+                          
+                        <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>
+                
+                <?php    
+                  }
+                }
+                ?>  
+
               </select>
             </div>
             <div class="search-row">
               <p class="form-text">Specialization:</p>
-              <select name="gender" id="gender">
-                <option value="Male">OPD</option>
+              <select  id="specialization-select">
+                        
+                        <option value="Select doctor name" selected disabled hidden>Select specialization</option>
+
+              <?php 
+                  if($result2){
+                    while ($row2 = mysqli_fetch_array($result2)) {  
+                ?>
+                          
+                        <option value="<?php echo $row2['specializations'] ?>"><?php echo $row2['specializations'] ?></option>
+                
+                <?php    
+                  }
+                }
+                ?>  
+
               </select>
             </div>
             <div class="search-row">
                 <p class="form-text">Date:</p>
-                <input type="Date" class="signup-input" name="date_of_birth" value=" "/>
+                <input id="date-input" type="Date" class="signup-input" name="date_of_birth" value=" "/>
             </div>
             <div class="search-btn">
                 <button type="submit" class="btn signin">Search</button>
@@ -75,22 +158,59 @@
             
           </form>
         </div>
-        <div class="list-apt">
+        <div class="list-apt" id="here">
             <div class="apt-table-head">
                 <div class="table-itm1"><p>Doctor Name</p></div>
                 <div class="table-itm2"><p>Specialization</p></div>
                 <div class="table-itm3"><p>Date</p></div>
                 <div class="table-itm4"><p>Time</p></div>
             </div>
-            <div class="apt-lists">
-                <td class="apt-list-tbl">
-                  <tr>Dr. Saitharsan</tr>
-                  <tr>Cardiologist</tr>
-                  <tr>24/10/2023</tr>
-                  <tr>10 p.m</tr>
-                  <tr class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></tr>
-                </td>
-            </div>
+            
+                <?php 
+                if(isset($_SESSION['output'])){
+                  if ($_SESSION['output']==0) {
+                    echo 'nothing';
+                    unset($_SESSION['output']);
+                  } else {
+                      foreach ($_SESSION['output'] as $row3) {
+                      if ($row3['no_of_appointment'] < 13) {
+                ?>
+                    <div class="apt-lists">
+                      <tr class="apt-list-tbl">
+                        <td><?php echo $row3['doc_name'] ?></td>
+                        <td><?php echo $row3['specialization'] ?></td>
+                        <td><?php echo $row3['date'] ?></td>
+                        <td><?php echo $row3['time_slot'] ?></td>
+                        <td class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></td>
+                      </tr>
+                    </div>
+                <?php
+                      }    
+                    }
+                    unset($_SESSION['output']);
+                  }
+                    
+                } elseif($result3){
+                ?>
+                <?php
+                    while ($row3 = mysqli_fetch_array($result3)) {  
+                      if ($row3['no_of_appointment'] < 13) {
+                ?>
+                    <div class="apt-lists">
+                      <tr class="apt-list-tbl">
+                        <td><?php echo $row3['doc_name'] ?></td>
+                        <td><?php echo $row3['specialization'] ?></td>
+                        <td><?php echo $row3['date'] ?></td>
+                        <td><?php echo $row3['time_slot'] ?></td>
+                        <td class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></td>
+                      </tr>
+                    </div>
+                <?php
+                      }    
+                    }
+                  }
+                  
+                ?>  
         </div>
       </div>
     </div>

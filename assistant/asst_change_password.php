@@ -6,11 +6,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pharmacy.css"> 
-    <title>Pharmacy</title>
+    <link rel="stylesheet" href="../css/pharmacy.css">
+    <title>Assistant</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<?php include('asst_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -23,7 +25,7 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-            <img src="../images/assist-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/assistant/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <h2 style="margin-left: 60px; margin-top:15px;">Change Password</h2>
             <span>
             <form>

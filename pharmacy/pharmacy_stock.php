@@ -54,7 +54,6 @@
                     <thead>
                         <tr>
                             <td>Drug Name</td>
-                            <td>Strength</td>
                             <td>Quantity</td>
                             <td style="width: 500px">Unit Price (Rs.)</td>
                             <td></td>
@@ -78,7 +77,6 @@
                                 {
                                     $id = $rows['medicine_id'];
                                     $med_name = $rows['med_name'];
-                                    $strength = $rows['strength'];
                                     $quantity = $rows['quantity'];
                                     $unit_price = $rows['unit_price'];
                                     
@@ -86,7 +84,6 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $med_name; ?> </td>
-                                        <td><?php echo $strength; ?></td>
                                         <td><?php echo $quantity; ?></td>
                                         <td><?php echo $unit_price; ?></td>
                                         <td>

@@ -20,6 +20,7 @@
     $order_date = $row['orderdate'];
     $nic = $row['nic'];
     $prescription = $row['prescription_name'];
+    $other_items = $row['remarks'];
 
 ?>
 
@@ -64,17 +65,35 @@
         <div class="view-order-details">
           
 
-          <div class="view-orderdetails-row">Order ID :<?php echo ' '.$order_id; ?></div>
-          <div class="view-orderdetails-row">Name :</div>
-          <div class="view-orderdetails-row">Address :</div>
-          <div class="view-orderdetails-row">Contact No :</div>
-          <div class="view-orderdetails-row">Order date :</div>
-          <div class="view-orderdetails-row">Order status :</div>
-          <div class="view-orderdetails-row">Prescription :</div>
-          <div class="view-orderdetails-row">NIC No :</div>
+          <div class="view-orderdetails-row">Order ID :<div><?php echo ' '.$order_id;?></div></div>
+          <div class="view-orderdetails-row">Name :<div><?php echo ' '.$pname;?></div></div>
+          <div class="view-orderdetails-row">Address :<div><?php echo ' '.$paddress;?></div></div>
+          <div class="view-orderdetails-row">Contact No :<div><?php echo ' '.$contact;?></div></div>
+          <div class="view-orderdetails-row">Order date :<div><?php echo ' '.$order_date;?></div></div>
+          <div class="view-orderdetails-row">Order status :
+              <div>
+                  <?php 
+
+                      if($order_status == 0){
+                          echo ' '.'<span style="color:rgb(135, 135, 15);text-align:center;">Response pending</span>';
+                      } elseif($order_status== 1){
+                          echo ' '.'<span style="color:#c95000;text-align:center;">Payment pending</span>';
+                      } elseif($order_status== 2){
+                          echo ' '.'<span style="color:#0daa12;text-align:center;">Complete</span>';
+                      } else{
+                          echo ' '.'<span style="color:#b51111;text-align:center;">Cancelled</span>';
+                      }
+                  ?>
+              </div>
+          </div>
+          <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>"> <?php echo $prescription; ?></a></div></div>
+          <div class="view-orderdetails-row">NIC No :<div><?php echo ' '.$nic;?></div></div>
+          <div class="view-orderdetails-row">Other items :<div><?php echo ' '.$other_items;?></div></div>
         
           <div class="view-order-btn">
-            <div class="view-order-btn02"><a href="./patient_pharmorderViewReview.php"><button>View review</button></a></div>
+            <?php if (isset($row['responddate'])) { ?>
+              <div class="view-order-btn02"><a href="./patient_pharmorderViewReview.php?id=<?php echo $row['order_id'];?>&status=<?php echo $row['order_status'];?>"><button>View review</button></a></div>
+            <?php } ?>
             <div class="view-apt-divider"></div>
             <div class="view-order-btn01"><a href=""><button>Cancel Order</button></a></div>
           </div>

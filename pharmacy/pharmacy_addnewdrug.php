@@ -46,10 +46,6 @@
                         <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="name" required/></td>
                     </tr>
                     <tr>
-                        <td class="tdtype1">Drug Strength :</td>
-                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="strength" required/></td>
-                    </tr>
-                    <tr>
                         <td class="tdtype1">Quantity :</td>
                         <td class="tdtype2"><input type="number" class="form-addmedcontrol" name="qty" required/></td>
                     </tr>

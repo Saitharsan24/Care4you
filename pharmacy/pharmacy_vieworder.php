@@ -1,5 +1,7 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +21,8 @@
             <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="pharmacy_home.php">Home</a></li>
-                <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
-                <li><a href="pharmacy_orderhistory.php">Order History</a></li>
+                <li><a href="pharmacy_neworders.php"><div>New Orders</div></a></li>
+                <li><a href="pharmacy_orderhistory.php" class="highlighttext">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
                 <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
@@ -32,7 +34,7 @@
                 //Get the Order ID
                 $id = $_GET['id'];
                 //Query to get all data from tbl_neworder for selected order
-                $sql = "SELECT * FROM tbl_neworder WHERE order_id=$id";
+                $sql = "SELECT * FROM tbl_respondedorders WHERE order_id=$id";
                 //Exeute the Query                                    
                  $res = mysqli_query($conn, $sql);
 
@@ -63,7 +65,19 @@
                     <td class="tdtype2"><?php echo $pname; ?></td>
                 </tr>
                 <tr>
+                    <td class="tdtype1">Address :</td>
+                    <td class="tdtype2"><?php echo $orderdate; ?></td>
+                </tr>
+                <tr>
+                    <td class="tdtype1">Contact No :</td>
+                    <td class="tdtype2"><?php echo $orderdate; ?></td>
+                </tr>
+                <tr>
                     <td class="tdtype1">Ordered Date :</td>
+                    <td class="tdtype2"><?php echo $orderdate; ?></td>
+                </tr>
+                <tr>
+                    <td class="tdtype1">Order Stauts :</td>
                     <td class="tdtype2"><?php echo $orderdate; ?></td>
                 </tr>
                 <tr>
@@ -84,15 +98,15 @@
                                     if($ext=='gif'||$ext=='png'||$ext=='jpg'||$ext=='jpeg'||$ext=='tiff')
                                     {
                                         ?>
-                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" download>
-                                        <img src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" width="400px">
+                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
+                                            <?php echo $prescription_name; ?>
                                         </a>
                                         <?php
                                     }
                                     else
                                     {
                                         ?>
-                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" download>
+                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
                                         <?php echo "Order".$order_id."-Prescription.".$ext; ?>
                                         </a>
                                         <?php
@@ -107,7 +121,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="tdtype1">Remarks :</td>
+                    <td class="tdtype1">Other items :</td>
                     <td class="tdtype2">
                         <?php
                         if($remarks != "")
@@ -124,7 +138,7 @@
                 </tr>
             </table>
             <br /> <br />
-            <button class="btn-blue"><a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_respond.php?id=<?php echo $order_id;?>">Respond</a></button>
+            <button class="btn-blue"><a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_respond.php?id=<?php echo $order_id;?>">View respond</a></button>
             </span>
             </div>
         </div>

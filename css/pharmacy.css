@@ -344,7 +344,7 @@ table td {
 }
 
 .tbl-vieworder .tdtype1{
-  width: 175px;
+  width: 200px;
   /*border:1px solid #b3adad;*/
   padding: 5px;
   padding-left: 3%;
@@ -642,7 +642,6 @@ table td {
   border: 1px solid #ccc;
   color: #ffffff;
   font-weight: 500;
-  cursor: pointer;
 }
 
 .btn-red{
@@ -655,7 +654,6 @@ table td {
   border: 1px solid #ccc;
   color: #ffffff;
   font-weight: 500;
-  cursor: pointer;
 }
 
 .btn-green{
@@ -668,7 +666,42 @@ table td {
   border: 1px solid #ccc;
   color: #ffffff;
   font-weight: 500;
-  cursor: pointer;
+}
+
+.clearfilt-order{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  margin-top:30px;
+  font-weight: 550;
+  color: #0d5c75; 
+}
+
+.clearfilt-order i{
+  margin-right: 5px;
+}
+
+.clearfilt-order a{
+  color: inherit;
+}
+
+.order-filter-btn{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 180px 0px 0px;
+}
+
+.order-filter-main-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:right;
+  margin-left: 10px;
+}
+
+.order-filter-main-btn a{
+  margin-left: 25px;
 }
 
 /*orderhistory.php Ends Here*/

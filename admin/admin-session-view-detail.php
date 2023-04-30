@@ -15,6 +15,53 @@ $row = mysqli_fetch_assoc($result);
 //print_r($row);die();
 ?>
 
+<?php
+   
+
+   if(isset($_GET['cancel'])){
+    $sessionid = $_GET['cancel'];
+    $query_del = "UPDATE tbl_docsession
+    SET status = 2
+    WHERE session_id = $sessionid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-session-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+
+   if(isset($_GET['activate'])){
+    $sessionid = $_GET['activate'];
+    $query_del = "UPDATE tbl_docsession
+    SET status = 1
+    WHERE session_id = $sessionid";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-session-view.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+
+   
+//    if(isset($_GET['enable'])){
+//     $userid = $_GET['enable'];
+//     $query_del = "UPDATE tbl_docsession
+//     SET status = 1
+//     WHERE session_id = $userid";
+    
+//     if (mysqli_query($conn, $query_del)) {
+//         header("Location: /Care4you/admin/admin-asst-view.php");
+//     } else {
+//         echo "Error deleting record: " . mysqli_error($conn);
+//     }
+//    }
+
+   
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,12 +129,46 @@ $row = mysqli_fetch_assoc($result);
                     <td>Time Slot :</td>
                     <td><?php echo $row['time_slot']; ?></td>
                 </tr>
-                
+                <tr>
+                    <td rowspan="2">
+                        <?php
+                            if($row['status']==0){
+                                $status="Activate";
+                                include('./admin-session-pop.php');
+                            
+                       ?>
+                        <button class="btn-del-doc-enable" onclick="document.getElementById('id01').style.display='block'; 
+                                document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&activate=<?php echo $row['session_id'] ?> ';
+                                ">
+                                <i class="fa-solid fa-toggle-on"></i>
+                                Cancel Session
+                                </button>
+
+                                <?php
+                          }     else{
+                                      
+                                $status = "Cancel";
+                                include('./admin-session-pop.php');
+                               
+                            
+                               ?>
+                               <button class="btn-del-doc-enable" onclick="document.getElementById('id01').style.display='block'; 
+                               document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&cancel=<?php echo $row['session_id'] ?>';
+                               ">
+                               <i class="fa-solid fa-toggle-on"></i>
+                               Activate Session
+                               </button>
+
+                               <?php 
+                          };
+                            ?>
+                                
+                </tr>
                 
                 
             </table>
         
-            <button class="btn-del-session" >Delete Session</button> 
+           <!-- <button class="btn-del-session" >Delete Session</button> -->
 
            
             <button class="btn-back-session" onclick="location.href='admin-session-view.php'">Back</button>

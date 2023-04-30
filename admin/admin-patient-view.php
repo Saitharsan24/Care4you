@@ -2,7 +2,7 @@
 <?php include('../login_access.php') ?>
 
 <?php
-$query = "SELECT * FROM tbl_patient ";
+$query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid ";
 $result = mysqli_query($conn, $query);
 $no_row = mysqli_num_rows($result);
 
@@ -72,21 +72,28 @@ $no_row = mysqli_num_rows($result);
 
                                    ?>
                                 <tr>
-                                            <td><?php echo $row['id'];?></td>
+                                            <td><?php echo $row['p_id'];?></td>
                                             <td><?php echo $row['first_name'];?></td>
                                             <td><?php echo $row['contact'];?></td>
-                                            <td></td>
-                                           
-                                            
+                                            <td>
+                                               
+                                                <?php
+                                                if ($row['status'] == 1) { 
+                                                    echo '<button class="active-status"> Active </button>';
+                                                } else {
+                                                    echo '<button class="passive-status"> Disabled </button>';
+                                                }
+                                                ?>
+
                                
                                             </td>
-                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-patient-view-detail.php?id=<?php echo $row["id"] ?>"'><span>Patient Details</span></button></td>
+                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-patient-view-detail.php?id=<?php echo $row["p_id"] ?>"'><span>Patient Details</span></button></td>
                                         </tr>
-                                        <?php
+                                        <?php 
+                                
                                     }
-                                }
-
-                                      ?>
+                                   }
+                                        ?>
     
                           
                             </tbody>

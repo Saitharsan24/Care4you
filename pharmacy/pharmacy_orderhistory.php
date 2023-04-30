@@ -2,6 +2,9 @@
 <?php include('../login_access.php') ?>
 
 <?php 
+
+    $btn_all = $btn_pending = $btn_tobe = $btn_complete = 'btn-press';
+
     if(!isset($_GET['pendingid']) && !isset($_GET['tobeid']) && !isset($_GET['completeid'])){
         $sql = "SELECT * FROM tbl_respondedorders ";
 
@@ -109,16 +112,16 @@
 
                         <?php
                              if($row['order_status'] == 1) { ?>
-                                <td><button class="btn-yellow"> <?php echo 'Payment pending';?> </button></td>
+                                <td><button class="btn-orange"> <?php echo 'Payment Pending';?> </button></td>
                         <?php
                             } else if($row['order_status'] == 2) { ?>
                                 <td><button class="btn-yellow"> <?php echo 'To be Delivered'; ?> </button></td>
                         <?php
                             } else if($row['order_status'] == 3) { ?>
-                                <td><button class="btn-yellow"> <?php echo 'Complete'; ?> </button></td>
+                                <td><button class="btn-green"> <?php echo 'Complete'; ?> </button></td>
                         <?php
                             } else if($row['order_status'] == 4) { ?>
-                                <td><button class="btn-yellow"> <?php echo 'Cancelled'; ?> </button></td>
+                                <td><button class="btn-red"> <?php echo 'Cancelled'; ?> </button></td>
                         <?php
                             } ?>
                             <td><a href="./pharmacy_vieworder.php?id=<?php echo $row['order_id'];?>"><button class="btn-vieworder"><span>View Details</span></button></a></td>

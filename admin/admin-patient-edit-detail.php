@@ -1,7 +1,51 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 
+<?php
+  $id=$_GET['id'];
+   
+  $query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid WHERE p_id = $id";  
+  $result=mysqli_query($conn,$query);
+  $row = mysqli_fetch_assoc($result);
 
+?>
+
+
+<?php
+  
+  if(isset($_POST['update'])){
+  print_r($id);die(); 
+    
+     $fname=$_POST['fname'];
+     $lname=$_POST['fname'];
+     $username=$_POST['username'];
+     $address=$_POST['address'];
+     $contact=$_POST['contact'];
+     $email=$_POST['email'];
+     $dob=$_POST['dob'];
+     $nic=$_POST['nic'];
+    
+     $query = "UPDATE tbl_patient SET `first_name`='$fname' WHERE p_id=$id";
+
+    //$query="UPDATE tbl_patient SET 'first_name'='$fname' WHERE p_id=$id";
+    //  $query="UPDATE tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid=tbl_sysusers.userid
+    //  SET tbl_patient.first_name=$fname,
+    //      last_name=$lname,
+    //      dob=$dob,
+    //      nic=$nic,
+    //      contact=$contact,
+    //      address=$address,
+    //      username=$username,
+    //      email=$email
+    //      WHERE p_id=$id   ";
+
+       $res=mysqli_query($conn,$query);
+        
+
+    
+  }
+
+?>
 
 
 <!DOCTYPE html>
@@ -44,52 +88,50 @@
                                         <figure>
                                             <img src="../images/doctor.jpg" alt="user" class="patient-profile-edit">
                                             <figcaption class="change-profile-txt">Change Profile Picture</figcaption>
-                                        </figure>
+                                        </figure> 
                                         <div class="edit-patient-table">
+                                        <form  action="admin-patient-view-detail.php?id=<?php echo $id; ?>" method="POST" > 
                                             <table class="tbl-square-edit-patient">
+                                                
                                                 <tr>
-                                                    <td>Patient ID :</td>
-                                                    <td><input type="text" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                    <td>Firstname Name :</td>
+                                                    <td><input type="text" class="form-control" name="fname" required="" autofocus="true" value="<?php echo $row['first_name']?>"/></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Patient Name :</td>
-                                                    <td><input type="text" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                <td>Last Name :</td>
+                                                    <td><input type="text" class="form-control" name="lname" required="" autofocus="true" value="<?php echo $row['last_name']?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>User Name :</td>
-                                                    <td><input type="text" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                    <td><input type="text" class="form-control" name="username" required="" autofocus="true" value="<?php echo $row['username']?>"/></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Gender :</td>
-                                                    <td><input type="radio" class="container" name="name" required="" autofocus="true" /> Male
-                                                        <input type="radio" class="container" name="name" required="" autofocus="true" /> Female
-                                                        <input type="radio" class="container" name="name" required="" autofocus="true" /> Others
-                                                    </td>
-                                                </tr>
+                                               
                                                 <tr>
                                                     <td>Address :</td>
-                                                    <td><input type="textarea" class="form-control-address" name="name" required="" autofocus="true" /></td>
+                                                    <td><input type="textarea" class="form-control-address" name="address" required="" autofocus="true" value="<?php echo $row['address']?>" /></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Contact Number :</td>
-                                                    <td><input type="text" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                    <td><input type="text" class="form-control" name="contact" required="" autofocus="true" value="<?php echo $row['contact']?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email :</td>
-                                                    <td><input type="email" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                    <td><input type="email" class="form-control" name="email" required="" autofocus="true" value="<?php echo $row['email']?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Date of birth :</td>
-                                                    <td><input type="date" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                    <td><input type="date" class="form-control" name="dob" required="" autofocus="true" value="<?php echo $row['dob']?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td>NIC :</td>
-                                                    <td><input type="text" class="form-control" name="name" required="" autofocus="true" /></td>
+                                                    <td><input type="text" class="form-control" name="nic" required="" autofocus="true" value="<?php echo $row['nic']?>" /></td>
                                                 </tr>
+                                                
                                             </table>
-                                            <td><button class="btn-save-changes" onclick='location.href="#"'><span>Save Changes</span></button></td>
-                                            <td><button class="btn-back-edit-detail" onclick='location.href="admin-patient-view-detail.php"'><span>Back</span></button></td>
-                                            <td><button class="btn-change-password" onclick='location.href="admin-change-password.php"'><span>Change Password</span></button></td>
+                                            <td><button type="submit" class="btn-save-changes"   name="update"><span>Save Changes</span></button></td>
+                                            </form>
+                                            <td><button  class="btn-change-password" onclick='location.href="admin-change-password.php?id=<?php echo $row["p_id"] ; ?>"'><span>Change Password</span></button></td>
+                                            <td><button class="btn-back-edit-detail" onclick='location.href="admin-patient-view-detail.php?id=<?php echo $row["p_id"] ; ?>"'><span>Back</span></button></td>
+                                       
                                         </div>
                                 </span>
                             </div>

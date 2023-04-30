@@ -1,6 +1,42 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 
+<?php
+  
+  if(isset($_POST['update'])){
+    $id = $_GET['id'];
+//   print_r($id);die(); 
+    
+     $fname=$_POST['fname'];
+     $lname=$_POST['fname'];
+     $username=$_POST['username'];
+     $address=$_POST['address'];
+     $contact=$_POST['contact'];
+     $email=$_POST['email'];
+     $dob=$_POST['dob'];
+     $nic=$_POST['nic'];
+    
+     $query = "UPDATE tbl_patient SET `first_name`='$fname' WHERE p_id=$id";
+
+    //$query="UPDATE tbl_patient SET 'first_name'='$fname' WHERE p_id=$id";
+    //  $query="UPDATE tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid=tbl_sysusers.userid
+    //  SET tbl_patient.first_name=$fname,
+    //      last_name=$lname,
+    //      dob=$dob,
+    //      nic=$nic,
+    //      contact=$contact,
+    //      address=$address,
+    //      username=$username,
+    //      email=$email
+    //      WHERE p_id=$id   ";
+
+       $res=mysqli_query($conn,$query);
+        
+
+    
+  }
+
+?>
 
 
 
@@ -12,6 +48,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin-view-patient.css">
+
     <title>ADMIN</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
@@ -42,13 +79,42 @@
 
             <?php
                   $id=$_GET['id'];    //Get thr id from patient view page
-                  
-                  $query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.id = tbl_sysusers.userid WHERE id = $id";
+               //   print_r($id);die();
+                  $query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid WHERE p_id = $id"; //select tbl_patient and  tables 
                   $result=mysqli_query($conn,$query);
-                  $row = mysqli_fetch_assoc($result);
-                // $query="SELECT * FROM tbl_patient  WHERE id = $id";
-                // $result=mysqli_query($conn,$query);
-                // $row = mysqli_fetch_assoc($result);
+                  $row = mysqli_fetch_assoc($result);    
+
+
+            ?>
+
+               <?php
+
+                if (isset($_GET['disable'])) {
+                    $userid = $_GET['disable'];
+                    $query_del = "UPDATE tbl_sysusers
+                    SET status = 0
+                    WHERE userid = $userid";
+       
+                    if (mysqli_query($conn, $query_del)) {
+                        header("Location: /Care4you/admin/admin-patient-view.php");
+                    } else {
+                        echo "Error deleting record: " . mysqli_error($conn);
+                    }
+                }
+
+                if (isset($_GET['activate'])) {
+                    $userid = $_GET['activate'];
+                    $query_del = "UPDATE tbl_sysusers
+                    SET status = 1
+                    WHERE userid = $userid";
+ 
+                    if (mysqli_query($conn, $query_del)) {
+                        header("Location: /Care4you/admin/admin-patient-view.php");
+                    } else {
+                        echo "Error deleting record: " . mysqli_error($conn);
+                    }
+                }
+                //$result=mysqli_query($conn, $sql);
 
 
             ?>
@@ -60,7 +126,7 @@
                 <table class="tbl-square-view-patient">
                             <tr>
                                 <td class="type1">Patient ID :</td>
-                                <td class="type2"><?php echo $row['id']; ?></td>
+                                <td class="type2"><?php echo $row['p_id']; ?></td>
                             </tr>
                             <tr>
                                 <td class="type1">Patient Name :</td>
@@ -94,10 +160,46 @@
                                 <td class="type1">NIC :</td>
                                 <td class="type2"><?php echo $row['nic'] ?></td>
                             </tr>
-                        </table>
-                        <td><button class="btn-edit-patient-detail" onclick='location.href="admin-patient-edit-detail.php"'><span>Edit Patient Details</span></button></td>
+                       <tr> 
+                                         
+                        <td><button class="btn-edit-patient-detail" onclick='location.href="admin-patient-edit-detail.php?id=<?php echo $row["p_id"] ?>"'><span>Edit Patient Details</span></button></td>
                         <td><button class="btn-back-patient-detail" onclick='location.href="admin-patient-view.php"'><span>Back</span></button></td>
+                        <tb>
+                        <?php
+                                if($row['status']==1){
+                                    $status="Disable";
+                                    include('./admin-patient-pop.php');
+                                
+                             ?>
+                                 <button class="btn-disable-patient-detail" onclick="document.getElementById('id01').style.display='block'; 
+                                document.getElementById('del').action = '?id=<?php echo $row['p_id'] ?>&disable=<?php echo $row['userid'] ?> ';
+                                ">
+                                <i class="fa-solid fa-toggle-off"></i>
+                                Disable Account
+                                </button>
+  
+                                <?php
+                             }  else {
 
+                                $status = "Activate";
+                                include('./admin-patient-pop.php');
+                               
+
+                            ?>
+                             <button class="btn-activate-patient-detail" onclick="document.getElementById('id01').style.display='block'; 
+                                document.getElementById('del').action = '?id=<?php echo $row['p_id'] ?>&activate=<?php echo $row['userid'] ?> ';
+                                ">
+                                <i class="fa-solid fa-toggle-on"></i>
+                                Activate Account
+                                </button>
+
+                                <?php  
+                             }
+                                ?>
+
+                        </tb></tr>
+                        
+                        </table>
                 </div>        
             </span>
             </div>

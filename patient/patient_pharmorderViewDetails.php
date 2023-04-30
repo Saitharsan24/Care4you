@@ -55,7 +55,7 @@
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
           <a href="#">Medical records</a>
-          <a href="./patient_medicalrecords.php">View doctors</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
           <a href="#">View profile</a>
         </div>
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -86,7 +86,7 @@
                   ?>
               </div>
           </div>
-          <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>"> <?php echo $prescription; ?></a></div></div>
+          <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>" target="blank"> <?php echo $prescription; ?></a></div></div>
           <div class="view-orderdetails-row">NIC No :<div><?php echo ' '.$nic;?></div></div>
           <div class="view-orderdetails-row">Other items :<div><?php echo ' '.$other_items;?></div></div>
         

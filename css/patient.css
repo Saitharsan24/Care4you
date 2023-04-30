@@ -387,6 +387,10 @@ input:focus {
     margin-right: 130px;
 }
 
+.radio-itm2{
+    margin-right: 330px;
+}
+
 .radio-itm input {
     width: auto;
     margin-right: 10px;
@@ -467,8 +471,8 @@ input:focus {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 40px;
+    height: 23px;
 }
 
 .switch input {
@@ -484,7 +488,7 @@ input:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #717171;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -492,8 +496,8 @@ input:focus {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 15px;
+    width: 15px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -510,9 +514,9 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
 }
 
 /* Rounded sliders */

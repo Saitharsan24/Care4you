@@ -67,6 +67,7 @@
 
                         <div class="labeltag">&nbsp;<i class="fa-solid fa-hospital-user"></i>&nbsp;&nbsp;Specialization
                         <select name="specialization" id="specialization" class="inputtab">
+                            <option value="Select Specialization">Select Specialization</option>
                             <option value="Addiction Psychiatrist">Addiction Psychiatrist</option>
                             <option value="Anesthesiologist">Anesthesiologist</option>
                             <option value="Bariatric Surgeon">Bariatric Surgeon</option>

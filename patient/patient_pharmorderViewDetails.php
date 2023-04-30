@@ -20,6 +20,7 @@
     $order_date = $row['orderdate'];
     $nic = $row['nic'];
     $prescription = $row['prescription_name'];
+    $other_items = $row['remarks'];
 
 ?>
 
@@ -87,6 +88,7 @@
           </div>
           <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>"> <?php echo $prescription; ?></a></div></div>
           <div class="view-orderdetails-row">NIC No :<div><?php echo ' '.$nic;?></div></div>
+          <div class="view-orderdetails-row">Other items :<div><?php echo ' '.$other_items;?></div></div>
         
           <div class="view-order-btn">
             <?php if (isset($row['responddate'])) { ?>

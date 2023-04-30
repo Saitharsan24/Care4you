@@ -75,9 +75,9 @@
         
             <div class="order-filter-btn">
                 <div class="right-button order-filter-main-btn">
-                    <a href="?pendingid=1"><button class="<?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
-                    <a href="?tobeid=1"><button class="<?php echo $btn_tobe ?>" name="tobedelivered">To be delivered</button></a>
-                    <a href="?completeid=1"><button class="<?php echo $btn_complete ?>" name="complete">Completed</button></a>
+                    <a href="?pendingid "><button class="btn-press <?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
+                    <a href="?tobeid"><button class="btn-press <?php echo $btn_tobe ?>" name="tobedelivered">To be delivered</button></a>
+                    <a href="?completeid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Completed</button></a>
                 </div>
 
                 <?php 

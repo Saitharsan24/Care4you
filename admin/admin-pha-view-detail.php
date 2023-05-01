@@ -13,7 +13,8 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<?php include('admin_getinfo.php') ?>
+<?php include('admin_getinfo.php');
+?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -32,8 +33,8 @@
         </div>
         <div class="main_content">
             <div class="info">
-            <div class="back" onclick="location.href='admin-pha-view.php'">
-                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            <div class="back" onclick="location.href='admin-pha-view.php'"> 
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i> </div>
                 
             <?php
                 $id = $_GET['id'];
@@ -99,9 +100,7 @@
                                 include('./admin-pha-pop.php');
                             ?>
 
-                                <button class="btn-del-doc-disable" onclick="document.getElementById('id01').style.display='block'; 
-                                document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id'] ?>&disable=<?php echo $row['userid'] ?> ';
-                                ">
+                                <button type="button" class="btn-del-doc-disable" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id'] ?>&disable=<?php echo $row['userid'] ?>';">
                                 <i class="fa-solid fa-toggle-off"></i>
                                 Disable Account
                                 </button>
@@ -113,8 +112,7 @@
                                 include('./admin-pha-pop.php');
 
                             ?>
-                                <button class="btn-del-doc-enable" onclick="document.getElementById('id01').style.display='block'; 
-                                document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id'] ?>&activate=<?php echo $row['userid'] ?> ';
+                                <button type="button" class="btn-del-doc-enable" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['pharmacist_id'] ?>&activate=<?php echo $row['userid'] ?> ';
                                 ">
                                 <i class="fa-solid fa-toggle-on"></i>
                                 Activate Account
@@ -133,7 +131,7 @@
                     </tr>
 
                </table> 
-            </div>
+            
             </div>                       
         </div>  
     </div>

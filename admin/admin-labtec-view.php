@@ -57,9 +57,9 @@ $no_row=mysqli_num_rows($result);
                     <tbody>
                     
                         <tr>
-                            <td><input type="text" class="search-lab" name="lab-id" id="lab-id" onchange="filterLabId()"  autofocus="true"/></td>
-                            <td><input type="text" class="search-lab" name="lab-name" id="lab-name" onchange="filterLabName()" autofocus="true"/></td>
-                            <td><input type="text" class="search-lab" name="lab-status"  id="lab-status"onchange="filterLabStatus()" autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-id" id="lab-id" placeholder="search Lap technician ID" onkeyup="filterLabId()"  autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-name" id="lab-name" placeholder="search Name" onkeyup="filterLabName()" autofocus="true"/></td>
+                            <td><input type="text" class="search-lab" name="lab-status"  id="lab-status" placeholder="search Account Status" onkeyup="filterLabStatus()" autofocus="true"/></td>
                             <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                         </tr>
                         <?php 

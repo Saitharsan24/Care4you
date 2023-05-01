@@ -4,9 +4,9 @@
 <?php
 $query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid ";
 $result=mysqli_query($conn,$query);
-//print_r($result);die();
-$no_row=mysqli_num_rows($result);
 
+$no_row=mysqli_num_rows($result);
+//print_r($no_row);die();
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +54,9 @@ $no_row=mysqli_num_rows($result);
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" class="search-asst" name="asst-id" id="asst-id" autofocus="true" onchange="filterAsstID()"/></td>
-                            <td><input type="text" class="search-asst" name="asst-name" id="asst-name"  autofocus="true" onchange="filterAsstName()"/></td>
-                            <td><input type="text" class="search-asst" name="asst-status" id="asst-status"  autofocus="true" onchange="filterAsstStatus()"/></td>
+                            <td><input type="text" class="search-asst" name="asst-id" id="asst-id" placeholder="search Assistant ID" autofocus="true" onkeyup="filterAsstID()"/></td>
+                            <td><input type="text" class="search-asst" name="asst-name" id="asst-name" placeholder="search Name"  autofocus="true" onkeyup="filterAsstName()"/></td>
+                            <td><input type="text" class="search-asst" name="asst-status" id="asst-status" placeholder="search Status" autofocus="true" onkeyup="filterAsstStatus()"/></td>
                             <td><button class="btn-search" ><span>Search</span></button></td>
                         </tr>
                         <?php

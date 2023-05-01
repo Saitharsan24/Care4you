@@ -25,6 +25,7 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
   <body>
+
      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script>
@@ -112,117 +113,109 @@
         <div class="apt-heading"><h2>Channel a Doctor</h2></div>
         <div class="search-apt">  
           <form action="#">
-
+      
+          <!-- Doctor Session Filters -->
             <div class="search-row">
               <p class="form-text">Doctor Name:</p>
-              <select id="doc_name" name="doc_name" >
-                <option value="Select doctor name" selected disabled hidden>Select Doctor Name</option>
-
-                <?php 
-                  if($result1)
-                  {
-                    while ($row1 = mysqli_fetch_array($result1))
-                    {  
-                ?>
-                      <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>
-                <?php    
+              <select id="doc_name">
+                    <option value="Select doctor name" selected disabled hidden>Select doctor name</option>
+                    <?php 
+                      if($result1){
+                        while ($row1 = mysqli_fetch_array($result1)) {  
+                    ?>                         
+                            <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>              
+                    <?php    
+                      }
                     }
-                  }
-                ?>  
+                    ?>
               </select>
             </div>
 
+
             <div class="search-row">
               <p class="form-text">Specialization:</p>
-              <select  id="specialization-select">
-                <option value="Select doctor name" selected disabled hidden>Select specialization</option>
-
+              <select  id="specialization-select">      
+                        <option value="Select doctor name" selected disabled hidden>Select specialization</option>
               <?php 
                   if($result2)
                   {
                     while ($row2 = mysqli_fetch_array($result2))
                     {  
                 ?>
-                      <option value="<?php echo $row2['specializations'] ?>"><?php echo $row2['specializations'] ?></option>
+                        <option value="<?php echo $row2['specializations'] ?>"><?php echo $row2['specializations'] ?></option>
                 <?php    
                     }
                   }
-                ?>
+                }
+                ?> 
               </select>
             </div>
 
+            
             <div class="search-row">
                 <p class="form-text">Date:</p>
-                <input id="date-input" type="Date" class="signup-input" name="date-input"/>
+                <input id="date-input" type="Date" class="signup-input" value=" "/>
             </div>
 
-            <div class="clearfilt">
-              <a href="patient_makedocappointment.php">
-                <i class="fa-solid fa-xmark" style="font-size: 10px;"></i>clear filter
-              </a>
-            </div>
+            
+            <!-- <div class="search-btn">
+                <button type="submit" class="btn signin">Search</button>
+            </div> -->
             
           </form>
         </div>
 
-        <table class="tbl-aptlist">
-          <thead>
-              <tr>
-                  <td>Doctor Name</td>
-                  <td>Specialization</td>
-                  <td>Date</td>
-                  <td>Time</td>
-                  <td></td>
-              </tr>
-          </thead>
-          <tbody>
-              <?php 
-                if(isset($_SESSION['output']))
-                {
-                  if ($_SESSION['output']==0)
-                  {
+        <!-- Doctor Session Resuts -->
+        <div class="list-apt" id="here">
+
+            <div class="apt-table-head">
+                <div class="table-itm1"><p>Doctor Name</p></div>
+                <div class="table-itm2"><p>Specialization</p></div>
+                <div class="table-itm3"><p>Date</p></div>
+                <div class="table-itm4"><p>Time</p></div>
+            </div>
+            
+                <?php 
+                if(isset($_SESSION['output'])){
+                  if ($_SESSION['output']==0) {
                     echo 'nothing';
                     unset($_SESSION['output']);
-                  }
-                  else
-                  {
-                      foreach ($_SESSION['output'] as $row3)
-                      {
-                      if ($row3['no_of_appointment'] < 13) 
-                        {
-              ?>
-                            <tr>
-                              <td><?php echo $row3['doc_name'] ?></td>
-                              <td><?php echo $row3['specialization'] ?></td>
-                              <td><?php echo $row3['date'] ?></td>
-                              <td><?php echo $row3['time_slot'] ?></td>
-                              <td><a href="./patient_bookdoc1.php"><button class="book-btn"><span>Book Now</span></button></a></td>
-                            </tr>
-              <?php
-                        }    
+                  } else {
+                      foreach ($_SESSION['output'] as $row3) {
+                          if ($row3['no_of_appointment'] < 13) {
+                ?>
+                                  <div class="apt-lists">
+                                    <tr class="apt-list-tbl">
+                                      <td><?php echo $row3['doc_name'] ?></td>
+                                      <td><?php echo $row3['specialization'] ?></td>
+                                      <td><?php echo $row3['date'] ?></td>
+                                      <td><?php echo $row3['time_slot'] ?></td>
+                                      <td class="book-btn"><a class="order-btn-view" href="./patient_bookdoc1.php?id=<?php echo $row3['session_id'];?>"><button class="btn-view-pha-detail"><span>Book</span></button></a></button></a></td>
+                                    </tr>
+                                  </div>
+                <?php
+                          }    
                       }
-                      unset($_SESSION['output']);
+                    unset($_SESSION['output']);
                   }
                     
-                }
-                elseif($result3)
-                {
-              ?>
-              <?php
-                  while ($row3 = mysqli_fetch_array($result3))
-                  {  
-                    if ($row3['no_of_appointment'] < 13)
-                    {
-              ?>
-                        <tr>
-                          <td><?php echo $row3['doc_name'] ?></td>
-                          <td><?php echo $row3['specialization'] ?></td>
-                          <td><?php echo $row3['date'] ?></td>
-                          <td><?php echo $row3['time_slot'] ?></td>
-                          <td><a href="./patient_bookdoc1.php"><button class="book-btn"><span>Book Now</span></button></a></td>
-                        </tr>
-              <?php
-                    }    
+                } elseif($result3){
+               
+                    while ($row3 = mysqli_fetch_array($result3)) {  
+                      if ($row3['no_of_appointment'] < 13) {
+                ?>
+                    <div class="apt-lists">
+                      <tr class="apt-list-tbl">
+                        <td><?php echo $row3['doc_name'] ?></td>
+                        <td><?php echo $row3['specialization'] ?></td>
+                        <td><?php echo $row3['date'] ?></td>
+                        <td><?php echo $row3['time_slot'] ?></td>
+                        <td class="book-btn"><a class="order-btn-view" href="./patient_bookdoc1.php?id=<?php echo $row3['session_id'];?>"><button class="btn-view-pha-detail"><span>Book</span></button></a></button></a></td>
+                      </tr>
+                    </div>
+                <?php
+                      }    
+                    }
                   }
                 }
               ?>

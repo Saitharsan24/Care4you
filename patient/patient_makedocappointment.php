@@ -168,8 +168,8 @@
             
           </form>
         </div>
-
-        <table class="tbl-aptlist">
+        <div id="here">
+        <table class="tbl-aptlist" >
           <thead>
               <tr>
                   <td>Doctor Name</td>
@@ -237,7 +237,7 @@
               ?>
           </tbody>
         </table>
-
+        </div>
         </div>
       </div>
     </div>

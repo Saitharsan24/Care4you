@@ -14,7 +14,27 @@
       $doc_name = $row['doc_name'];
       $special = $row['specialization'];
       $date = $row['date'];
-      // $tim
+      $timeslot = $row['time_slot'];
+      $noofapt = $row['no_of_appointment'];
+
+            if($timeslot == 0){
+              $starttime = strtotime('08:00:00');
+            }else if($timeslot == 1){
+              $starttime = strtotime('10:00:00');
+            }else if($timeslot == 2){
+              $starttime = strtotime('12:00:00');
+            }else if($timeslot == 3){
+              $starttime = strtotime('02:00:00');
+            }else if($timeslot == 4){
+              $starttime = strtotime('04:00:00');
+            }else{
+              $starttime = strtotime('06:00:00');
+            }
+
+      $apt_duration = 600;
+
+      $apt_time = $starttime + ($noofapt * $apt_duration);
+      $apt_time_format = date('h:i A',$apt_time);
     }
 
 ?>
@@ -67,7 +87,7 @@
             </div>
             <div class="form-itm">
                 <p>Time :</p>
-                <input type="text" value="<?php echo $row['doc_name']; ?>">
+                <input type="text" value="<?php echo $apt_time_format; ?>" readonly >
             </div>
             <div class="form-itm">
                 <p>Appointment No :</p>

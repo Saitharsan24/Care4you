@@ -33,40 +33,21 @@
       <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
     </div>
     <div class="home-right">
-      <div class="text-content">
-        <div class="my-doc-apt">
-          <h2>My Doctor Appointments</h2>
+      <div class="back" onclick="location.href='patient_appointments.php'">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+      </div>
+
+      <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px;">
+      
+        <div class="doc-apt-title">My Doctor Appointments</div>
+        <a href="./patient_makedocappointment.php"><button class="btn-mkdcapt"><span>make doctor appointment</span></button></a>
+        <!-- <div class="my-doc-apt">
+          <h3>My Doctor Appointments</h3>
         </div>
-        <div class="make-apt-btn"><a href="./patient_makedocappointment.php"><button>Make Doctor appointments</button></a></div>
+        <div class="make-apt-btn"><a href="./patient_makedocappointment.php"><button>Make Doctor appointments</button></a></div> -->
       </div>
       
-      <div class="my-apt-table">
-        <div class="mydoc-apt-header">
-          <div>Reference No</div>
-          <div>Appointment No</div>
-          <div></div>
-          <div>Date</div>
-          <div></div>
-          <div>Time</div>
-          <div></div>
-          <div>Payment Status</div>
-          <div>Session Status</div>
-        </div>
-
-        <div class="mydoc-apt-lists">
-          <div class="mydoc-apt-lists-01 ">1124</div>
-          <div class="mydoc-apt-lists-02">2</div>
-          <div class="mydoc-apt-lists-03"></div>
-          <div class="mydoc-apt-lists-04">23/10/2023</div>
-          <div class="mydoc-apt-lists-05"></div>
-          <div class="mydoc-apt-lists-06">10.00 a.m</div>
-          <div class="mydoc-apt-lists-07">Pending</div>
-          <div class="mydoc-apt-lists-08">Confirmed</div>
-          <div class="mydoc-apt-lists-09"><a href="./patient_viewdocappointment.php"><Button>View</Button></a></div>
-        </div>
-      </div>
-
-
+      
 
     </div>
   </div>

@@ -1,3 +1,11 @@
+<?php include('../config/constants.php')?>
+<?php include('../login_access.php') ?><!DOCTYPE html>
+
+<?php
+    $session_id = $_GET['id'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,52 +40,70 @@
       </div>
 
       <div class="home-right">
+
+        <div class="back" onclick="location.href='patient_bookdoc1.php?id=<?php echo $session_id ?>'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+        
         <div class="book2-heading"><h2>Book for an Appointment</h2></div>
         <div class="form-set">
+          
           <div class="form-itm">
             <p>Patient Name :</p>
             <input type="text" />
           </div>
+
           <div class="form-itm">
             <p>NIC No :</p>
             <input type="text" />
           </div>
+
           <div class="form-itm">
             <p>Contact No :</p>
             <input type="text" />
           </div>
+
         </div>
+
         <div class="form-divider"></div>
+
         <div class="form-set">
+
           <div class="form-itm">
             <p>Doctor fee :</p>
             <input type="text" />
           </div>
+
           <div class="form-itm">
             <p>Booking fee :</p>
             <input type="text" />
           </div>
+
           <div class="form-itm">
             <p>Total amount :</p>
             <input type="text" />
           </div>
+
         </div>
+
         <div class="apt-btn form-set form-set-btn">
-          <div class="apt-btn-css">
-            <a href="./patient_bookdoc1.php"><button>Back</button></a>
-          </div>
-          <div class="apt-btn-space"></div>
+  
           <div class="apt-btn-css">
             <a href="./patient_docappointments.php"><button>Pay Later</button></a>
           </div>
+
           <div class="apt-btn-space"></div>
+
           <div class="apt-btn-css">
             <a href=""><button>Pay Now</button></a>
           </div>
+
         </div>
+
         <div class="form-set form-bottom-text">
-          <p>** NOTE: You have to make the payment 24h prior to appointment.</p>
+          <p>** NOTE: You have to make the payment within 24h.</p>
         </div>
+
       </div>
     </div>
   </body>

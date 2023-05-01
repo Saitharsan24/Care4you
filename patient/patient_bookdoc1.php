@@ -14,11 +14,26 @@
       $doc_name = $row['doc_name'];
       $special = $row['specialization'];
       $date = $row['date'];
-      $timelsot = $row['time_slot'];
+      $timeslot = $row['time_slot'];
+      $noofapt = $row['no_of_appointment'];
 
-      i
+      if($timeslot == 1){
+        $starttime = strtotime('08:00:00');
+      }else if($timeslot == 2){
+        $starttime = strtotime('10:00:00');
+      }else if($timeslot == 3){
+        $starttime = strtotime('12:00:00');
+      }else if($timeslot == 4){
+        $starttime = strtotime('14:00:00');
+      }else if($timeslot == 5){
+        $starttime = strtotime('16:00:00');
+      }else{
+        $starttime = strtotime('18:00:00');
+      }
 
-
+      $apt_dur = 600;
+      $apt_time = $starttime + ($noofapt * $apt_dur);
+      $apt_time_format = date('h:i A',$apt_time);
     }
 
 ?>
@@ -55,6 +70,11 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+        
+        <div class="back" onclick="location.href='patient_makedocappointment.php'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+
         <div class="form-content">
             <div class="book1-heading"><h2>Book for an Appointment</h2></div>
             <div class="form-itm">
@@ -71,7 +91,7 @@
             </div>
             <div class="form-itm">
                 <p>Time :</p>
-                <input type="text" value="<?php echo $row['doc_name']; ?>">
+                <input type="text" value="<?php echo $apt_time_format; ?>">
             </div>
             <div class="form-itm">
                 <p>Appointment No :</p>
@@ -94,9 +114,8 @@
 
           </div>
             <div class="apt-btn">
-                <div class="apt-btn-css"><a href="./patient_makedocappointment.php"><button>Back</button></a></div>
-                <div class="apt-btn-space"></div>
-                <div class="apt-btn-css"><a href="./patient_bookdoc2.php"><button>Next</button></a></div>
+                
+                <div class="apt-btn-css"><a href="./patient_bookdoc2.php?id=<?php echo $session_id ?>"><button>Next</button></a></div>
             </div>
         </div>
       </div>

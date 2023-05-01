@@ -30,35 +30,60 @@ body {
     background-color: #A5D1E1;
 }
 
+.back{
+    position: fixed;
+    color: #0D5C75;
+    cursor: pointer;
+  }
+
+.back:hover{
+    color: #073645;
+  }
+
 .main-div {
     display: flex;
     flex-direction: row;
     height: 100vh;
     width: 100%;
-    position: fixed;
-}
-
-.home-left {
+  }
+  
+  .home-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     height: 100vh;
-    width: 300px;
+    width: 250px;
     font-size: 20px;
-}
-
-.home-right {
+  }
+  
+  .home-right {
     background-image: url(../images/patientbg1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
     height: 100vh;
-    width: 100%;
-    height: 100vh;
+    width: calc(100% - 250px); /* subtract the width of home-left */
     display: flex;
     flex-direction: column;
-}
+    overflow-y: scroll; /* enable vertical scrolling */
+    padding: 20px; /* add padding to content to avoid it touching the edges */
+  }
+
+  .home-right::-webkit-scrollbar {
+    display: none; /* hide the scrollbar */
+  }
+
+  .content::-webkit-scrollbar {
+    display: none; /* hide the scrollbar */
+  }
+  
+  .content {
+    position: relative;
+    height: 100%; /* fill the height of home-right */
+    overflow-y: auto; /* enable vertical scrolling for content */
+  }
+  
 
 /* SUCCESS/ERROR MSG style */
 
@@ -292,7 +317,7 @@ a {
     cursor: pointer;
 }
 
-.apt-table-head {
+/* .apt-table-head {
     display: flex;
     flex-direction: row;
     background: white;
@@ -337,6 +362,91 @@ a {
 .apt-list-tbl .book-btn button {
     background: #0C5C75;
     border-radius: 10px;
+}
+
+.apt-list-tbl td{
+    width: 200px;
+} */
+
+.tbl-aptlist{
+width: 80%;
+margin-top: -80px;
+margin-left:auto; 
+margin-right:auto;
+border-collapse: separate;
+border-spacing: 0 15px;
+}
+
+.tbl-aptlist{
+width: 80%;
+}
+  
+.tbl-aptlist tr{
+background-color: #ffffff;
+}
+
+.tbl-aptlist thead td{
+color: #0D5C75;
+font-weight: 700;
+padding: 5px;
+}
+
+.tbl-aptlist td{
+/*border:1px solid #b3adad;*/
+color: #000000;
+text-align: center;
+width: 300px;
+padding: 15px;
+padding-left: 0%;
+padding-right: 0%;
+}
+
+.tbl-aptlist td:first-child, th:first-child {
+border-radius: 10px 0 0 10px;
+}
+
+.tbl-aptlist td:last-child, th:last-child {
+border-radius: 0 10px 10px 0;
+}
+
+.book-btn {
+border-radius: 10px;
+background-color: #0D5C75;
+border: none;
+color: #FFFFFF;
+text-align: center;
+/* font-size: 15px; */
+padding: 5px;
+width: 150px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+font-weight: 500;
+}
+
+.book-btn span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.book-btn span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.book-btn:hover span {
+padding-right: 15px;
+}
+
+.book-btn:hover span:after {
+opacity: 1;
+right: 0;
 }
 
 /* PATIENT BOOKDOC1 style */
@@ -727,16 +837,67 @@ input::-webkit-file-upload-button {
     background: #107c9d;
 }
 
-.make-apt-btn button {
-    height: 80px;
-    width: 180px;
+.doc-apt-title{
+    font-size: 35px;
+    font-weight: 700;
+    color: #093e4e;
+    margin-bottom: -15px;
+}
+
+.btn-mkdcapt {
+    border-radius: 10px;
+    background-color: #093e4e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    /* font-size: 15px; */
+    padding: 5px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 500;
+}
+
+.btn-mkdcapt:hover{
+    background-color: #0D5C75;
+}
+
+.btn-mkdcapt span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn-mkdcapt span:after {
+    content: '\002B';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+
+.btn-mkdcapt:hover span {
+    padding-left: 15px;
+}
+
+.btn-mkdcapt:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+
+/* .make-apt-btn button {
+    display: inline-block;
+    height: 40px;
+    width: 280px;
     background: #0C5C75;
-    border-radius: 25px;
+    border-radius: 15px;
     font-size: 18px;
     font-weight: 500;
     color: white;
     border: none;
-    margin: 0px 0px 0px 25px;
 }
 
 .make-apt-btn a {
@@ -749,7 +910,7 @@ input::-webkit-file-upload-button {
     font-weight: 600;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
 /* APPOINTMENTS PAGE style */
 
@@ -1325,4 +1486,27 @@ input::-webkit-file-upload-button {
     margin: 30px 530px 0px 0px;
   }
 
+  .clearfilt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-top: -10px;
+    margin-right: 5px;
+    font-size: 10px;
+    font-weight: 550;
+    color: #0d5c75; 
+  }
+  
+  .clearfilt i{
+    margin-right: 5px;
+  }
+  
+  .clearfilt a{
+    color: #0d5c75;
+  }
+
+  .clearfilt a:hover{
+    color: #01161d;
+  }
 

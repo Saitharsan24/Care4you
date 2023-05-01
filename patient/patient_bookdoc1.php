@@ -14,6 +14,7 @@
       $doc_name = $row['doc_name'];
       $special = $row['specialization'];
       $date = $row['date'];
+      $tim
     }
 
 ?>

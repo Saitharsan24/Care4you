@@ -10,6 +10,7 @@
     $result1 = mysqli_query($conn,$sql1);
     $result2 = mysqli_query($conn,$sql2); 
     $result3 = mysqli_query($conn,$sql3);
+
     
 ?>
 
@@ -222,7 +223,7 @@
                           <td><?php echo $row3['specialization'] ?></td>
                           <td><?php echo $row3['date'] ?></td>
                           <td><?php echo $row3['time_slot'] ?></td>
-                          <td><a href="./patient_bookdoc1.php"><button class="book-btn"><span>Book Now</span></button></a></td>
+                          <td><a href="./patient_bookdoc1.php?id=<?Php echo $row3['session_id'] ?>"><button class="book-btn"><span>Book Now</span></button></a></td>
                         </tr>
               <?php
                     }    

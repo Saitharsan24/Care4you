@@ -185,7 +185,12 @@
                 {
                   if ($_SESSION['output']==0)
                   {
-                    echo 'nothing';
+                    ?>
+                    <tr>
+                      <td colspan="5" class="nosessiontd"><div class="nosession">No Any Sessions Available</div></td>
+                    </tr>
+                    <?php
+                    // echo 'nothing';
                     unset($_SESSION['output']);
                   }
                   else

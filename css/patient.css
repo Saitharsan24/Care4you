@@ -409,6 +409,15 @@ border-radius: 10px 0 0 10px;
 border-radius: 0 10px 10px 0;
 }
 
+.tbl-aptlist td.nosessiontd:first-child, th:first-child {
+    border-radius: 10px 10px 10px 10px;
+}
+
+.nosession{
+    color: #d41414;
+    font-weight: 700;
+}
+
 .book-btn {
 border-radius: 10px;
 background-color: #0D5C75;

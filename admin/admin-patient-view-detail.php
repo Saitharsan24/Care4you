@@ -5,10 +5,10 @@
   
   if(isset($_POST['update'])){
     $id = $_GET['id'];
-//   print_r($id);die(); 
+ 
     
      $fname=$_POST['fname'];
-     $lname=$_POST['fname'];
+     $lname=$_POST['lname'];
      $username=$_POST['username'];
      $address=$_POST['address'];
      $contact=$_POST['contact'];
@@ -16,24 +16,19 @@
      $dob=$_POST['dob'];
      $nic=$_POST['nic'];
     
-     $query = "UPDATE tbl_patient SET `first_name`='$fname' WHERE p_id=$id";
+     $query1 = "UPDATE tbl_patient SET `first_name`='$fname',`last_name`='$lname',`address`='$address'
+     ,`contact`='$contact',`dob`='$dob',`nic`='$nic'
+     WHERE p_id=$id";
+    $res1=mysqli_query($conn,$query1);   //update quary for tbl_patient table usering the p_id
 
-    //$query="UPDATE tbl_patient SET 'first_name'='$fname' WHERE p_id=$id";
-    //  $query="UPDATE tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid=tbl_sysusers.userid
-    //  SET tbl_patient.first_name=$fname,
-    //      last_name=$lname,
-    //      dob=$dob,
-    //      nic=$nic,
-    //      contact=$contact,
-    //      address=$address,
-    //      username=$username,
-    //      email=$email
-    //      WHERE p_id=$id   ";
+    $query2="SELECT * FROM tbl_patient WHERE p_id = $id"; 
+    $result2=mysqli_query($conn,$query2);
+    $row = mysqli_fetch_assoc($result2);     //for get the userid form tbl_patient table
 
-       $res=mysqli_query($conn,$query);
-        
-
-    
+    $uid = $row['userid'];                  //assign the userid in $uid variable
+    $query2 = "UPDATE tbl_sysusers SET `username`='$username',`email`='$email'
+     WHERE userid='$uid'";
+     $res2=mysqli_query($conn,$query2);      //  update quary for tbl_patient table usering the userid 
   }
 
 ?>
@@ -79,7 +74,6 @@
 
             <?php
                   $id=$_GET['id'];    //Get thr id from patient view page
-               //   print_r($id);die();
                   $query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid WHERE p_id = $id"; //select tbl_patient and  tables 
                   $result=mysqli_query($conn,$query);
                   $row = mysqli_fetch_assoc($result);    
@@ -92,8 +86,8 @@
                 if (isset($_GET['disable'])) {
                     $userid = $_GET['disable'];
                     $query_del = "UPDATE tbl_sysusers
-                    SET status = 0
-                    WHERE userid = $userid";
+                    SET `status`  = 0
+                    WHERE userid= $userid";
        
                     if (mysqli_query($conn, $query_del)) {
                         header("Location: /Care4you/admin/admin-patient-view.php");
@@ -105,7 +99,7 @@
                 if (isset($_GET['activate'])) {
                     $userid = $_GET['activate'];
                     $query_del = "UPDATE tbl_sysusers
-                    SET status = 1
+                    SET `status` = 1
                     WHERE userid = $userid";
  
                     if (mysqli_query($conn, $query_del)) {

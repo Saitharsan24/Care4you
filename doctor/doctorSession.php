@@ -40,18 +40,20 @@
                     </thead>
                     <tbody>
                         <?php
-                            $query = "SELECT * FROM sessions";
-                            $result = $conn->query($query);                            ;
+                            // $query = "SELECT * FROM sessions";
+                            // $result = $conn->query($query);          
+                            $query="SELECT * FROM tbl_docsession ";
+                            $result=mysqli_query($conn,$query);                  ;
                             while($row = $result->fetch_assoc()){
                         ?>
                             <tr>
-                                <td><?php echo $row['s_id']?></td>
-                                <td><?php echo $row['s_date']?></td>
-                                <td><?php echo $row['s_timeslot']?></td>
+                                <td><?php echo $row['session_id']?></td>
+                                <td><?php echo $row['date']?></td>
+                                <td><?php echo $row['time_slot']?></td>
                                 <td>2</td>
                                 <td>3</td>
                                 <td><button class="btn-green">Confirmed</button></td>
-                                <td><button class="btn-blue2"><a href="doctorAppointments.php">View Appointments</button></td>
+                                <td><button class="btn-blue2"><a href="doctorAppointments.php">View Appointments</a></td>
                             </tr>  
                         <?php        
                             }

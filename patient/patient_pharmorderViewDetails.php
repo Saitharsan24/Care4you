@@ -80,13 +80,15 @@
                   <?php 
 
                       if($order_status == 0){
-                          echo ' '.'<span style="color:rgb(135, 135, 15);text-align:center;">Response pending</span>';
+                          echo ' '.'<button class="order-st00">Response Pending</button>';
                       } elseif($order_status== 1){
-                          echo ' '.'<span style="color:#c95000;text-align:center;">Payment pending</span>';
+                          echo ' '.'<button class="order-st01">Payment Pending</button>';
                       } elseif($order_status== 2){
-                          echo ' '.'<span style="color:#0daa12;text-align:center;">Complete</span>';
+                          echo ' '.'<button class="order-st02"">To be delivered</button>';   
+                      } elseif($order_status== 3){
+                        echo ' '.'<button class="order-st03"">Complete</button>';
                       } else{
-                          echo ' '.'<span style="color:#b51111;text-align:center;">Cancelled</span>';
+                          echo ' '.'<button class="order-st04">Cancelled</button>';
                       }
                   ?>
               </div>

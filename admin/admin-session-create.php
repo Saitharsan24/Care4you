@@ -23,7 +23,20 @@
             $date=$_POST['date'];
             //print_r($date);die();
             $room=$_POST['room'];
-            $time=$_POST['time-slot'];
+            
+             if($_POST['time-slot']=='8am-10am'){
+                $time=0;
+             }else if($_POST['time-slot']=='10am-12pm'){
+                $time=1;
+             }else if($_POST['time-slot']=='12pm-2pm'){
+                $time=2;
+             }else if($_POST['time-slot']=='2pm-4pm'){
+                $time=3;
+             }else if($_POST['time-slot']=='4pm-6pm'){
+                $time=4;
+             }else{   
+                $time=5;
+             }
 
             $sql = "INSERT INTO tbl_docsession (doctor_id,date,room_no,time_slot,assistant_id) VALUES ('$doc_id', '$date','$room','$time','$asst_id')";
             $res1 = mysqli_query($conn, $sql);

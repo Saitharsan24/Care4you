@@ -23,6 +23,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/patient.css" />
+  <link rel="stylesheet" href="../css/patient_viewdoc.css" />
   <title>Home</title>
   <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
@@ -41,9 +42,9 @@
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
         <a href="./patient_appointments.php">Appointments</a>
-        <a href="#" style="color: #0c5c75; font-weight: bold">Orders</a>
+        <a href="./patient_pharmorders.php">Orders</a>
         <a href="./patient_medicalrecords.php">Medical records</a>
-        <a href="./patient_doctorlist.php">View doctors</a>
+        <a href="./patient_doctorlist.php" style="color: #0c5c75; font-weight: bold">View doctors</a>
         <a href="#">View profile</a>
       </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -54,27 +55,24 @@
     <div class="home-right">
       <div class="text-content">
         <div class="my-doc-apt order-heading">
-          <h2>My Orders</h2>
-        </div>
-        <div>
-          <div class="make-apt-btn"><a href="patient_makeorder.php"><button>Make Pharmacy Order</button></a></div>
+          <h2>Doctors List</h2>
         </div>
       </div>
 
-      <div class="table-order-details">
-        <div class="order-tbl-heading">
-          <div>Order ID</div>
-          <div class="divide-order divide-order-02"></div>
-          <div>Phone No</div>
-          <div class="divide-order divide-order-03"></div>
-          <div>Order status</div>
+      <div class="table-doctor-details">
+        <div class="doctor-tbl-heading">
+          <div>Doctor Name</div>
+          <div class="divide-doctor divide-doctor-02"></div>
+          <div>Specialization</div>
+          <div class="divide-doctor divide-doctor-03"></div>
+          <div>SLMC No</div>
         </div>
-        <div class="order-tbl-search">
+        <div class="doctor-tbl-search">
           <table>
             <tr>
-              <td><input type="text" class="search-row1" autofocus="true" /></td>
-              <td><input type="text" class="search-row3" autofocus="true" /></td>
-              <td><input type="text" class="search-row4" autofocus="true" /></td>
+              <td><input type="text" class="doc-search-row1" autofocus="true" /></td>
+              <td><input type="text" class="doc-search-row3" autofocus="true" /></td>
+              <td><input type="text" class="doc-search-row4" autofocus="true" /></td>
             </tr>
           </table>
         </div>

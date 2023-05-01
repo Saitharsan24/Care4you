@@ -25,6 +25,7 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
   <body>
+
      
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script>
@@ -98,7 +99,7 @@
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical records</a>
-          <a href="#">View doctors</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -108,57 +109,58 @@
         <div class="apt-heading"><h2>Channel a Doctor</h2></div>
         <div class="search-apt">  
           <form action="#">
+      
+          <!-- Doctor Session Filters -->
             <div class="search-row">
               <p class="form-text">Doctor Name:</p>
-              <select id="doc_name" name="gender" >
-
-                        <option value="Select doctor name" selected disabled hidden>Select doctor name</option>
-
-                <?php 
-                  if($result1){
-                    while ($row1 = mysqli_fetch_array($result1)) {  
-                ?>
-                          
-                        <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>
-                
-                <?php    
-                  }
-                }
-                ?>  
-
+              <select id="doc_name">
+                    <option value="Select doctor name" selected disabled hidden>Select doctor name</option>
+                    <?php 
+                      if($result1){
+                        while ($row1 = mysqli_fetch_array($result1)) {  
+                    ?>                         
+                            <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>              
+                    <?php    
+                      }
+                    }
+                    ?>
               </select>
             </div>
+
+
             <div class="search-row">
               <p class="form-text">Specialization:</p>
-              <select  id="specialization-select">
-                        
+              <select  id="specialization-select">      
                         <option value="Select doctor name" selected disabled hidden>Select specialization</option>
-
               <?php 
                   if($result2){
                     while ($row2 = mysqli_fetch_array($result2)) {  
                 ?>
-                          
                         <option value="<?php echo $row2['specializations'] ?>"><?php echo $row2['specializations'] ?></option>
-                
                 <?php    
                   }
                 }
-                ?>  
-
+                ?> 
               </select>
             </div>
+
+            
             <div class="search-row">
                 <p class="form-text">Date:</p>
-                <input id="date-input" type="Date" class="signup-input" name="date_of_birth" value=" "/>
+                <input id="date-input" type="Date" class="signup-input" value=" "/>
             </div>
-            <div class="search-btn">
+
+            
+            <!-- <div class="search-btn">
                 <button type="submit" class="btn signin">Search</button>
-            </div>
+            </div> -->
             
           </form>
         </div>
+
+        <!-- Doctor Session Resuts -->
         <div class="list-apt" id="here">
+
             <div class="apt-table-head">
                 <div class="table-itm1"><p>Doctor Name</p></div>
                 <div class="table-itm2"><p>Specialization</p></div>
@@ -173,26 +175,25 @@
                     unset($_SESSION['output']);
                   } else {
                       foreach ($_SESSION['output'] as $row3) {
-                      if ($row3['no_of_appointment'] < 13) {
+                          if ($row3['no_of_appointment'] < 13) {
                 ?>
-                    <div class="apt-lists">
-                      <tr class="apt-list-tbl">
-                        <td><?php echo $row3['doc_name'] ?></td>
-                        <td><?php echo $row3['specialization'] ?></td>
-                        <td><?php echo $row3['date'] ?></td>
-                        <td><?php echo $row3['time_slot'] ?></td>
-                        <td class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></td>
-                      </tr>
-                    </div>
+                                  <div class="apt-lists">
+                                    <tr class="apt-list-tbl">
+                                      <td><?php echo $row3['doc_name'] ?></td>
+                                      <td><?php echo $row3['specialization'] ?></td>
+                                      <td><?php echo $row3['date'] ?></td>
+                                      <td><?php echo $row3['time_slot'] ?></td>
+                                      <td class="book-btn"><a class="order-btn-view" href="./patient_bookdoc1.php?id=<?php echo $row3['session_id'];?>"><button class="btn-view-pha-detail"><span>Book</span></button></a></button></a></td>
+                                    </tr>
+                                  </div>
                 <?php
-                      }    
-                    }
+                          }    
+                      }
                     unset($_SESSION['output']);
                   }
                     
                 } elseif($result3){
-                ?>
-                <?php
+               
                     while ($row3 = mysqli_fetch_array($result3)) {  
                       if ($row3['no_of_appointment'] < 13) {
                 ?>
@@ -202,7 +203,7 @@
                         <td><?php echo $row3['specialization'] ?></td>
                         <td><?php echo $row3['date'] ?></td>
                         <td><?php echo $row3['time_slot'] ?></td>
-                        <td class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></td>
+                        <td class="book-btn"><a class="order-btn-view" href="./patient_bookdoc1.php?id=<?php echo $row3['session_id'];?>"><button class="btn-view-pha-detail"><span>Book</span></button></a></button></a></td>
                       </tr>
                     </div>
                 <?php

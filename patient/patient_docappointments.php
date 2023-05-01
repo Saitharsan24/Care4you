@@ -39,10 +39,10 @@
 
       <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
         <div class="doc-apt-title">My Doctor Appointments</div>
-        <a href="./patient_makedocappointment.php"><button class="btn-mkdcapt"><span>make doctor appointment</span></button></a>
+        <div class="mk-apt-btn"><a href="./patient_makedocappointment.php"><button class="btn-mkdcapt"><span>make doctor appointment</span></button></a></div>
       </div>
 
-      <div class="tbl-content" style="max-height: 100vh; overflow-y: auto; margin-top:150px;">
+      <div class="tbl-content">
       <table class="tbl-mydocapp">
         <thead>
             <tr>

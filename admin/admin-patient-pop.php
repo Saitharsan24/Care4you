@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <link rel="stylesheet" href="../css/pha-del-pop.css">
+  <link rel="stylesheet" href="../css/patient-del-pop.css">
 
 </head>
 

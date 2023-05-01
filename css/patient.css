@@ -396,7 +396,7 @@ padding: 5px;
 color: #000000;
 text-align: center;
 width: 300px;
-padding: 15px;
+padding: 10px;
 padding-left: 0%;
 padding-right: 0%;
 }
@@ -407,6 +407,15 @@ border-radius: 10px 0 0 10px;
 
 .tbl-aptlist td:last-child, th:last-child {
 border-radius: 0 10px 10px 0;
+}
+
+.tbl-aptlist td.nosessiontd:first-child, th:first-child {
+    border-radius: 10px 10px 10px 10px;
+}
+
+.nosession{
+    color: #d41414;
+    font-weight: 700;
 }
 
 .book-btn {
@@ -911,6 +920,76 @@ input::-webkit-file-upload-button {
     transition: .3s;
     cursor: pointer;
 } */
+
+.tbl-mydocapp{
+    width: 90%;
+    margin-left:auto; 
+    margin-right:auto;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+.tbl-mydocapp{
+    width: 90%;
+}
+    
+.tbl-mydocapp tr{
+    background-color: #ffffff;
+}
+
+.tbl-mydocapp thead{
+    position: sticky;
+    top: 0; /* set the table heading to be fixed */
+    z-index: 1; /* set a higher z-index to show the heading above the content */
+}
+
+.tbl-mydocapp thead td{
+    color: #0D5C75;
+    font-weight: 700;
+    padding: 5px;
+}
+
+.tbl-mydocapp td{
+    /*border:1px solid #b3adad;*/
+    color: #000000;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.tbl-mydocapp td:first-child, th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.tbl-mydocapp td:last-child, th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.btn-yellow{
+    width: 150px;
+    background-color: #d7ad16;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 500;
+  }
+  
+  .btn-green{
+    width: 150px;
+    background-color: #0C7516;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 500;
+  }
 
 /* APPOINTMENTS PAGE style */
 

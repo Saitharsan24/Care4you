@@ -37,17 +37,43 @@
         <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
       </div>
 
-      <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px;">
-      
+      <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
         <div class="doc-apt-title">My Doctor Appointments</div>
         <a href="./patient_makedocappointment.php"><button class="btn-mkdcapt"><span>make doctor appointment</span></button></a>
-        <!-- <div class="my-doc-apt">
-          <h3>My Doctor Appointments</h3>
-        </div>
-        <div class="make-apt-btn"><a href="./patient_makedocappointment.php"><button>Make Doctor appointments</button></a></div> -->
       </div>
-      
-      
+
+      <div class="tbl-content" style="max-height: 100vh; overflow-y: auto; margin-top:150px;">
+      <table class="tbl-mydocapp">
+        <thead>
+            <tr>
+                <td>Reference No</td>
+                <td>Appointment No</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>Payment Status</td>
+                <td>Session Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1124</td>
+                <td>2</td>
+                <td>23/10/2023</td>
+                <td>3.00 PM - 3.10 PM</td>
+                <td> <button class="btn-green"> Confirmed </button></td>
+                <td><a href="#"><button class="book-btn"><span>View Status</span></button></a></td>
+            </tr>
+            <tr>
+                <td>1138</td>
+                <td>7</td>
+                <td>24/10/2023</td>
+                <td>4.00 PM - 4.30 PM</td>
+                <td> <button class="btn-yellow"> Pending </button></td>
+                <td><a href="#"><button class="book-btn"><span>View Status</span></button></a></td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
 
     </div>
   </div>

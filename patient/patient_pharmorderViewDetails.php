@@ -55,12 +55,17 @@
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
           <a href="#">Medical records</a>
-          <a href="./patient_medicalrecords.php">View doctors</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
           <a href="#">View profile</a>
         </div>
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+
+      <div class="back" onclick="location.href='patient_pharmorders.php'">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+      </div>
+      
         <div class="view-order-heading"><h2>My Order Details</h2></div>
         <div class="view-order-details">
           
@@ -75,18 +80,20 @@
                   <?php 
 
                       if($order_status == 0){
-                          echo ' '.'<span style="color:rgb(135, 135, 15);text-align:center;">Response pending</span>';
+                          echo ' '.'<button class="order-st00">Response Pending</button>';
                       } elseif($order_status== 1){
-                          echo ' '.'<span style="color:#c95000;text-align:center;">Payment pending</span>';
+                          echo ' '.'<button class="order-st01">Payment Pending</button>';
                       } elseif($order_status== 2){
-                          echo ' '.'<span style="color:#0daa12;text-align:center;">Complete</span>';
+                          echo ' '.'<button class="order-st02"">To be delivered</button>';   
+                      } elseif($order_status== 3){
+                        echo ' '.'<button class="order-st03"">Complete</button>';
                       } else{
-                          echo ' '.'<span style="color:#b51111;text-align:center;">Cancelled</span>';
+                          echo ' '.'<button class="order-st04">Cancelled</button>';
                       }
                   ?>
               </div>
           </div>
-          <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>"> <?php echo $prescription; ?></a></div></div>
+          <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>" target="blank"> <?php echo $prescription; ?></a></div></div>
           <div class="view-orderdetails-row">NIC No :<div><?php echo ' '.$nic;?></div></div>
           <div class="view-orderdetails-row">Other items :<div><?php echo ' '.$other_items;?></div></div>
         
@@ -97,9 +104,6 @@
             <div class="view-apt-divider"></div>
             <div class="view-order-btn01"><a href=""><button>Cancel Order</button></a></div>
           </div>
-        </div>
-        <div class="view-order-back-btn">
-          <div class="view-order-btn02"><a href="./patient_pharmorders.php"><button>Back</button></a></div>
         </div>
       </div>
     </div>

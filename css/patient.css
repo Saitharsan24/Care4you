@@ -11,54 +11,84 @@
     font-family: 'Poppins', sans-serif;
 }
 
-*::-webkit-scrollbar {
-    width: 10px;
+/*CSS for Scroll Bar*/
+
+/* width */
+::-webkit-scrollbar {
+width: 7px;
 }
 
-*::-webkit-scrollbar-track {
-    border-radius: 8px;
-    background-color: #e7e7e7;
-    border: 1px solid #cacaca;
+/* Track */
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px #ffffff; 
+border-radius: 10px;
 }
 
-*::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background-color: #A5D1E1;
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #A5D1E1; 
+border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #698f9d;
 }
 
 body {
     background-color: #A5D1E1;
 }
 
+.back{
+    position: fixed;
+    color: #0D5C75;
+    cursor: pointer;
+  }
+
+.back:hover{
+    color: #073645;
+  }
+
 .main-div {
     display: flex;
     flex-direction: row;
     height: 100vh;
     width: 100%;
-    position: fixed;
-}
-
-.home-left {
+  }
+  
+  .home-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: white;
     height: 100vh;
-    width: 300px;
+    width: 250px;
     font-size: 20px;
-}
-
-.home-right {
+  }
+  
+  .home-right {
     background-image: url(../images/patientbg1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto;
     height: 100vh;
-    width: 100%;
-    height: 100vh;
+    width: calc(100% - 250px); /* subtract the width of home-left */
     display: flex;
     flex-direction: column;
-}
+    overflow-y: scroll; /* enable vertical scrolling */
+    padding: 20px; /* add padding to content to avoid it touching the edges */
+  }
+
+  .home-right::-webkit-scrollbar {
+    display: none; /* hide the scrollbar */
+  }
+  
+  .content {
+    position: relative;
+    height: 100%; /* fill the height of home-right */
+    overflow-y: auto; /* enable vertical scrolling for content */
+  }
+  
 
 /* SUCCESS/ERROR MSG style */
 
@@ -292,7 +322,7 @@ a {
     cursor: pointer;
 }
 
-.apt-table-head {
+/* .apt-table-head {
     display: flex;
     flex-direction: row;
     background: white;
@@ -337,6 +367,100 @@ a {
 .apt-list-tbl .book-btn button {
     background: #0C5C75;
     border-radius: 10px;
+}
+
+.apt-list-tbl td{
+    width: 200px;
+} */
+
+.tbl-aptlist{
+width: 80%;
+margin-top: -80px;
+margin-left:auto; 
+margin-right:auto;
+border-collapse: separate;
+border-spacing: 0 15px;
+}
+
+.tbl-aptlist{
+width: 80%;
+}
+  
+.tbl-aptlist tr{
+background-color: #ffffff;
+}
+
+.tbl-aptlist thead td{
+color: #0D5C75;
+font-weight: 700;
+padding: 5px;
+}
+
+.tbl-aptlist td{
+/*border:1px solid #b3adad;*/
+color: #000000;
+text-align: center;
+width: 300px;
+padding: 10px;
+padding-left: 0%;
+padding-right: 0%;
+}
+
+.tbl-aptlist td:first-child, th:first-child {
+border-radius: 10px 0 0 10px;
+}
+
+.tbl-aptlist td:last-child, th:last-child {
+border-radius: 0 10px 10px 0;
+}
+
+.tbl-aptlist td.nosessiontd:first-child, th:first-child {
+    border-radius: 10px 10px 10px 10px;
+}
+
+.nosession{
+    color: #d41414;
+    font-weight: 700;
+}
+
+.book-btn {
+border-radius: 10px;
+background-color: #0D5C75;
+border: none;
+color: #FFFFFF;
+text-align: center;
+/* font-size: 15px; */
+padding: 5px;
+width: 150px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+font-weight: 500;
+}
+
+.book-btn span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.book-btn span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.book-btn:hover span {
+padding-right: 15px;
+}
+
+.book-btn:hover span:after {
+opacity: 1;
+right: 0;
 }
 
 /* PATIENT BOOKDOC1 style */
@@ -385,6 +509,10 @@ input:focus {
 
 .radio-itm {
     margin-right: 130px;
+}
+
+.radio-itm2{
+    margin-right: 330px;
 }
 
 .radio-itm input {
@@ -454,21 +582,21 @@ input:focus {
 .form-bottom-text {
     font-weight: 600;
     color: #093e4e;
-    margin: 50px 0px 0px 150px;
+    margin: 20px 0px 0px 250px;
     font-size: 20px;
 }
 
 .book2-heading {
     font-size: 25px;
     color: #093e4e;
-    margin: 20px 0px 50px 100px;
+    margin: 40px 0px 20px 100px;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 40px;
+    height: 23px;
 }
 
 .switch input {
@@ -484,7 +612,7 @@ input:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #717171;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -492,8 +620,8 @@ input:focus {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 15px;
+    width: 15px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -510,9 +638,9 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
 }
 
 /* Rounded sliders */
@@ -723,16 +851,77 @@ input::-webkit-file-upload-button {
     background: #107c9d;
 }
 
-.make-apt-btn button {
-    height: 80px;
-    width: 180px;
+.doc-apt-title{
+    font-size: 35px;
+    font-weight: 700;
+    color: #093e4e;
+    margin-bottom: -15px;
+}
+
+.btn-mkdcapt {
+    border-radius: 10px;
+    background-color: #093e4e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    /* font-size: 15px; */
+    padding: 5px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.mk-apt-btn{
+    margin: 20px 0px 30px -5px;
+}
+
+.btn-mkdcapt:hover{
+    background-color: #0D5C75;
+}
+
+.btn-mkdcapt span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn-mkdcapt span:after {
+    content: '\002B';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+
+.btn-mkdcapt:hover span {
+    padding-left: 15px;
+}
+
+.btn-mkdcapt:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+
+.tbl-content{
+    max-height: 100vh; 
+    overflow-y: auto; 
+    margin-top:170px;
+
+}
+
+/* .make-apt-btn button {
+    display: inline-block;
+    height: 40px;
+    width: 280px;
     background: #0C5C75;
-    border-radius: 25px;
+    border-radius: 15px;
     font-size: 18px;
     font-weight: 500;
     color: white;
     border: none;
-    margin: 0px 0px 0px 25px;
 }
 
 .make-apt-btn a {
@@ -745,7 +934,73 @@ input::-webkit-file-upload-button {
     font-weight: 600;
     transition: .3s;
     cursor: pointer;
+} */
+
+.tbl-mydocapp{
+    width: 90%;
+    margin-left:auto; 
+    margin-right:auto;
+    border-collapse: separate;
+    border-spacing: 0 15px;
 }
+    
+.tbl-mydocapp tr{
+    background-color: #ffffff;
+}
+
+.tbl-mydocapp thead{
+    position: sticky;
+    top: 0; /* set the table heading to be fixed */
+    z-index: 1; /* set a higher z-index to show the heading above the content */
+}
+
+.tbl-mydocapp thead td{
+    color: #0D5C75;
+    font-weight: 700;
+    padding: 5px;
+}
+
+.tbl-mydocapp td{
+    /*border:1px solid #b3adad;*/
+    color: #000000;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.tbl-mydocapp td:first-child, th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.tbl-mydocapp td:last-child, th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.btn-yellow{
+    width: 150px;
+    background-color: #d7ad16;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 500;
+  }
+  
+  .btn-green{
+    width: 150px;
+    background-color: #0C7516;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 500;
+  }
 
 /* APPOINTMENTS PAGE style */
 
@@ -1059,37 +1314,70 @@ input::-webkit-file-upload-button {
     text-align: center;
 }
 
-.order-st01{
-    color:  rgb(135, 135, 15);
-    border-radius: 25px;
+.order-st00{
     width: 175px;
+    width: 150px;
+    background-color: #FDD147;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
+}
+
+.order-st01{
+    background-color: #F48484;
+    width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
 }
 
 .order-st02{
-    color: #c95000;
-    border-radius: 25px;
+    background-color: #90EE90;
     width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
 }
 
 .order-st03{
-    color: #0daa12;
-    border-radius: 25px;
+    background-color: #BD1010;
     width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-weight: 550;
 }
 
 .order-st04{
-    color: #b51111;
-    border-radius: 25px;
+    background-color: #0C7516;
     width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-weight: 550;
 }
-
-.order-st04{
-    color: #b51111;
-    border-radius: 25px;
-    width: 175px;
-}
-
-
 
 /* Patient_pahrmorderViewDetails.php STYLES */
 
@@ -1321,4 +1609,27 @@ input::-webkit-file-upload-button {
     margin: 30px 530px 0px 0px;
   }
 
+  .clearfilt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-top: -10px;
+    margin-right: 5px;
+    font-size: 10px;
+    font-weight: 550;
+    color: #0d5c75; 
+  }
+  
+  .clearfilt i{
+    margin-right: 5px;
+  }
+  
+  .clearfilt a{
+    color: #0d5c75;
+  }
+
+  .clearfilt a:hover{
+    color: #01161d;
+  }
 

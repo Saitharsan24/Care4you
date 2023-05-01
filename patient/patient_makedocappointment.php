@@ -10,6 +10,7 @@
     $result1 = mysqli_query($conn,$sql1);
     $result2 = mysqli_query($conn,$sql2); 
     $result3 = mysqli_query($conn,$sql3);
+
     
 ?>
 
@@ -98,119 +99,145 @@
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical records</a>
-          <a href="#">View doctors</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
+
       <div class="home-right">
+        <div class="content">
+
+        <div class="back" onclick="location.href='patient_docappointments.php'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+
         <div class="apt-heading"><h2>Channel a Doctor</h2></div>
         <div class="search-apt">  
           <form action="#">
+
             <div class="search-row">
               <p class="form-text">Doctor Name:</p>
-              <select id="doc_name" name="gender" >
-
-                        <option value="Select doctor name" selected disabled hidden>Select doctor name</option>
+              <select id="doc_name" name="doc_name" >
+                <option value="Select doctor name" selected disabled hidden>Select Doctor Name</option>
 
                 <?php 
-                  if($result1){
-                    while ($row1 = mysqli_fetch_array($result1)) {  
+                  if($result1)
+                  {
+                    while ($row1 = mysqli_fetch_array($result1))
+                    {  
                 ?>
-                          
-                        <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>
-                
+                      <option value="<?php echo $row1['doctor_id'] ?>"><?php echo $row1['doc_name'] ?></option>
                 <?php    
+                    }
                   }
-                }
                 ?>  
-
               </select>
             </div>
+
             <div class="search-row">
               <p class="form-text">Specialization:</p>
               <select  id="specialization-select">
-                        
-                        <option value="Select doctor name" selected disabled hidden>Select specialization</option>
+                <option value="Select doctor name" selected disabled hidden>Select specialization</option>
 
               <?php 
-                  if($result2){
-                    while ($row2 = mysqli_fetch_array($result2)) {  
+                  if($result2)
+                  {
+                    while ($row2 = mysqli_fetch_array($result2))
+                    {  
                 ?>
-                          
-                        <option value="<?php echo $row2['specializations'] ?>"><?php echo $row2['specializations'] ?></option>
-                
+                      <option value="<?php echo $row2['specializations'] ?>"><?php echo $row2['specializations'] ?></option>
                 <?php    
+                    }
                   }
-                }
-                ?>  
-
+                ?>
               </select>
             </div>
+
             <div class="search-row">
                 <p class="form-text">Date:</p>
-                <input id="date-input" type="Date" class="signup-input" name="date_of_birth" value=" "/>
+                <input id="date-input" type="Date" class="signup-input" name="date-input"/>
             </div>
-            <div class="search-btn">
-                <button type="submit" class="btn signin">Search</button>
+
+            <div class="clearfilt">
+              <a href="patient_makedocappointment.php">
+                <i class="fa-solid fa-xmark" style="font-size: 10px;"></i>clear filter
+              </a>
             </div>
             
           </form>
         </div>
-        <div class="list-apt" id="here">
-            <div class="apt-table-head">
-                <div class="table-itm1"><p>Doctor Name</p></div>
-                <div class="table-itm2"><p>Specialization</p></div>
-                <div class="table-itm3"><p>Date</p></div>
-                <div class="table-itm4"><p>Time</p></div>
-            </div>
-            
-                <?php 
-                if(isset($_SESSION['output'])){
-                  if ($_SESSION['output']==0) {
-                    echo 'nothing';
+
+        <table class="tbl-aptlist">
+          <thead>
+              <tr>
+                  <td>Doctor Name</td>
+                  <td>Specialization</td>
+                  <td>Date</td>
+                  <td>Time</td>
+                  <td></td>
+              </tr>
+          </thead>
+          <tbody>
+          <?php 
+                if(isset($_SESSION['output']))
+                {
+                  if ($_SESSION['output']==0)
+                  {
+                    ?>
+                    <tr>
+                      <td colspan="5" class="nosessiontd"><div class="nosession">No Any Sessions Available</div></td>
+                    </tr>
+                    <?php
+                    // echo 'nothing';
                     unset($_SESSION['output']);
-                  } else {
-                      foreach ($_SESSION['output'] as $row3) {
-                      if ($row3['no_of_appointment'] < 13) {
-                ?>
-                    <div class="apt-lists">
-                      <tr class="apt-list-tbl">
-                        <td><?php echo $row3['doc_name'] ?></td>
-                        <td><?php echo $row3['specialization'] ?></td>
-                        <td><?php echo $row3['date'] ?></td>
-                        <td><?php echo $row3['time_slot'] ?></td>
-                        <td class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></td>
-                      </tr>
-                    </div>
-                <?php
-                      }    
-                    }
-                    unset($_SESSION['output']);
+                  }
+                  else
+                  {
+                      foreach ($_SESSION['output'] as $row3)
+                      {
+                      if ($row3['no_of_appointment'] < 13) 
+                        {
+              ?>
+                            <tr>
+                              <td><?php echo $row3['doc_name'] ?></td>
+                              <td><?php echo $row3['specialization'] ?></td>
+                              <td><?php echo $row3['date'] ?></td>
+                              <td><?php echo $row3['time_slot'] ?></td>
+                              <td><a href="./patient_bookdoc1.php"><button class="book-btn"><span>Book Now</span></button></a></td>
+                            </tr>
+              <?php
+                        }    
+                      }
+                      unset($_SESSION['output']);
                   }
                     
-                } elseif($result3){
-                ?>
-                <?php
-                    while ($row3 = mysqli_fetch_array($result3)) {  
-                      if ($row3['no_of_appointment'] < 13) {
-                ?>
-                    <div class="apt-lists">
-                      <tr class="apt-list-tbl">
-                        <td><?php echo $row3['doc_name'] ?></td>
-                        <td><?php echo $row3['specialization'] ?></td>
-                        <td><?php echo $row3['date'] ?></td>
-                        <td><?php echo $row3['time_slot'] ?></td>
-                        <td class="book-btn"><a href="./patient_bookdoc1.php"><button>Book</button></a></td>
-                      </tr>
-                    </div>
-                <?php
-                      }    
-                    }
+                }
+                elseif($result3)
+                {
+              ?>
+              <?php
+                  while ($row3 = mysqli_fetch_array($result3))
+                  {  
+                    if ($row3['no_of_appointment'] < 13)
+                    {
+              ?>
+                        <tr>
+                          <td><?php echo $row3['doc_name'] ?></td>
+                          <td><?php echo $row3['specialization'] ?></td>
+                          <td><?php echo $row3['date'] ?></td>
+                          <td><?php echo $row3['time_slot'] ?></td>
+                          <td><a href="./patient_bookdoc1.php?id=<?Php echo $row3['session_id'] ?>"><button class="book-btn"><span>Book Now</span></button></a></td>
+                        </tr>
+              <?php
+                    }    
                   }
-                  
-                ?>  
+                }
+              ?>
+          </tbody>
+        </table>
+
         </div>
       </div>
     </div>

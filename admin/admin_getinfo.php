@@ -1,4 +1,5 @@
 <?php
+
     if(isset($_SESSION['user'])) //User is logged in 
     {
         //Get the username

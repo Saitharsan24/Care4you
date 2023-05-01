@@ -26,47 +26,54 @@
         <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
         <a href="./patient_pharmorders.php">Orders</a>
         <a href="./patient_medicalrecords.php">Medical records</a>
-        <a href="#">View doctors</a>
+        <a href="./patient_doctorlist.php">View doctors</a>
         <a href="#">View profile</a>
       </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
       <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
     </div>
     <div class="home-right">
-      <div class="text-content">
-        <div class="my-doc-apt">
-          <h2>My Doctor Appointments</h2>
-        </div>
-        <div class="make-apt-btn"><a href="./patient_makedocappointment.php"><button>Make Doctor appointments</button></a></div>
-      </div>
-      
-      <div class="my-apt-table">
-        <div class="mydoc-apt-header">
-          <div>Reference No</div>
-          <div>Appointment No</div>
-          <div></div>
-          <div>Date</div>
-          <div></div>
-          <div>Time</div>
-          <div></div>
-          <div>Payment Status</div>
-          <div>Session Status</div>
-        </div>
-
-        <div class="mydoc-apt-lists">
-          <div class="mydoc-apt-lists-01 ">1124</div>
-          <div class="mydoc-apt-lists-02">2</div>
-          <div class="mydoc-apt-lists-03"></div>
-          <div class="mydoc-apt-lists-04">23/10/2023</div>
-          <div class="mydoc-apt-lists-05"></div>
-          <div class="mydoc-apt-lists-06">10.00 a.m</div>
-          <div class="mydoc-apt-lists-07">Pending</div>
-          <div class="mydoc-apt-lists-08">Confirmed</div>
-          <div class="mydoc-apt-lists-09"><a href="./patient_viewdocappointment.php"><Button>View</Button></a></div>
-        </div>
+      <div class="back" onclick="location.href='patient_appointments.php'">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
       </div>
 
+      <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
+        <div class="doc-apt-title">My Doctor Appointments</div>
+        <div class="mk-apt-btn"><a href="./patient_makedocappointment.php"><button class="btn-mkdcapt"><span>make doctor appointment</span></button></a></div>
+      </div>
 
+      <div class="tbl-content">
+      <table class="tbl-mydocapp">
+        <thead>
+            <tr>
+                <td>Reference No</td>
+                <td>Appointment No</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>Payment Status</td>
+                <td>Session Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1124</td>
+                <td>2</td>
+                <td>23/10/2023</td>
+                <td>3.00 PM - 3.10 PM</td>
+                <td> <button class="btn-green"> Confirmed </button></td>
+                <td><a href="#"><button class="book-btn"><span>View Status</span></button></a></td>
+            </tr>
+            <tr>
+                <td>1138</td>
+                <td>7</td>
+                <td>24/10/2023</td>
+                <td>4.00 PM - 4.30 PM</td>
+                <td> <button class="btn-yellow"> Pending </button></td>
+                <td><a href="#"><button class="book-btn"><span>View Status</span></button></a></td>
+            </tr>
+        </tbody>
+      </table>
+      </div>
 
     </div>
   </div>

@@ -21,6 +21,10 @@ body{
   cursor: pointer;
 }
 
+.back:hover{
+  color: #073645;
+}
+
 /* SUCCESS/ERROR MSG Style Starts*/
 
 .success{
@@ -626,18 +630,6 @@ table td{
 .btn-addnew:hover span:after {
   opacity: 1;
   left: 0;
-}
-
-.back{
-  position: absolute;
-  left: 275px;
-  top: 30px;
-  color: #0D5C75;
-  cursor: pointer;
-}
-
-.back:hover{
-  color: #073645;
 }
 
 /* admin-doc-view.php page end here */

@@ -61,6 +61,11 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+
+      <div class="back" onclick="location.href='patient_pharmorders.php'">
+        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+      </div>
+      
         <div class="view-order-heading"><h2>My Order Details</h2></div>
         <div class="view-order-details">
           
@@ -97,9 +102,6 @@
             <div class="view-apt-divider"></div>
             <div class="view-order-btn01"><a href=""><button>Cancel Order</button></a></div>
           </div>
-        </div>
-        <div class="view-order-back-btn">
-          <div class="view-order-btn02"><a href="./patient_pharmorders.php"><button>Back</button></a></div>
         </div>
       </div>
     </div>

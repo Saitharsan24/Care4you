@@ -943,10 +943,6 @@ input::-webkit-file-upload-button {
     border-collapse: separate;
     border-spacing: 0 15px;
 }
-
-.tbl-mydocapp{
-    width: 90%;
-}
     
 .tbl-mydocapp tr{
     background-color: #ffffff;
@@ -1318,37 +1314,70 @@ input::-webkit-file-upload-button {
     text-align: center;
 }
 
-.order-st01{
-    color:  rgb(135, 135, 15);
-    border-radius: 25px;
+.order-st00{
     width: 175px;
+    width: 150px;
+    background-color: #FDD147;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
+}
+
+.order-st01{
+    background-color: #F48484;
+    width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
 }
 
 .order-st02{
-    color: #c95000;
-    border-radius: 25px;
+    background-color: #90EE90;
     width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
 }
 
 .order-st03{
-    color: #0daa12;
-    border-radius: 25px;
+    background-color: #BD1010;
     width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-weight: 550;
 }
 
 .order-st04{
-    color: #b51111;
-    border-radius: 25px;
+    background-color: #0C7516;
     width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-weight: 550;
 }
-
-.order-st04{
-    color: #b51111;
-    border-radius: 25px;
-    width: 175px;
-}
-
-
 
 /* Patient_pahrmorderViewDetails.php STYLES */
 

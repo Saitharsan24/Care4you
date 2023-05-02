@@ -9,7 +9,7 @@
     
     table = document.getElementById("tbl-main-pha");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 2; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0];
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -31,7 +31,7 @@
    
     table = document.getElementById("tbl-main-pha");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 2; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -52,7 +52,7 @@
    
     table = document.getElementById("tbl-main-pha");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 2; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[2];
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -68,14 +68,16 @@
 
 
 // Assistant filter functions
+
   function filterAsstID() {
-    
     var input, filter, table, tr, td, i, txtValue;
+
     input = document.getElementById("asst-id");
     filter = input.value.toUpperCase() ;
+    
     table = document.getElementById("tbl-main-asst");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 2; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[0];
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -87,17 +89,18 @@
         }
       }       
     }
-  }           //filter function for Assistant ID
+  }     //filter function for Assistant ID
   
+
   function filterAsstName() {
-    
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("asst-name"); 
+
+    input = document.getElementById("asst-name");
     filter = input.value.toUpperCase() ;
-   
+    
     table = document.getElementById("tbl-main-asst");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 2; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -109,18 +112,18 @@
         }
       }       
     }
-  }               //filter function for Assistant Name
+  }     //filter function for Assistant name
 
   
   function filterAsstStatus() {
-    
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("asst-status"); 
+
+    input = document.getElementById("asst-status");
     filter = input.value.toUpperCase() ;
-   
+    
     table = document.getElementById("tbl-main-asst");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 2; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[2];
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -132,8 +135,7 @@
         }
       }       
     }
-  }                //filter function for Assistant Status
-
+  }     //filter function for Assistant name
 
   
 // Doctor filter functions
@@ -144,7 +146,7 @@ function filterDoctorId() {
   filter = input.value.toUpperCase() ;
   table = document.getElementById("tbl-main-doc");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 2; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -156,7 +158,7 @@ function filterDoctorId() {
       }
     }       
   }
-}   //doctor tech id filter function
+}   //doctor id filter function
 
 function filterDoctorName() {
     
@@ -165,7 +167,7 @@ function filterDoctorName() {
   filter = input.value.toUpperCase() ;
   table = document.getElementById("tbl-main-doc");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 2; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -177,8 +179,73 @@ function filterDoctorName() {
       }
     }       
   }
-}   //doctor tech id filter function
+}   //doctor name filter function
 
+
+function filterDoctorSpecialize() {
+    
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("doc-Specialize");
+  filter = input.value.toUpperCase() ;
+  table = document.getElementById("tbl-main-doc");
+  tr = table.getElementsByTagName("tr");
+  for (i = 2; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}   //doctor specialization filter function
+
+
+function filterDoctorSlmc() {
+    
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("doc-slmc");
+  filter = input.value.toUpperCase() ;
+  table = document.getElementById("tbl-main-doc");
+  tr = table.getElementsByTagName("tr");
+  for (i = 2; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}   //doctor slmc number filter function
+
+
+function filterDoctorStatus() {
+    
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("doc-status");
+  filter = input.value.toUpperCase() ;
+  table = document.getElementById("tbl-main-doc");
+  tr = table.getElementsByTagName("tr");
+  for (i = 2; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[4];
+    if (td) {
+      txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
+      if (txtValue.indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}   //doctor account status filter function
 
 // Lab tech filter functions
 function filterLabId() {
@@ -188,7 +255,7 @@ function filterLabId() {
   filter = input.value.toUpperCase() ;
   table = document.getElementById("tbl-main-lab");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 2; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -209,7 +276,7 @@ function filterLabName() {
   filter = input.value.toUpperCase() ;
   table = document.getElementById("tbl-main-lab");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 2; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();
@@ -231,7 +298,7 @@ function filterLabStatus() {
   filter = input.value.toUpperCase() ;
   table = document.getElementById("tbl-main-lab");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 2; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();

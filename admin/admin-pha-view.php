@@ -61,9 +61,9 @@ $no_row = mysqli_num_rows($result);
                             <tbody>
 
                                 <tr>
-                                    <td><input type="text" class="search-pha" name="pha-id" id="phar_id" autofocus="true" onchange="filterPharId()"></td>
-                                    <td><input type="text" class="search-pha" name="pha-name" id="phar_name" autofocus="true" onchange="filterPharName()"></td>
-                                    <td><input type="text" class="search-pha" name="pha-id" id="phar_status" autofocus="true" onchange="filterPharStatus()"></th>
+                                    <td><input type="text" class="search-pha" name="pha-id" id="phar_id" autofocus="true" placeholder="search pharmacits ID" onkeyup="filterPharId()"></td>
+                                    <td><input type="text" class="search-pha" name="pha-name" id="phar_name" autofocus="true" placeholder="search Name" onkeyup="filterPharName()"></td>
+                                    <td><input type="text" class="search-pha" name="pha-id" id="phar_status" autofocus="true" placeholder="search Account Status"onkeyup="filterPharStatus()"></th>
                                     <td><button class="search-doc"><span>Search&emsp;</span></button></td>
                                 </tr>
 
@@ -75,13 +75,13 @@ $no_row = mysqli_num_rows($result);
                                         <tr>
                                             <td><?php echo $row['pharmacist_id']; ?></td>
                                             <td><?php echo $row['fullname']; ?></td>
-                                            <th><?php
+                                            <td ><?php
                                                 if ($row['status'] == 1) {
-                                                    echo '<button class="active-status"> Active </button>';
+                                                    echo '<button vs class="active-status"> Active </button>';
                                                 } else {
                                                     echo '<button class="passive-status"> Disabled </button>';
                                                 }
-                                                ?></th>
+                                                ?></td>
                                             <td><button class="btn-view-pha-detail" onclick='location.href="admin-pha-view-detail.php?id=<?php echo $row["pharmacist_id"]; ?>"'><span>Pharmacist Details</span></button></td>
                                         </tr>
                                 <?php

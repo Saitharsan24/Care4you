@@ -56,16 +56,13 @@
                 echo "<option value='".$row1['doctor_id']."'>".$row1['doc_name']."</option>";
             }
         }
-    }
-    else if(isset($_POST['dates'])){
-        $date = $_POST['dates'];
-        $doc_id = $_POST['docid'];
-    
-        if($_POST['doc'] == NULL){
-            $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.date = '$date'";
+
+        if($_POST['dates'] == NULL){
+            $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_doctor.specialization = '$spec_name'";
         }
         else{
-            $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.doctor_id = '$doc_id' AND tbl_docsession.date ='$date'";
+            $date = $_POST['dates'];
+            $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_doctor.specialization = '$spec_name' AND tbl_docsession.date ='$date'";
         }
        
         $outputObj= mysqli_query($conn,$out);
@@ -79,6 +76,35 @@
             };
             $_SESSION['output'] = $props;    
         }
+
+        
+    }
+    else if(isset($_POST['dates'])){
+        $date = $_POST['dates'];
+        
+        if ($date != '') {
+            if($_POST['doc'] == NULL){
+                $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.date = '$date'";
+            }
+            else{
+                $doc_id = $_POST['docid'];
+                $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.doctor_id = '$doc_id' AND tbl_docsession.date ='$date'";
+            }
+           
+            $outputObj= mysqli_query($conn,$out);
+            if ($outputObj->num_rows == 0) {
+                $_SESSION['output'] = 0;
+            } else {
+                while($row = mysqli_fetch_array($outputObj)){
+                    $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment']);
+                    $props[] = $data;
+                    // $output = array_merge($output,$data);
+                };
+                $_SESSION['output'] = $props;    
+            }
+        }
+    
+        
     }
         
     

@@ -11,7 +11,6 @@
     $result2 = mysqli_query($conn,$sql2); 
     $result3 = mysqli_query($conn,$sql3);
 
-    
 ?>
 
 
@@ -51,13 +50,16 @@
         $(document).ready(function(){
           $("#specialization-select").change(function(){
             var specializations = $(this).val();
+            var date_sel =$('#date-input').val();
             $.ajax({
               url: './search_Ajax/ajax.php',
               type: 'post',
-              data: {spec: specializations},
+              data: {spec: specializations,
+                dates: date_sel},
               success: function(response){
                             console.log(response);
-                $("#doc_name").html(response);
+                $("#doc_name").html(response);       
+                $( "#here" ).load(window.location.href + " #here" );
               }
             });
           });
@@ -187,7 +189,7 @@
                   {
                     ?>
                     <tr>
-                      <td colspan="5" class="nosessiontd"><div class="nosession">No Any Sessions Available</div></td>
+                      <td colspan="5" class="nosessiontd"><div class="nosession">No Sessions Available</div></td>
                     </tr>
                     <?php
                     // echo 'nothing';
@@ -199,12 +201,27 @@
                       {
                       if ($row3['no_of_appointment'] < 13) 
                         {
-              ?>
+          ?>
                             <tr>
                               <td><?php echo $row3['doc_name'] ?></td>
                               <td><?php echo $row3['specialization'] ?></td>
                               <td><?php echo $row3['date'] ?></td>
-                              <td><?php echo $row3['time_slot'] ?></td>
+                                      <?php  
+                                          if($row3['time_slot']==0){
+                                              $time="8am-10am";   
+                                          }else if($row3['time_slot']==1){
+                                              $time='10am-12pm';
+                                          }else if($row3['time_slot']==2){
+                                              $time='12pm-2pm';
+                                          }else if($row3['time_slot']==3){
+                                              $time='2pm-4pm';
+                                          }else if($row3['time_slot']==4){
+                                              $time='4pm-6pm';
+                                          }else{   
+                                              $time='6pm-8pm';
+                                          } 
+                                      ?>
+                              <td><?php echo $time ?></td>
                               <td><a href="./patient_bookdoc1.php"><button class="book-btn"><span>Book Now</span></button></a></td>
                             </tr>
               <?php
@@ -227,7 +244,23 @@
                           <td><?php echo $row3['doc_name'] ?></td>
                           <td><?php echo $row3['specialization'] ?></td>
                           <td><?php echo $row3['date'] ?></td>
-                          <td><?php echo $row3['time_slot'] ?></td>
+                                      <?php  
+                                          if($row3['time_slot']==0){
+                                              $time="8am-10am";   
+                                          }else if($row3['time_slot']==1){
+                                              $time='10am-12pm';
+                                          }else if($row3['time_slot']==2){
+                                              $time='12pm-2pm';
+                                          }else if($row3['time_slot']==3){
+                                              $time='2pm-4pm';
+                                          }else if($row3['time_slot']==4){
+                                              $time='4pm-6pm';
+                                          }else{   
+                                              $time='6pm-8pm';
+                                          } 
+                                      ?>
+
+                          <td><?php echo $time ?></td>
                           <td><a href="./patient_bookdoc1.php?id=<?Php echo $row3['session_id'] ?>"><button class="book-btn"><span>Book Now</span></button></a></td>
                         </tr>
               <?php

@@ -494,9 +494,12 @@ right: 0;
 .form-itm input {
     width: 350px;
     border-radius: 10px;
-    font-size: 10px;
+    font-size: 15px;
+    font-weight: 500;
     border: none;
     padding: 10px;
+    padding-left: 20px;
+
 }
 
 input:focus {

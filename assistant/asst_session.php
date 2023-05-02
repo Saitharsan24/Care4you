@@ -41,7 +41,7 @@
                     <tr>
                         <td>01</td>
                         <td>3.00 PM - 5.00 PM</td>
-                        <td>3</td>
+                        <td>4</td>
                         <td>Dr. Sepalika Mendis</td>
                         <td>UF07</td>
                         <td><a href="asst_view_appointment.php"><button class="btn-viewapp"><span>Appointments</span></button></a></td>

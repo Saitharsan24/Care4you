@@ -42,9 +42,36 @@
                         <td>01</td>
                         <td>18</td>
                         <td>Mrs. Sanjeewani Silva</td>
-                        <td>3.00 PM - 3.20 PM</td>
+                        <td>3.00 PM - 3.10 PM</td>
+                        <td><button class="btn-paypend">Payment Pending</button></td>
                         <td></td>
-                        <td><a href="#"><button class="btn-uploadPre"><i class="fa-solid fa-file-arrow-up"></i>&nbsp;&nbsp;&nbsp;Upload</button></a></td>
+                    </tr>
+
+                    <tr>
+                        <td>02</td>
+                        <td>08</td>
+                        <td>Mrs. Ramani Perera</td>
+                        <td>3.10 PM - 3.20 PM</td>
+                        <td><button class="btn-confirmed">Confirmed</button></td>
+                        <td><a href="#"><i class="fa-solid fa-file-arrow-up" class="font-weight:600;"></i>&nbsp;&nbsp;&nbsp;upload</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>03</td>
+                        <td>27</td>
+                        <td>Mr. Lalith De Silva</td>
+                        <td>3.20 PM - 3.30 PM</td>
+                        <td><button class="btn-cancelled">Cancelled</button></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>04</td>
+                        <td>02</td>
+                        <td>Ms. Kavishi Weerasinghe</td>
+                        <td>3.30 PM - 3.40 PM</td>
+                        <td><button class="btn-confirmed">Confirmed</button></td>
+                        <td><a href="#"><i class="fa-solid fa-file-arrow-up" class="font-weight:600;"></i>&nbsp;&nbsp;&nbsp;upload</a></td>
                     </tr>
                 </tbody>
             </table>

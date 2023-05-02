@@ -25,10 +25,30 @@
         </div>
         <div class="main_content"> 
             <div class="info">
+            <?php
+                if(isset($_SESSION['change-pwd']))
+                {
+                    echo $_SESSION['change-pwd'];
+                    unset($_SESSION['change-pwd']);
+
+                }
+                if(isset($_SESSION['pwd-not-match']))
+                {
+                    echo $_SESSION['pwd-not-match'];
+                    unset($_SESSION['pwd-not-match']);
+
+                }
+                if(isset($_SESSION['old-pwd-not-match']))
+                {
+                    echo $_SESSION['old-pwd-not-match'];
+                    unset($_SESSION['old-pwd-not-match']);
+
+                }
+            ?>
             <img src="../images/user-profilepic/assistant/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <h2 style="margin-left: 60px; margin-top:15px;">Change Password</h2>
             <span>
-            <form>
+            <form  method="POST">
             <table class="formtable">
                 <tr>
                     <td>Old Password :</td>
@@ -43,7 +63,7 @@
                     <td><input type="password" class="form-control" name="confirmpwd" required="" autofocus="true"/></td>
                 </tr>
             </table>
-            <button class="btn-blue" type="submit">Save Password</button>
+            <button class="btn-blue" type="submit" name="submit">Save Password</button>
             </form>
             </span>
             </div>
@@ -51,3 +71,58 @@
     </div>
 </body>
 </html>
+
+<?php 
+
+if(isset($_POST['submit'])) {
+    $oldpwd = $_POST['oldpwd'];
+    $newpwd = $_POST['newpwd'];
+    $confirmpwd = $_POST['confirmpwd'];
+
+    // Check if new password matches confirm password
+    if($newpwd !== $confirmpwd) {
+        $_SESSION['pwd-not-match'] = "<div class='error'>Password Did Not Match</div>";
+        header('location: pharmacy_changepassword.php');
+        exit();
+    }
+
+    // Prepare the SELECT statement to get user information
+    $stmt = $conn->prepare("SELECT password FROM tbl_sysusers WHERE userid = ?");
+    $stmt->bind_param("i", $userid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+
+        // Verify if the old password is correct
+        if(password_verify($oldpwd, $row['password'])) {
+            // Hash the new password
+            $hashed_newpwd = password_hash($newpwd, PASSWORD_DEFAULT);
+
+            // Prepare the UPDATE statement to change the password
+            $stmt = $conn->prepare("UPDATE tbl_sysusers SET password = ? WHERE userid = ?");
+            $stmt->bind_param("si", $hashed_newpwd, $userid);
+            $stmt->execute();
+
+            if($stmt->affected_rows == 1) {
+                $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully</div>";
+                header('location: asst_viewprofile.php');
+                exit();
+            } else {
+                $_SESSION['change-pwd'] = "<div class='error'>Failed to Change Password</div>";
+                header('location: asst_changepassword.php');
+                exit();
+            }
+        } else {
+            $_SESSION['old-pwd-not-match'] = "<div class='error'>Old Password Did Not Match</div>";
+            header('location: asst_changepassword.php');
+            exit();
+        }
+    } else {
+        $_SESSION['old-pwd-not-match'] = "<div class='error'>Old Password Did Not Match</div>";
+        header('location: asst_changepassword.php');
+        exit();
+    }
+}
+?>

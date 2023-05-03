@@ -26,7 +26,9 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-
+            <div class="back" onclick="location.href='asst_session.php'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
             <div class="container-row">
             <div class="container01">
                 <div class="sessionidTXT">

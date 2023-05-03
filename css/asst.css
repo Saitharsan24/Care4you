@@ -11,7 +11,17 @@
 
 body{
    background-color: #A5D1E1;
+}
 
+.back{
+  margin-top: -30px;
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
 }
 
 /*CSS for Scroll Bar*/

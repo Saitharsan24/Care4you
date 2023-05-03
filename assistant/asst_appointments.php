@@ -26,6 +26,9 @@
         </div>
         <div class="main_content"> 
             <div class="info">
+            <div class="back" onclick="location.href='asst_viewsession.php'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
             <table class="tbl-main">
                 <thead>
                     <tr>
@@ -33,7 +36,7 @@
                         <td>Patient Name</td>
                         <td>Appointment Time</td>
                         <td>Appointment Status</td>
-                        <td>View Appointment</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>

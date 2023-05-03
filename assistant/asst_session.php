@@ -26,13 +26,11 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-            <table class="tbl-main">
+            <table class="tbl-main" style="width: 70%;">
                 <thead>
                     <tr>
                         <td>Session ID</td>
                         <td>Time Slot</td>
-                        <td>Number of Appointments</td>
-                        <td>Doctor Name</td>
                         <td>Room Number</td>
                         <td></td>
                     </tr>
@@ -41,10 +39,8 @@
                     <tr>
                         <td>01</td>
                         <td>3.00 PM - 5.00 PM</td>
-                        <td>4</td>
-                        <td>Dr. Sepalika Mendis</td>
                         <td>UF07</td>
-                        <td><a href="asst_view_appointment.php"><button class="btn-viewapp"><span>Appointments</span></button></a></td>
+                        <td><a href="asst_viewsession.php"><button class="btn-viewapp"><span>View Session</span></button></a></td>
                     </tr>
                 </tbody>
             </table>

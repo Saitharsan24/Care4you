@@ -76,48 +76,55 @@
 
 <?php 
 
-    if(isset($_POST['submit'])) {
-        
-        $oldpwd = $_POST['oldpwd'];
-        $newpwd = $_POST['newpwd'];
-        $confirmpwd = $_POST['confirmpwd'];
+if(isset($_POST['submit'])) {
+    $oldpwd = $_POST['oldpwd'];
+    $newpwd = $_POST['newpwd'];
+    $confirmpwd = $_POST['confirmpwd'];
 
-        $hashed_oldpwd = password_hash($oldpwd, PASSWORD_DEFAULT);
-        $hashed_newpwd = password_hash($newpwd, PASSWORD_DEFAULT);
-        $hashed_confirmpwd = password_hash($confirmpwd, PASSWORD_DEFAULT);
+    // Check if new password matches confirm password
+    if($newpwd !== $confirmpwd) {
+        $_SESSION['pwd-not-match'] = "<div class='error'>Password Did Not Match</div>";
+        header('location: pharmacy_changepassword.php');
+        exit();
+    }
 
-        $sql = "SELECT * FROM tbl_sysusers WHERE userid = $userid AND password = '$hashed_oldpwd'";
-        $res = mysqli_query($conn, $sql);
+    // Prepare the SELECT statement to get user information
+    $stmt = $conn->prepare("SELECT password FROM tbl_sysusers WHERE userid = ?");
+    $stmt->bind_param("i", $userid);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if(mysqli_num_rows($res)==1)
-        {
-            if($hashed_newpwd == $hashed_confirmpwd)
-            {
+    if($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
 
-                $sql2 = "UPDATE tbl_sysusers SET password = '$hashed_newpwd' WHERE userid = $userid";
-                $res2 = mysqli_query($conn, $sql2);
+        // Verify if the old password is correct
+        if(password_verify($oldpwd, $row['password'])) {
+            // Hash the new password
+            $hashed_newpwd = password_hash($newpwd, PASSWORD_DEFAULT);
 
-                if($res2==true) 
-                {
-                    $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully</div>";
-                    header('location: pharmacy_viewprofile.php');
-                }
-                else 
-                {
-                    $_SESSION['change-pwd'] = "<div class='error'>Failed to Change Password</div>";
-                    header('location: pharmacy_changepassword.php');
-                }
-            }
-            else 
-            {
-                $_SESSION['pwd-not-match'] = "<div class='error'>Password Did Not Match</div>";
+            // Prepare the UPDATE statement to change the password
+            $stmt = $conn->prepare("UPDATE tbl_sysusers SET password = ? WHERE userid = ?");
+            $stmt->bind_param("si", $hashed_newpwd, $userid);
+            $stmt->execute();
+
+            if($stmt->affected_rows == 1) {
+                $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully</div>";
+                header('location: pharmacy_viewprofile.php');
+                exit();
+            } else {
+                $_SESSION['change-pwd'] = "<div class='error'>Failed to Change Password</div>";
                 header('location: pharmacy_changepassword.php');
+                exit();
             }
-        } 
-        else 
-        {
+        } else {
             $_SESSION['old-pwd-not-match'] = "<div class='error'>Old Password Did Not Match</div>";
             header('location: pharmacy_changepassword.php');
+            exit();
         }
+    } else {
+        $_SESSION['old-pwd-not-match'] = "<div class='error'>Old Password Did Not Match</div>";
+        header('location: pharmacy_changepassword.php');
+        exit();
     }
+}
 ?>

@@ -169,7 +169,6 @@
         //Step 02 - SQL Query to save the data in Database
         $sql3 = "UPDATE tbl_labtec SET 
                 fullname = '$fullname',
-                email ='$email',
                 nic = '$nic',                
                 contact_number = '$contact_number'
                 WHERE labtec_id ='$labtec_id'
@@ -177,6 +176,14 @@
         //echo $sql;
 
         $res3 = mysqli_query($conn , $sql3) or die(mysqli_error($conn));
+
+        $sql4 = "UPDATE tbl_sysusers SET 
+                email = '$email'
+                WHERE userid ='$userid'
+                ";
+        //echo $sql;
+
+        $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
 
         //Step 04 - Check data is inserted (Query executed) or not & Disply Message
         if($res3 == TRUE){
@@ -186,7 +193,7 @@
 
             //Create Session Variable to display message
             $_SESSION['update-user'] = '<div class="success"> Profile Details Updated Successfully</div>';
-            //Redirect to the pharmacy_respond.php page
+            //Redirect to the lab_respond.php page
             header("location:".SITEURL.'laboratory/lab_viewprofile.php');
 
         }
@@ -197,7 +204,7 @@
 
             //Create Session Variable to display message
             $_SESSION['update-user'] = '<div class="error"> Failed to Update Profile Details</div>';
-            //Redirect to the pharmacy_respond.php page
+            //Redirect to the lab_respond.php page
             header("location:".SITEURL.'laboratory/lab_viewprofile.php');
 
         }

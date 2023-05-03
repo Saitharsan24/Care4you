@@ -31,6 +31,12 @@
                     unset($_SESSION['update-user']);
 
                 }
+                if(isset($_SESSION['change-pwd']))
+                {
+                    echo $_SESSION['change-pwd'];
+                    unset($_SESSION['change-pwd']);
+
+                }
             ?>
             <span>
                 <div class="polygons">

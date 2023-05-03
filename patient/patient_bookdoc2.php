@@ -3,6 +3,29 @@
 
 <?php
     $session_id = $_GET['id'];
+    $my_other = $_GET['myother'];
+
+    if($my_other==0){
+      $user_id = $_SESSION['user_id'];
+      $sql = "SELECT * FROM tbl_patient WHERE userid = '$user_id'";
+      $results = mysqli_query($conn, $sql);
+
+      $sql1 = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
+      $result1 = mysqli_query($conn, $sql1);
+      $row1 = mysqli_fetch_assoc($result1);
+      $doc_fee = $row1['charge'];
+
+      
+      if($results){
+        $row = mysqli_fetch_assoc($results);
+        $pname = $row['first_name'];
+        $pnic = $row['nic'];
+        $pcontact = $row['contact'];
+      }
+
+      $booking_fee= 500;
+    }
+
 ?>
 
 
@@ -50,17 +73,17 @@
           
           <div class="form-itm">
             <p>Patient Name :</p>
-            <input type="text" />
+            <input type="text" value="<?php echo $pname ?>" readonly/>
           </div>
 
           <div class="form-itm">
             <p>NIC No :</p>
-            <input type="text" />
+            <input type="text" value="<?php echo $pnic ?>" readonly/>
           </div>
 
           <div class="form-itm">
             <p>Contact No :</p>
-            <input type="text" />
+            <input type="text" value="<?php echo $pcontact ?>" readonly/>
           </div>
 
         </div>
@@ -71,17 +94,17 @@
 
           <div class="form-itm">
             <p>Doctor fee :</p>
-            <input type="text" />
+            <input type="text"  value="<?php echo "Rs.".$doc_fee ?>" readonly/>
           </div>
 
           <div class="form-itm">
             <p>Booking fee :</p>
-            <input type="text" />
+            <input type="text" value="<?php echo "Rs.".$booking_fee ?>" readonly/>
           </div>
 
           <div class="form-itm">
             <p>Total amount :</p>
-            <input type="text" />
+            <input type="text" value="<?php echo "Rs.".($booking_fee+$doc_fee) ?>" readonly/>
           </div>
 
         </div>

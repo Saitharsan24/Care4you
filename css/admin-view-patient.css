@@ -15,6 +15,16 @@ body{
    background-color: #A5D1E1;
 }
 
+.back{
+  margin-top: -30px;
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
 
 /* Navigation Bar CSS Starts Here*/
 
@@ -263,176 +273,151 @@ body{
 }
 /* admin-patient-view.php page end here */
 
- /* admin-patient-view-detail.php page start here*/
 
- .patient-profile{
-  border: 2px solid #0D5C75;
-  width: 200px;
-  height: 200px;
-  background: #ffffff;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* admin-patient-view-detail.php page start here*/
+
+.container-row {
+  margin-left: -25px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.container01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 30vh;
+  height: 30vh;
+  background-color: #FFFFFF;
   border-radius: 50%;
-  position: absolute;
-  left: 198px;
-  top: -99px;
-  
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 2px 5px #888888;
+  position: relative;
+  z-index: 2;
 }
 
-
-.square-patient-view{
-  position: absolute;
-  left: 537px;
-  top: 108px;
-  border: 2px solid #0D5C75;
-  width: 627px;
-  height: 527px;
-  background: #ffffff;
-  display: inline-block;
-  border-radius: 43px;
-  margin-top: 10px;
-  
+.container02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: auto;
+  margin-left: -10%;
+  margin-right: auto;
+  width: 50%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  position: relative;
+  z-index: 1;
 }
 
-.view-patient-table{
-  position: absolute;
-  left: -26px;
-  top: 133px;
-}
-
-.tbl-square-view-patient{
-  border-collapse: separate;
+.tbl-patientview{
+  margin-left: -120px;
+  width: 110%;
   table-layout: fixed;
-  /* border: 1px solid black; */
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: separate;
 }
 
-.tbl-square-view-patient .type1{
-  /* border: 1px solid black; */
-  width: 245px;
-  text-align: right;
-  font-size: 16px;
+.tbl-patientview td {
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
+}
+
+.tbl-patientview td.typeR{
+  width: 35%;
+  font-size: 14px;
+  font-weight: 550;
   color: #0D5C75;
-  font-weight: 500;
+  text-align: right;
 }
 
-.tbl-square-view-patient .type2{
-  /* border: 1px solid black; */
-  width: 300px;
-  text-align: left;
+.tbl-patientview td.typeL{
+  width:65%;
   font-size: 14px;
-  background-color: rgb(200, 200, 200);
-  border-radius: 10px 10px 10px 10px;
-}
-
-.type2-address{
-  /* border: 1px solid black; */
-  width: 300px;
-  height:80px;
+  font-weight: 600;
   text-align: left;
-  font-size: 14px;
-  background-color: rgb(200, 200, 200);
-  border-radius: 10px 10px 10px 10px;
+  background-color: #ccc;
+  border-radius: 25px;
 }
 
-/*Disable button */
-.btn-disable-patient-detail {
-  position: absolute;
-  left: 398px;
-  top: 326px;
-  border-radius: 10px;
-  background-color: #e75a33;
-  border: none;
-  color: #FFFFFF;
+.tbl-patientview td.typeC{
+  width: 100%;
+  padding-bottom: 15px;
+  padding-left: 150px;
+  font-size: 40px;
+  font-weight: 700;
   text-align: center;
-  /* font-size: 15px; */
-  padding: 5px;
-  width: 175px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
+  color: #0D5C75;
 }
-
-.btn-disable-patient-detail span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn-disable-patient-detail span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn-disable-patient-detail:hover span {
-  padding-right: 15px;
-}
-
-.btn-disable-patient-detail:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-/*activate button */
-.btn-activate-patient-detail {
-  position: absolute;
-  left: 398px;
-  top: 326px;
-  border-radius: 10px;
-  background-color: #4ec115;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  /* font-size: 15px; */
-  padding: 5px;
-  width: 175px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-}
-
-.btn-activate-patient-detail span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn-activate-patient-detail span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn-activate-patient-detail:hover span {
-  padding-right: 15px;
-}
-
-.btn-activate-patient-detail:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
 
 /* edit button */
+
 .btn-edit-patient-detail {
-  position: absolute;
-  left: 223px;
-  top: 326px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: #0D5C75;
   border: none;
   color: #FFFFFF;
   text-align: center;
-  /* font-size: 15px; */
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-edit-patient-detail:hover{
+  background-color: #083746;
+}
+
+/* activate/disable button */
+
+.btn-activate {
+  border-radius: 15px;
+  background-color: #0C7516;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
   padding: 5px;
   width: 150px;
   transition: all 0.5s;
@@ -441,76 +426,109 @@ body{
   font-weight: 500;
 }
 
-.btn-edit-patient-detail span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.btn-activate:hover{
+  background-color: #0f6018;
 }
 
-.btn-edit-patient-detail span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn-edit-patient-detail:hover span {
-  padding-right: 15px;
-}
-
-.btn-edit-patient-detail:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-/* back button */
-.btn-back-patient-detail {
-  position: absolute;
-  left: 123px;
-  top: 326px;
-  border-radius: 10px;
-  background-color: #0D5C75;
+.btn-disable {
+  border-radius: 15px;
+  background-color: #BD1010;
   border: none;
   color: #FFFFFF;
   text-align: center;
-  /* font-size: 15px; */
   padding: 5px;
-  width: 93px;
+  width: 150px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   font-weight: 500;
 }
 
-.btn-back-patient-detail span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.btn-disable:hover{
+  background-color: #760d0d;
 }
 
-.btn-back-patient-detail span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+/* admin-patient-view-detail.php page end here*/
 
-.btn-back-patient-detail:hover span {
-  padding-right: 15px;
-}
 
-.btn-back-patient-detail:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-  /* admin-patient-view-detail.php page end here*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   /* admin-patient-edit-detail.php page start here*/
 
 .change-profile-txt{

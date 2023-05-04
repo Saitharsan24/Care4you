@@ -36,7 +36,7 @@ if ($result) {
   }
 
   //Code for available appointment number
-  $aptnosql = "SELECT docapt_no, docapt_status,my_other FROM tbl_docappointment WHERE session_id ='$session_id'";
+  $aptnosql = "SELECT docapt_id,docapt_no, docapt_status,my_other,docapt_flag FROM tbl_docappointment WHERE session_id ='$session_id'";
   $aptnoresult = mysqli_query($conn,$aptnosql);
   
   if(mysqli_num_rows($aptnoresult) != 0){
@@ -46,9 +46,13 @@ if ($result) {
           while ($aptnorow = mysqli_fetch_assoc($aptnoresult)) {
             
               for($i = 1; $i < 13; $i++){
-                if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2){
+                if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2 && $aptnorow['docapt_flag']==0){
                   $apt_no = $i;
                   $flag= 1;
+                  $apt_id = $aptnorow['docapt_id'];
+                  $sqlupdateflag = "UPDATE tbl_docappointment
+                                        SET docapt_flag ='1' 
+                                        WHERE docapt_id = '$apt_id'";
                   break;
                 }
               }

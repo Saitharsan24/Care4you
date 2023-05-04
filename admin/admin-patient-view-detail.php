@@ -116,7 +116,7 @@
                 <table class="tbl-patientview">
                     <tr>
                         <td colspan="2" class="typeC">
-                            <i class="fa-solid fa-address-card" style="font-size: 30px;"></i>&nbsp; Patient Deatails
+                            <i class="fa-solid fa-address-card" style="font-size: 30px;"></i>&nbsp; Patient Details
                         </td>
                     </tr>
                     <tr>
@@ -157,11 +157,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>
-                            <button class="btn-edit-patient-detail" onclick='location.href="admin-patient-edit-detail.php?id=<?php echo $row["p_id"] ?>"'>
-                                <i class="fa-solid fa-pen-to-square" style="font-size:12px;"></i>
-                                Edit Details
-                            </button>
+                        <td class="typeR">
                             <?php
                                 if($row['status']==1){
                                     $status="Disable";

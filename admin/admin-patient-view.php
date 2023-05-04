@@ -8,10 +8,6 @@ $no_row = mysqli_num_rows($result);
 
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,14 +23,15 @@ $no_row = mysqli_num_rows($result);
 </head>
 
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="admin-patient-view.php"><div class="highlighttext">Patients</div></a></li>
+                <li><a href="admin-patient-view.php"><div class="highlighttext">Patient</div></a></li>
                 <li><a href="#">Orders</a></li>
                 <li><a href="admin-doc-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
@@ -73,7 +70,7 @@ $no_row = mysqli_num_rows($result);
                                 <tr>
                                             <td><?php echo $row['p_id'];?></td>
                                             <td><?php echo $row['first_name'];?></td>
-                                            <td><?php echo $row['contact'];?></td>
+                                            <td><?php echo '0'.$row['contact'];?></td>
                                             <td>
                                                
                                                 <?php

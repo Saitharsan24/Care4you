@@ -13,6 +13,18 @@ body{
    background-color: #A5D1E1;
 }
 
+.back{
+  position: absolute;
+  left: 275px;
+  top: 30px;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
 /* SUCCESS/ERROR MSG Style Starts*/
 
 .success{
@@ -122,7 +134,7 @@ body{
   font-size: 20px;
   font-weight: 600;
   position: absolute;
-  bottom: 50px;
+  bottom: 25px;
   left: 65px;
 }
 
@@ -178,307 +190,306 @@ body{
 
 
 /* admin-session-view.php start here */
-.asst-list{
-    position:absolute;
-    color: #000000;
-    font-size: 32px;
-    font-weight: 600;
-    top: 50px;
-    left: 726px;
-  
-  }
-  .btn-view-session-detail {
-    border-radius: 10px;
-    background-color: #0D5C75;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    /* font-size: 15px; */
-    padding: 5px;
-    width: 175px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    font-weight: 500;
-  }
-  
-  .btn-view-session-detail span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .btn-view-session-detail span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .btn-view-session-detail:hover span {
-    padding-right: 15px;
-  }
-  
-  .btn-view-session-detail:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-  
-  
-  .tbl-main-session{
-    position: absolute;
-    left: 375px;
-    top: 110px;
-    width: 1068px;
-    margin-left:auto; 
-    margin-right:auto;
-    border-collapse: separate;
-    border-spacing: 0 15px;
-  }
-  
-  .tbl-main-session tr{
-    background-color: #ffffff;
-  }
-  
-  .tbl-main-session thead td{
-    color: #0D5C75;
-    font-weight: 700;
-    padding: 5px;
-  }
-  
-  .tbl-main-session td{
-    /*border:1px solid #b3adad;*/
-    color: #000000;
-    text-align: center;
-    width: 300px;
-    padding: 15px;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
-  
-  .tbl-main-session td:first-child, th:first-child {
-    border-radius: 10px 0 0 10px;
-  }
-  
-  .tbl-main-session td:last-child, th:last-child {
-    border-radius: 0 10px 10px 0;
-  }
-  
-  .search-session{
-    width: 185px;
-    padding: 2px;
-    border-radius: 10px;
-    font-size: 15px;
-  }
-  
-  .to-create-session-page{
-    position: absolute;
-    width: 245px;
-    left: 1122px;
-    top: 42px;
-    background-color: #0C5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
 
-  .to-create-session-page:hover{
-    background: #107c9d;
-    color: #ffffff;
-    font-weight: 600;
-    transition: .3s;
-    cursor: pointer;
-  }
-  
-  
-  /* admin-session-view.php end here */
-
-  
-  /* admin-session-create.php start here */
-   
-  
-.head-create-session{
-    position:absolute;
-    width: 300px;
-    color: #000000;
-    font-size: 32px;
-    font-weight: 600;
-    top: 50px;
-    left: 726px;
-    display: inline;
-  
-  }
-  
-  .square-create-session{
-    border: 2px solid #0D5C75;
-    width: 630px;
-    height: 533px;
-    background: #ffffff;
-    position: absolute;
-    top: 121px;
-    left: 584px;
-    display: inline-block;
-    border-radius: 10%;
-  }
-
-  
-  
-  .form-create-session{
-    top: 41px;
-    left: 25px;
-  }
-  .form-control-create-session{
-    width: 350px;
-    padding: 2px;
-    border-radius: 10px;
-    font-size: 15px;
-  }
-  
-  .btn-create-session{
-    position:relative;
-    left: 570px;
-    bottom:-30px;
-    background-color: #0D5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-
-  
-  .btn-create-session-back{
-    position: absolute;
-    left: 121px;
-    bottom:-32px;
-    background-color: #0D5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-
-  
-  .btn-create-session{
-    position: absolute;
-    left: 410px;
-    bottom: 41px;
-    width: 131px;
-    background-color: #0D5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  
-  .btn-create-session-back{
-    position: absolute;
-    left: 93px;
-    bottom: 41px;
-    width: 116px;
-    background-color: #0D5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  /* admin-session-create.php end here */
-  
-/* admin-sesssion-view-details.php start here */
-
-
-table.center {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: -3%; 
-  margin-right: auto;
+.content {
+  position: relative;
+  height: 100%; /* fill the height of home-right */
+  overflow-y:hidden; /* enable vertical scrolling for content */
 }
 
-table td {
-  width: 750px;
-  /*border:1px solid #b3adad;*/
-  text-align:center;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 5%;
+.btn-addnew {
+  position: absolute;
+  right: 930px;
+  top: 50px;
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
-#rcorners {
-  border-radius: 35px;
-  background: #ffffff;
-  padding: 35px; 
-  width: 400px;
-  height: 200px;
+.btn-addnew span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addnew span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addnew:hover span {
+  padding-left: 15px;
+}
+
+.btn-addnew:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.btn-search{
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-search span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-search span:after {
+  content: '🔍︎';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-search:hover span {
+  padding-right: 15px;
+}
+
+.btn-search:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.btn-view-session-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view-session-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view-session-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-view-session-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-view-session-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+/* .tbl-main-session{
+  margin-top: 4%;
+  width: 75%;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main-session tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-session thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-session td{
+  border:1px solid #b3adad;
   color: #000000;
   text-align: center;
-  font-size: 25px;
-  font-weight: 600;  
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
 }
 
+.tbl-main-session td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
 
-.detail-txt-session{
-  position: absolute;
-  top: 35px;
-  left: 673px;
+.tbl-main-session td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+} */
+
+.tbl-main-session{
+  margin-top: 4%;
+  width: 75%;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+  
+.tbl-main-session tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-session thead{
+  position: sticky;
+  top: 0; /* set the table heading to be fixed */
+  z-index: 1; /* set a higher z-index to show the heading above the content */
+}
+
+.tbl-main-session thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-session td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 10px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main-session td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main-session td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.search-session{
+  width: 185px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-paypend{
+  width: 150px;
+  background-color: #FDD147;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.btn-confirmed{
+  background-color: #0C7516;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+.btn-cancelled{
+  background-color: #BD1010;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+/* admin-session-view.php end here */
+
+
+/* admin-session-create.php start here */
+  
+
+.head-create-session{
+  position:absolute;
+  width: 300px;
   color: #000000;
   font-size: 32px;
   font-weight: 600;
-  bottom: 50px;
+  top: 50px;
+  left: 726px;
   display: inline;
+
 }
 
-.id-txt-session{
-  color: #0D5C75;
-  display: inline;
-}
-
-
-.square-detail-session{
+.square-create-session{
   border: 2px solid #0D5C75;
-    width: 659px;
-    height: 537px;
-    background: #ffffff;
-    position: absolute;
-    top: 109px;
-    left: 532px;
-    display: inline-block;
-    border-radius: 10%;
+  width: 630px;
+  height: 533px;
+  background: #ffffff;
+  position: absolute;
+  top: 121px;
+  left: 584px;
+  display: inline-block;
+  border-radius: 10%;
 }
 
-.btn-detail-session{
-  position: absolute;
+
+
+.form-create-session{
+  top: 41px;
+  left: 25px;
+}
+.form-control-create-session{
+  width: 350px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-create-session{
+  position:relative;
   left: 570px;
   bottom:-30px;
   background-color: #0D5C75;
@@ -494,11 +505,11 @@ table td {
 }
 
 
-.btn-del-session{
+
+.btn-create-session-back{
   position: absolute;
-  left: 358px;
-    bottom: -88px;
-    width: 180px;
+  left: 121px;
+  bottom:-32px;
   background-color: #0D5C75;
   padding: 10px;
   padding-left: 2%;
@@ -511,12 +522,14 @@ table td {
   cursor: pointer;
 }
 
-.btn-back-session{
+
+
+.btn-create-session{
   position: absolute;
-  left: 92px;
-    bottom: -88px;
+  left: 410px;
+  bottom: 41px;
+  width: 131px;
   background-color: #0D5C75;
-  width: 113px;
   padding: 10px;
   padding-left: 2%;
   padding-right: 2%;
@@ -526,22 +539,147 @@ table td {
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-
 }
 
 
-.detail-session{
+.btn-create-session-back{
   position: absolute;
-  top: 47px;
-  left: 22px;
+  left: 93px;
+  bottom: 41px;
+  width: 116px;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.hidden {
-  display: none;
+/* admin-session-create.php end here */
+
+
+
+
+
+
+/* admin-sesssion-view-details.php start here */
+
+.container-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
-  /* admin-session-view-details.php end here */
 
-  /* admin-session-mail.php start here */
+.container01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 20%;
+  height: 60vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.container02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: auto;
+  margin-left: 8%;
+  margin-right: auto;
+  width: 50%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.sessionidTXT{
+  font-size: 35px;
+  color: #0D5C75;
+  font-weight: 700;
+}
+
+.sessionidTXT i{
+  font-size: 35px;
+  color: #0D5C75;
+  font-weight: 700;
+}
+
+.viewtbl {
+  width: 95%;
+  table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
+
+.viewtbl td {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
+}
+
+.viewtbl td.typeR{
+  font-size: 15px;
+  font-weight: 550;
+  color: #0D5C75;
+  text-align: right;
+}
+
+.viewtbl td.typeL{
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.btn-activate{
+  width: 180px;
+  background-color: #008000;
+  padding: 5px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-disable{
+  width: 180px;
+  background-color: #800000;
+  padding: 5px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* admin-session-view-details.php end here */
 
 
-  /* admin-session-mail.php end here */
+
+
+
+/* admin-session-mail.php start here */
+
+
+/* admin-session-mail.php end here */

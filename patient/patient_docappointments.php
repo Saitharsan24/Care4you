@@ -1,3 +1,14 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+<?php
+
+    $user_id = $_SESSION['user_id'];
+  
+    $sql = "SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id AND created_by = '$user_id'";
+    $results = mysqli_query($conn,$sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,22 +66,29 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1124</td>
-                <td>2</td>
-                <td>23/10/2023</td>
-                <td>3.00 PM - 3.10 PM</td>
-                <td> <button class="btn-green"> Confirmed </button></td>
-                <td><a href="#"><button class="book-btn"><span>View Status</span></button></a></td>
-            </tr>
-            <tr>
-                <td>1138</td>
-                <td>7</td>
-                <td>24/10/2023</td>
-                <td>4.00 PM - 4.30 PM</td>
-                <td> <button class="btn-yellow"> Pending </button></td>
-                <td><a href="#"><button class="book-btn"><span>View Status</span></button></a></td>
-            </tr>
+                  <?php
+                  if(mysqli_num_rows($results) != 0){
+                    while($row = mysqli_fetch_assoc($results)){
+                  ?>
+                      <tr>
+                          <td><?php echo $row['docapt_id'] ?></td>
+                          <td><?php echo $row['docapt_no'] ?></td>
+                          <td><?php echo $row['date'] ?></td>
+                          <td><?php echo $row['docapt_time'] ?></td>
+                          <td> <button class="btn-green"> Confirmed </button></td>
+                          <td><a href="./patient_viewdocappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="book-btn"><span>View Status</span></button></a></td>
+                      </tr>
+                  <?php 
+                    }
+                  } else {
+                  ?>
+                    <tr>
+                          <td colspan="6" class="nosessiontd"><div class="nosession">No Appointments Available</div></td>
+                    <tr>  
+                  <?php
+                  }
+                  ?>            
+            
         </tbody>
       </table>
       </div>

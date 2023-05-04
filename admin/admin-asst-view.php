@@ -17,6 +17,7 @@ $no_row=mysqli_num_rows($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
     <script src="../script/filter.js"></script>
 </head>
@@ -39,10 +40,10 @@ $no_row=mysqli_num_rows($result);
 
             <div class="main_content" >
             <div class="info">
-              <div class="asst-list"></div>
-              <button class="to-reg-asst-page" onclick="location.href='admin-asst-reg.php'">To Register</button>
-              <button class="back-asst-view" onclick="location.href='admin-system-users.php'">Back</button>
-              <span>
+            <button class="btn-addnew" style="left: 1265px; width:170px;" onclick="location.href='admin-asst-reg.php'"><span>add new assistant</span></button>
+            <div class="back" onclick="location.href='admin-system-users.php'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
                 <table class="tbl-main-asst" id="tbl-main-asst">
                     <thead>
                         <tr>
@@ -57,7 +58,7 @@ $no_row=mysqli_num_rows($result);
                             <td><input type="text" class="search-asst" name="asst-id" id="asst-id" placeholder="search Assistant ID" autofocus="true" onkeyup="filterAsstID()"/></td>
                             <td><input type="text" class="search-asst" name="asst-name" id="asst-name" placeholder="search Name"  autofocus="true" onkeyup="filterAsstName()"/></td>
                             <td><input type="text" class="search-asst" name="asst-status" id="asst-status" placeholder="search Status" autofocus="true" onkeyup="filterAsstStatus()"/></td>
-                            <td><button class="btn-search" ><span>Search</span></button></td>
+                            <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                         </tr>
                         <?php
                         if($result){
@@ -69,9 +70,9 @@ $no_row=mysqli_num_rows($result);
                            
                             <td><?php
                               if($row['status']==1){
-                                echo '<span class="active-status"> Active </span>';
+                                echo '<button vs class="active-status"> Active </button>';
                               }else{
-                                echo '<span class="passive-status"> Passive </span>';
+                                echo '<button class="passive-status"> Disabled </button>';
                               }
                               ?>
                             </td>

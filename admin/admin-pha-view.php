@@ -64,7 +64,7 @@ $no_row = mysqli_num_rows($result);
                                     <td><input type="text" class="search-pha" name="pha-id" id="phar_id" autofocus="true" placeholder="search pharmacits ID" onkeyup="filterPharId()"></td>
                                     <td><input type="text" class="search-pha" name="pha-name" id="phar_name" autofocus="true" placeholder="search Name" onkeyup="filterPharName()"></td>
                                     <td><input type="text" class="search-pha" name="pha-id" id="phar_status" autofocus="true" placeholder="search Account Status"onkeyup="filterPharStatus()"></th>
-                                    <td><button class="search-doc"><span>Search&emsp;</span></button></td>
+                                    <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                                 </tr>
 
 
@@ -93,8 +93,6 @@ $no_row = mysqli_num_rows($result);
 
                             </tbody>
                         </table>
-                    </span>
-
                 </div>
             </div>
         </div>

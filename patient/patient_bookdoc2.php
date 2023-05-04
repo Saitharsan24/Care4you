@@ -228,8 +228,8 @@
           $p_nic = $_POST['nic']; 
 
           $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,pat_nic,pat_contact,created_by,my_other,net_total)
-                          VALUES ('$session_id','$apt_time_format','$apt_no','0','$p_name','$p_contact','$p_nic','$user_id','$my_other','$net_total')";
-       
+                          VALUES ('$session_id','$apt_time_format','$apt_no','0','$p_name','$p_nic','$p_contact','$user_id','$my_other','$net_total')";
+        
           $insertresult = mysqli_query($conn,$sqlinsert);
                        
           //updating no of patient in docsession table

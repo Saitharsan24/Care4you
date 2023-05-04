@@ -705,6 +705,11 @@ table td{
   background-color: #730101;
 }
 
+.view-doc td.typeL i{
+  font-size: 12px;
+  color: #0C5C75;
+}
+
 /* admin-doc-detail.php page end here */
 
 

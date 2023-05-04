@@ -1,46 +1,5 @@
-<?php include('../config/constants.php') ?>
+<?php include('../config/constants.php'); ?>
 <?php include('../login_access.php') ?>
-
-<?php
-if (isset($_POST['reg'])) {
-
-
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $con_password = $_POST['con-password'];
-    $phone_number = $_POST['phonenumber'];
-    $nic = $_POST['nic'];
-    $email = $_POST['email'];
-
-    /*$sql = "INSERT INTO tbl_lebtec (labtec_id,full_name,username,email,nic,contact_number,password)
-VALUES ('$name', '$username', '$phone_number', '$email','$slmc','$charges','$specialize')";*/
-
-    $sql = "INSERT INTO tbl_sysusers (actortype, username,password,email)
-VALUES ('assistant', '$username', '$password','$email')";
-
-    $res1 = mysqli_query($conn, $sql);
-
-
-    $last_id = $conn->insert_id;
-    
-
-    $sql = "INSERT INTO tbl_assistant (name,userid,phoneno,nic)
-VALUES ('$name', '$last_id','$phone_number','$nic')";
-
-
-    if (mysqli_query($conn, $sql)) {
-
-        header("Location: /Care4you/admin/admin-asst-view.php");
-    } else {
-
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        die();
-    }
-}
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,14 +10,16 @@ VALUES ('$name', '$last_id','$phone_number','$nic')";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
@@ -73,50 +34,93 @@ VALUES ('$name', '$last_id','$phone_number','$nic')";
         </div>
         <div class="main_content">
             <div class="info">
-                <div class="head-asst"> Register Assistant</div>
-                <div class="square-reg-asst">
-
-                    <div class="form-asst">
-                        <form action="" method="POST">
-                            <table class="formtable-asst">
-                                <tr>
-                                    <td>Assistant Name :</td>
-                                    <td><input type="text" class="form-control-asst" name="name" required="" autofocus="true" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Username :</td>
-                                    <td><input type="text" class="form-control-asst" name="username" required="" autofocus="true" /></td>
-                                </tr>
-                                <tr>
-                                    <td>password :</td>
-                                    <td><input type="password" class="form-control-asst" name="password" required="" autofocus="true" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Conform password :</td>
-                                    <td><input type="password" class="form-control-asst" name="con-password" required="" autofocus="true" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Phone Number :</td>
-                                    <td><input type="text" class="form-control-asst" name="phonenumber" required="" autofocus="true" /></td>
-                                </tr>
-                                <td>NIC Number :</td>
-                                <td><input type="text" class="form-control-asst" name="nic" required="" autofocus="true" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Email ID :</td>
-                                    <td><input type="text" class="form-control-asst" name="email" required="" autofocus="true" /></td>
-                                </tr>
-
-                            </table>
-                            <button class="btn-reg-asst" type="submit" name="reg">Register</button>
-                            <button class="btn-view-asst" onclick="location.href='admin-asst-view.php'">View Assistant</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="back" onclick="location.href='admin-asst-view.php'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
 
+                <div class="reg-heading">
+                    <i class="fa-solid fa-clipboard-list" style="font-size: 45px;font-weight: 800;"></i>
+                    &nbsp;Assistant Registration
+                </div>
 
+                <form action="" method="POST">
+                <div class="reg-container otheruser">
+                    <div class="reg-container-col mid2 otherusercol">
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-user"></i>&nbsp;&nbsp;Full Name
+                        <input type="text" class="inputtab" name="fullname" placeholder="Enter Assistant's Fullname" required/></div>
+                        
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-id-badge"></i>&nbsp;&nbsp;NIC Number <br/>
+                        <input type="text" class="inputtab" name="nic" placeholder="Enter Assistant's NIC Number" required/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-phone"></i>&nbsp;&nbsp;Contact Number <br/>
+                        <input type="tel" class="inputtab" name="contact_number" placeholder="Enter Assistant's Contact Number" required/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;Email Address <br/>
+                        <input type="email" class="inputtab" name="email" placeholder="Enter Assistant's Email Address" required/></div>
+
+                    </div>
+                    <div class="reg-container-col otherusercol otherusercolbreak">
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-user-check"></i>&nbsp;&nbsp;Username
+                        <input type="text" class="inputtab" name="username" placeholder="Enter Assistant's Username" required/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Password
+                        <input type="password" class="inputtab" name="password" placeholder="Enter Assistant's Password"/></div>
+
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Confirm Password
+                        <input type="password" class="inputtab" name="confirmpassword" placeholder="Confirm Assistant's Password"/></div>
+
+                    </div>
+                </div>
+                <button name="reg" class="reg-foot pha">
+                    <span>Add Assistant&nbsp;</span>
+                </button>
+                </form>
+            </div>
         </div>
 </body>
 
 </html>
+
+<?php
+
+if(isset($_POST['reg']))
+{
+
+    $fullname=$_POST['fullname'];
+    $nic=$_POST['nic'];
+    $contact_number=$_POST['contact_number'];
+    $email=$_POST['email'];
+    $username= $_POST['username'];
+    $password=$_POST['password'];
+    $confirmpassword=$_POST['confirmpassword'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email)
+    VALUES ('pharmacist', '$username', '$hashed_password', '$email')";
+
+    $res1 = mysqli_query($conn, $sql);
+
+    $last_id = $conn->insert_id;
+
+    $sql = "INSERT INTO tbl_assistant (name, nic, phoneno, profile_picture, userid)
+    VALUES ('$fullname', '$nic', '$contact_number', 'user.png', '$last_id')";
+
+    $res2 = mysqli_query($conn, $sql);
+
+
+    if ($res1 && $res2) 
+    {
+        // header("Location: /Care4you/admin/admin-asst-view.php");
+        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view.php';</script>";
+    }
+    else
+    {
+        echo "Error: " . $s . "<br>" . mysqli_error($conn);
+        die();
+    }
+      
+}
+      
+?>

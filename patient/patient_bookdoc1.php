@@ -35,31 +35,44 @@ if ($result) {
     $starttime = strtotime('18:00:00');
   }
 
-  $apt_dur = 600;
-  $apt_time = $starttime + ($noofapt * $apt_dur);
-  $apt_time_format = date('h:i A', $apt_time);
-
   //Code for available appointment number
   $aptnosql = "SELECT docapt_no, docapt_status,my_other FROM tbl_docappointment WHERE session_id ='$session_id'";
   $aptnoresult = mysqli_query($conn,$aptnosql);
-  $aptnorow = mysqli_fetch_assoc($aptnoresult);
   
-  $flag = 0;
-  while ($aptnorow) {
-      
-      for($i = 1; $i < 13; $i++){
-        if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2){
-          $apt_no = $i;
-          $flag= 1;
-          break;
-        }
-      }
-      
-      if($flag == 1){
-        break;
-      }
-  }
-  print_r($apt_no);die();
+  if(mysqli_num_rows($aptnoresult) != 0){
+         
+          $flag = 0;
+                          
+          while ($aptnorow = mysqli_fetch_assoc($aptnoresult)) {
+            
+              for($i = 1; $i < 13; $i++){
+                if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2){
+                  $apt_no = $i;
+                  $flag= 1;
+                  break;
+                }
+              }
+            
+            if($flag == 1){
+              break;
+            }
+          }
+
+          if($flag == 0){
+            $apt_no = $noofapt + 1;
+          }  
+
+  } else {
+      $apt_no = 1;
+  }         
+
+  //code for appointment time
+  $apt_dur = 600;
+  $apt_time = $starttime + (($apt_no-1) * $apt_dur);
+  $apt_time_format = date('h:i A', $apt_time);
+
+
+
 }
 
 ?>

@@ -10,12 +10,12 @@
     //retrieving session variables
     $apt_time_format = $_SESSION['apt_time'];
     $apt_no = $_SESSION['apt_no'];
+    $user_id = $_SESSION['user_id'];
         
     //checking whether apt for myslef or other
     if($my_other==0){
       
       //getting user id and retrieving p_id
-      $user_id = $_SESSION['user_id'];
       $sql = "SELECT * FROM tbl_patient WHERE userid = '$user_id'";
       $results = mysqli_query($conn, $sql);
       
@@ -183,15 +183,15 @@
 
     if(isset($_POST['paylater'])){
       
-
+     
       //Inserting the system user appointment 
       if($my_other==0){
-
+        
         //inserting into doc appointment table
         $net_total = $booking_fee + $doc_fee;
-
+        
         $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other,net_total)
-                        VALUES ('$session_id','$apt_time_format','$apt_no'','0','$user_id','$my_other','$net_total')";
+                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$user_id','$my_other','$net_total')";
 
         $insertresult = mysqli_query($conn,$sqlinsert);
                 
@@ -214,9 +214,10 @@
             die();
 
         }
-
+        
       }
-       
+     
+      
       //inserting non system users
       if($my_other==1){
         

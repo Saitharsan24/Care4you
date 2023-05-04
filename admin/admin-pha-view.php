@@ -93,8 +93,6 @@ $no_row = mysqli_num_rows($result);
 
                             </tbody>
                         </table>
-                    </span>
-
                 </div>
             </div>
         </div>

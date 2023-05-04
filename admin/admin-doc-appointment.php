@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-appointment.css">
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
@@ -37,13 +37,13 @@
             <div class="main_content">
                 <div class="info">
 
-                    <button class="btn-addnew"  onclick="location.href='admin-doc-reg.php'"><span>add new doctor</span></button>
+                
                     <div class="back" onclick="location.href='admin-system-users.php'">
                         <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
                     </div>
-
+                   <div class="doc-apt-title"> Doctor Appointments</div>
                     <span>
-                        <table class="tbl-main-doc" id="tbl-main-doc">
+                        <table class="tbl-main-appoint" id="tbl-main-doc">
                             <thead>
                                 <tr>
                                 <td>Reference No</td>
@@ -58,12 +58,13 @@
                             <tbody>
                                 <form>
                                     <tr>
-                                        <td><input type="text" class="search-doc" name="doc-id" id="doc-id" autofocus="true" placeholder="search Doctor ID" onkeyup="filterDoctorId()" /></td>
-                                        <td><input type="text" class="search-doc" name="doc-name" id="doc-name" autofocus="true" placeholder="search Name" onkeyup="filterDoctorName()" /></td>
-                                        <td><input type="text" class="search-doc" name="Specialize" id="doc-Specialize" autofocus="true" placeholder="search Specialization" onkeyup="filterDoctorSpecialize()" /></td>
-                                        <td><input type="text" class="search-doc" name="Slmc" id="doc-slmc" autofocus="true" placeholder="search SLMC number" onkeyup="filterDoctorSlmc()"/></td>
-                                        <td><input type="text" class="search-doc" name="status"  id="doc-status" autofocus="true" placeholder="search Account Status" onkeyup="filterDoctorStatus()" /></td>
-                                        <td><button class="btn-search"><span>Search&emsp;</span></button></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="doc-id" autofocus="true" placeholder="" onkeyup="" /></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="doc-name" autofocus="true" placeholder="" onkeyup="" /></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="doc-Specialize" autofocus="true" placeholder="" onkeyup="" /></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="doc-slmc" autofocus="true" placeholder="" onkeyup=""/></td>
+                                        <td><input type="text" class="search-appoint" name="#"  id="doc-status" autofocus="true" placeholder="" onkeyup="" /></td>
+                                        <td><input type="text" class="search-appoint" name="#"  id="doc-status" autofocus="true" placeholder="" onkeyup="" /></td>
+                                        <td><button class="btn-search"><span>Search</span></button></td>
                                     </tr>
                                 </form>
                                
@@ -73,7 +74,8 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td><button class="btn-view-doc-detail" onclick='location.href="#"'><span>Doctor Details</span></button></td>
+                                            <td></td>
+                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-doc-appointment-detail.php"'><span>Appointment Details</span></button></td>
                                         </tr>
                                        
                           

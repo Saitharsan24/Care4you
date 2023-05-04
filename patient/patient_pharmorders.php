@@ -107,12 +107,12 @@
                   } ?>
 
                 <td><a href="patient_pharmorderViewDetails.php?id=<?php echo $row['order_id'];?>&status=<?php echo $row['order_status'];?>"><button class="book-btn"><span>View Details</span></button></a></td>
-                <?php
-        }
+        <?php
+                    }
           }
           else
           {
-      ?>
+        ?>
             <h3>No orders yet</h3>
       <?php
           }

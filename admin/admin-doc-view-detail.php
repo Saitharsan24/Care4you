@@ -95,7 +95,10 @@
                     </tr>
                     <tr>
                         <td class="typeR">Charge per session :</td>
-                        <td class="typeL">Rs. <?php echo $row['charge']; ?></td>
+                        <td class="typeL">Rs. <?php echo $row['charge']; ?>
+                        &nbsp; &nbsp;
+                        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                    </td>
                     </tr>
                     <tr>
                         <td class="typeR">NIC Number :</td>

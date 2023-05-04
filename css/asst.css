@@ -13,6 +13,17 @@ body{
    background-color: #A5D1E1;
 }
 
+.back{
+  margin-top: -30px;
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
 /*CSS for Scroll Bar*/
 
 /* width */
@@ -231,15 +242,11 @@ table td {
 
 /* sessions Starts */
 .tbl-main{
-  width: 75%;
+  width: 90%;
   margin-left:auto; 
   margin-right:auto;
   border-collapse: separate;
   border-spacing: 0 15px;
-}
-
-.tbl-main{
-  width: 90%;
 }
 
 .tbl-main tr{
@@ -262,6 +269,11 @@ table td {
   padding-right: 0%;
 }
 
+.tbl-main td a{
+  color: #0D5C75;
+  font-weight: 520;
+}
+
 .tbl-main td:first-child, th:first-child {
   border-radius: 10px 0 0 10px;
 }
@@ -278,11 +290,12 @@ table td {
   text-align: center;
   /* font-size: 15px; */
   padding: 5px;
-  width: 175px;
+  width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   font-weight: 500;
+  font-size: 15px;
 }
 
 .btn-viewapp span {
@@ -312,26 +325,187 @@ table td {
 
 /* sessions Ends */
 
-/* appointments Starts */
+/* view sessions Starts */
 
-.btn-uploadPre {
-  border-radius: 10px;
-  background-color: #0D5C75;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 13px;
-  padding: 5px;
-  width: 100px;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 600;
+.container-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-.btn-uploadPre:hover {
-  border: 1px solid #0D5C75;
-  background-color: #daf6ff;
+.container01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 20%;
+  height: 60vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.container02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: auto;
+  margin-left: 8%;
+  margin-right: auto;
+  width: 50%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.sessionidTXT{
+  font-size: 35px;
   color: #0D5C75;
+  font-weight: 700;
+}
+
+.sessionidTXT i{
+  font-size: 35px;
+  color: #0D5C75;
+  font-weight: 700;
+}
+
+.viewtbl {
+  width: 95%;
+  table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
+
+.viewtbl td {
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
+}
+
+.viewtbl td.typeR{
+  font-size: 18px;
+  font-weight: 550;
+  color: #0D5C75;
+  text-align: right;
+}
+
+.viewtbl td.typeL{
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* .highlight {
+  background-color: yellow;
+} */
+
+
+.type-file input[type="file"] {
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 200px;
+  background: white;
+  padding: 0px;
+  height: 25px;
+  font-size: 10px;
+}
+
+.type-file input[type="file"]:hover {
+  cursor: pointer;
+}
+
+input::-webkit-file-upload-button:hover {
+  cursor: pointer;
+}
+
+input::-webkit-file-upload-button {
+  height: 25px;
+  width: 100px;
+  border-radius: 8px;
+  border: none;
+  background: #A5D1E1;
+  color: #0D5C75;
+  margin-right: 10px;
+  font-size: 12px;
+  border: 2px solid #A5D1E1;
+}
+
+.btnpre{
+  width: 100px;
+  color: #fff;
+  background-color: #0D5C75;
+  border: 1px solid #0D5C75;
+  padding: 2px;
+  border-radius: 25px;
+}
+
+.btnpre:hover{
+  color: #012836;
+  background-color: #fff;
+  border: 2px solid #012836;
+}
+
+.btnpre i{
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+/* View sessions Ends */
+
+/* appointments Starts */
+
+.upload i{
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.btn-paypend{
+  width: 150px;
+  background-color: #FDD147;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.btn-confirmed{
+  background-color: #0C7516;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+.btn-cancelled{
+  background-color: #BD1010;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
 }
 
 /* appointments Ends */

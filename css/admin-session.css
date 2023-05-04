@@ -378,34 +378,7 @@ body{
   }
   
 
-  .doc-name-div{
-    position: absolute;
-    left: 184px;
-    top: 112px;
-  }
   
-  .doc-id-div{
-    position: absolute;
-    left: 216px;
-    top: 35px;
-  }
-  .doc-room-div{
-    position: absolute;
-    left: 237px;
-    top: 278px;
-  }
-
-  .doc-date-div{
-    position: absolute;
-    left: 245px;
-    top: 188px;
-  }
-  .doc-timeslot-div{
-    position: absolute;
-    left: 214px;
-    top: 367px;
-  }
-
   .btn-create-session{
     position: absolute;
     left: 410px;
@@ -567,3 +540,8 @@ table td {
   display: none;
 }
   /* admin-session-view-details.php end here */
+
+  /* admin-session-mail.php start here */
+
+
+  /* admin-session-mail.php end here */

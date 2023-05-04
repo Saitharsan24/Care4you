@@ -110,7 +110,7 @@
                                 <div class="form-asst">
                                    
                                     <br>
-                                    <div class=doc-id-div>
+                                    <div class="#">
                                     <?php
                                     if($result_1){
                                         echo "Doctor ID:"; 
@@ -133,7 +133,7 @@
 
                                     ?>
                                         <br>  
-                                        <div class=asst-id-div>
+                                        <div class="#">
                                         <?php
                                             if($result_2){
                                                 echo "Assitant ID:"; ?>
@@ -154,7 +154,7 @@
                                             echo "</select> </div>"; ?>
 
                                             <br>
-                                            <div class=doc-date-div>
+                                            <div class="#">
                                                 <label>Date :</label>
                                                 <?php
                                                 if (isset($_GET['date'])) { ?>
@@ -235,14 +235,7 @@
                                                             }
                                                             
                                                             ?> </select>
-                                                            </div>
-                                                            
-                                                            
-                                                        
-                                                            
-                                                        
-
-                                                    
+                                                            </div>                                                    
 
                                                 <?php } else { ?>
                                                         <input type="date" class="form-create-session" name="date" required="" autofocus="true"  onchange="var date = this.value;location.href = '/Care4you/admin/admin-session-create.php?doc_id=<?php echo $_GET['doc_id'] ?>&assi_id=<?php echo $_GET['assi_id'] ?>&date='+date;"/></div>
@@ -277,25 +270,15 @@
                                             echo "<option value=$row[doctor_id]>$row[doctor_id]</option>";
                                         }
                                         echo "</select>";
-                                     }
-                                     
-                                    
-
-                                   
+                                     }                               
                                       
                                      }
-
-                                     ?>
-                                    
-                                    
-                                
-                                    
-                                    
-                                        <button class="btn-create-session" type="submit" name="reg">Create</button>
-                                        <button class="btn-create-session-back" onclick="location.href='admin-session-view.php'">Back</button>
-                                    
+                                     ?>                              
+                                        <button class="btn-create-session" type="submit"   name="reg">Create</button>
 
                             </form>
+                           
+                            <button class="btn-create-session-back" type="button" onclick="location.href='admin-session-view.php'">Back</button>
                         </div>
 
                     </div>

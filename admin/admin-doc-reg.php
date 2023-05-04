@@ -213,4 +213,4 @@ if(isset($_POST['reg']))
 }
 
 ?>
-<script src="../script/doc-validation.js" defer></script>   
+<script src="../script/doc-validation.js"></script>   

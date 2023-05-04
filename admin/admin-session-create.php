@@ -1,23 +1,21 @@
-<?php 
-
-
-    
+<?php  
     include('../config/constants.php');
-
+  
     
-
-
-
     $sql_1="SELECT doctor_id,doc_name FROM tbl_doctor";
     $result_1 = mysqli_query($conn, $sql_1);
    
+
     $sql_2="SELECT assistant_id,name FROM tbl_assistant";
     $result_2 = mysqli_query($conn, $sql_2);
 
     
 
     if(isset($_POST['reg'])){
-
+        $id=$_GET['doc_id'];
+        
+        $_SESSION['doc_id']=$id;
+        // print_r($_SESSION['doc_id']);die();
             $doc_id=$_POST['doctor_id'];
             $asst_id=$_POST['assitant_id'];
             $date=$_POST['date'];
@@ -106,7 +104,7 @@
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="" method="POST">
+                            <form action="admin-session-mail-pop.php" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>
@@ -273,16 +271,40 @@
                                      }                               
                                       
                                      }
-                                     ?>                              
-                                        <button class="btn-create-session" type="submit"   name="reg">Create</button>
+                                     ?>      
+                                     
+                                     <button class="btn-create-session" type="submit"   name="reg">Create</button>
 
-                            </form>
+                                     
+                                </form>
+                                        
+
+                            
                            
                             <button class="btn-create-session-back" type="button" onclick="location.href='admin-session-view.php'">Back</button>
                         </div>
 
                     </div>
                 </div>
+
+            <?php
+            $id=$_GET['doc_id'];
+            $_SESSION['doc_id']=$id;
+            
+            //   if(isset($POST['reg'])){
+            //     print_r($id);die();
+            //    // $id=$_GET['id'];
+               
+            //     $query = "SELECT * FROM tbl_doctor INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid WHERE userid=$id";
+            //     $result_1 = mysqli_query($conn, $query);
+            //     $row = mysqli_fetch_array($result_1);
+             
+            //        $email= $row['email'];
+                   
+                
+            // }
+          
+            ?>
 </body>
 
 </html>

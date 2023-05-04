@@ -1,13 +1,6 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 
-<?php
-//$query = "SELECT * FROM tbl_doctor";
-$query="SELECT * FROM tbl_doctor INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid ";
-$result = mysqli_query($conn, $query);
-$no_row = mysqli_num_rows($result);
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,12 +46,13 @@ $no_row = mysqli_num_rows($result);
                         <table class="tbl-main-doc" id="tbl-main-doc">
                             <thead>
                                 <tr>
-                                    <td>Doctor ID</td>
-                                    <td>Doctor Name</td>
-                                    <td>Specialization</td>
-                                    <td>SLMC Number</td>
-                                    <td>Account Status</td>
-                                    <td></td>
+                                <td>Reference No</td>
+                                <td>Appointment No</td>
+                                 <td>Date</td>
+                                <td>Time</td>
+                                <td>Payment Status</td>
+                                <td>Session Status</td>
+                                <td></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,30 +66,16 @@ $no_row = mysqli_num_rows($result);
                                         <td><button class="btn-search"><span>Search&emsp;</span></button></td>
                                     </tr>
                                 </form>
-                                <?php
-                                if ($result) {
-                                    while ($row = mysqli_fetch_array($result)) {
-
-                                ?>
+                               
                                         <tr>
-                                            <td><?php echo $row['doctor_id'];  ?></td>
-                                            <td><?php echo $row['doc_name'];  ?></td>
-                                            <td><?php echo $row['specialization'];  ?></td>
-                                            <td><?php echo $row['SLMC_number'];  ?></td>
-                                            <td><?php
-                                            if ($row['status']==1){
-                                                echo '<button class="active-status">Active</button>';
-                                            }else{
-                                                echo '<button class="passive-status">Disabled</button>';
-                                            }
-                                            ?>
-                                            </td>
-                                            <td><button class="btn-view-doc-detail" onclick='location.href="admin-doc-view-detail.php?id=<?php echo $row["doctor_id"]; ?>"'><span>Doctor Details</span></button></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button class="btn-view-doc-detail" onclick='location.href="#"'><span>Doctor Details</span></button></td>
                                         </tr>
-                                        <?php 
-                                    }
-                                }
-                                ?>
+                                       
                           
                             </tbody>
                         </table>

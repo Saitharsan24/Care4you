@@ -55,7 +55,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php"><div class="highlighttext">Patient</div></a></li>
                 <li><a href="#">Orders</a></li>
-                <li><a href="#">Appointments</a></li>
+                <li><a href="admin-doc-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>

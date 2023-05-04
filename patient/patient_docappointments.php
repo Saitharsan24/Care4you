@@ -67,7 +67,7 @@
         </thead>
         <tbody>
                   <?php
-                  if($results){
+                  if(mysqli_num_rows($results) != 0){
                     while($row = mysqli_fetch_assoc($results)){
                   ?>
                       <tr>
@@ -80,6 +80,12 @@
                       </tr>
                   <?php 
                     }
+                  } else {
+                  ?>
+                    <tr>
+                          <td colspan="6" class="nosessiontd"><div class="nosession">No Appointments Available</div></td>
+                    <tr>  
+                  <?php
                   }
                   ?>            
             

@@ -5,6 +5,7 @@
 <?php
 
 $session_id = $_GET['id'];
+$userid = $_SESSION['user_id'];
 
 $sql = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
 
@@ -35,31 +36,48 @@ if ($result) {
     $starttime = strtotime('18:00:00');
   }
 
+  //Code for available appointment number
+  $aptnosql = "SELECT docapt_id,docapt_no, docapt_status,my_other,docapt_flag FROM tbl_docappointment WHERE session_id ='$session_id'";
+  $aptnoresult = mysqli_query($conn,$aptnosql);
+  
+  if(mysqli_num_rows($aptnoresult) != 0){
+         
+          $flag = 0;
+                          
+          while ($aptnorow = mysqli_fetch_assoc($aptnoresult)) {
+            
+              for($i = 1; $i < 13; $i++){
+                if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2 && $aptnorow['docapt_flag']==0){
+                  $apt_no = $i;
+                  $flag= 1;
+                  $apt_id = $aptnorow['docapt_id'];
+                  $sqlupdateflag = "UPDATE tbl_docappointment
+                                        SET docapt_flag ='1' 
+                                        WHERE docapt_id = '$apt_id'";
+                  break;
+                }
+              }
+            
+            if($flag == 1){
+              break;
+            }
+          }
+
+          if($flag == 0){
+            $apt_no = $noofapt + 1;
+          }  
+
+  } else {
+      $apt_no = 1;
+  }         
+
+  //code for appointment time
   $apt_dur = 600;
-  $apt_time = $starttime + ($noofapt * $apt_dur);
+  $apt_time = $starttime + (($apt_no-1) * $apt_dur);
   $apt_time_format = date('h:i A', $apt_time);
 
-  //Code for available appointment number
-  $aptnosql = "SELECT docapt_no, docapt_status,my_other FROM tbl_docappointment WHERE session_id ='$session_id'";
-  $aptnoresult = mysqli_query($conn,$aptnosql);
-  $aptnorow = mysqli_fetch_assoc($aptnoresult);
-  
-  $flag = 0;
-  while ($aptnorow) {
-      
-      for($i = 1; $i < 13; $i++){
-        if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2){
-          $apt_no = $i;
-          $flag= 1;
-          break;
-        }
-      }
-      
-      if($flag == 1){
-        break;
-      }
-  }
-  print_r($apt_no);die();
+
+
 }
 
 ?>
@@ -170,6 +188,19 @@ if ($result) {
 <?php
   
     if(isset($_POST['next'])){
+
+        //checking if there is already booked appointments for the doctor
+        $sqlcheckapt = "SELECT docapt_id,apt_no,created_by FROM tbl_docappointment WHERE created_by = '$userid'";
+        $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
+
+        $aptflag = 0;
+        
+        while($sqlcheckaptrow = mysqli_fetch_assoc($sqlcheckaptresult)){
+          if($sqlcheckaptrow['created_by'] == $userid && $sqlcheckaptrow['my_other'] =='0' ){
+            $aptflag = 1;
+          }
+          
+        }
 
         //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];

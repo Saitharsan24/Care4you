@@ -1,3 +1,41 @@
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+
+<?php
+    
+    $docapt_id = $_GET['id'];
+
+    $sql = "SELECT * FROM  
+              tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
+              INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+              INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
+              INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
+              AND docapt_id = '$docapt_id'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['my_other']==0) {
+      $p_name = $row['first_name'];
+      $p_nic = $row['nic'];
+    }
+
+    if ($row['my_other']==1) {
+      $p_name = $row['pat_name'];
+      $p_nic = $row['pat_nic'];
+    }
+
+    if($row['docapt_status']==0){
+          $doc_status = "Payment pending";
+    }elseif($row['docapt_status']==1){
+          $doc_status = "Confirmed";
+    }elseif($row['docapt_status']==2){
+          $doc_status = "Cancelled";
+    }else{
+          $doc_status = "Completed";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +59,7 @@
         </div>
         <div class="nav-links">
           <a href="./patient_home.php">Home</a>
-          <a href="./" style="color: #0c5c75; font-weight: bold">Appointments</a>
+          <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="#">Medical records</a>
           <a href="./patient_doctorlist.php">View doctors</a>
@@ -31,26 +69,44 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+
+        <div class="back" onclick="location.href='patient_docappointments.php'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+
         <div class="view-apt-heading"><h2>My Appointments</h2></div>
         <div class="view-apt-details">
-          <div class="view-details-row"><p>Reference No :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Doctor Name :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Date :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Appointment No :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Appointment time :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Room No :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Patient name :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Session status :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>NIC No :</p><div><p></p></div></div>
-          <div class="view-details-row"><p>Total Amount :</p><div><p></p></div></div>
+          <div class="view-details-row">Reference No :<div><?php echo $docapt_id ?></div></div>
+          <div class="view-details-row">Doctor Name :<div><?php echo $row['doc_name'] ?></div></div>
+          <div class="view-details-row">Date :<div><?php echo $row['date'] ?></div></div>
+          <div class="view-details-row">Appointment No :<div><?php echo $row['docapt_no'] ?></div></div>
+          <div class="view-details-row">Appointment time :<div><?php echo $row['docapt_time'] ?></div></div>
+          <div class="view-details-row">Room No :<div><?php echo $row['room_no'] ?></div></div>
+          <div class="view-details-row">Patient name :<div><?php echo $p_name ?></div></div>
+          <div class="view-details-row">NIC No :<div><?php echo $p_nic ?></div></div>
+          <div class="view-details-row">Session status :
+          <div>
+                  <?php 
+
+                      if($row['docapt_status']==0){
+                          echo ' '.'<button class="order-st00">Payment Pending</button>';
+                      } elseif($row['docapt_status']==1){
+                          echo ' '.'<button class="order-st01">Confirmed</button>';
+                      } elseif($row['docapt_status']==2){
+                          echo ' '.'<button class="order-st02"">Cancelled</button>';   
+                      } else{
+                          echo ' '.'<button class="order-st04">Completed</button>';
+                      }
+                  
+                  ?>
+              </div>  
+          </div>
+          <div class="view-details-row">Total Amount :<div><?php echo 'Rs.'.$row['net_total'] ?></div></div>
           <div class="view-apt-btn">
             <div class="view-apt-btn01"><a href=""><button>Cancel appointment</button></a></div>
             <div class="view-apt-divider"></div>
             <div class="view-apt-btn02"><a href=""><button>Pay now</button></a></div>
           </div>
-        </div>
-        <div class="view-apt-back-btn">
-          <div class="view-apt-btn02"><a href="./patient_docappointments.php"><button>Back</button></a></div>
         </div>
       </div>
     </div>

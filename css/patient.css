@@ -535,7 +535,7 @@ input:focus {
     display: flex;
     flex-direction: row;
     justify-content: right;
-    margin: 50px 40px 0px 0px;
+    margin: 30px 40px 0px 0px;
 }
 
 .apt-btn a {
@@ -573,6 +573,12 @@ input:focus {
 }
 
 .form-set {
+    width: 700px;
+    margin-left: 100px;
+    color: #093e4e;
+}
+
+.book2-form{
     width: 700px;
     margin-left: 100px;
     color: #093e4e;
@@ -746,6 +752,8 @@ input::-webkit-file-upload-button {
     width: 250px;
     height: 28px;
     margin: 0px 40px 0px 15px;
+    display: flex;
+    align-items: center;
 }
 
 .view-apt-btn {

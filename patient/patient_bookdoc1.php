@@ -1,6 +1,6 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
-<!DOCTYPE html>
+
 
 <?php
 
@@ -39,11 +39,33 @@ if ($result) {
   $apt_time = $starttime + ($noofapt * $apt_dur);
   $apt_time_format = date('h:i A', $apt_time);
 
-  $apt_no = $row['no_of_appointment'] + 1;
+  //Code for available appointment number
+  $aptnosql = "SELECT docapt_no, docapt_status,my_other FROM tbl_docappointment WHERE session_id ='$session_id'";
+  $aptnoresult = mysqli_query($conn,$aptnosql);
+  $aptnorow = mysqli_fetch_assoc($aptnoresult);
+  
+  $flag = 0;
+  while ($aptnorow) {
+      
+      for($i = 1; $i < 13; $i++){
+        if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2){
+          $apt_no = $i;
+          $flag= 1;
+          break;
+        }
+      }
+      
+      if($flag == 1){
+        break;
+      }
+  }
+  print_r($apt_no);die();
 }
 
 ?>
 
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -94,22 +116,27 @@ if ($result) {
                 <p>Doctor Name :</p>
                 <input type="text" value="<?php echo $row['doc_name']; ?>" readonly>
               </div>
+
               <div class="form-itm">
                 <p>Specialization :</p>
                 <input type="text" value="<?php echo $row['specialization']; ?>" readonly>
               </div>
+
               <div class="form-itm">
                 <p>Date :</p>
                 <input type="text" value="<?php echo $row['date']; ?>" readonly>
               </div>
+
               <div class="form-itm">
                 <p>Time :</p>
                 <input type="text" value="<?php echo $apt_time_format; ?>" readonly>
               </div>
+
               <div class="form-itm">
                 <p>Appointment No :</p>
                 <input type="text" value="<?php echo $apt_no; ?>" readonly>
               </div>
+              
               <div class="form-itm radio-itm">
                 <p>Make appointment for :</p>
                     <input type="radio" name="aptfor" value="0" required>
@@ -144,7 +171,12 @@ if ($result) {
   
     if(isset($_POST['next'])){
 
+        //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];
+
+        //storing session variable which should be taken to book2
+        $_SESSION['apt_time'] = $apt_time_format;
+        $_SESSION['apt_no'] = $apt_no;
         
         header('location:'.SITEURL.'patient/patient_bookdoc2.php?id='.$session_id.'&myother='.$my_other);
     }

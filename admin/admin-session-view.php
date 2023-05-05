@@ -70,8 +70,7 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td><?php echo $row['session_id'];  ?> </td>
                             <td><?php echo $row['room_no'];  ?></td>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                             <td><?php 
                         //    echo $row['status'];
                             if($row['status']==0){
@@ -82,9 +81,7 @@ $result=mysqli_query($conn,$query);
                                 echo '<div class="#"> Cancel </div>'; 
                             }
                             ?></td>                           
-=======
-=======
->>>>>>> 8ce992754584995a033f82d47a165c402fe0c8d2
+
                             <td>
                                 <?php 
                                     //echo $row['status'];
@@ -97,10 +94,7 @@ $result=mysqli_query($conn,$query);
                                     }
                                 ?>
                             </td>                           
-<<<<<<< HEAD
->>>>>>> 8ce992754584995a033f82d47a165c402fe0c8d2
-=======
->>>>>>> 8ce992754584995a033f82d47a165c402fe0c8d2
+
                             <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php?id=<?php echo $row['session_id']; ?>'"><span>Session Details</span></button></td>
                         </tr>
                         

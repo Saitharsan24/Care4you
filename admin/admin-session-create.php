@@ -1,6 +1,6 @@
-<?php  
-    include('../config/constants.php');
-  
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
+<?php
     
     $sql_1="SELECT doctor_id,doc_name FROM tbl_doctor";
     $result_1 = mysqli_query($conn, $sql_1);
@@ -8,7 +8,6 @@
 
     $sql_2="SELECT assistant_id,name FROM tbl_assistant";
     $result_2 = mysqli_query($conn, $sql_2);
-
     
 
     if(isset($_POST['reg'])){
@@ -51,54 +50,33 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin-session.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <title>ADMIN</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
+<?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/admin-user.jpg" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/admin/<?php echo $Admin_profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
-                <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="#">View Patient</a></li>
-                <li><a href="#">View Orders</a></li>
-                <li><a href="#">View Appointments</a></li>
+                <li><a href="admin-session-view.php"><div class="highlighttext">Sessions</div></a></li>
+                <li><a href="admin-patient-view.php">Patient</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="admin-doc-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="admin-system-users.php">
-                        <div class="highlighttext">System Users
-                    </a></li>
-                <li><a href="admin_viewprofile.php">View Profile</a></li>
+                <li><a href="admin-system-users.php">System Users</a></li>
+                <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
-
-        <div class="wrapper">
-            <div class="sidebar">
-                <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-                <img src="../images/admin-user.jpg" alt="user" class="imgframe">
-                <ul>
-                    <li><a href="admin_home.php">Home</a></li>
-                    <li><a href="admin-session-view.php">Sessions</a></li>
-                    <li><a href="admin-patient-view.php">View Patient</a></li>
-                    <li><a href="#">View Orders</a></li>
-                    <li><a href="#">View Appointments</a></li>
-                    <li><a href="#">Reports</a></li>
-                    <li><a href="admin-system-users.php">
-                            <div class="highlighttext">System Users
-                        </a></li>
-                    <li><a href="admin_viewprofile.php">View Profile</a></li>
-                </ul>
-                <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
-            </div>
             <div class="main_content">
                 <div class="info">
                     <div class="head-create-session">Create Session</div>
@@ -165,10 +143,10 @@
                                                         <option value="NULL" hidden></option>
                                                         <?php if (isset($_GET['room'])) {
                                                             for ($i=1; $i < 6; $i++) {
-                                                                if ($_GET['room'] == "No-".$i) { ?>
-                                                                    <option value="No-<?php echo $i ?>" selected>No-<?php echo $i ?></option>
+                                                                if ($_GET['room'] == "No ".$i) { ?>
+                                                                    <option value="No <?php echo $i ?>" selected>No <?php echo $i ?></option>
                                                                 <?php } else { ?>
-                                                                    <option value="No-<?php echo $i ?>" >No-<?php echo $i ?></option>
+                                                                    <option value="No <?php echo $i ?>" >No <?php echo $i ?></option>
                                                                 <?php } } ?>
                                                                 </select>
                                                                 </div>
@@ -228,7 +206,7 @@
                                                         <?php
                                                             } else {
                                                                 for ($i=1; $i < 6; $i++) { ?>
-                                                                    <option value="No-<?php echo $i ?>" >No-<?php echo $i ?></option>
+                                                                    <option value="No <?php echo $i ?>" >No <?php echo $i ?></option>
                                                                 <?php }
                                                             }
                                                             

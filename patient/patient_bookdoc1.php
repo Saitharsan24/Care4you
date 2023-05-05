@@ -5,6 +5,7 @@
 <?php
 
 $session_id = $_GET['id'];
+$userid = $_SESSION['user_id'];
 
 $sql = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
 
@@ -187,6 +188,19 @@ if ($result) {
 <?php
   
     if(isset($_POST['next'])){
+
+        //checking if there is already booked appointments for the doctor
+        $sqlcheckapt = "SELECT docapt_id,apt_no,created_by FROM tbl_docappointment WHERE created_by = '$userid'";
+        $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
+
+        $aptflag = 0;
+        
+        while($sqlcheckaptrow = mysqli_fetch_assoc($sqlcheckaptresult)){
+          if($sqlcheckaptrow['created_by'] == $userid && $sqlcheckaptrow['my_other'] =='0' ){
+            $aptflag = 1;
+          }
+          
+        }
 
         //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];

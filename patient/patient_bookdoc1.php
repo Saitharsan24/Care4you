@@ -205,6 +205,9 @@ if ($result) {
           if($sqlcheckaptrow['my_other'] =='0'){
             $myaptflag = 1;
           }
+          if($sqlcheckaptrow['my_other'] =='1'){
+            $myaptflag = 1;
+          }
         }
 
         //alerting if myself booking already made
@@ -219,6 +222,12 @@ if ($result) {
         //storing session variable which should be taken to book2
         $_SESSION['apt_time'] = $apt_time_format;
         $_SESSION['apt_no'] = $apt_no;
+        $_SESSION['timer_flag'] = 1;
+
+        $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other,net_total)
+                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$userid','$my_other','$net_total')";
+
+        $insertresult = mysqli_query($conn,$sqlinsert);
         
         header('location:'.SITEURL.'patient/patient_bookdoc2.php?id='.$session_id.'&myother='.$my_other);
     }

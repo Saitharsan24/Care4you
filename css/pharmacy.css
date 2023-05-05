@@ -41,6 +41,22 @@ body{
   background: #698f9d;
 }
 
+.fa-xmark{
+  color:white; 
+  background-color:rgb(202, 29, 29); 
+  border-radius: 25px; 
+  width: 20px; 
+  height: 20px;
+  font-weight: 800;
+}
+
+.tdtype1 i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: ;
+}
+
 .wrapper{
   display: flex;
   position: relative;

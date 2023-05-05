@@ -203,7 +203,7 @@
                                                     <td><?php echo $total ?></td>
                                                     <td>
                                                     <a href="<?php echo SITEURL; ?>/pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>">
-                                                        <i class="fa-solid fa-xmark" style="color:red;"></i>
+                                                        <i class="fa-solid fa-xmark"></i>
                                                     </a>
                                                     </td>
                                                 </tr>

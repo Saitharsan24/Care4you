@@ -29,7 +29,7 @@
             $_SESSION['output'] = 0;
         } else {
             while($row = mysqli_fetch_array($outputObj)){
-                $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment']);
+                $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment'], 'status' => $row['status']);
                 $props[] = $data;
                 // $output = array_merge($output,$data);
             };
@@ -70,7 +70,7 @@
             $_SESSION['output'] = 0;
         } else {
             while($row = mysqli_fetch_array($outputObj)){
-                $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment']);
+                $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment'], 'status' => $row['status']);
                 $props[] = $data;
                 // $output = array_merge($output,$data);
             };
@@ -96,7 +96,7 @@
                 $_SESSION['output'] = 0;
             } else {
                 while($row = mysqli_fetch_array($outputObj)){
-                    $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment']);
+                    $data = array('doc_name' => $row['doc_name'], 'specialization' => $row['specialization'], 'date' => $row['date'], 'time_slot' => $row['time_slot'],'no_of_appointment' =>$row['no_of_appointment'], 'status' => $row['status']);
                     $props[] = $data;
                     // $output = array_merge($output,$data);
                 };

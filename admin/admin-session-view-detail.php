@@ -129,11 +129,44 @@
                     </tr>
                     <tr>
                         <td class="typeR">Time Slot :</td>
-                        <td class="typeL"><?php echo $row['time_slot']; ?></td>
+
+                        <?php  
+                                          if($row['time_slot']==0){
+                                              $time="8am-10am";   
+                                          }else if($row['time_slot']==1){
+                                              $time='10am-12pm';
+                                          }else if($row['time_slot']==2){
+                                              $time='12pm-2pm';
+                                          }else if($row['time_slot']==3){
+                                              $time='2pm-4pm';
+                                          }else if($row['time_slot']==4){
+                                              $time='4pm-6pm';
+                                          }else{   
+                                              $time='6pm-8pm';
+                                          } 
+                                      ?>
+                        <td class="typeL"><?php echo $time; ?></td>
                     </tr>
                     <tr>
                         <td class="typeR">Room Number :</td>
                         <td class="typeL"><?php echo $row['room_no']; ?></td>
+                    </tr>
+                    <tr>
+                        <td class="typeR">Session Status :</td>
+                        <td class="typeL">
+                                <?php 
+                                    //echo $row['status'];
+                                    if($row['status']==0){
+                                        echo '<button class="btn-paypend"> Pending </button>';
+                                    }else if($row['status']==1){
+                                        echo '<button class="btn-confirmed"> Confirmed </button>';
+                                    }else if($row['status']==2){
+                                        echo '<button class="btn-completed"> Completed </button>';
+                                    }else{
+                                        echo '<button class="btn-cancelled"> Cancelled </button>'; 
+                                    }
+                                ?>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">

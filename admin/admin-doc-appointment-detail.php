@@ -64,7 +64,8 @@
             <div class="back" onclick="location.href='admin-doc-appointment.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
-            <div class="doc-apt-title-detail"> Doctor Appointments Details</div>
+            <div class="doc-apt-title-detail" id="id"> Doctor Appointments Details</div>
+            
             <table class="view-apt">
                    <tr>
                         <td class="typeR">Reference No :</td>

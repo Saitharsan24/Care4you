@@ -13,7 +13,8 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
-<?php 
+<?php
+
   $apt_id=$_GET['id'];
 
   $sql="SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.docapt_id = tbl_docsession.session_id WHERE docapt_id='$apt_id'";
@@ -25,6 +26,7 @@
   INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
   INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
   AND docapt_id = '$apt_id'";
+
     $results = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($results);
 

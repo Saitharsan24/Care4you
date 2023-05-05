@@ -70,6 +70,18 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td><?php echo $row['session_id'];  ?> </td>
                             <td><?php echo $row['room_no'];  ?></td>
+
+                            <td><?php 
+                        //    echo $row['status'];
+                            if($row['status']==0){
+                                 echo '<div class="#"> Pending </div>';
+                            }else if($row['status']==1){
+                                echo '<div class="#"> Confirm </div>';
+                            }else{
+                                echo '<div class="#"> Cancel </div>'; 
+                            }
+                            ?></td>                           
+
                             <td>
                                 <?php 
                                     //echo $row['status'];
@@ -82,6 +94,7 @@ $result=mysqli_query($conn,$query);
                                     }
                                 ?>
                             </td>                           
+
                             <td><button class="btn-view-session-detail" onclick="location.href='admin-session-view-detail.php?id=<?php echo $row['session_id']; ?>'"><span>Session Details</span></button></td>
                         </tr>
                         

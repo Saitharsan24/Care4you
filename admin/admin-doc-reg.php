@@ -159,7 +159,7 @@
 
                     </div>
                 </div>
-                <button name="reg" type="submit"  class="reg-foot">
+                <button name="reg"   class="reg-foot">
                     <span>Add Doctor&nbsp;</span>
                 </button>
                 </form>
@@ -183,7 +183,7 @@ if(isset($_POST['reg']))
     $charge=$_POST['charge'];
     $username= $_POST['username'];
     $password=$_POST['password'];
-    $confirmpassword=$_POST['conformpassword'];
+    $confirmpassword=$_POST['confirmpassword'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email)
@@ -191,7 +191,8 @@ if(isset($_POST['reg']))
 
     $res1 = mysqli_query($conn, $sql);
 
-    $last_id = $conn->insert_id;
+print_r($res1);die();
+    $last_id = $conn->insert_id;  
 
     $sql = "INSERT INTO tbl_doctor (doc_name, nic, contact_number, SLMC_number, specialization, charge, profile_picture, userid)
     VALUES ('$doc_name', '$nic', '$contact_number', '$SLMC_Number', '$specialization', '$charge', 'user.png', '$last_id')";
@@ -213,4 +214,4 @@ if(isset($_POST['reg']))
 }
 
 ?>
-<script src="../script/doc-validation.js"></script>   
+<!-- <script src="../script/doc-validation.js"></script>    -->

@@ -101,7 +101,7 @@ if(isset($_POST['reg']))
     VALUES ('labtec', '$username', '$hashed_password', '$email')";
 
     $res1 = mysqli_query($conn, $sql);
-
+print_r($res1);die();
     $last_id = $conn->insert_id;
 
     $sql = "INSERT INTO tbl_labtec (fullname, nic, contact_number, profile_picture, userid)

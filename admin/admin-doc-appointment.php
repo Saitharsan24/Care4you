@@ -4,7 +4,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<?php
+  //$sql = "SELECT * FROM tbl_docappointment ";
 
+  $sql="SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.docapt_id = tbl_docsession.session_id ";
+  $result = mysqli_query($conn,$sql);
+  $row=mysqli_fetch_array($result);
+  // print_r($row);die();
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,9 +34,9 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="#">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
+                <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</div></a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="admin-system-users.php"><div class="highlighttext">System Users</div></a></li>
+                <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -51,33 +58,50 @@
                                  <td>Date</td>
                                 <td>Time</td>
                                 <td>Payment Status</td>
-                                <td>Session Status</td>
                                 <td></td>
+                                
                                 </tr>
                             </thead>
                             <tbody>
-                                <form>
+                                
                                     <tr>
                                         <td><input type="text" class="search-appoint" name="#" id="doc-id" autofocus="true" placeholder="" onkeyup="" /></td>
                                         <td><input type="text" class="search-appoint" name="#" id="doc-name" autofocus="true" placeholder="" onkeyup="" /></td>
                                         <td><input type="text" class="search-appoint" name="#" id="doc-Specialize" autofocus="true" placeholder="" onkeyup="" /></td>
                                         <td><input type="text" class="search-appoint" name="#" id="doc-slmc" autofocus="true" placeholder="" onkeyup=""/></td>
                                         <td><input type="text" class="search-appoint" name="#"  id="doc-status" autofocus="true" placeholder="" onkeyup="" /></td>
-                                        <td><input type="text" class="search-appoint" name="#"  id="doc-status" autofocus="true" placeholder="" onkeyup="" /></td>
                                         <td><button class="btn-search"><span>Search</span></button></td>
                                     </tr>
-                                </form>
+                                    <?php
+                                    if($result){
+                            while($row=mysqli_fetch_array($result)){
+                                 ?>
                                
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-doc-appointment-detail.php"'><span>Appointment Details</span></button></td>
+                                            <td><?php echo $row['docapt_id'] ?></td>
+                                            <td><?php echo $row['docapt_no'] ?></td>
+                                            <td><?php echo $row['date'] ?></td>
+                                            <td><?php echo $row['docapt_time'] ?></td>
+                                            <td><button class="btn-green">
+                                             <?php
+                              if($row['docapt_status']==0){
+                                echo '<button vs class="active-status"> Pending </button>';
+                              }else if($row['docapt_status']==1){
+                                echo '<button class="passive-status"> Confirm</button>';
+                              }else if($row['docapt_status']==2){
+                                echo '<button class="passive-status"> complete </button>'; 
+                              }else{
+                                echo '<button class="passive-status"> cancel </button>'; 
+                              }
+                              ?> 
+                                                </button></td>
+                                            
+                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-doc-appointment-detail.php?id=<?php echo $row["docapt_id"]; ?>"'><span>Appointment Details</span></button></td>
                                         </tr>
-                                       
+                                       <?php
+                            }
+                        }
+                                       ?>
                           
                             </tbody>
                         </table>

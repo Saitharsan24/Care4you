@@ -143,10 +143,10 @@
                                                         <option value="NULL" hidden></option>
                                                         <?php if (isset($_GET['room'])) {
                                                             for ($i=1; $i < 6; $i++) {
-                                                                if ($_GET['room'] == "No-".$i) { ?>
-                                                                    <option value="No-<?php echo $i ?>" selected>No-<?php echo $i ?></option>
+                                                                if ($_GET['room'] == "No ".$i) { ?>
+                                                                    <option value="No <?php echo $i ?>" selected>No <?php echo $i ?></option>
                                                                 <?php } else { ?>
-                                                                    <option value="No-<?php echo $i ?>" >No-<?php echo $i ?></option>
+                                                                    <option value="No <?php echo $i ?>" >No <?php echo $i ?></option>
                                                                 <?php } } ?>
                                                                 </select>
                                                                 </div>
@@ -206,7 +206,7 @@
                                                         <?php
                                                             } else {
                                                                 for ($i=1; $i < 6; $i++) { ?>
-                                                                    <option value="No-<?php echo $i ?>" >No-<?php echo $i ?></option>
+                                                                    <option value="No <?php echo $i ?>" >No <?php echo $i ?></option>
                                                                 <?php }
                                                             }
                                                             

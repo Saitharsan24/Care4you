@@ -189,6 +189,7 @@ body{
 
 
 
+
 /* admin-doc-appointment.php page start here*/
 
 .doc-list{
@@ -384,8 +385,17 @@ body{
   /* admin-doc-appointment.php page end here*/
 
   /* admin-doc-appointment-datails.php page start here*/
-
-  .view-doc {
+  .doc-apt-title-detail{
+    position: absolute;
+    left: 592px;
+    top: 71px;
+    font-size: 39px;
+    font-weight: 626;
+    width: 635px;
+    color: #093e4e;
+    margin-bottom: -15px;
+}
+  .view-apt {
     margin-top: 7%;
     margin-bottom: 5%;
     margin-left: auto;
@@ -404,20 +414,21 @@ body{
 }
 
 
+
 .view-doc tr td{
     padding: 15px;
     text-align: center;
     vertical-align: middle;
   }
   
-  .view-doc td.typeR{
+  .view-apt td.typeR{
     text-align: center;
     color: #0D5C75;
     font-weight: 600;
   }
 
   
-.view-doc td.typeL{
+.view-apt td.typeL{
     text-align: center;
     font-weight: 600;
   }

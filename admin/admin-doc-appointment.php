@@ -10,7 +10,7 @@
   $sql="SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.docapt_id = tbl_docsession.session_id ";
   $result = mysqli_query($conn,$sql);
   $row=mysqli_fetch_array($result);
-  // print_r($row);die();
+  //print_r($row);die();
 ?>
 <head>
     <meta charset="UTF-8">

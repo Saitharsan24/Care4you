@@ -50,6 +50,11 @@
                     unset($_SESSION['emptymed']);
 
                 }
+                if(isset($_SESSION['deldrug'])){
+                    echo $_SESSION['deldrug'];
+                    unset($_SESSION['deldrug']);
+
+                }
             ?>
             <?php
                 
@@ -158,6 +163,7 @@
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
                                     <td>Total (Rs.)</td>
+                                    <td></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -195,6 +201,11 @@
                                                     <td><?php echo $unitprice ?></td>
                                                     <td><?php echo $quantity ?></td>
                                                     <td><?php echo $total ?></td>
+                                                    <td>
+                                                    <a href="<?php echo SITEURL; ?>/pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>">
+                                                        <i class="fa-solid fa-xmark" style="color:red;"></i>
+                                                    </a>
+                                                    </td>
                                                 </tr>
                                                 
                                                 <?php

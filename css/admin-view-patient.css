@@ -139,17 +139,6 @@ body{
 
   /* admin-patient-view.php page start here*/
 
-.view-patient-txt{
-  position: absolute;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
-  bottom: 563px;
-  left: 628px;
-  width: 500px;
-  
-
-}
 
 .btn-view-patient-detail {
   border-radius: 10px;
@@ -190,7 +179,6 @@ body{
   opacity: 1;
   right: 0;
 }
-
 
 .tbl-main-patient{
   position: absolute;
@@ -272,33 +260,6 @@ body{
   cursor: pointer;
 }
 /* admin-patient-view.php page end here */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* admin-patient-view-detail.php page start here*/
@@ -451,85 +412,7 @@ body{
 /* admin-patient-view-detail.php page end here*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  /* admin-patient-edit-detail.php page start here*/
+/* admin-patient-edit-detail.php page start here*/
 
 .change-profile-txt{
    position:absolute ;

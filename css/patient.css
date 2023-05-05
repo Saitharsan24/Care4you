@@ -579,7 +579,7 @@ input:focus {
 }
 
 .book2-form{
-    width: 700px;
+    width: 740px;
     margin-left: 100px;
     color: #093e4e;
 }
@@ -591,14 +591,14 @@ input:focus {
 .form-bottom-text {
     font-weight: 600;
     color: #093e4e;
-    margin: 20px 0px 0px 250px;
+    margin: 0px 0px 0px 250px;
     font-size: 20px;
 }
 
 .book2-heading {
     font-size: 25px;
     color: #093e4e;
-    margin: 40px 0px 20px 100px;
+    margin: 10px 0px 20px 100px;
 }
 
 .switch {
@@ -1644,3 +1644,117 @@ input::-webkit-file-upload-button {
     color: #01161d;
   }
 
+/* CSS for viewprofile.php Starts Here*/
+
+.polygons {
+    text-align: center;
+    position: relative;
+  }
+  .square {
+    border: 2px solid #0D5C75;
+    width: 600px;
+    height: 420px;
+    background: #ffffff;
+    position: relative;
+    top: 100px;
+    display: inline-block;
+    border-radius: 10%;
+  }
+  
+  .tbl-square{
+    border-collapse: separate;
+    table-layout: fixed;
+    /* border: 1px solid black; */
+  }
+  
+  .tbl-square .type1{
+    /* border: 1px solid black; */
+    width: 245px;
+    text-align: right;
+    font-size: 16px;
+    color: #0D5C75;
+    font-weight: 500;
+  }
+  
+  .tbl-square .type2{
+    /* border: 1px solid black; */
+    width: 300px;
+    text-align: left;
+    font-size: 14px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px 10px 10px 10px;
+  }
+  
+  .circle {
+    border: 2px solid #0D5C75;
+    width: 250px;
+    height: 250px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    left: 500px;
+    top: -15px;
+    overflow: hidden;
+  }
+  
+  /* .circle:hover {
+    color: $primary;
+    background-color: transparent;
+    border: dashed #f7a4a7 5px;
+  } */
+  
+  .square2 {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    background: #0D5C75;
+    left: -205px;
+    top: 430px;
+    /* border-radius: 10%; */
+  }
+  
+  #overlap {
+    width: 10px;
+    height: 60px;
+  /*   background: purple; */
+    position: relative;
+    left: -10px;
+    right: -20px;
+  }
+  
+  .form-control2{
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  /* CSS for viewprofile.php Ends Here*/
+  
+  /* editprofile.php CSS Starts */
+  
+  #file-input {
+    display: none;
+  }
+  
+  #file-link {
+    color: #0D5C75;
+    cursor: pointer;
+  }
+  
+  #file-link:hover {
+    text-decoration: none;
+  }
+  
+  .ppUpdatedS{
+    color: #54B435;
+    margin-top: -10px;
+    margin-left: 55px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .ppUpdatedF{
+    color: red;
+  }
+  
+  /* editprofile.php CSS Ends */

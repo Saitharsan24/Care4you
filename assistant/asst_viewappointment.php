@@ -46,17 +46,17 @@
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
             <div class="container-row">
-            <div class="container01" style="width: 27%;">
+            <div class="container1">
                 <div class="sessionidTXT">
                     REFERENCE NO<br/><br/>
                     <div style="color:#000; font-size:100px; margin-top:20px;"><?php echo $docapt_id ?></div>
                 </div>
             </div>
-            <div class="container02">
-                <table class="viewtbl">
+            <div class="container2">
+                <table class="viewtblAPP">
                     <tr>
                         <td colspan="2">
-                            <div class="sessionidTXT" style="margin-bottom:0px;"><i class="fa-solid fa-book-medical"></i>&nbsp;APPOINTMENT DETAILS</div>
+                            <div class="sessionidTXT" style="margin-bottom:10px;"><i class="fa-solid fa-book-medical"></i>&nbsp;APPOINTMENT DETAILS</div>
                         </td>
                     </tr>
                     <tr>
@@ -90,21 +90,45 @@
                         <td class="typeR">Appointment Status :</td>
                         <td class="typeL">
                             <?php 
-                                if($row['docapt_status']==1){
-                                    echo ' '.'<button class="order-st00">Confirmed</button>';
-                                } elseif($row['docapt_status']==2){
-                                    echo ' '.'<button class="order-st01">Completed</button>';
-                                }
+                                // if($row['docapt_status']==1){
+                                //     echo ' '.'<button class="order-st00">Confirmed</button>';
+                                // } elseif($row['docapt_status']==2){
+                                //     echo ' '.'<button class="order-st01">Completed</button>';
+                                // }
                             ?>
+                            <label class="switch">
+                                <input type="checkbox" id="toggle">
+                                <span class="slider round"></span>
+                                <span id="toggle-text">Not Attended</span>
+                            </label>
+                            <script>
+                                const toggle = document.getElementById("toggle");
+                                const toggleText = document.getElementById("toggle-text");
+
+                                toggle.addEventListener("change", function() {
+                                if (this.checked) {
+                                    toggleText.textContent = "Attended";
+                                } else {
+                                    toggleText.textContent = "Not Attended";
+                                }  
+                                });
+                            </script>
                         </td>
                     </tr>
                     <tr>
                         <td class="typeR">Upload Prescription :</td>
                         <td class="typeL">
                         <form method="POST">  
-                        <div class="type-file">
+                        <div class="type-file upload-input">
                             <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
                         </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="typeR">Other Remarks :</td>
+                        <td class="typeL">
+                        <form method="POST">
+                            <textarea class="textarea" name="address" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
                         </td>
                     </tr>
                     <tr>

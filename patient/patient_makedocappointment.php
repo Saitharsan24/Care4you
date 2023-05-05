@@ -162,9 +162,9 @@
                 <input id="date-input" type="Date" class="signup-input" name="date-input"/>
             </div>
 
-            <div class="clearfilt">
+            <div class="clearfilt" style="font-size: 15px; color:#093e4e;">
               <a href="patient_makedocappointment.php">
-                <i class="fa-solid fa-xmark" style="font-size: 10px;"></i>clear filter
+                <i class="fa-solid fa-xmark" style="font-size: 15px;"></i>clear filter
               </a>
             </div>
             
@@ -199,7 +199,7 @@
                   {
                       foreach ($_SESSION['output'] as $row3)
                       {
-                      if ($row3['no_of_appointment'] < 13) 
+                      if ($row3['no_of_appointment'] < 13 && $row3['status'] == 1) 
                         {
           ?>
                             <tr>
@@ -237,7 +237,7 @@
               <?php
                   while ($row3 = mysqli_fetch_array($result3))
                   {  
-                    if ($row3['no_of_appointment'] < 13)
+                    if ($row3['no_of_appointment'] < 13 && $row3['status'] == 1)
                     {
               ?>
                         <tr>

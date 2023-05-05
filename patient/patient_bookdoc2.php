@@ -111,7 +111,12 @@
                     ?>
 
                           <div class="form-itm">
-                            <p>Patient Name :</p>
+                            <p>Patient Full Name :</p>
+                            <input type="text" name="pname" placeholder="Enter patient name" required/>
+                          </div>
+
+                          <div class="form-itm">
+                            <p>Your relationship to the patient :</p>
                             <input type="text" name="pname" placeholder="Enter patient name" required/>
                           </div>
 
@@ -141,7 +146,7 @@
                     </div>
 
                     <div class="form-itm">
-                      <p>Booking fee :</p>
+                      <p>Hospital charges :</p>
                       <input type="text" value="<?php echo "Rs.".$booking_fee ?>" readonly/>
                     </div>
 
@@ -170,7 +175,7 @@
         </div>
 
         <div class="form-set form-bottom-text">
-          <p>** NOTE: You have to make the payment within 24h.</p>
+          <p>** NOTE: You have to make the payment within 10min.</p>
         </div>
 
       </div>

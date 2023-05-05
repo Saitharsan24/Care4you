@@ -82,7 +82,7 @@
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="#" method="POST">
+                            <form action="" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>
@@ -251,7 +251,7 @@
                                      }
                                      ?>      
                                      
-                                     <button class="btn-create-session" type="submit"   name="reg">Create</button>
+                                     <button class="btn-create-session" type="submit" name="reg">Create</button>
 
                                      
                                 </form>

@@ -69,18 +69,7 @@ $result=mysqli_query($conn,$query);
                       ?>
                         <tr>
                             <td><?php echo $row['session_id'];  ?> </td>
-                            <td><?php echo $row['room_no'];  ?></td>
-
-                            <td><?php 
-                        //    echo $row['status'];
-                            if($row['status']==0){
-                                 echo '<div class="#"> Pending </div>';
-                            }else if($row['status']==1){
-                                echo '<div class="#"> Confirm </div>';
-                            }else{
-                                echo '<div class="#"> Cancel </div>'; 
-                            }
-                            ?></td>                           
+                            <td><?php echo $row['room_no'];  ?></td>         
 
                             <td>
                                 <?php 
@@ -89,6 +78,8 @@ $result=mysqli_query($conn,$query);
                                         echo '<button class="btn-paypend"> Pending </button>';
                                     }else if($row['status']==1){
                                         echo '<button class="btn-confirmed"> Confirmed </button>';
+                                    }else if($row['status']==2){
+                                        echo '<button class="btn-completed"> Completed </button>';
                                     }else{
                                         echo '<button class="btn-cancelled"> Cancelled </button>'; 
                                     }

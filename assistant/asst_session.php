@@ -96,7 +96,7 @@
                         }
                     } else {
                     ?>
-                            <td class="nosessiontd" colspan="5"><div class="nosession">No Sessions assigned</td>
+                            <td class="nosessiontd" colspan="5"><div class="nosession">No Sessions Assigned</div></td>
                     <?php
                     }
                     ?>

@@ -10,8 +10,8 @@
                 INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid  
                 INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
                 AND session_id = '$session_id'";
-    $results = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($results);
+    $results = mysqli_query($conn,$sql);    
+    
     
 ?>
 

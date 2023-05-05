@@ -260,6 +260,7 @@
                             
                            
                             <button class="btn-create-session-back" type="button" onclick="location.href='admin-session-view.php'">Back</button>
+                      
                         </div>
 
                     </div>

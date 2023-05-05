@@ -433,6 +433,18 @@ body{
   font-weight: 550;
 }
 
+.btn-completed{
+  background-color:#083746;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
 .btn-cancelled{
   background-color: #BD1010;
   width: 150px;
@@ -594,12 +606,12 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
+  margin-top: 1%;
   margin-bottom: auto;
   margin-left: 8%;
   margin-right: auto;
   width: 50%;
-  height: 70vh;
+  height: 80vh;
   background-color: #FFFFFF;
   border-radius: 50px;
   border: 1px solid #888888;

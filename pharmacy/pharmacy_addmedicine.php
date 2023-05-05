@@ -68,14 +68,26 @@
                             <!-- <input type="text" class="form-addmedcontrol" name="drugname" /> -->
                             <select name="drugname" id="drugname" class="form-addmedcontrol">
                                 <?php
-
-                                    $query ="SELECT medicine_id,med_name FROM tbl_medicine ORDER BY med_name ASC";
-                                    $result = mysqli_query($conn,$query);
-                                    $count = mysqli_num_rows($result);
+                                
+                                    $sql4 = "SELECT drugname FROM tbl_addmedicine WHERE order_id = $id";
+                                    echo $sql4;
+                                    $result = mysqli_query($conn, $sql4);
+                                    
+                                    if ($result) {
+                                        $mednames = array();
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $mednames[] = $row['drugname'];
+                                        }
+                                    
+                                        $mednames_str = implode("','", $mednames);
+                                        $query ="SELECT medicine_id,med_name FROM tbl_medicine WHERE med_name NOT IN ('$mednames_str') ORDER BY med_name ASC";
+                                        echo $query;
+                                        $result2 = mysqli_query($conn,$query);
+                                        $count = mysqli_num_rows($result2);
 
                                     if($count > 0)
                                     {
-                                        while($optionData=mysqli_fetch_assoc($result))
+                                        while($optionData=mysqli_fetch_assoc($result2))
                                         {
                                         $option =$optionData['med_name'];
                                         $id =$optionData['medicine_id'];
@@ -84,7 +96,10 @@
                                 <?php
                                         }
                                     }
-                                ?>                                
+                                
+                                    }
+                                ?>
+                                                                    
                             </select>
                         </td>
                     </tr>
@@ -95,7 +110,7 @@
                 
                     <tr>
                         <td class="tdtype1">Quantity :</td>
-                        <td class="tdtype2"><input type="number" min="0" class="form-addmedcontrol" name="quantity" /></td>
+                        <td class="tdtype2"><input type="number" min="0" class="form-addmedcontrol" name="quantity" required/></td>
                     </tr>
                 </table>
             <br /> <br />

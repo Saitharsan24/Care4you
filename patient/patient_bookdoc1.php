@@ -190,21 +190,31 @@ if ($result) {
   
     if(isset($_POST['next'])){
 
+        //getting from POST method whether it is myself or others
+        $my_other = $_POST['aptfor'];
+
         //checking if there is already booked appointments for the doctor
         $sqlcheckapt = "SELECT docapt_id,docapt_no,created_by FROM tbl_docappointment WHERE created_by = '$userid'";
         $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
 
-        $aptflag = 0;
-        
+        //flag for myself duplicate appointment
+        $myaptflag = 0;
+        $otheraptflag = 0;
+
         while($sqlcheckaptrow = mysqli_fetch_assoc($sqlcheckaptresult)){
-          if($sqlcheckaptrow['created_by'] == $userid && $sqlcheckaptrow['my_other'] =='0' ){
-            $aptflag = 1;
+          if($sqlcheckaptrow['my_other'] =='0'){
+            $myaptflag = 1;
           }
-          
         }
 
-        //getting from POST method whether it is myself or others
-        $my_other = $_POST['aptfor'];
+        //alerting if myself booking already made
+        if($myaptflag == 1 && $my_other == 0){
+          print_r('Already made appoitment for this patient');die();
+        }
+
+        if($otheraptflag == 1 && $my_other == 1){
+          print_r('Already made appoitment for this patient');die();
+        }
 
         //storing session variable which should be taken to book2
         $_SESSION['apt_time'] = $apt_time_format;

@@ -102,8 +102,17 @@
                         <td class="typeR">Upload Prescription :</td>
                         <td class="typeL">
                         <form method="POST">  
-                        <div class="type-file">
+                        <div class="type-file upload-input">
                             <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
+                        </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="typeR">Other Remarks :</td>
+                        <td class="typeL">
+                        <form method="POST">  
+                        <div class="type-file">
+                            <textarea class="textarea" name="address" id="address" placeholder="Type your address here"></textarea>
                         </div>
                         </td>
                     </tr>

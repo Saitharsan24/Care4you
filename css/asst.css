@@ -379,12 +379,9 @@ table td {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3%;
-  margin-bottom: auto;
-  margin-left: 8%;
-  margin-right: auto;
+  margin: -50px 8% 50px auto;
   width: 50%;
-  height: 70vh;
+  height: 90vh;
   background-color: #FFFFFF;
   border-radius: 50px;
   border: 1px solid #888888;
@@ -432,6 +429,22 @@ table td {
   font-size: 18px;
   font-weight: 600;
   text-align: left;
+}
+
+.upload-input input{
+  margin-top: 20px;
+}
+
+.textarea{
+  outline: 0;
+  resize: none;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+  border-width: 0 0 2px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 10px;
+  width: 730px;
+  height: 80px;
 }
 
 /* .highlight {

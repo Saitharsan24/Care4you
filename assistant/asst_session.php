@@ -1,5 +1,22 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php 
+
+        //getting the assistant id from user id 
+        $user_id = $_SESSION['user_id'];
+        $sqlasst_id = "SELECT assistant_id FROM tbl_assistant WHERE userid = '$user_id'";
+        $resultsasst_id = mysqli_query($conn,$sqlasst_id);
+        $rowasst_id = mysqli_fetch_assoc($resultsasst_id);
+        $asst_id = $rowasst_id['assistant_id'];
+
+        //getting session details from database
+        $sql = "SELECT * FROM tbl_docsession WHERE assistant_id = '$asst_id' AND (status = '1' OR status = '2')";
+        $result = mysqli_query($conn,$sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,16 +49,58 @@
                         <td>Session ID</td>
                         <td>Time Slot</td>
                         <td>Room Number</td>
+                        <td>Session Status</td>
                         <td></td>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>3.00 PM - 5.00 PM</td>
-                        <td>UF07</td>
-                        <td><a href="asst_viewsession.php"><button class="btn-viewapp"><span>View Session</span></button></a></td>
-                    </tr>
+                <tbody> 
+
+                    <?php 
+                        if(mysqli_num_rows($result) != 0 ){
+                        if($result){
+                            while($row = mysqli_fetch_assoc($result)){
+                    ?>
+                            <tr>
+                                <td><?php echo $row['session_id'] ?></td>
+                                    <?php  
+                                          if($row['time_slot']==0){
+                                              $time="8am-10am";   
+                                          }else if($row['time_slot']==1){
+                                              $time='10am-12pm';
+                                          }else if($row['time_slot']==2){
+                                              $time='12pm-2pm';
+                                          }else if($row['time_slot']==3){
+                                              $time='2pm-4pm';
+                                          }else if($row['time_slot']==4){
+                                              $time='4pm-6pm';
+                                          }else{   
+                                              $time='6pm-8pm';
+                                          } 
+                                      ?>
+
+                                <td><?php echo $time ?></td>
+                                <td><?php echo $row['room_no'] ?></td>
+                                <td>
+                                    <?php 
+                                        if($row['status']==1){
+                                            echo ' '.'<button class="order-st00">Confirmed</button>';
+                                        } elseif($row['status']==2){
+                                            echo ' '.'<button class="order-st01">Completed</button>';
+                                        }
+                                    ?>
+                                </td>
+                                <td><a href="./asst_viewsession.php?id=<?php echo $row['session_id']     ?>"><button class="btn-viewapp"><span>View Session</span></button></a></td>
+                            </tr>
+                    <?php 
+                            }
+                        }
+                    } else {
+                    ?>
+                            <td class="nosessiontd" colspan="5"><div class="nosession">No Sessions assigned</td>
+                    <?php
+                    }
+                    ?>
+
                 </tbody>
             </table>
             </div>

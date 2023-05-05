@@ -72,9 +72,9 @@ $result=mysqli_query($conn,$query);
                             <td><?php 
                         //    echo $row['status'];
                             if($row['status']==0){
-                                 echo '<div class="#"> Panding </div>';
+                                 echo '<div class="#"> Pending </div>';
                             }else if($row['status']==1){
-                                echo '<div class="#"> Conform </div>';
+                                echo '<div class="#"> Confirm </div>';
                             }else{
                                 echo '<div class="#"> Cancel </div>'; 
                             }

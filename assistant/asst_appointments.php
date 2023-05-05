@@ -1,7 +1,23 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('asst_getinfo.php') ?>
+
+<?php 
+    //getting session id form URL
+    $session_id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_docappointment 
+                INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid  
+                INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
+                AND session_id = '$session_id'";
+    $results = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($results);
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +27,9 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<?php include('asst_getinfo.php') ?>
+
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -26,7 +43,7 @@
         </div>
         <div class="main_content"> 
             <div class="info">
-            <div class="back" onclick="location.href='asst_viewsession.php'">
+            <div class="back" onclick="location.href='asst_viewsession.php?id=<?php echo $session_id ?>'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
             <table class="tbl-main">
@@ -40,37 +57,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Mrs. Sanjeewani Silva</td>
-                        <td>3.00 PM - 3.10 PM</td>
-                        <td><button class="btn-paypend">Payment Pending</button></td>
-                        <td><a href="#"><button class="btn-viewapp" style="font-size: 13px;"><span>View Appointment</span></button></a></td>
-                    </tr>
+                    <?php 
+                        if(mysqli_num_rows($results) !=0 ){
+                        while($row = mysqli_fetch_assoc($results)){
+                            if (($row['docapt_status'] == 1 || $row['docapt_status'] == 2)) {
+                    ?>
+                            <tr>
+                                <td><?php echo $row['docapt_no'] ?></td>
+                                <?php 
+                                    if($row['my_other'] == 1){
+                                ?>
+                                        <td><?php echo $row['pat_name'] ?></td>
+                                <?php
+                                    }else{
+                                ?>
+                                        <td><?php echo $row['first_name'] ?></td>
+                                <?php        
+                                    }
+                                ?>
 
-                    <tr>
-                        <td>02</td>
-                        <td>Mrs. Ramani Perera</td>
-                        <td>3.10 PM - 3.20 PM</td>
-                        <td><button class="btn-confirmed">Confirmed</button></td>
-                        <td><a href="asst_viewappointment.php"><button class="btn-viewapp" style="font-size: 13px;"><span>View Appointment</span></button></a></td>
-                    </tr>
-
-                    <tr>
-                        <td>03</td>
-                        <td>Mr. Lalith De Silva</td>
-                        <td>3.20 PM - 3.30 PM</td>
-                        <td><button class="btn-cancelled">Cancelled</button></td>
-                        <td><a href="#"><button class="btn-viewapp" style="font-size: 13px;"><span>View Appointment</span></button></a></td>
-                    </tr>
-
-                    <tr>
-                        <td>04</td>
-                        <td>Ms. Kavishi Weerasinghe</td>
-                        <td>3.30 PM - 3.40 PM</td>
-                        <td><button class="btn-confirmed">Confirmed</button></td>
-                        <td><a href="asst_viewappointment.php"><button class="btn-viewapp" style="font-size: 13px;"><span>View Appointment</span></button></a></td>
-                    </tr>
+                                <td><?php echo $row['docapt_time'] ?></td>
+                                <td>
+                                    <?php 
+                                        if($row['docapt_status']==1){
+                                            echo ' '.'<button class="order-st00">Confirmed</button>';
+                                    } elseif($row['docapt_status']==2){
+                                            echo ' '.'<button class="order-st01">Completed</button>';
+                                    }
+                                    ?>
+                                </td>
+                                <td><a href="asst_viewappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="btn-viewapp" style="font-size: 13px;"><span>View Appointment</span></button></a></td>
+                            </tr>
+                    <?php 
+                            }
+                        }
+                        }else {
+                    ?>
+                            <tr>
+                            <td class="nosessiontd" colspan="5"><div class="nosession">No Appointments yet</td>
+                            </tr>
+                    <?php
+                        }
+                    ?>
                 </tbody>
             </table>
             </div>

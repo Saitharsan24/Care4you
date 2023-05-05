@@ -323,6 +323,32 @@ table td {
   right: 0;
 }
 
+.order-st00{
+  width: 175px;
+  width: 150px;
+  background-color: #0C7516;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.order-st01{
+  width: 175px;
+  width: 150px;
+  background-color: #083746;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+} 
+
 /* sessions Ends */
 
 /* view sessions Starts */
@@ -466,6 +492,23 @@ input::-webkit-file-upload-button {
 /* View sessions Ends */
 
 /* appointments Starts */
+
+td.nosessiontd:first-child, th:first-child {
+  border-radius: 10px 10px 10px 10px;
+}
+
+.nosession{
+  color: #d41414;
+  font-weight: 700;
+}
+
+.nosessiontd div{
+  margin-bottom: 0px;
+}
+
+td.nosessiontd:first-child, th:first-child {
+  border-radius: 10px 10px 10px 10px;
+}
 
 .upload i{
   color: #0D5C75;

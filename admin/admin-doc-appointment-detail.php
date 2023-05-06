@@ -31,6 +31,7 @@
     $row = mysqli_fetch_assoc($results);
 
     
+    
     if ($row['my_other']==0) {
         $p_name = $row['first_name'];
         $p_nic = $row['nic'];
@@ -113,10 +114,13 @@
                               }else if($row['docapt_status']==1){
                                 echo '<button class="passive-status"> Confirm</button>';
                               }else if($row['docapt_status']==2){
-                                echo '<button class="passive-status"> complete </button>'; 
+                                echo '<button class="passive-status"> Completed </button>'; 
+                              }else if($row['docapt_status']==3){
+                                echo '<button class="passive-status"> Cancelled </button>'; 
                               }else{
-                                echo '<button class="passive-status"> cancel </button>'; 
+                                echo '<button class="passive-status"> Not Attended </button>';                  
                               }
+                            
                               ?> 
                         </td>
                     </tr>

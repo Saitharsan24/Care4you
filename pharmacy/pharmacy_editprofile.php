@@ -43,7 +43,7 @@
                     <form id="upload-form" method="POST" enctype="multipart/form-data">
                         <figcaption class="txtpp"><a href="#" id="file-link">Change Profile Picture</a><br/>
                         </figcaption>
-                        <input type="file" name="file" id="file-input">
+                        <input type="file" name="file" id="file-input" accept="image/*">
                         <input type="hidden" name="ppUpdate" value="1">
                     </form>
                     <br /><br /><br /><br /><br/>

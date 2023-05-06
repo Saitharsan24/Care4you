@@ -1644,17 +1644,18 @@ input::-webkit-file-upload-button {
 .polygons {
     text-align: center;
     position: relative;
-  }
-  .square {
+}
+
+.square {
     border: 2px solid #0D5C75;
     width: 600px;
-    height: 420px;
+    height: 620px;
     background: #ffffff;
     position: relative;
     top: 100px;
     display: inline-block;
     border-radius: 10%;
-  }
+}
   
   .tbl-square{
     border-collapse: separate;

@@ -875,7 +875,11 @@ input::-webkit-file-upload-button {
 }
 
 .mk-apt-btn{
-    margin: 20px 0px 30px -5px;
+    margin: 15px 0px 30px -5px;
+}
+
+.mk-odr-btn{
+    margin: 35px 0px 30px -5px;
 }
 
 .btn-mkdcapt:hover{

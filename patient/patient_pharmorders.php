@@ -55,7 +55,7 @@
     <div class="home-right">
       <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
         <div class="doc-apt-title" style="color: #000; font-size: 45px; margin-bottom:-40px;">My Orders</div>
-        <div class="mk-apt-btn"><a href="./patient_makeorder.php"><button class="btn-mkdcapt"><span>make pharmacy order</span></button></a></div>
+        <div class="mk-odr-btn"><a href="./patient_makeorder.php"><button class="btn-mkdcapt"><span>make pharmacy order</span></button></a></div>
       </div>
 
       <div class="tbl-content">

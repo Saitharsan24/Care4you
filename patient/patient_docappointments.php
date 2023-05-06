@@ -69,6 +69,7 @@
                   <?php
                   if(mysqli_num_rows($results) != 0){
                     while($row = mysqli_fetch_assoc($results)){
+                      if($row['docapt_status'] != 0){
                   ?>
                       <tr>
                           <td><?php echo $row['docapt_id'] ?></td>
@@ -79,6 +80,7 @@
                           <td><a href="./patient_viewdocappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="book-btn"><span>View Status</span></button></a></td>
                       </tr>
                   <?php 
+                      }
                     }
                   } else {
                   ?>

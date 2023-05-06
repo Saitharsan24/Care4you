@@ -194,7 +194,7 @@ if ($result) {
         $my_other = $_POST['aptfor'];
 
         //checking if there is already booked appointments for the doctor
-        $sqlcheckapt = "SELECT docapt_id,docapt_no,created_by FROM tbl_docappointment WHERE created_by = '$userid'";
+        $sqlcheckapt = "SELECT docapt_id,docapt_no,created_by,my_other FROM tbl_docappointment WHERE created_by = '$userid'";
         $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
 
         //flag for myself duplicate appointment
@@ -224,8 +224,8 @@ if ($result) {
         $_SESSION['apt_no'] = $apt_no;
         $_SESSION['timer_flag'] = 1;
 
-        $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other,net_total)
-                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$userid','$my_other','$net_total')";
+        $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other)
+                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$userid','$my_other')";
 
         $insertresult = mysqli_query($conn,$sqlinsert);
         

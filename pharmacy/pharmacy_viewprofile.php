@@ -21,7 +21,7 @@
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
-                <li><a href="pharmacy_viewprofile.php"><div class="highlighttext">View Profile</div></a></li>
+                <li><a href="pharmacy_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
@@ -43,7 +43,7 @@
             ?>
             <div class="polygons">
                 <div class="square">
-                    <br /><br /><br /><br /><br /><br /><br />
+                    <br /><br /><br /><br /><br /><br />
                     <table class="tbl-square">
                         <tr>
                             <td class="type1">Name :</td>
@@ -63,11 +63,11 @@
                         </tr>
                         <tr>
                             <td class="type1">Contact Numer :</td>
-                            <td class="type2"><?php echo $contact_number; ?></td>
+                            <td class="type2"><?php echo '0'.$contact_number; ?></td>
                         </tr>
                     </table> 
                 </div>
-                    <a href="pharmacy_editprofile.php"><button class="btn-blue square2">Edit Profile</button></a>                      
+                    <a href="pharmacy_editprofile.php"><button class="btn-editP square2"><i class="fa-solid fa-pen-to-square"></i> &nbsp; Edit Profile</button></a>                      
                     <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="circle" />
                     <div id="overlap"></div>
             </div>

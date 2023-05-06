@@ -22,7 +22,7 @@
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
-                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

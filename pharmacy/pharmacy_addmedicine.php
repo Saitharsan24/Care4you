@@ -27,7 +27,7 @@
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
-                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
@@ -53,6 +53,9 @@
                     }
                 }
             ?>
+            <div class="back" onclick="history.back(); return false;" style="margin-top:-100px;">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px; margin-top:-25px;"></i>
+            </div>
             <form action="" method="POST">
                 <table class="tbl-addmedform">
                     <tr>

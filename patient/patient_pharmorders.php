@@ -6,6 +6,7 @@
 
     $userid = $_SESSION['user_id'];
 
+
     $query = "SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_neworder WHERE userid='$userid'
                   UNION
               SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_respondedorders WHERE userid='$userid'
@@ -53,6 +54,7 @@
     </div>
 
     <div class="home-right">
+
       <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
         <div class="doc-apt-title" style="color: #000; font-size: 45px; margin-bottom:-40px;">My Orders</div>
         <div class="mk-odr-btn"><a href="./patient_makeorder.php"><button class="btn-mkdcapt"><span>make pharmacy order</span></button></a></div>
@@ -70,8 +72,7 @@
         </thead>
         <tbody>
         <?php
-          if ($result)
-          {
+          if ($result){
             while ($row = mysqli_fetch_array($result))
             {
         ?>

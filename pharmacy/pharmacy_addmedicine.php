@@ -1,6 +1,8 @@
 <?php include('../config/constants.php')?>
 <?php include('../login_access.php') ?>
-
+<?php 
+      $id = $_GET['id'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +34,10 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
+        
+        <div class="back" onclick="location.href='pharmacy_respond.php?id=<?php echo $id ?>'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>  
             <div class="info">
             <?php
                 //Get the Order ID
@@ -113,7 +119,7 @@
                 
                     <tr>
                         <td class="tdtype1">Quantity :</td>
-                        <td class="tdtype2"><input type="number" min="0" class="form-addmedcontrol" name="quantity" required/></td>
+                        <td class="tdtype2"><input type="number" min="1" class="form-addmedcontrol" name="quantity" required/></td>
                     </tr>
                 </table>
             <br /> <br />
@@ -206,7 +212,7 @@
                 $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                    header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
 
             }
             else{
@@ -219,7 +225,7 @@
                 $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
 
             }
 
@@ -234,7 +240,9 @@
             $_SESSION['id'] = $order_id;
             //Redirect to the pharmacy_respond.php page
             //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";            
+            
+            header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
+
         }
     }
 ?>

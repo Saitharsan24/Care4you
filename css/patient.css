@@ -537,6 +537,7 @@ input:focus {
 .apt-btn-css {
     height: 50px;
     width: 120px;
+    margin-right: 35px;
 }
 
 .apt-btn-space {

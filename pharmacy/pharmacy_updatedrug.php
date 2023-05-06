@@ -22,12 +22,15 @@
                 <li><a href="pharmacy_neworders.php">New Orders</a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php"><div class="highlighttext">Drug Stock</div></a></li>
-                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
+            <div class="back" onclick="location.href='pharmacy_stock.php'" style="margin-top:-100px;">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
             <?php 
                 //get the id of the drug
                 $id = $_GET['id'];

@@ -17,6 +17,17 @@ body{
   background-size: cover; */
 }
 
+.back{
+  margin-top: -30px;
+  position: absolute;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
 /*CSS for Scroll Bar*/
 
 /* width */
@@ -881,9 +892,21 @@ p{
 }
 
 .tbl-square{
-  border-collapse: separate;
   table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: separate;
   /* border: 1px solid black; */
+}
+
+.tbl-square td{
+  width: 50%;
+  padding: 5px;
+  padding-left: 15px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
 }
 
 .tbl-square .type1{
@@ -892,7 +915,7 @@ p{
   text-align: right;
   font-size: 16px;
   color: #0D5C75;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 .tbl-square .type2{
@@ -902,6 +925,20 @@ p{
   font-size: 14px;
   background-color: rgb(200, 200, 200);
   border-radius: 10px 10px 10px 10px;
+  font-weight: 500;
+}
+
+.tbl-square .type3{
+  /* border: 1px solid black; */
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  border-radius: 10px 10px 10px 10px;
+  font-weight: 500;
+  border:1px solid #02202b;
+  background-color: #fff;
+  padding: 2px;
+  padding-left: 15px;
 }
 
 .circle {
@@ -916,6 +953,67 @@ p{
   overflow: hidden;
 }
 
+.txtpp{
+  margin-top: -17px;
+  margin-bottom: -120px;
+  font-size: 12px;
+  color: #0D5C75;
+}
+
+.ppUp{
+  margin-top: -25px;
+  margin-bottom: -20px;
+  font-size: 12px;
+  color: #3CCF4E;
+}
+
+.ppUpEr{
+  margin-top: -25px;
+  margin-bottom: -20px;
+  font-size: 13px;
+  font-weight: 550;
+  color: #dc1616;
+}
+
+.btn-editP{
+  margin-left: 60%;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-editP:hover{
+  background-color: #083746;
+  color: #ffffff;
+}
+
+.btn-saveP{
+  margin-top: 30px;
+  margin-left: 60%;
+  background-color: #0D5C75;
+  padding: 2px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-saveP:hover{
+  background-color: #083746;
+  color: #ffffff;
+}
+
 /* .circle:hover {
   color: $primary;
   background-color: transparent;
@@ -928,7 +1026,37 @@ p{
   position: absolute;
   background: #0D5C75;
   left: -205px;
-  top: 430px;
+  top: 450px;
+  /* border-radius: 10%; */
+}
+
+.square3 {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 460px;
+  /* border-radius: 10%; */
+}
+
+.square4 {
+  width: 210px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 465px;
+  /* border-radius: 10%; */
+}
+
+.square5 {
+  width: 240px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -235px;
+  top: 370px;
   /* border-radius: 10%; */
 }
 
@@ -941,17 +1069,81 @@ p{
   right: -20px;
 }
 
+.tbl-square td.type2 input[type="text"],
+.tbl-square td.type2 input[type="email"],
+.tbl-square td.type2 input[type="tel"],
+.tbl-square td.type2 input[type="password"] {
+  width: 100%;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-pwd {
+  border-radius: 10px;
+  background-color: #fff;
+  border: none;
+  color: #0c5368;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn-pwd a{
+  color: #0c5368;
+}
+
+.btn-pwd span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-pwd span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-pwd:hover span {
+  padding-right: 15px;
+}
+
+.btn-pwd:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* .form-control{
+  width: 300px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
 .form-control2{
   width: 200px;
   text-align: center;
   border-radius: 10px;
-}
+} */
 
 /* CSS for viewprofile.php Ends Here*/
 
 /* CSS for stock.php Ends Here*/
 
 .btn-update{
+  margin-top: 50px;
   width: 100px;
   background-color: #3CCF4E;
   padding: 5px;
@@ -970,7 +1162,7 @@ p{
 
 .btn-delete{
   width: 100px;
-  background-color: #E0144C;
+  background-color: #BD1010;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;

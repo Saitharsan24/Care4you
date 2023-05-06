@@ -9,12 +9,12 @@
   <form class="modal-content" id="del" action="" method="POST">
   
     <div class="container">
-      <h1><?php echo $status ?>Session</h1>
+      <h1><?php echo $status ?> Session</h1>
       <p>Are you sure you want to <?php echo $status ?>?</p>
     
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="deletebtn"><?php echo $status ?></button>
+        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">OK</button>
       </div>
     </div>
   </form>

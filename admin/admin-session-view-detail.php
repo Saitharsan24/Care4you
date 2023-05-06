@@ -34,7 +34,7 @@
         <?php
             $id = $_GET['id'];
 
-            //$query = "SELECT * FROM tbl_docsession  WHERE session_id= $id";
+            
             $query="SELECT * FROM tbl_docsession 
             INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
             INNER JOIN tbl_assistant ON tbl_docsession.assistant_id = tbl_assistant.assistant_id
@@ -43,7 +43,7 @@
 
             $result = mysqli_query($conn, $query);
             $row = mysqli_fetch_assoc($result);
-            //print_r($row);die();
+            
         ?>
 
         <?php
@@ -51,7 +51,7 @@
             if(isset($_GET['cancel'])){
                 $sessionid = $_GET['cancel'];
                 $query_del = "UPDATE tbl_docsession
-                SET status = 2
+                SET status = 3
                 WHERE session_id = $sessionid";
                 
                 if (mysqli_query($conn, $query_del)) {
@@ -61,8 +61,8 @@
                 }
             }
 
-            if(isset($_GET['activate'])){
-                $sessionid = $_GET['activate'];
+            if(isset($_GET['confirm'])){
+                $sessionid = $_GET['confirm'];
                 $query_del = "UPDATE tbl_docsession
                 SET status = 1
                 WHERE session_id = $sessionid";
@@ -75,18 +75,7 @@
             }
 
         
-            //    if(isset($_GET['enable'])){
-            //     $userid = $_GET['enable'];
-            //     $query_del = "UPDATE tbl_docsession
-            //     SET status = 1
-            //     WHERE session_id = $userid";
-                
-            //     if (mysqli_query($conn, $query_del)) {
-            //         header("Location: /Care4you/admin/admin-asst-view.php");
-            //     } else {
-            //         echo "Error deleting record: " . mysqli_error($conn);
-            //     }
-            //    }
+        
         ?>
         <div class="main_content"> 
             <div class="info">
@@ -162,7 +151,7 @@
                                         echo '<button class="btn-confirmed"> Confirmed </button>';
                                     }else if($row['status']==2){
                                         echo '<button class="btn-completed"> Completed </button>';
-                                    }else{
+                                    }else if($row['status']==3){
                                         echo '<button class="btn-cancelled"> Cancelled </button>'; 
                                     }
                                 ?>
@@ -171,27 +160,27 @@
                     <tr>
                         <td colspan="2" style="text-align: center;">
                             <?php
-                                if($row['status']==0)
+                                if($row['status']==1)
                                 {
-                                    $status="Activate";
+                                    $status="Cancel";
                                     include('./admin-session-pop.php');
                                 
                             ?>
-                            <button class="btn-disable" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&activate=<?php echo $row['session_id'] ?> ';">
+                            <button class="btn-disable" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&cancel=<?php echo $row['session_id'] ?> ';">
                             <i class="fa-solid fa-toggle-off"></i>
                             Cancel Session
                             </button>
 
                             <?php
                                 }
-                                else
+                                if($row['status']==3)
                                 {        
-                                    $status = "Cancel";
+                                    $status = "Confirm";
                                     include('./admin-session-pop.php');
                             ?>
-                                <button class="btn-activate" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&cancel=<?php echo $row['session_id'] ?>';">
+                                <button class="btn-activate" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&confirm=<?php echo $row['session_id'] ?>';">
                                 <i class="fa-solid fa-toggle-on"></i>
-                                Activate Session
+                                Confirm Session
                                 </button>
                             <?php 
                             };

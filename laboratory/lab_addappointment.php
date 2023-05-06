@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
                 <li><a href="lab_appointments.php">Lab Appointments</a></li>
-                <li><a href="lab_viewprofile.php"><div class="highlighttext">View Profile</div></a></li>
+                <li><a href="lab_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

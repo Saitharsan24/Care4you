@@ -36,7 +36,7 @@
             <ul>
                 <li><a href="asst_home.php">Home</a></li>
                 <li><a href="asst_session.php"><div class="highlighttext">Sessions</div></a></li>
-                <li><a href="asst_viewprofile.php">View Profile</a></li>
+                <li><a href="asst_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

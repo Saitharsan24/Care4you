@@ -190,25 +190,44 @@ if ($result) {
   
     if(isset($_POST['next'])){
 
-        //checking if there is already booked appointments for the doctor
-        $sqlcheckapt = "SELECT docapt_id,docapt_no,created_by FROM tbl_docappointment WHERE created_by = '$userid'";
-        $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
-
-        $aptflag = 0;
-        
-        while($sqlcheckaptrow = mysqli_fetch_assoc($sqlcheckaptresult)){
-          if($sqlcheckaptrow['created_by'] == $userid && $sqlcheckaptrow['my_other'] =='0' ){
-            $aptflag = 1;
-          }
-          
-        }
-
         //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];
+
+        //checking if there is already booked appointments for the doctor
+        $sqlcheckapt = "SELECT docapt_id,docapt_no,created_by,my_other FROM tbl_docappointment WHERE created_by = '$userid'";
+        $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
+
+        //flag for myself duplicate appointment
+        $myaptflag = 0;
+        $otheraptflag = 0;
+
+        while($sqlcheckaptrow = mysqli_fetch_assoc($sqlcheckaptresult)){
+          if($sqlcheckaptrow['my_other'] =='0'){
+            $myaptflag = 1;
+          }
+          if($sqlcheckaptrow['my_other'] =='1'){
+            $myaptflag = 1;
+          }
+        }
+
+        //alerting if myself booking already made
+        if($myaptflag == 1 && $my_other == 0){
+          print_r('Already made appoitment for this patient');die();
+        }
+
+        if($otheraptflag == 1 && $my_other == 1){
+          print_r('Already made appoitment for this patient');die();
+        }
 
         //storing session variable which should be taken to book2
         $_SESSION['apt_time'] = $apt_time_format;
         $_SESSION['apt_no'] = $apt_no;
+        $_SESSION['timer_flag'] = 1;
+
+        $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other)
+                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$userid','$my_other')";
+
+        $insertresult = mysqli_query($conn,$sqlinsert);
         
         header('location:'.SITEURL.'patient/patient_bookdoc2.php?id='.$session_id.'&myother='.$my_other);
     }

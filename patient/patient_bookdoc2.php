@@ -11,6 +11,7 @@
     $apt_time_format = $_SESSION['apt_time'];
     $apt_no = $_SESSION['apt_no'];
     $user_id = $_SESSION['user_id'];
+    $timer_flag = $_SESSION['timer_flag'];
         
     //checking whether apt for myslef or other
     if($my_other==0){

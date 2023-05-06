@@ -185,7 +185,7 @@ a {
     flex-direction: row;
     font-size: 40px;
     font-weight: 500;
-    margin: 40px 0px 0px 70px;
+    margin: 20px 0px 35px 70px;
 }
 
 .user-name {
@@ -199,18 +199,9 @@ a {
     flex-direction: column;
 }
 
-.left-page-content,
 .right-page-content {
     display: flex;
     flex-direction: row;
-}
-
-.left-page-content {
-    background: white;
-    border-radius: 40px;
-    height: 350px;
-    width: 750px;
-    margin: 30px 0px 0px 100px;
 }
 
 .right-page-content {
@@ -884,7 +875,11 @@ input::-webkit-file-upload-button {
 }
 
 .mk-apt-btn{
-    margin: 20px 0px 30px -5px;
+    margin: 15px 0px 30px -5px;
+}
+
+.mk-odr-btn{
+    margin: 35px 0px 30px -5px;
 }
 
 .btn-mkdcapt:hover{

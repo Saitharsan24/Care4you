@@ -17,6 +17,40 @@
 
   $apt_id=$_GET['id'];
 
+
+   
+
+   if(isset($_GET['cancel'])){
+    $apt_id = $_GET['cancel'];
+    $query_del = "UPDATE tbl_docappointment
+    SET docapt_status = 3
+    WHERE docapt_id = $apt_id";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-doc-appointment.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+
+   if(isset($_GET['confirm'])){
+    $apt_id = $_GET['confirm'];
+    //print_r($apt_id);die();
+    $query_del = "UPDATE tbl_docappointment
+    SET docapt_status = 1
+    WHERE docapt_id = $apt_id";
+    
+    if (mysqli_query($conn, $query_del)) {
+        header("Location: /Care4you/admin/admin-doc-appointment.php");
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+   }
+   //$result=mysqli_query($conn, $sql);
+
+
+
+
   $sql="SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.docapt_id = tbl_docsession.session_id WHERE docapt_id='$apt_id'";
   
   
@@ -110,17 +144,16 @@
                         <td class="typeL">
                         <?php
                               if($row['docapt_status']==0){
-                                echo '<button vs class="active-status"> Pending </button>';
+                                echo '<button vs class="#"> Pending </button>';
                               }else if($row['docapt_status']==1){
-                                echo '<button class="passive-status"> Confirm</button>';
+                                echo '<button class="#"> Confirm</button>';
                               }else if($row['docapt_status']==2){
-                                echo '<button class="passive-status"> Completed </button>'; 
+                                echo '<button class="#"> Completed </button>'; 
                               }else if($row['docapt_status']==3){
-                                echo '<button class="passive-status"> Cancelled </button>'; 
+                                echo '<button class="#"> Cancelled </button>'; 
                               }else{
-                                echo '<button class="passive-status"> Not Attended </button>';                  
+                                echo '<button class="#"> Not Attended </button>';                  
                               }
-                            
                               ?> 
                         </td>
                     </tr>
@@ -128,9 +161,46 @@
                         <td class="typeR">Total Amount :</td>
                         <td class="typeL"><?php echo $row['net_total'] ?></td>
                     </tr>
+
+       
                </table> 
 
-               
+
+               <?php
+                            if ($row['docapt_status'] == 1) { 
+                        
+
+                            
+                                $status = "cancel";
+                                include('./admin-appointment-pop.php');
+                                
+                                ?>
+                        
+                                <button class="btn-cancel" onclick="document.getElementById('id01').style.display='block'; 
+                                document.getElementById('del').action = '?id=<?php echo $row['docapt_id']?>&cancel=<?php echo $row['docapt_id']?> ';
+                                " >
+                                <i class="fa-solid fa-toggle-off"></i>
+                                Cancel
+                                </button>
+
+                                <?php 
+                            }
+                             if($row['docapt_status'] == 3) {
+                                
+                                $status = "confirm";
+                                include('./admin-appointment-pop.php');
+                                ?>
+
+                                <button class="btn-confirm" onclick="document.getElementById('id01').style.display='block'; 
+                                document.getElementById('del').action = '?id=<?php echo $row['docapt_id']?>&confirm=<?php echo $row['docapt_id']?> ';
+                                " >
+                                <i class="fa-solid fa-toggle-on"></i>
+                                Confirm 
+                                </button> 
+
+                            <?php };
+                        ?>
+                       
             </div>
         </div>
 </body>

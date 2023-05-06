@@ -45,6 +45,11 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+
+      <div class="back" onclick="location.href='patient_pharmorders.php'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+      </div>
+
         <div class="makeorder-heading"><h2>Make Pharmacy Order</h2></div>
 
         <?php 
@@ -90,8 +95,6 @@
                 <textarea name="remarks"></textarea>
             </div>
             <div class="apt-btn order-btn">
-                <div class="apt-btn-css"><a href="./patient_pharmorders.php"><button type="button" >Back</button></a></div>
-                <div class="apt-btn-space"></div>
                 <div class="apt-btn-css"><a href="patient_pharmorders.php"><button type="submit" name="order">Place order</button></a></div>
             </div>
         </div>

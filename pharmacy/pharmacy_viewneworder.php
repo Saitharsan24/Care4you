@@ -29,6 +29,9 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
+            <div class="back" onclick="location.href='pharmacy_neworders.php'">
+            <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>  
             <div class="info">
             <?php
                 //Get the Order ID
@@ -79,12 +82,10 @@
                     <td class="tdtype2">
                         <?php
                              if($order_status == 0) { ?>
-                                <button class="btn-yellow"> <?php echo 'Payment Pending';?> </button>
+                                <button class="btn-yellow"> <?php echo 'Response Pending';?> </button>
                         <?php
-                            } else if($order_status == 1) { ?>
-                                <button class="btn-green"> <?php echo 'Payment Completed'; ?> </button>
-                        <?php
-                            } ?>
+                            } 
+                        ?>
                     </td>
                 </tr>
                 <tr>
@@ -137,7 +138,7 @@
                         }
                         else
                         {
-                            echo "<div class='grayouttext'>No any remarks to display</div>";
+                            echo "<div class='grayouttext'>No remarks to display</div>";
                         } 
                         
                         ?>
@@ -145,7 +146,7 @@
                 </tr>
             </table>
             <br /> <br />
-            <button class="btn-blue"><a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_respond.php?id=<?php echo $order_id;?>">Send Respond</a></button>
+            <button class="btn-blue"><a href="<?php echo SITEURL;  ?>pharmacy/pharmacy_respond.php?id=<?php echo $order_id;?>">Send Respond</a></button>
             </div>
         </div>
     </div>

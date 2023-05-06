@@ -41,6 +41,17 @@ body{
   background: #698f9d;
 }
 
+.back{
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+  margin: -20px 0px 0px 20px;
+}
+
+.back:hover{
+  color: #073645;
+}
+
 .wrapper{
   display: flex;
   position: relative;

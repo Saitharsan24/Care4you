@@ -7,12 +7,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-section {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: #e3f2fd;
-}
+
 button {
   font-size: 18px;
   font-weight: 400;
@@ -23,20 +18,22 @@ button {
   border-radius: 6px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: #0D5C75;
 }
-button.show-modal,
+
 .modal-box {
+  display: block;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-section.active .show-modal {
-  display: none;
-}
+/* .modal-box{
+  display: block;
+} */
 .overlay {
   position: fixed;
   height: 100%;
@@ -45,10 +42,12 @@ section.active .show-modal {
   opacity: 0;
   pointer-events: none;
 }
+
 section.active .overlay {
   opacity: 1;
   pointer-events: auto;
 }
+
 .modal-box {
   display: flex;
   flex-direction: column;

@@ -1,7 +1,12 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php 
+    $id = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +16,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('pharmacy_getinfo.php') ?>
     <div class="wrapper">
@@ -27,10 +33,12 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
+            <div class="back" onclick="location.href='pharmacy_vieworder.php?id=<?php echo $id ?>'">
+            <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
             <div class="info">
             <?php
-                //Get the Order ID
-                $id = $_GET['id'];
+            
                 //Query to get all data from tbl_respondedorder for selected order
                 $sql = "SELECT * FROM tbl_respondedorders WHERE order_id=$id";
                 //Exeute the Query                                    

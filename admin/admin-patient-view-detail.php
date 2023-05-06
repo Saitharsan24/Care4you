@@ -137,15 +137,24 @@
                     </tr>
                     <tr>
                         <td class="typeR">Patient Address :</td>
-                        <td class="typeL">&emsp; <?php echo $row['address'] ?></td>
+                        <td class="typeL">&emsp; <?php echo $row['address'] ?>
+                        &nbsp; &nbsp;
+                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Contact Number :</td>
-                        <td class="typeL">&emsp; <?php echo $row['contact'] ?></td>
+                        <td class="typeL">&emsp; <?php echo '0'.$row['contact'] ?>
+                        &nbsp; &nbsp;
+                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Email Address :</td>
-                        <td class="typeL">&emsp; <?php echo $row['email'] ?></td>
+                        <td class="typeL">&emsp; <?php echo $row['email'] ?>
+                        &nbsp; &nbsp;
+                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Date of Birth :</td>

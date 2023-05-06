@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin-appointment.css">
+    <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
@@ -78,7 +78,7 @@
 
             ?>
             
-               <table class="view-doc">
+               <table class="view-doc" style="width: 57%; margin-left: 450px;">
                     <tr>
                         <td rowspan = 5 style="width:100px;">
                             <img src="../images/user-profilepic/doctor/<?php echo $row['profile_picture']; ?>" alt="user" class="ppframe">
@@ -97,7 +97,7 @@
                         <td class="typeR">Charge per session :</td>
                         <td class="typeL">Rs. <?php echo $row['charge']; ?>
                         &nbsp; &nbsp;
-                        <a href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="#"><i class="fa-solid fa-pen-to-square" style="font-size:15px; color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
                     </td>
                     </tr>
                     <tr>

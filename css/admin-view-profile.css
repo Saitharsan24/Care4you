@@ -25,6 +25,29 @@ body{
   color: #073645;
 }
 
+/* SUCCESS/ERROR MSG style */
+
+.success {
+  color: #2ed573;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
+.error {
+  color: #ff4757;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
+}
+
+/* SUCCESS/ERROR MSG style */
+
 /*CSS for Scroll Bar*/
 
 /* width */
@@ -169,476 +192,6 @@ body{
   display: inline;
 }
 
-table {
-  /*border:1px solid #b3adad;*/
-  border-collapse:collapse;
-}
-
-table.center {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto; 
-  margin-right: auto;
-}
-
-table td {
-  width: 750px;
-  /*border:1px solid #b3adad;*/
-  text-align:center;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-#rcorners {
-  border-radius: 35px;
-  background: #ffffff;
-  padding: 35px; 
-  width: 400px;
-  height: 200px;
-  color: #000000;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 600;  
-}
-
-.formtable{
-  /*border:1px solid #b3adad;*/
-  border-collapse:collapse;
-  margin-top: 3%;
-  margin-bottom: 5%;
-  margin-left: auto; 
-  margin-right: auto;
-}
-
-.formtable td {
-  width: 300px;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 3%;
-  padding-right: 3%;
-  color: #083746;
-  text-align: right;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.form-control{
-  width: 450px;
-  padding: 2px;
-  border-radius: 10px;
-  box-shadow:#666 2px 2px;
-  font-size: 15px;
-}
-
-.btn-save-change{
-    position: absolute;
-    left: 1098px;
-    bottom: -2px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-change-password{
-    position: absolute;
-    left: 1098px;
-    bottom: -62px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-.btn-change-password-back{
-    position: absolute;
-    left: 714px;
-    bottom: -62px;
- 
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-
-
-.btn-edit-profile{
-    position: absolute;
-    left: 553px;
-    bottom: -2px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.btn-back a{
-  color: #ffffff;
-}
-
-.btn-back{
-    position: absolute;
-    left: 561px;
-    bottom: -3px;
-    background-color: #0D5C75;
-    padding: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  .btn-back a{
-    color: #ffffff;
-  }
-  
-.hrefmodtext{
-  color: #000000;
-  text-align: center;
-}
-
-.hrefmodtext:hover{
-  color: #0D5C75;
-}
-
-/*neworders.php Starts Here*/
-
-.tbl-main{
-  width: 75%;
-  margin-left:auto; 
-  margin-right:auto;
-  border-collapse: separate;
-  border-spacing: 0 15px;
-}
-
-.tbl-main tr{
-  background-color: #ffffff;
-}
-
-.tbl-main thead td{
-  color: #0D5C75;
-  font-weight: 700;
-  padding: 5px;
-}
-
-.tbl-main td{
-  /*border:1px solid #b3adad;*/
-  color: #000000;
-  text-align: center;
-  width: 300px;
-  padding: 15px;
-  padding-left: 0%;
-  padding-right: 0%;
-}
-
-.tbl-main td:first-child, th:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.tbl-main td:last-child, th:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-.btn-blue1 {
-  border-radius: 10px;
-  background-color: #0D5C75;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  /* font-size: 15px; */
-  padding: 5px;
-  width: 120px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-}
-
-.btn-blue1 span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn-blue1 span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn-blue1:hover span {
-  padding-right: 15px;
-}
-
-.btn-blue1:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-
-/*neworders.php Ends Here*/
-
-/*vieworder.php Starts Here*/
-
-.tbl-vieworder{
-  border:35px solid #ffffff;
-  width: 55%;
-  height: 300px;
-  margin-left:auto; 
-  margin-right:auto;
-  background-color: #ffffff;
-  border-spacing: 20px;
-  border-collapse: separate;
-  border-radius: 20px;
-  border: 3px solid #ffffff;
-}
-
-.tbl-vieworder .tdtype1{
-  width: 175px;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 3%;
-  padding-right: 3%;
-  color: #0D5C75;
-  text-align: right;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.tbl-vieworder .tdtype2{
-  width: auto;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 2%;
-  padding-right: 3%;
-  color: #000000;
-  text-align: left;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-/*vieworder.php Ends Here*/
-
-/*respond.php Starts Here*/
-
-.tbl-respond{
-  border:35px solid #ffffff;
-  width: 65%;
-  height: 300px;
-  margin-left:auto; 
-  margin-right:auto;
-  background-color: #ffffff;
-  border-spacing: 20px;
-  border-collapse: separate;
-  border-radius: 20px;
-  border: 3px solid #ffffff;
-}
-
-.tbl-respond .tdtype1{
-  width: 250px;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 3%;
-  padding-right: 3%;
-  color: #083746;
-  text-align: right;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tbl-respond .tdtype2{
-  width: auto;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 2%;
-  padding-right: 3%;
-  color: #000000;
-  text-align: left;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.btn-gray{
-  width: 150px;
-  background-color: #bcbcbc;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-weight: 500;
-}
-
-.btn-gray a{
-  color: #ffffff;
-}
-
-.btn-gray a:hover{
-  color: #000000;
-}
-
-.form-repondcontrol{
-  width: 400px;
-  padding: 2px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.tbl-addmed{
-  width: 80%;
-  margin-left:auto; 
-  margin-right:auto;
-  border-collapse: separate;
-  border-spacing: 0 10px;
-}
-
-.tbl-addmed thead tr{
-  background-color: #bcbcbc;
-}
-
-.tbl-addmed thead td{
-  color: #000000;
-  font-weight: 500;
-  padding: 5px;
-  font-size: 12px;
-}
-
-.tbl-addmed tbody tr{
-  background-color: #F7F7F7;
-}
-
-.tbl-addmed tbody td{
-  /*border:1px solid #b3adad;*/
-  color: #000000;
-  text-align: center;
-  color: #212121;
-  font-weight: 450;
-  width: 350px;
-  padding: 5px;
-  padding-left: 0%;
-  padding-right: 0%;
-  font-size: 12px;
-}
-
-.tbl-addmed td:first-child, th:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-.tbl-addmed td:last-child, th:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-.tbl-addmedform{
-  border:35px solid #ffffff;
-  width: 50%;
-  height: 200px;
-  margin-top: 100px;
-  margin-left:auto; 
-  margin-right:auto;
-  background-color: #ffffff;
-  border-spacing: 20px;
-  border-collapse: separate;
-  border-radius: 20px;
-  border: 3px solid #ffffff;
-}
-
-.tbl-addmedform .tdtype1{
-  width: 200px;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 3%;
-  padding-right: 3%;
-  color: #000000;
-  text-align: right;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tbl-addmedform .tdtype2{
-  width: auto;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 2%;
-  padding-right: 3%;
-  color: #000000;
-  text-align: left;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.form-addmedcontrol{
-  width: 300px;
-  padding: 2px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-/*respond.php Ends Here*/
-
-p{
-  text-align: right;
-  font-size: 25px;
-}
-
-.success{
-  color: #2ed573;
-  font-size: 13px;
-  font-weight: 700;
-  background-color: #F7F7F7;
-  padding-left: 2%;
-  padding-right: 3%;
-}
-
-.error{
-  color:#ff4757;
-  font-size: 13px;
-  font-weight: 700;
-  background-color: #F7F7F7;
-  padding-left: 2%;
-  padding-right: 3%;
-  border-radius: 10%;
-}
-
-
-
 /* CSS for viewprofile.php Starts Here*/
 
 .polygons {
@@ -657,9 +210,21 @@ p{
 }
 
 .tbl-square{
-  border-collapse: separate;
   table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: separate;
   /* border: 1px solid black; */
+}
+
+.tbl-square td{
+  width: 50%;
+  padding: 5px;
+  padding-left: 15px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
 }
 
 .tbl-square .type1{
@@ -668,7 +233,7 @@ p{
   text-align: right;
   font-size: 16px;
   color: #0D5C75;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 .tbl-square .type2{
@@ -678,6 +243,20 @@ p{
   font-size: 14px;
   background-color: rgb(200, 200, 200);
   border-radius: 10px 10px 10px 10px;
+  font-weight: 500;
+}
+
+.tbl-square .type3{
+  /* border: 1px solid black; */
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  border-radius: 10px 10px 10px 10px;
+  font-weight: 500;
+  border:1px solid #02202b;
+  background-color: #fff;
+  padding: 2px;
+  padding-left: 15px;
 }
 
 .circle {
@@ -692,6 +271,67 @@ p{
   overflow: hidden;
 }
 
+.txtpp{
+  margin-top: -17px;
+  margin-bottom: -120px;
+  font-size: 12px;
+  color: #0D5C75;
+}
+
+.ppUp{
+  margin-top: -25px;
+  margin-bottom: -20px;
+  font-size: 12px;
+  color: #3CCF4E;
+}
+
+.ppUpEr{
+  margin-top: -25px;
+  margin-bottom: -20px;
+  font-size: 13px;
+  font-weight: 550;
+  color: #dc1616;
+}
+
+.btn-editP{
+  margin-left: 60%;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-editP:hover{
+  background-color: #083746;
+  color: #ffffff;
+}
+
+.btn-saveP{
+  margin-top: 30px;
+  margin-left: 60%;
+  background-color: #0D5C75;
+  padding: 2px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-saveP:hover{
+  background-color: #083746;
+  color: #ffffff;
+}
+
 /* .circle:hover {
   color: $primary;
   background-color: transparent;
@@ -704,7 +344,37 @@ p{
   position: absolute;
   background: #0D5C75;
   left: -205px;
-  top: 430px;
+  top: 450px;
+  /* border-radius: 10%; */
+}
+
+.square3 {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 460px;
+  /* border-radius: 10%; */
+}
+
+.square4 {
+  width: 210px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 465px;
+  /* border-radius: 10%; */
+}
+
+.square5 {
+  width: 240px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -235px;
+  top: 370px;
   /* border-radius: 10%; */
 }
 
@@ -717,13 +387,171 @@ p{
   right: -20px;
 }
 
+.tbl-square td.type2 input[type="text"],
+.tbl-square td.type2 input[type="email"],
+.tbl-square td.type2 input[type="tel"],
+.tbl-square td.type2 input[type="password"] {
+  width: 100%;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-pwd {
+  border-radius: 10px;
+  background-color: #fff;
+  border: none;
+  color: #0c5368;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btn-pwd a{
+  color: #0c5368;
+}
+
+.btn-pwd span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-pwd span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-pwd:hover span {
+  padding-right: 15px;
+}
+
+.btn-pwd:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* .form-control{
+  width: 300px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
 .form-control2{
   width: 200px;
   text-align: center;
   border-radius: 10px;
-}
+} */
 
 /* CSS for viewprofile.php Ends Here*/
+
+/* CSS for stock.php Ends Here*/
+
+.btn-update{
+  margin-top: 50px;
+  width: 100px;
+  background-color: #3CCF4E;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-update a{
+  color: #ffffff;
+}
+
+.btn-delete{
+  width: 100px;
+  background-color: #BD1010;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-delete a{
+  color: #ffffff;
+}
+
+.btn-addnew {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-addnew span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addnew span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addnew:hover span {
+  padding-left: 15px;
+}
+
+.btn-addnew:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.grayouttext{
+  margin-top: 20px;
+  color: #9CB4CC;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.form-repondcontrol-gray{
+  width: 400px;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #9CB4CC;
+  font-weight: 400;
+  font-style: italic;
+}
 
 /* editprofile.php CSS Starts */
 

@@ -1,4 +1,4 @@
-<?php include('../config/constants.php') ?>
+1<?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
-                <li><a href="pharmacy_viewprofile.php">Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
@@ -62,10 +62,7 @@
                         $remarks = $row['remarks'];
                     }
                 }
-            ?>
-            <div class="back" onclick="location.href='pharmacy_viewneworder.php?id=<?php echo $id; ?>'">
-                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
-            </div>  
+            ?>  
             <table class="tbl-respond">             
             <form action="" method="POST">
                 <tr>
@@ -158,6 +155,7 @@
                                     <td>Drug Name</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
+                                    <td>Unit</td>   
                                     <td>Total (Rs.)</td>
                                     <td></td>
                                 </tr>
@@ -187,6 +185,7 @@
                                                 $drugname = $rows['drugname'];
                                                 $unitprice = $rows['unitprice'];
                                                 $quantity = $rows['quantity'];
+                                                $unit = $rows['unit'];
                                                 $total = $rows['total'];
 
                                                 //Display the Values in Table

@@ -1,7 +1,9 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +13,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('pharmacy_getinfo.php') ?>
     <div class="wrapper">
@@ -22,7 +25,7 @@
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
-                <li><a href="pharmacy_viewprofile.php">Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
@@ -77,10 +80,7 @@
                         $remarks = $row['remarks'];
                     }
                 }
-            ?> 
-            <div class="back" onclick="location.href='pharmacy_viewneworder.php?id=<?php echo $id; ?>'">
-                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
-            </div>
+            ?>  
             <table class="tbl-respond">             
             <form action="" method="POST">
                 <tr>
@@ -132,7 +132,7 @@
                     </td>
                 </tr>
                 <?php
-                if($remarks != "")
+                    if($remarks != "")
                     {
                         ?>
                         <tr>
@@ -165,6 +165,7 @@
                                     <td>Drug Name</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
+                                    <td>Unit</td>
                                     <td>Total (Rs.)</td>
                                     <td></td>
                                 </tr>
@@ -194,6 +195,7 @@
                                                 $drugname = $rows['drugname'];
                                                 $unitprice = $rows['unitprice'];
                                                 $quantity = $rows['quantity'];
+                                                $unit = $rows['unit'];
                                                 $total = $rows['total'];
 
                                                 //Display the Values in Table
@@ -206,7 +208,7 @@
                                                     <td><?php echo $total ?></td>
                                                     <td>
                                                     <a href="<?php echo SITEURL; ?>/pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>"   >
-                                                        <i class="fa-solid fa-xmark"></i>
+                                                        <i class="fa-solid fa-xmark" style="color: #d41414;"></i>
                                                     </a>
                                                     </td>
                                                 </tr>
@@ -227,10 +229,7 @@
                         </table>
                     </td>
                 </tr>
-                <!-- <tr>
-                    <td class="tdtype1">Net Total (Rs.) :</td>
-                    <td class="tdtype2"><input type="number" min="0" class="form-repondcontrol" name="total" required="" autofocus="true"/></td>
-                </tr> -->
+
                 <tr>
                     <td class="tdtype1">Unavailable Medicines :</td>
                     <td class="tdtype2"><input type="text" class="form-repondcontrol" name="unavailablemedicines" autofocus="true"/></td>
@@ -335,20 +334,6 @@
                     }
                 }
             }
-
-            //Display all data
-            // echo $order_id;
-            // echo $pname;
-            // echo $paddress;        
-            // echo $contactnumber;
-            // echo $prescription_name;
-            // echo $remarks;
-            // echo $orderdate;
-            // echo $ordertime;
-            // echo $unavailablemedicines;
-            // echo $date;
-            // echo $time;
-            // echo $nettotal;
 
             //Save in respondedorders table
             $sql4 = "INSERT INTO tbl_respondedorders SET 

@@ -148,9 +148,9 @@ $row = mysqli_fetch_assoc($result);
                                 include('./admin-labtec-pop.php');
                                 
                                 ?>
-                        
+                          
                                 <button class="btn-del-doc-disable" onclick="document.getElementById('id01').style.display='block'; 
-                                document.getElementById('del').action = '?id=<?php echo $row['labtec_id']?>&disable=<?php echo $row['userid']?> ';
+                                document.getElementById('del').action = '?id=<?php echo $row['labtec_id']?>&disable=<?php echo $row['userid']?>';
                                 " >
                                 <i class="fa-solid fa-toggle-off"></i>
                                 Disable Account
@@ -160,7 +160,7 @@ $row = mysqli_fetch_assoc($result);
                             }
                             else {
                                 
-                                $status = "Activate";
+                                $status = "Act  ivate";
                                 include('./admin-labtec-pop.php');
                                 ?>
 
@@ -182,7 +182,7 @@ $row = mysqli_fetch_assoc($result);
                         <td class="typeL"><?php echo $row['email']; ?></td>
                     </tr>
 
-               </table> 
+               </table>
             </div>
             </div>                       
         </div>  

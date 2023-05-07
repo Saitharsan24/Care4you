@@ -64,6 +64,14 @@
         </div>
         <div class="main_content"> 
             <div class="info">
+            <?php 
+                if(isset($_SESSION['update-contact']))
+                {
+                    echo $_SESSION['update-contact'];
+                    unset($_SESSION['update-contact']);
+
+                }
+            ?>
             <div class="back" onclick="location.href='admin-patient-view.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
@@ -137,15 +145,24 @@
                     </tr>
                     <tr>
                         <td class="typeR">Patient Address :</td>
-                        <td class="typeL">&emsp; <?php echo $row['address'] ?></td>
+                        <td class="typeL">&emsp; <?php echo $row['address'] ?>
+                        &nbsp; &nbsp;
+                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Contact Number :</td>
-                        <td class="typeL">&emsp; <?php echo $row['contact'] ?></td>
+                        <td class="typeL">&emsp; <?php echo '0'.$row['contact'] ?>
+                            &nbsp; &nbsp;
+                            <?php  include('admin-patient-viewdetail-pop.php') ?>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Email Address :</td>
-                        <td class="typeL">&emsp; <?php echo $row['email'] ?></td>
+                        <td class="typeL">&emsp; <?php echo $row['email'] ?>
+                        &nbsp; &nbsp;
+                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Date of Birth :</td>
@@ -164,7 +181,7 @@
                                     include('./admin-patient-pop.php');
                                 
                              ?>
-                                 <button class="btn-disable" onclick="document.getElementById('id01').style.display='block'; 
+                                <button class="btn-disable" onclick="document.getElementById('id01').style.display='block'; 
                                 document.getElementById('del').action = '?id=<?php echo $row['p_id'] ?>&disable=<?php echo $row['userid'] ?> ';
                                 ">
                                 <i class="fa-solid fa-toggle-off"></i>

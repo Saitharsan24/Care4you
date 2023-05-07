@@ -47,14 +47,29 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/patient.css" />
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
-  </head>
+    <script>
+      function handleDropdown(dropdown) {
+          var dropdownContainer = document.getElementById("dropdownContainer");
+          var otherInput = document.getElementById("otherInput");
+          if (dropdown.value === "other") {
+              dropdownContainer.style.display = "none";
+              otherInput.style.display = "block";
+          } else {
+              dropdownContainer.style.display = "block";
+              otherInput.style.display = "none";
+          }
+      }
+    </script>
+</head>
+
   <body>
     <div class="main-div">
       <div class="home-left">
@@ -118,7 +133,7 @@
 
                           <div class="form-itm">
                             <p>Your relationship to the patient :</p>
-                            <input type="text" name="pname" placeholder="Enter patient name" required/>
+                            <input type="text" name="relationship" placeholder="Enter relatioship" required/>
                           </div>
 
                           <div class="form-itm">

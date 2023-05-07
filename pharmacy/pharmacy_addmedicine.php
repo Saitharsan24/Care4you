@@ -1,6 +1,8 @@
 <?php include('../config/constants.php')?>
 <?php include('../login_access.php') ?>
-
+<?php 
+      $id = $_GET['id'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +34,10 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
+        
+        <div class="back" onclick="location.href='pharmacy_respond.php?id=<?php echo $id ?>'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>  
             <div class="info">
             <?php
                 //Get the Order ID
@@ -72,7 +78,7 @@
                             <select name="drugname" id="drugname" class="form-addmedcontrol">
                                 <?php
                                 
-                                    $sql4 = "SELECT drugname FROM tbl_addmedicine WHERE order_id = $id";
+                                    $sql4 = "SELECT drugname FROM tbl_addmedicine WHERE order_id ='$id'";
                                     echo $sql4;
                                     $result = mysqli_query($conn, $sql4);
                                     
@@ -101,8 +107,7 @@
                                     }
                                 
                                     }
-                                ?>
-                                                                    
+                                ?>                                       
                             </select>
                         </td>
                     </tr>
@@ -112,8 +117,12 @@
                     </tr> -->
                 
                     <tr>
+                        <td class="tdtype1">Unit :</td>
+                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="unit" required/></td>
+                    </tr>
+                    <tr>
                         <td class="tdtype1">Quantity :</td>
-                        <td class="tdtype2"><input type="number" min="0" class="form-addmedcontrol" name="quantity" required/></td>
+                        <td class="tdtype2"><input type="number" min="1" class="form-addmedcontrol" name="quantity" required/></td>
                     </tr>
                 </table>
             <br /> <br />
@@ -139,6 +148,7 @@
         $orderid = $_POST['orderid'];
         $drugname = $_POST['drugname'];
         $quantity = $_POST['quantity'];
+        $unit = $_POST['unit'];
 
         //Step 02- Check the quantity amount is valid or not
         $qtyqry = "SELECT quantity FROM tbl_medicine WHERE med_name='$drugname'";
@@ -186,6 +196,7 @@
                     drugname = '$drugname',
                     unitprice = '$unitprice',
                     quantity = '$quantity',
+                    unit = '$unit',
                     total = '$total'
                     ";
             //echo $sql;
@@ -205,8 +216,8 @@
                 $_SESSION['add'] = '<div class="success"> Medicine Added to Order</div>';
                 $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
-                //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+
+                header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
 
             }
             else{
@@ -218,8 +229,8 @@
                 $_SESSION['add'] = '<div class="error"> Failed to Add Medicine to Order</div>';
                 $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
-                //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+    
+                header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
 
             }
 
@@ -233,8 +244,9 @@
             $_SESSION['nomed'] = '<div class="error">There is currently insufficient amount of the required medicine! </div>';
             $_SESSION['id'] = $order_id;
             //Redirect to the pharmacy_respond.php page
-            //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";            
+            
+            header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
+
         }
     }
 ?>

@@ -212,6 +212,7 @@ if ($result) {
 
         //alerting if myself booking already made
         if($myaptflag == 1 && $my_other == 0){
+          
           print_r('Already made appoitment for this patient');die();
         }
 

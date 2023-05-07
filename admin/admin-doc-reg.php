@@ -152,7 +152,7 @@
                         <div class="error_1"></div>
                     </div>
 
-                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Conform Password
+                        <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;C0nfirm Password
                         <input type="password" class="inputtab" name="confirmpassword" placeholder="Conform Doctor's Password" id="conformpassword"/>
                         <div class="error_1"></div>
                     </div>

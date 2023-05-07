@@ -1,4 +1,4 @@
-<?php include('../config/constants.php') ?>
+1<?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">

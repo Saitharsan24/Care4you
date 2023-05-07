@@ -2,7 +2,13 @@
 <?php include('../login_access.php') ?>
 
 <?php
+
     $id = $_GET['id'];
+
+    if($id == ''){
+        $id = $_SESSION['order_for_details'];
+        unset($_SESSION['order_for_detials']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +76,7 @@
             <?php
                 
                 //Query to get all data from tbl_neworder for selected order
-                $sql2 = "SELECT * FROM tbl_neworder WHERE order_id=$id";
+                $sql2 = "SELECT * FROM tbl_neworder WHERE order_id = '$id'";
                 //Exeute the Query                                    
                 $res2 = mysqli_query($conn, $sql2);
 
@@ -165,7 +171,7 @@
                 <tr>
                     <td class="tdtype1">Available Medicines :</td>
                     <td class="tdtype2"><button class="btn-gray">
-                        <a href="<?php echo SITEURL;  ?>pharmacy/pharmacy_addmedicine.php?id=<?php echo $order_id;?>">+ Add Medicine</a></button>
+                        <a href="pharmacy_addmedicine.php?id=<?php echo $order_id ?>">+ Add Medicine</a></button>
                     </td>
                 </tr>
                 <tr>
@@ -176,6 +182,7 @@
                                     <td>Drug Name</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
+                                    <td>Unit</td>
                                     <td>Total (Rs.)</td>
                                     <td></td>
                                 </tr>
@@ -184,7 +191,7 @@
 
                                 <?php
                                     //Query to get all data from tbl_addmedicine table
-                                    $sql = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
+                                    $sql = "SELECT * FROM tbl_addmedicine WHERE order_id='$order_id'";
 
                                     //Exeute the Query                                    
                                     $res = mysqli_query($conn, $sql);
@@ -205,6 +212,7 @@
                                                 $drugname = $rows['drugname'];
                                                 $unitprice = $rows['unitprice'];
                                                 $quantity = $rows['quantity'];
+                                                $unit = $rows['unit'];
                                                 $total = $rows['total'];
 
                                                 //Display the Values in Table
@@ -214,6 +222,7 @@
                                                     <td><?php echo $drugname ?></td>
                                                     <td><?php echo $unitprice ?></td>
                                                     <td><?php echo $quantity ?></td>
+                                                    <td><?php echo $unit ?></td>
                                                     <td><?php echo $total ?></td>
                                                     <td>
                                                     <a href="<?php echo SITEURL; ?>pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>"   >
@@ -269,6 +278,7 @@
         //Query to check medicines are added or not
         $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
         $res3 = mysqli_query($conn, $sql3);
+        
         if($res3 == TRUE)
         {
             $count3 = mysqli_num_rows($res3);
@@ -369,8 +379,7 @@
                 //Responded order details added to table
                 $_SESSION['respond'] = '<div class="success">Repond Sent!</div>';
                 //Redirect to the pharmacy_neworders.php page
-                //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
-                header('location:'.SITEURL.'pharmacy/pharmacy_neworders.php?id='.$id);
+                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
 
             }
             else
@@ -379,7 +388,7 @@
                 $_SESSION['respond'] = '<div class="error">Fail to Send Respond!</div>';
                 //Redirect to the pharmacy_neworders.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
-                header('location:'.SITEURL.'pharmacy/pharmacy_neworders.php?id='.$id);
+                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
             }
         }
         else
@@ -388,7 +397,8 @@
             $_SESSION['emptymed'] = '<div class="error">Fail to Send Respond! Add Medicine Details and Try Again.</div>';
             //Redirect to the pharmacy_respond.php page
             //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
-            header('location:'.SITEURL.'pharmacy/pharmacy_respond.php?id='.$id);
+            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php';</script>";
+            $_SESSION['order_for_details'] = $id;
             
         }
     }

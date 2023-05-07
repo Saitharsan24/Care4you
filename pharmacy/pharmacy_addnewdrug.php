@@ -53,6 +53,10 @@
                         <td class="tdtype2"><input type="number" class="form-addmedcontrol" name="qty" required/></td>
                     </tr>
                     <tr>
+                        <td class="tdtype1">Units :</td>
+                        <td class="tdtype2"><input type="text" class="form-addmedcontrol" name="unit" required/></td>
+                    </tr>
+                    <tr>
                         <td class="tdtype1">Unit Price (Rs.):</td>
                         <td class="tdtype2"><input type="number" class="form-addmedcontrol" step="any" name="price" required/></td>
                     </tr>
@@ -81,6 +85,7 @@
         $name = $_POST['name'];
         $strength = $_POST['strength'];
         $quantity = $_POST['qty'];
+        $unit_measure = $_POST['unit'];
         $unitprice = $_POST['price'];
         
 
@@ -92,7 +97,8 @@
         $sql = "INSERT INTO tbl_medicine SET 
                 med_name = '$name',
                 strength ='$strength',
-                quantity = '$quantity',                
+                quantity = '$quantity',
+                unit = '$unit_measure',                
                 unit_price = '$unitprice'
                 ";
         //echo $sql;

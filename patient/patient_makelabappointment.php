@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,6 +9,7 @@
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
   </head>
+
   <body>
     <div class="main-div">
       <div class="home-left">
@@ -31,6 +33,11 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+
+        <div class="back" onclick="location.href='patient_labappointments.php'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+
         <div class="makeorder-heading"><h2>Make Lab Appointment</h2></div>
         <div class="form-content lab-apt-form">
             <div class="form-itm">

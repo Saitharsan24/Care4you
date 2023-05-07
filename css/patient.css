@@ -477,7 +477,7 @@ right: 0;
     flex-direction: row;
     align-items: center;
     justify-content: right;
-    margin: 25px 40px 0px 0px;
+    margin: 0px 40px 25px 0px;
     font-weight: 550;
     font-size: 20px;
 }
@@ -686,7 +686,7 @@ input::-webkit-file-upload-button {
 
 .makeorder-heading {
     font-size: 25px;
-    margin: 20px 0px 0px 100px;
+    margin: 5px 0px 0px 100px;
     color: #04313e;
 }
 
@@ -1017,10 +1017,11 @@ input::-webkit-file-upload-button {
 
 .appointment-left-page-content {
     background: white;
-    border-radius: 40px;
-    height: 250px;
-    width: 750px;
+    border-radius: 20px;
+    height: 480px;
+    width: 500px;
     margin: 30px 0px 0px 100px;
+    padding: 20px ;
 }
 
 
@@ -1057,9 +1058,9 @@ input::-webkit-file-upload-button {
 /* MAKE LAB APPOINTMENT style */
 
 .lab-apt-form {
-    margin-left: 50px;
+    margin-left: 40px;
     width: 800px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .lab-apt-form input {

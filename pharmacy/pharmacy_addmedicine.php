@@ -78,7 +78,7 @@
                             <select name="drugname" id="drugname" class="form-addmedcontrol">
                                 <?php
                                 
-                                    $sql4 = "SELECT drugname FROM tbl_addmedicine WHERE order_id = $id";
+                                    $sql4 = "SELECT drugname FROM tbl_addmedicine WHERE order_id ='$id'";
                                     echo $sql4;
                                     $result = mysqli_query($conn, $sql4);
                                     

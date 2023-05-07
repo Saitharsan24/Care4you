@@ -1,7 +1,9 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +13,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('pharmacy_getinfo.php') ?>
     <div class="wrapper">
@@ -39,10 +42,25 @@
                     unset($_SESSION['nomed']);
 
                 }
+                if(isset($_SESSION['id'])){
+                    //Get the Order ID
+                    $id = $_SESSION['id'];
+                    //echo $id;
+
+                }
+                if(isset($_SESSION['emptymed'])){
+                    echo $_SESSION['emptymed'];
+                    unset($_SESSION['emptymed']);
+
+                }
+                if(isset($_SESSION['deldrug'])){
+                    echo $_SESSION['deldrug'];
+                    unset($_SESSION['deldrug']);
+
+                }
             ?>
             <?php
-                //Get the Order ID
-                $id = $_GET['id'];
+                
                 //Query to get all data from tbl_neworder for selected order
                 $sql2 = "SELECT * FROM tbl_neworder WHERE order_id=$id";
                 //Exeute the Query                                    
@@ -51,8 +69,8 @@
                 //Check Query executed or not
                 if($res2 == TRUE)
                 {
-                    $count2 =mysqli_num_rows($res2);
-                    if($count2 == 1)
+                    $count =mysqli_num_rows($res2);
+                    if($count == 1)
                     {
                         //echo "Order Available";
                         $row = mysqli_fetch_assoc($res2);
@@ -80,7 +98,7 @@
                             //Check whether the prescription name is available or not
                             if($prescription_name!= "")
                             {
-                                //Prescription availabl-3-+
+                                //Prescription available
                                 ?>
                                 <?php
                                     //Get the extension of the prescription
@@ -91,18 +109,11 @@
                                     if($ext=='gif'||$ext=='png'||$ext=='jpg'||$ext=='jpeg'||$ext=='tiff')
                                     {
                                         ?>
-                                        <a title="Open in new window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
+                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
                                         <img src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" width="400px">
                                         </a>
                                         <?php
                                     }
-                                    else if($ext=='pdf')
-                                    {?>
-                                        <iframe src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" frameborder="0" height="100%" width="100%" onclick="location.href='<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>'"></iframe>
-                                        <a title="Open in new window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
-                                        <?php echo "Order".$order_id."-Prescription.".$ext; ?>
-                                        </a>
-                                    <?php }
                                     else
                                     {
                                         ?>
@@ -120,9 +131,8 @@
                         ?>
                     </td>
                 </tr>
-                
                 <?php
-                if($remarks != "")
+                    if($remarks != "")
                     {
                         ?>
                         <tr>
@@ -155,7 +165,7 @@
                                     <td>Drug Name</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
-                                    <td>Unit</td>   
+                                    <td>Unit</td>
                                     <td>Total (Rs.)</td>
                                     <td></td>
                                 </tr>
@@ -197,8 +207,8 @@
                                                     <td><?php echo $quantity ?></td>
                                                     <td><?php echo $total ?></td>
                                                     <td>
-                                                    <a href="<?php echo SITEURL; ?>/pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>">
-                                                        <i class="fa-solid fa-xmark" style="color:red;"></i>
+                                                    <a href="<?php echo SITEURL; ?>/pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>"   >
+                                                        <i class="fa-solid fa-xmark" style="color: #d41414;"></i>
                                                     </a>
                                                     </td>
                                                 </tr>
@@ -219,10 +229,7 @@
                         </table>
                     </td>
                 </tr>
-                <!-- <tr>
-                    <td class="tdtype1">Net Total (Rs.) :</td>
-                    <td class="tdtype2"><input type="number" min="0" class="form-repondcontrol" name="total" required="" autofocus="true"/></td>
-                </tr> -->
+
                 <tr>
                     <td class="tdtype1">Unavailable Medicines :</td>
                     <td class="tdtype2"><input type="text" class="form-repondcontrol" name="unavailablemedicines" autofocus="true"/></td>
@@ -238,7 +245,6 @@
 </html>
 
 <?php
-
     //Process the value from form and save it in Database
 
     //Check sendrespond Button is Clicked or Not?
@@ -329,20 +335,6 @@
                 }
             }
 
-            //Display all data
-            // echo $order_id;
-            // echo $pname;
-            // echo $paddress;        
-            // echo $contactnumber;
-            // echo $prescription_name;
-            // echo $remarks;
-            // echo $orderdate;
-            // echo $ordertime;
-            // echo $unavailablemedicines;
-            // echo $date;
-            // echo $time;
-            // echo $nettotal;
-
             //Save in respondedorders table
             $sql4 = "INSERT INTO tbl_respondedorders SET 
                     order_id = '$order_id',
@@ -385,7 +377,6 @@
         {
             //No medicine details added to respond
             $_SESSION['emptymed'] = '<div class="error">Fail to Send Respond! Add Medicine Details and Try Again.</div>';
-            $_SESSION['id'] = $order_id;
             //Redirect to the pharmacy_respond.php page
             //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
             echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";

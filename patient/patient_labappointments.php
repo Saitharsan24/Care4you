@@ -15,7 +15,7 @@
           <a href="./patient_home.php">
             <img src="../images/logo.png" alt="logo" />
           </a>
-        </div>
+        </div>  sdf
         <div class="profile-image">
           <img src="../images/user.png" alt="profile-image" />
         </div>
@@ -31,36 +31,48 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
-        <div class="text-content">
-          <div class="my-doc-apt"><h2>My Lab Appointments</h2></div>
-        </div>
-        <div class="my-apt-table">
-          <div class="mydoc-apt-header">
-            <div>Reference No</div>
-            <div>Appointment No</div>
-            <div></div>
-            <div>Date</div>
-            <div></div>
-            <div>Time</div>
-            <div></div>
-            <div>Payment Status</div>
-            <div>Session Status</div>
-          </div>
 
-          <div class="mydoc-apt-lists">
-            <div class="mydoc-apt-lists-01 ">1124</div>
-            <div class="mydoc-apt-lists-02">2</div>
-            <div class="mydoc-apt-lists-03"></div>
-            <div class="mydoc-apt-lists-04">23/10/2023</div>
-            <div class="mydoc-apt-lists-05"></div>
-            <div class="mydoc-apt-lists-06">10.00 a.m</div>
-            <div class="mydoc-apt-lists-07">Pending</div>
-            <div class="mydoc-apt-lists-08">Confirmed</div>
-            <div class="mydoc-apt-lists-09"><a href=""><Button>View</Button></a></div>
-          </div>
+        <div class="back" onclick="location.href='patient_appointments.php'">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+
+        <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
+          <div class="doc-apt-title">My Laboratory Appointments</div>
+          <div class="mk-apt-btn"><a href="./patient_makelabappointment.php"><button class="btn-mkdcapt"><span>make Lab appointment</span></button></a></div>
+        </div>
+
+        <div class="tbl-content">
+        <table class="tbl-mydocapp">
+        <thead>
+            <tr>
+                <td>Reference No</td>
+                <td>Appointment No</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>Payment Status</td>
+                <td>Session Status</td>
+            </tr>
+        </thead>
+        <tbody>
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td> <button class="btn-green"> Confirmed </button></td>
+                          <td><a href="./patient_viewdocappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="book-btn"><span>View Status</span></button></a></td>
+                      </tr>
+            
+                    <tr>
+                          <td colspan="6" class="nosessiontd"><div class="nosession">No Appointments Available</div></td>
+                    <tr>             
+            
+        </tbody>
+      </table>
       </div>
-      <div class="make-apt-btn"><a href="./patient_makelabappointment.php"><button>Make Lab appointments</button></a></div>
-      </div>
+
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

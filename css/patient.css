@@ -1158,6 +1158,10 @@ input::-webkit-file-upload-button {
     border-radius: 0 10px 10px 0;
   }
 
+  .tbl-lab-apt td.nosessiontd:first-child, th:first-child{
+    border-radius: 10px 10px 10px 10px;
+  }
+
 .upload-lapapt{
     margin-right: 412px;
 }

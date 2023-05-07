@@ -33,6 +33,14 @@
         </div>
         <div class="main_content">
             <div class="info">
+            <?php 
+                if(isset($_SESSION['update-charge']))
+                {
+                    echo $_SESSION['update-charge'];
+                    unset($_SESSION['update-charge']);
+
+                }
+            ?>
             <div class="back" onclick="location.href='admin-doc-view.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
@@ -97,7 +105,7 @@
                         <td class="typeR">Charge per session :</td>
                         <td class="typeL">Rs. <?php echo $row['charge']; ?>
                         &nbsp; &nbsp;
-                        <a href="#"><i class="fa-solid fa-pen-to-square" style="font-size:15px; color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        <?php  include('admin-doc-viewdetail-pop.php') ?>
                     </td>
                     </tr>
                     <tr>

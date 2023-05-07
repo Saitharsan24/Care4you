@@ -1152,6 +1152,7 @@ table td{
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  z-index: 1;
 }
 
 .btn-lactec-enable{

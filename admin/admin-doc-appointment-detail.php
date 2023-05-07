@@ -103,7 +103,7 @@
             </div>
             <div class="doc-apt-title-detail" id="id"> Doctor Appointments Details</div>
             
-            <table class="view-apt">
+            <table class="view-apt" id="tbl-main-app">
                    <tr>
                         <td class="typeR">Reference No :</td>
                         <td class="typeL"><?php echo $row['docapt_id'] ?> </td>

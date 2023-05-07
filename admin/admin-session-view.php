@@ -3,9 +3,8 @@
 
 
 <?php
-$query="SELECT * FROM tbl_docsession ";
+$query="SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id=tbl_doctor.doctor_id ";
 $result=mysqli_query($conn,$query);
-//$no_row=mysqli_num_rows($result);
 
 ?>
 
@@ -20,6 +19,7 @@ $result=mysqli_query($conn,$query);
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/admin-session-filter.js"></script>
 </head>
 <body>
 <?php include('admin_getinfo.php') ?>
@@ -44,22 +44,24 @@ $result=mysqli_query($conn,$query);
             
             <button class="btn-addnew" style="width:170px;" onclick="location.href='admin-session-create.php'"><span>create session</span></button>
             <div class="content">
-                <table class="tbl-main-session">
+                <table class="tbl-main-session" id="tbl-main-session">
                     <thead>
                         <tr>
-                            <td>Session ID</td>
-                            <td>Room Number</td>
-                            <td>Session Status</td>
+                            <td>Session ID</td>    <!-- form tbl_session table  -->
+                            <td>Doctor Name</td>   <!-- form tbl_doctor table  -->
+                            <td>Room Number</td>   <!-- form tbl_session table  -->
+                            <td>Session Status</td><!-- form tbl_session table  -->
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
                         <form>
                         <tr>
-                            <td><input type="text" class="search-session" name="session-id"  autofocus="true"/></td>
-                            <td><input type="text" class="search-session" name="room-no"  autofocus="true"/></td>
-                            <td><input type="text" class="search-session" name="session-status"  autofocus="true"/></td>
-                            <td><button class="btn-search" ><span>Search&nbsp;</span></button></td>
+                            <td><input type="text" class="search-session" name="session-id" id="session_id" placeholder="search session Id" onkeyup="filterSessionId()" autofocus="true"/></td>
+                            <td><input type="text" class="search-session" name="doc-name" id="doctor_name" placeholder="search doctor name" onkeyup="filterDoctorName()"  autofocus="true"/></td>
+                            <td><input type="text" class="search-session" name="room-no" id="room_no" placeholder="search room no" onkeyup="filterRoomNo()" autofocus="true"/></td>
+                            <td><input type="text" class="search-session" name="session-status" id="session_status" placeholder="search session status"onkeyup="filterSessionStatus()"  autofocus="true"/></td>
+                            <td></td>
                         </tr>
                         </form>
                         <?php 
@@ -69,6 +71,7 @@ $result=mysqli_query($conn,$query);
                       ?>
                         <tr>
                             <td><?php echo $row['session_id'];  ?> </td>
+                            <td><?php echo $row['doc_name'];  ?></tb>
                             <td><?php echo $row['room_no'];  ?></td>         
 
                             <td>

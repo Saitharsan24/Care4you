@@ -49,14 +49,16 @@
           <div class="appointments-head"><h2>My Appointments</h2></div>
         </div>
         <div class="appointment-page-content">
+          
+          <div class="appointment-right-page-content">
+            <div class="mk-apt-btn common-apt"><a href="./patient_docappointments.php"><button class="btn-mkdcapt"><span>Doctor appointment</span></button></a></div>
+              <div class="appointments-divider"></div>
+            <div class="mk-apt-btn common-apt"><a href="./patient_labappointments.php"><button class="btn-mkdcapt"><span>Lab appointment</sapn></button></a></div>
+          </div>
+          
           <div class="appointment-left-page-content">
               <div id='calendar'></div>
           </div> 
-          <div class="appointment-right-page-content">
-            <div><a href="./patient_docappointments.php"><button>Doctor appointments</button></a></div>
-            <div class="appointments-divider"></div>
-            <div><a href="./patient_labappointments.php"><button>Lab appointments</button></a></div>
-          </div>
         </div>
       </div>
     </div>

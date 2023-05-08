@@ -22,7 +22,7 @@
     foreach ($result as $appointmentData) {
       $appointments[] = [
         'id' => $appointmentData['docapt_no'], // Add the ID of the appointment
-        'title' => $appointmentData['doc_name'],
+        'title' => 'Doctor Appointment',
         'start' => $appointmentData['date'],
         'time' => $appointmentData['docapt_time'],
         'color' => '#FF0000', // Add the desired color for the event
@@ -50,7 +50,7 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
               initialView: 'dayGridMonth',
-              events: <?php echo $appointmentsJson; ?>,
+              events: <?php echo $appointmentsJson; ?>, 
               eventClick: function(info) {
                 // Retrieve the event data
                 var event = info.event;
@@ -74,6 +74,8 @@
                 // Prevent the default behavior (e.g., navigating to event URL)
                 info.jsEvent.preventDefault();
               }
+              
+              
             });
             calendar.render();
           });
@@ -81,7 +83,7 @@
     </script>
 
     <style>
-            .popup {
+      .popup {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -92,6 +94,9 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         z-index: 9999;
         display: none;
+      }
+      .fc-event {
+        cursor: pointer;
       }
     </style>
 

@@ -11,6 +11,14 @@
     font-family: 'Poppins', sans-serif;
 }
 
+input:focus {
+    outline: none;
+}
+
+select:focus {
+    outline: none;
+}
+
 /*CSS for Scroll Bar*/
 
 /* width */
@@ -185,7 +193,7 @@ a {
     flex-direction: row;
     font-size: 40px;
     font-weight: 500;
-    margin: 20px 0px 35px 70px;
+    margin: 0px 0px 35px 70px;
 }
 
 .user-name {
@@ -768,7 +776,7 @@ input::-webkit-file-upload-button {
 .view-apt-btn02 button {
     border-radius: 25px;
     height: 35px;
-    width: 100px;
+    width: 200px;
     background: #0C5C75;
     color: #ffffff;
     border: none;
@@ -1019,7 +1027,7 @@ input::-webkit-file-upload-button {
     border-radius: 20px;
     height: 480px;
     width: 500px;
-    margin: 30px 0px 0px 100px;
+    margin: 10px 0px 0px 210px;
     padding: 20px ;
 }
 
@@ -1030,7 +1038,15 @@ input::-webkit-file-upload-button {
     margin: 0px 0px 0px 230px;
 }
 
-.appointment-right-page-content button {
+.common-apt button  {
+    height: 60px;
+}
+
+.appointment-page-content{
+    margin-top: -35px;
+}
+
+/* .appointment-right-page-content button {
     height: 90px;
     width: 220px;
     background: #0C5C75;
@@ -1048,22 +1064,161 @@ input::-webkit-file-upload-button {
     font-weight: 600;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
 .appointments-divider {
     width: 50px;
 }
 
+
+/* PATIENT LAB APPOINTMENT style start */
+
+.tbl-mylabapp{
+    width: 70%;
+    margin-left: 65px;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+
+/* VIEW Lab APPOINTMENT */
+
+.view-lab-apt-details {
+    border-radius: 15px;
+    background: white;
+    height: 520px;
+    width: 700px;
+    margin: 30px 0px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 0px 30px;
+}
+
+
 /* MAKE LAB APPOINTMENT style */
 
 .lab-apt-form {
-    margin-left: 40px;
-    width: 800px;
-    margin-top: 20px;
+    margin-left: 0px;
+    width: 920px;
+    margin-top: 50px;
+    font-weight: 600;
 }
 
 .lab-apt-form input {
     width: 500px;
+    padding: 7px 7px 7px 10px;
+    font-weight: 500;
+}
+
+.lab-apt-form input[type="file"] {
+    width: 300px;
+    padding: 0px 7px 7px 0px;
+    margin-left: 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.lab-btn{
+    margin: -15px 0px 0px 20px;
+}
+
+.lab-apt-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+}
+
+.lab-apt-row-table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lab-apt-row-table-tag{
+    margin: 0px 670px 0px 0px;
+}
+
+.tbl-lab-apt{
+    width: 77%;
+    margin-left:auto; 
+    margin-right:auto;
+    border-spacing: 0 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.tbl-lab-apt thead tr{
+    background-color: #bcbcbc;
+    border-radius: 10px;
+  }
+  
+  .tbl-lab-apt thead td{
+    text-align: center; 
+    color: #000000;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 12px;
+  }
+  
+  .tbl-lab-apt tbody tr{
+    background-color: #f4f1f1;
+    margin-top: 10px;
+  }
+
+  .tbl-lab-apt tbody tr{
+    text-align: center; 
+    color: #000000;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 12px;
+    height: 4px;    
+  }
+  .tbl-lab-apt td:first-child, th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .tbl-lab-apt td:last-child, th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .tbl-lab-apt td.nosessiontd:first-child, th:first-child{
+    border-radius: 10px 10px 10px 10px;
+  }
+
+.upload-lapapt{
+    margin-right: 412px;
+}
+
+.lab-divider1{
+    width:30px;
+}
+
+.lab-divider2{
+    width:57px;
+}
+
+.lab-apt-row input{
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 10px;
+}
+
+.lab-apt-row div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+
 }
 
 .tests-table {
@@ -1094,12 +1249,24 @@ input::-webkit-file-upload-button {
     font-size: 20px;
     font-weight: 600;
     justify-content: right;
+    margin: 0px 40px 25px 0px;
 
+}
+
+.upload-pres {
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 350px;
+    background: white;
+    padding: 0px;
+    height: 34.4px;
+    font-size: 10px;
+    
 }
 
 .make-lab-apt input {
     width: 500px;
-    font-size: 15px;
+    font-size: 13px;
 }
 
 

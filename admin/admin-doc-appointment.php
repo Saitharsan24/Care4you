@@ -4,12 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php
-  
-  $sql="SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id ";
-  $result = mysqli_query($conn,$sql);
-  
-?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +13,19 @@
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
-    <script src="../script/filter.js"></script>
+    <script src="../script/appointment_filter.js"></script>
 </head>
+
+<?php
+  
+  $sql = "SELECT * FROM  
+  tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
+  INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+  INNER JOIN tbl_patient ON tbl_docappointment.created_by = tbl_patient.userid ";
+
+  $result = mysqli_query($conn,$sql);
+ 
+?>
 
 <body>
 <?php include('admin_getinfo.php') ?>
@@ -48,14 +54,13 @@
                     </div>
                    <div class="doc-apt-title"> Doctor Appointments</div>
                     <span>
-                        <table class="tbl-main-appoint" id="tbl-main-doc">
+                        <table class="tbl-main-appoint" id="tbl-main-app">
                             <thead>
                                 <tr>
-                                <td>Reference No</td>
-                                <td>Appointment No</td>
-                                 <td>Date</td>
-                                <td>Time</td>
-                                <td>Payment Status</td>
+                                <td>Reference No</td>   <!-- from tbl_docappointment table -->
+                                <td>Patient Name</td>    <!-- from tbl_patient table(if my-other status=1), or tbl_docappointment table(if my-other status=0)  -->
+                                 <td>Date</td>            <!-- from tbl_session table -->
+                                <td>Appointment Status</td> <!-- from tbl_docappointment table  -->
                                 <td></td>
                                 
                                 </tr>
@@ -63,12 +68,11 @@
                             <tbody>
                                 
                                     <tr>
-                                        <td><input type="text" class="search-appoint" name="#" id="doc-id" autofocus="true" placeholder="" onkeyup="" /></td>
-                                        <td><input type="text" class="search-appoint" name="#" id="doc-name" autofocus="true" placeholder="" onkeyup="" /></td>
-                                        <td><input type="text" class="search-appoint" name="#" id="doc-Specialize" autofocus="true" placeholder="" onkeyup="" /></td>
-                                        <td><input type="text" class="search-appoint" name="#" id="doc-slmc" autofocus="true" placeholder="" onkeyup=""/></td>
-                                        <td><input type="text" class="search-appoint" name="#"  id="doc-status" autofocus="true" placeholder="" onkeyup="" /></td>
-                                        <td><button class="btn-search"><span>Search</span></button></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="ref_no" autofocus="true" placeholder="search Reference Number" onkeyup="filterReferenceNO()" /></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="patient_name" autofocus="true" placeholder="search Patient name" onkeyup="filterPatientName()" /></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="date" autofocus="true" placeholder="search appointment date" onkeyup="filterDate()" /></td>
+                                        <td><input type="text" class="search-appoint" name="#" id="appt_status" autofocus="true" placeholder="search status" onkeyup="filterStatus()"/></td>
+                                        <td></td>
                                     </tr>
                                     <?php
                                     if($result){
@@ -77,9 +81,17 @@
                                
                                         <tr>
                                             <td><?php echo $row['docapt_id'] ?></td>
-                                            <td><?php echo $row['docapt_no'] ?></td>
+                                            <td>
+                                                <?php
+                                                      if($row['my_other']==1){
+                                                        echo $row['pat_name'];     // if user book for others(under 18), patient name should be get form tbl_docapointment table
+                                                      }
+                                                      if($row['my_other']==0){
+                                                        echo $row['first_name'];   // if user book for them self, patient name should be get form tbl_patient table
+                                                      }
+                                                ?>
+                                            </td>
                                             <td><?php echo $row['date'] ?></td>
-                                            <td><?php echo $row['docapt_time'] ?></td>
                                             <td><button class="btn-green">
                                              <?php
                               if($row['docapt_status']==0){
@@ -87,9 +99,9 @@
                               }else if($row['docapt_status']==1){
                                 echo '<button class="passive-status"> Confirm</button>';
                               }else if($row['docapt_status']==2){
-                                echo '<button class="passive-status"> complete </button>'; 
+                                echo '<button class="passive-status"> completed </button>'; 
                               }else{
-                                echo '<button class="passive-status"> cancel </button>'; 
+                                echo '<button class="passive-status"> cancelled </button>'; 
                               }
                               ?> 
                                                 </button></td>

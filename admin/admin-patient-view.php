@@ -20,6 +20,7 @@ $no_row = mysqli_num_rows($result);
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+        <script src="../script/admin-patient-view-filter.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,7 @@ $no_row = mysqli_num_rows($result);
                 <div class="info">
 
                     <span>
-                        <table class="tbl-main-patient" style="margin-top:-50px;">
+                        <table class="tbl-main-patient" id="tbl-main-patient" style="margin-top:-50px;">
                             <thead>
                                 <tr>
                                     <td>Patient ID</td>
@@ -56,11 +57,11 @@ $no_row = mysqli_num_rows($result);
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td><input type="text" class="search-patient" name="patient-id" autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="patient-name" autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="phone-no" autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="status" autofocus="true" /></td>
-                                        <td><button class="btn-search"><span>Search&emsp;</span></button></td>
+                                        <td><input type="text" class="search-patient" name="patient-id" placeholder="search patient id" id="patient_id" onkeyup="filterPatientId()" autofocus="true" /></td>
+                                        <td><input type="text" class="search-patient" name="patient-name" placeholder="search patient name" id="patient_name" onkeyup="filterPatientName()" autofocus="true" /></td>
+                                        <td><input type="text" class="search-patient" name="phone-no" placeholder="search contact number" id="contact_no" onkeyup="filterContactNo()" autofocus="true" /></td>
+                                        <td><input type="text" class="search-patient" name="status" placeholder="search account status" id="account_status" onkeyup="filterAccountStatus()" autofocus="true" /></td>
+                                        <td></td>
                                     </tr>
                                     <?php 
                                    if($result){

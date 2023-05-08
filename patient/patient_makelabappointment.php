@@ -23,8 +23,8 @@
         </div>
         <div class="nav-links">
           <a href="./patient_home.php">Home</a>
-          <a href="./patient_appointments.php">Appointments</a>
-          <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
+          <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical records</a>
           <a href="./patient_doctorlist.php">View doctors</a>
           <a href="#">View profile</a>
@@ -40,44 +40,57 @@
 
         <div class="makeorder-heading"><h2>Make Lab Appointment</h2></div>
         <div class="form-content lab-apt-form">
-            <div class="form-itm">
-                <p>Name :</p>
-                <input type="text">
+
+            <div class="lab-apt-row">
+              <div>Name : <input type="text" name="pname" placeholder="Enter patient name" required/></div>
+              <div class="lab-divider1"></div>
+              <div>Contact :<input type="text" name="contact" placeholder="Enter patient contact No" required/></div>
             </div>
-            <div class="form-itm">
-                <p>Contact No :</p>
-                <input type="text">
+
+            <div class="lab-apt-row">
+              <div>NIC No : <input type="text" name="nic" placeholder="Enter patient NIC No" required/></div>
+              <div class="lab-divider2"></div>
+              <div>Date : <input type="date" name="pname" placeholder="Enter patient name" required/></div>
             </div>
-            <div class="form-itm">
-                <p>NIC No :</p>
-                <input type="text">
+
+            <div class="lab-apt-row">
+              <div class="upload-lapapt">Upload Prescription : <input type="file" class="upload-pres" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/></div>
             </div>
-            <div class="form-itm tests-to-be">
-                <p>Tests to be done :</p>
-                <div class="tests-table">
-                  <table>
-                    <th>
-                      <td>No</td>
-                      <td>Test name</td>
-                      <td>Time slot</td>
-                      <td>Charge</td>
-                    </th>
-                  </table>
-                </div>
+
+            <div class="lab-apt-row-table">
+              <div class="lab-apt-row-table-tag">Tests to be done :</div>
+              <table class="tbl-lab-apt">
+                <form action="">
+                                  <thead>
+                                          <td>Test Name</td>
+                                          <td>Time Slot</td>
+                                          <td>Charge (Rs.)</td>
+                                          <td></td>
+                                      </tr>
+                                  </thead>
+                                  <tbody>                         
+                                        <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                        </tr>
+                                        <tr>
+                                          <td colspan = 4><button>+ Add test</button></td>
+                                        </tr>
+                                  </tbody>
+                  </form>              
+                </table>
             </div>
-            <div class="make-lab-apt">
-              <p>Upload Prescription :</p>
-              <input type="file">
-          </div>
-            <div class="form-itm">
-              <p>Total Amount :</p>
-              <input type="text">
-          </div>
-            <div class="apt-btn order-btn">
-                <div class="apt-btn-css"><a href="./patient_labappointments.php"><button>Back</button></a></div>
-                <div class="apt-btn-space"></div>
-                <div class="apt-btn-css"><a href=""><button>Pay now</button></a></div>
+
+            <div class="lab-apt-row">
+              <div class="upload-lapapt">Total Amount : <input type="text"></div>
             </div>
+
+            <div class="apt-btn-css">
+              <a href=""><button>Pay Now</button></a>
+            </div>
+           
         </div>
       </div>
     </div>

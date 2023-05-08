@@ -80,10 +80,10 @@
                                       while ($row1 = mysqli_fetch_array($result1)) {
                                   ?>
                                         <tr>
-                                          <td><?php echo $row1['drugname']; ?></td>
-                                          <td><?php echo $row1['unitprice']; ?>/td>
-                                          <td><?php echo $row1['quantity']; ?></td>
-                                          <td><?php echo $row1['total']; ?></td>
+                                          <td style="font-size: 12px;"><?php echo $row1['drugname']; ?></td>
+                                          <td style="font-size: 12px;"><?php echo $row1['unitprice']; ?></td>
+                                          <td style="font-size: 12px;"><?php echo $row1['quantity']; ?></td>
+                                          <td style="font-size: 12px;"><?php echo $row1['total']; ?></td>
                                         </tr>
                                   <?php  }
                                         } 

@@ -83,7 +83,6 @@ if ($result) {
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -194,31 +193,35 @@ if ($result) {
         $my_other = $_POST['aptfor'];
 
         //checking if there is already booked appointments for the doctor
-        $sqlcheckapt = "SELECT docapt_id,docapt_no,created_by,my_other FROM tbl_docappointment WHERE created_by = '$userid'";
+        $sqlcheckapt = "SELECT * FROM tbl_docappointment WHERE created_by = '$userid' AND docapt_status != 2 AND session_id = '$session_id'";
         $sqlcheckaptresult = mysqli_query($conn,$sqlcheckapt);
+
+        //print_r(mysqli_num_rows($sqlcheckaptresult));die();
 
         //flag for myself duplicate appointment
         $myaptflag = 0;
         $otheraptflag = 0;
 
         while($sqlcheckaptrow = mysqli_fetch_assoc($sqlcheckaptresult)){
-          if($sqlcheckaptrow['my_other'] =='0'){
+          if($sqlcheckaptrow['my_other'] == 0){
             $myaptflag = 1;
           }
-          if($sqlcheckaptrow['my_other'] =='1'){
-            $myaptflag = 1;
+          if($sqlcheckaptrow['my_other'] == 1){
+            $otheraptflag = 1;
           }
         }
 
+      
         //alerting if myself booking already made
         if($myaptflag == 1 && $my_other == 0){
-          
-          print_r('Already made appoitment for this patient');die();
-        }
+            include('./popups/docbook-popup.php');
+          echo '<script>openPopup()</script>';
 
-        if($otheraptflag == 1 && $my_other == 1){
-          print_r('Already made appoitment for this patient');die();
-        }
+        } else if($otheraptflag == 1 && $my_other == 1){
+          include('./popups/docbook-popup.php');
+          echo '<script>openPopup()</script>';
+
+        } else {
 
         //storing session variable which should be taken to book2
         $_SESSION['apt_time'] = $apt_time_format;
@@ -231,6 +234,7 @@ if ($result) {
         $insertresult = mysqli_query($conn,$sqlinsert);
         
         header('location:'.SITEURL.'patient/patient_bookdoc2.php?id='.$session_id.'&myother='.$my_other);
+        }
     }
 
 ?>

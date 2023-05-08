@@ -18,9 +18,10 @@
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
-                <li><a href="lab_home.php">Home</a></li>
+                <li><a href="lab_home.php"><div class="highlighttext">Home</div></a></li>
                 <li><a href="lab_appointments.php">Lab Appointments</a></li>
-                <li><a href="lab_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
+                <li><a href="">Lab tests</a></li>
+                <li><a href="lab_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>

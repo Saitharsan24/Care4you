@@ -55,7 +55,6 @@
                         <tr>
                             <td>Drug Name</td>
                             <td>Quantity</td>
-                            <td>Unit</td>
                             <td style="width: 500px">Unit Price (Rs.)</td>
                             <td></td>
                             <td></td>
@@ -79,7 +78,6 @@
                                     $id = $rows['medicine_id'];
                                     $med_name = $rows['med_name'];
                                     $quantity = $rows['quantity'];
-                                    $unit_measure = $rows['unit'];
                                     $unit_price = $rows['unit_price'];
                                     
                                     //display valus in the table
@@ -87,7 +85,6 @@
                                     <tr>
                                         <td><?php echo $med_name; ?> </td>
                                         <td><?php echo $quantity; ?></td>
-                                        <td><?php echo $unit_measure; ?></td>
                                         <td><?php echo $unit_price; ?></td>
                                         <td>
                                             <a href="<?php echo SITEURL;  ?>/pharmacy/pharmacy_updatedrug.php?id=<?php echo $id;?>" class="btn-update">Update</a>

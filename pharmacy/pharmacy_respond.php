@@ -1,4 +1,4 @@
-1<?php include('../config/constants.php') ?>
+<?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
                 <li><a href="pharmacy_neworders.php"><div class="highlighttext">New Orders</div></a></li>
                 <li><a href="pharmacy_orderhistory.php">Order History</a></li>
                 <li><a href="pharmacy_stock.php">Drug Stock</a></li>
-                <li><a href="pharmacy_viewprofile.php">View Profile</a></li>
+                <li><a href="pharmacy_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
@@ -37,6 +37,21 @@
                 if(isset($_SESSION['nomed'])){
                     echo $_SESSION['nomed'];
                     unset($_SESSION['nomed']);
+
+                }
+                if(isset($_SESSION['med-respond2'])){
+                    echo $_SESSION['med-respond2'];
+                    unset($_SESSION['med-respond2']);
+
+                }
+                if(isset($_SESSION['nomedmsg-respond'])){
+                    echo $_SESSION['nomedmsg-respond'];
+                    unset($_SESSION['nomedmsg-respond']);
+
+                }
+                if(isset($_SESSION['nomed-respond2'])){
+                    echo $_SESSION['nomed-respond2'];
+                    unset($_SESSION['nomed-respond2']);
 
                 }
             ?>
@@ -62,7 +77,10 @@
                         $remarks = $row['remarks'];
                     }
                 }
-            ?>  
+            ?>
+            <div class="back" onclick="location.href='pharmacy_viewneworder.php?id=<?php echo $id; ?>'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>  
             <table class="tbl-respond">             
             <form action="" method="POST">
                 <tr>
@@ -155,7 +173,6 @@
                                     <td>Drug Name</td>
                                     <td>Unit Price (Rs.)</td>
                                     <td>Quantity</td>
-                                    <td>Unit</td>   
                                     <td>Total (Rs.)</td>
                                     <td></td>
                                 </tr>
@@ -185,7 +202,6 @@
                                                 $drugname = $rows['drugname'];
                                                 $unitprice = $rows['unitprice'];
                                                 $quantity = $rows['quantity'];
-                                                $unit = $rows['unit'];
                                                 $total = $rows['total'];
 
                                                 //Display the Values in Table
@@ -238,11 +254,9 @@
 </html>
 
 <?php
-
     //Process the value from form and save it in Database
 
     //Check sendrespond Button is Clicked or Not?
-
     if(isset($_POST['sendrespond']))
     {
         //Get the data from the form
@@ -254,97 +268,208 @@
         //Query to check medicines are added or not
         $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
         $res3 = mysqli_query($conn, $sql3);
+
         if($res3 == TRUE)
         {
-            $count3 = mysqli_num_rows($res3);
-            if($count3 > 0)
+            //Count if medicines added or not
+            $medadded_count = mysqli_num_rows($res3);
+
+            if($medadded_count > 0)
             {
                 $medadded = TRUE;
+                //Medicines Added to order
+                 
+                //01.empty remarks convert
+                if($temp =="No any remarks to display"){
+                    $remarks = "";
+                }
+                else{
+                    $remarks = $temp;
+                }
+
+                //02.get the responded date
+                date_default_timezone_set('Asia/Kolkata');
+                $date = date('d/m/Y');
+                $time = date('h:i:sA');
+
+                //03.get remain order details from neworder table
+                $sql2 = "SELECT * FROM tbl_neworder WHERE order_id=$order_id";
+                $res2 = mysqli_query($conn, $sql2);
+
+                if($res2 == TRUE)
+                {
+                    $count2 = mysqli_num_rows($res2);
+                    if($count2 == 1)
+                    {
+                        $row = mysqli_fetch_assoc($res2);
+                        $paddress = $row['paddress'];
+                        $contactnumber = $row['contactnumber'];
+                        $prescription_name = $row['prescription_name'];
+                        $orderdate = $row['orderdate'];
+                        $ordertime = $row['ordertime'];
+                        $puserid = $row['userid'];
+                        $pnic = $row['nic'];
+                    }
+                }
+
+                //04.Calculate total
+                $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
+                $res3 = mysqli_query($conn, $sql3);
+
+                if($res3 == TRUE)
+                {
+                    $count3 = mysqli_num_rows($res3);
+                    if($count3 > 0)
+                    {
+                        $total =0;
+                        $nettotal =0;
+                        while($row2 = mysqli_fetch_assoc($res3))
+                        {
+                            $total = $row2['total'];
+                            $nettotal = $nettotal + $total; 
+                        }
+                    }
+                    else
+                    {
+                        $nettotal = 0;
+                    }
+                }
+
+                //05.define order stataus
+                $order_status = 1;
+
+                //06. define nomedicine flag to 0
+                $nomedicine = 0;
+
+                //Save in respondedorders table
+                $medaddsql = "INSERT INTO tbl_respondedorders SET 
+                order_id = '$order_id',
+                pname ='$pname',
+                paddress = '$paddress',                
+                contactnumber = '$contactnumber',
+                prescription_name ='$prescription_name',
+                remarks ='$remarks',
+                orderdate ='$orderdate',
+                ordertime ='$ordertime',
+                unavailablemedicines ='$unavailablemedicines',
+                responddate ='$date',
+                respondtime ='$time',
+                nettotal ='$nettotal',
+                order_status = '$order_status',
+                nic = '$pnic',
+                userid = '$puserid',
+                nomedicine = '$nomedicine'
+                ";
+
+                $medaddres = mysqli_query($conn, $medaddsql);
+
+                if($medaddres == TRUE)
+                {
+                    //Delete reponded order from neworders table
+                    $sql5 = "DELETE FROM tbl_neworder WHERE order_id=$order_id";
+                    $res5 = mysqli_query($conn, $sql5);
+
+                    //Responded order details added to table
+                    $_SESSION['med-respond1'] = '<div class="success">Medicine Available Repond Sent!</div>';
+                    //Redirect to the pharmacy_neworders.php page
+                    //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
+                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
+
+                }
+                else
+                {
+                    //Failed to add responded order details to table
+                    $_SESSION['med-respond2'] = '<div class="error">Fail to Send Respond!</div>';
+                    //Redirect to the pharmacy_respond2.php page
+                    //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
+                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                }
+
+
             }
             else
             {
                 $medadded = FALSE;
-            }
-        }
+                //No any Medicines Added to order
 
-        if($unavailablemedicines!="")
-        {
-            $unmedadd =TRUE;
-        }
-        else
-        {
-            $unmedadd =FALSE;
-        }
-
-        if($medadded==TRUE || $unmedadd==TRUE)
-        {
-            //empty remarks convert
-            if($temp=="No any remarks to display")
-            {
-                $remarks = "";
-            }
-            else{
-                $remarks = $temp;
-            }
-
-            //Get the responded date
-            date_default_timezone_set('Asia/Kolkata');
-            $date = date('d/m/Y');
-            $time = date('h:i:sA');
-
-            //Get remain order details from neworder table
-            $sql2 = "SELECT * FROM tbl_neworder WHERE order_id=$order_id";
-            $res2 = mysqli_query($conn, $sql2);
-
-            if($res2 == TRUE)
-            {
-                $count2 = mysqli_num_rows($res2);
-                if($count2 == 1)
+                if($unavailablemedicines =="")
                 {
-                    $row = mysqli_fetch_assoc($res2);
-                    $paddress = $row['paddress'];
-                    $contactnumber = $row['contactnumber'];
-                    $prescription_name = $row['prescription_name'];
-                    $orderdate = $row['orderdate'];
-                    $ordertime = $row['ordertime'];
+                    $unmedadd = FALSE;
+                    //Display message to remind medicine unavailable message
+                    $_SESSION['nomedmsg-respond'] = '<div class="error">Please fill Medicine Unvailable Message!</div>';
+                    //Redirect to the pharmacy_respond2.php page
+                    //header("location:".SITEURL."pharmacy/pharmacy_respond2.php?id=".$order_id);
+                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php?id=" . $order_id . "';</script>";
                 }
-            }
-
-            //Calculate total
-            $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
-            $res3 = mysqli_query($conn, $sql3);
-
-            if($res3 == TRUE)
-            {
-                $count3 = mysqli_num_rows($res3);
-                if($count3 > 0)
+                else
                 {
-                    $total =0;
-                    $nettotal =0;
-                    while($row2 = mysqli_fetch_assoc($res3))
-                    {
-                        $total = $row2['total'];
-                        $nettotal = $nettotal + $total; 
+                    $unmedadd = TRUE;
+                    //No any Medicines Added to order and Unavailable Medicines Message filled
+
+                    //01.empty remarks convert
+                    if($temp =="No any remarks to display"){
+                        $remarks = "";
                     }
-                }
-            }
+                    else{
+                        $remarks = $temp;
+                    }
 
-            //Display all data
-            // echo $order_id;
-            // echo $pname;
-            // echo $paddress;        
-            // echo $contactnumber;
-            // echo $prescription_name;
-            // echo $remarks;
-            // echo $orderdate;
-            // echo $ordertime;
-            // echo $unavailablemedicines;
-            // echo $date;
-            // echo $time;
-            // echo $nettotal;
+                    //02.get the responded date
+                    date_default_timezone_set('Asia/Kolkata');
+                    $date = date('d/m/Y');
+                    $time = date('h:i:sA');
 
-            //Save in respondedorders table
-            $sql4 = "INSERT INTO tbl_respondedorders SET 
+                    //03.get remain order details from neworder table
+                    $sql2 = "SELECT * FROM tbl_neworder WHERE order_id=$order_id";
+                    $res2 = mysqli_query($conn, $sql2);
+
+                    if($res2 == TRUE)
+                    {
+                        $count2 = mysqli_num_rows($res2);
+                        if($count2 == 1)
+                        {
+                            $row = mysqli_fetch_assoc($res2);
+                            $paddress = $row['paddress'];
+                            $contactnumber = $row['contactnumber'];
+                            $prescription_name = $row['prescription_name'];
+                            $orderdate = $row['orderdate'];
+                            $ordertime = $row['ordertime'];
+                            $puserid = $row['userid'];
+                            $pnic = $row['nic'];
+                        }
+                    }
+
+                    //04.Calculate total
+                    $sql3 = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
+                    $res3 = mysqli_query($conn, $sql3);
+
+                    if($res3 == TRUE)
+                    {
+                        $count3 = mysqli_num_rows($res3);
+                        if($count3 > 0)
+                        {
+                            $total =0;
+                            $nettotal =0;
+                            while($row2 = mysqli_fetch_assoc($res3))
+                            {
+                                $total = $row2['total'];
+                                $nettotal = $nettotal + $total; 
+                            }
+                        }
+                        else
+                        {
+                            $nettotal = 0;
+                        }
+                    }
+
+                    //05.define order stataus
+                    $order_status = 5;
+
+                    //06. define nomedicine flag to 0
+                    $nomedicine = 1;
+
+                    //Save in respondedorders table
+                    $medaddsql = "INSERT INTO tbl_respondedorders SET 
                     order_id = '$order_id',
                     pname ='$pname',
                     paddress = '$paddress',                
@@ -356,39 +481,41 @@
                     unavailablemedicines ='$unavailablemedicines',
                     responddate ='$date',
                     respondtime ='$time',
-                    nettotal ='$nettotal'
+                    nettotal ='$nettotal',
+                    order_status = '$order_status',
+                    nic = '$pnic',
+                    userid = '$puserid',
+                    nomedicine = '$nomedicine'
                     ";
-            $res4 = mysqli_query($conn, $sql4);
 
-            if($res == TRUE)
-            {
-                //Delete reponded order from neworders table
-                $sql5 = "DELETE FROM tbl_neworder WHERE order_id=$order_id";
-                $res5 = mysqli_query($conn, $sql5);
-                //Responded order details added to table
-                $_SESSION['respond'] = '<div class="success">Repond Sent!</div>';
-                //Redirect to the pharmacy_neworders.php page
-                //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
+                    $medaddres = mysqli_query($conn, $medaddsql);
 
-            }
-            else
-            {
-                //Failed to add responded order details to table
-                $_SESSION['respond'] = '<div class="error">Fail to Send Respond!</div>';
-                //Redirect to the pharmacy_neworders.php page
-                //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
+                    if($medaddres == TRUE)
+                    {
+                        //Delete reponded order from neworders table
+                        $sql5 = "DELETE FROM tbl_neworder WHERE order_id=$order_id";
+                        $res5 = mysqli_query($conn, $sql5);
+
+                        //Responded order details added to table
+                        $_SESSION['nomed-respond1'] = '<div class="success">Repond Sent!</div>';
+                        //Redirect to the pharmacy_neworders.php page
+                        //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
+                        echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
+
+                    }
+                    else
+                    {
+                        //Failed to add responded order details to table
+                        $_SESSION['nomed-respond2'] = '<div class="error">Fail to Send Respond!</div>';
+                        //Redirect to the pharmacy_respond2.php page
+                        //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
+                        echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                    }
+
+                }
             }
         }
-        else
-        {
-            //No medicine details added to respond
-            $_SESSION['emptymed'] = '<div class="error">Fail to Send Respond! Add Medicine Details and Try Again.</div>';
-            $_SESSION['id'] = $order_id;
-            //Redirect to the pharmacy_respond.php page
-            //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
-            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
-        }
+
     }
+
 ?>

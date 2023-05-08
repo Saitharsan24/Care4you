@@ -82,7 +82,7 @@
 
                 <?php 
                     if(isset($_GET['pendingid']) || isset($_GET['tobeid']) || isset($_GET['completeid'])){ ?>
-                        <div class="clearfilt-order"><a href="pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>Clear filter</a></div>
+                        <div class="clearfilt-order"><a href="./pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>Clear filter</a></div>
                 <?php }?>
 
             </div>
@@ -124,7 +124,7 @@
                                 <td><button class="btn-red"> <?php echo 'Cancelled'; ?> </button></td>
                         <?php
                             } ?>
-                            <td><a href="pharmacy_vieworder.php?id=<?php echo $row['order_id'];?>"><button class="btn-vieworder"><span>View Details</span></button></a></td>
+                            <td><a href="./pharmacy_vieworder.php?id=<?php echo $row['order_id'];?>"><button class="btn-vieworder"><span>View Details</span></button></a></td>
                         </tr>
                         <?php } ?>
 

@@ -15,7 +15,7 @@
           <a href="./patient_home.php">
             <img src="../images/logo.png" alt="logo" />
           </a>
-        </div>  sdf
+        </div>
         <div class="profile-image">
           <img src="../images/user.png" alt="profile-image" />
         </div>
@@ -42,20 +42,18 @@
         </div>
 
         <div class="tbl-content">
-        <table class="tbl-mydocapp">
+        <table class="tbl-mydocapp tbl-mylabapp">
         <thead>
             <tr>
                 <td>Reference No</td>
-                <td>Appointment No</td>
                 <td>Date</td>
                 <td>Time</td>
-                <td>Payment Status</td>
-                <td>Session Status</td>
+                <td>Status</td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
                       <tr>
-                          <td></td>
                           <td></td>
                           <td></td>
                           <td></td>

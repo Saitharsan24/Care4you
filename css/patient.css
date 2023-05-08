@@ -1071,6 +1071,32 @@ input::-webkit-file-upload-button {
     width: 50px;
 }
 
+
+/* PATIENT LAB APPOINTMENT style start */
+
+.tbl-mylabapp{
+    width: 70%;
+    margin-left: 65px;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+
+/* VIEW Lab APPOINTMENT */
+
+.view-lab-apt-details {
+    border-radius: 15px;
+    background: white;
+    height: 520px;
+    width: 700px;
+    margin: 30px 0px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 0px 30px;
+}
+
+
 /* MAKE LAB APPOINTMENT style */
 
 .lab-apt-form {
@@ -1119,13 +1145,13 @@ input::-webkit-file-upload-button {
 }
 
 .tbl-lab-apt{
-    width: 80%;
+    width: 77%;
     margin-left:auto; 
     margin-right:auto;
     border-spacing: 0 5px;
     margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 150px;
+    margin-bottom: 20px;
+    margin-left: 200px;
     background: #ffffff;
     border-radius: 10px;
     padding: 10px;

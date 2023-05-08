@@ -1,6 +1,8 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popups/docapt_cancel_popup.php')?> 
 <?php include('./popups/docreschedule.php') ?>
+
 
 <?php
     
@@ -107,7 +109,7 @@
           </div>
           <div class="view-details-row">Total Amount :<div><?php echo 'Rs.'.$row['net_total'] ?></div></div>
           <div class="view-apt-btn">
-            <div class="view-apt-btn01"><a href=""><button>Cancel appointment</button></a></div>
+            <div class="view-apt-btn01"><button onclick="opencancelPopup()">Cancel appointment</button></div>
             <div class="view-apt-divider"></div>
             <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule appointment</button></div>
           </div>

@@ -703,3 +703,205 @@ p{
 }
 
 /* CSS for viewprofile.php Ends Here*/
+
+/* CSS for TESTS.php Ends Here*/
+
+.back{
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: row;
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0px 0px 35px 70px;
+}
+
+.doc-apt-title{
+  font-size: 35px;
+  font-weight: 700;
+  color: #093e4e;
+  margin-bottom: -15px;
+}
+
+.doc-apt-title{
+  font-size: 35px;
+  font-weight: 700;
+  color: #093e4e;
+  margin-bottom: -15px;
+}
+.tbl-content{
+  max-height: 100vh; 
+  overflow-y: auto; 
+  margin-top:170px;
+
+}
+
+.tbl-mydocapp{
+  width: 90%;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+  
+.tbl-mydocapp tr{
+  background-color: #ffffff;
+}
+
+.tbl-mydocapp thead{
+  position: sticky;
+  top: 0; /* set the table heading to be fixed */
+  z-index: 1; /* set a higher z-index to show the heading above the content */
+}
+
+.tbl-mydocapp thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-mydocapp td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 10px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-mydocapp td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-mydocapp td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.tbl-mylabapp{
+  width: 70%;
+  margin-left: 65px;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.btn-green{
+  width: 150px;
+  background-color: #0C7516;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.tbl-lab-apt td.nosessiontd:first-child, th:first-child{
+  border-radius: 10px 10px 10px 10px;
+}
+
+.btn-mkdcapt {
+  border-radius: 10px;
+  background-color: #093e4e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 220px;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.mk-apt-btn{
+  margin: 15px 0px 30px -5px;
+}
+
+.mk-odr-btn{
+  margin: 35px 0px 30px -5px;
+}
+
+.btn-mkdcapt:hover{
+  background-color: #0D5C75;
+}
+
+.btn-mkdcapt span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-mkdcapt span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-mkdcapt:hover span {
+  padding-left: 15px;
+}
+
+.btn-mkdcapt:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.book-btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  }
+  
+  .book-btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  }
+  
+  .book-btn:hover span {
+  padding-right: 15px;
+  }
+  
+  .book-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+  }
+
+  .book-btn {
+    border-radius: 10px;
+    background-color: #0D5C75;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    /* font-size: 15px; */
+    padding: 5px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 500;
+    }
+
+    .nosession{
+      color: #d41414;
+      font-weight: 700;
+  }

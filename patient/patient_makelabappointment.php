@@ -86,6 +86,10 @@
             <div class="lab-apt-row">
               <div class="upload-lapapt">Total Amount : <input type="text"></div>
             </div>
+
+            <div class="apt-btn-css">
+              <a href=""><button>Pay Now</button></a>
+            </div>
            
         </div>
       </div>

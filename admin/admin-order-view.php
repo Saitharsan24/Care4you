@@ -75,7 +75,7 @@
 
                                
                                             </td>
-                                            <td><button class="btn-view-patient-detail" ><span>Order Details</span></button></td>
+                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-order-detail.php"'><span>Order Details</span></button></td>
                                         </tr>
                                         <?php 
                                 

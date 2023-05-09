@@ -2,9 +2,7 @@
 <?php include('../login_access.php') ?>
 
 <?php
-$query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid ";
-$result = mysqli_query($conn, $query);
-$no_row = mysqli_num_rows($result);
+
 
 ?>
 
@@ -15,8 +13,7 @@ $no_row = mysqli_num_rows($result);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/admin-view-patient.css">
-    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-order.css">
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
@@ -32,8 +29,8 @@ $no_row = mysqli_num_rows($result);
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="admin-patient-view.php"><div class="highlighttext">Patient</div></a></li>
-                <li><a href="admin-order-view.php">Orders</a></li>
+                <li><a href="admin-patient-view.php">Patient</a></li>
+                <li><a href="admin-order-view.php"><div class="highlighttext"></div>Orders</a></li>
                 <li><a href="admin-doc-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
@@ -48,48 +45,41 @@ $no_row = mysqli_num_rows($result);
                         <table class="tbl-main-patient" id="tbl-main-patient" style="margin-top:-50px;">
                             <thead>
                                 <tr>
-                                    <td>Patient ID</td>
-                                    <td>Patient Name</td>
+                                    <td>Order ID</td>
                                     <td>Contact Number</td>
-                                    <td>Account Status</td>
+                                    <td>Order Status</td>
                                     <td>View Details</td>
                                 </tr>
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td><input type="text" class="search-patient" name="patient-id" placeholder="search patient id" id="patient_id" onkeyup="filterPatientId()" autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="patient-name" placeholder="search patient name" id="patient_name" onkeyup="filterPatientName()" autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="phone-no" placeholder="search contact number" id="contact_no" onkeyup="filterContactNo()" autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="status" placeholder="search account status" id="account_status" onkeyup="filterAccountStatus()" autofocus="true" /></td>
+                                        <td><input type="text" class="search-patient" name="patient-id" placeholder="search order id" id="order_id"  autofocus="true" /></td>
+                                        <td><input type="text" class="search-patient" name="phone-no" placeholder="search contact number" id="contact_no"  autofocus="true" /></td>
+                                        <td><input type="text" class="search-patient" name="status" placeholder="search order status" id="order_status"  autofocus="true" /></td>
                                         <td></td>
                                     </tr>
                                     <?php 
-                                   if($result){
-                                    while ($row = mysqli_fetch_array($result)) {
+                                //    if($result){
+                                //     while ($row = mysqli_fetch_array($result)) {
 
                                    ?>
                                 <tr>
-                                            <td><?php echo $row['p_id'];?></td>
-                                            <td><?php echo $row['first_name'];?></td>
-                                            <td><?php echo '0'.$row['contact'];?></td>
+                                            <td></td>
+                                            
+                                            <td></td>
                                             <td>
                                                
                                                 <?php
-                                                if ($row['status'] == 1) { 
-                                                    echo '<button class="active-status">Active</button>';
-                                                } else {
-                                                    echo '<button class="passive-status"> Disabled </button>';
-                                                }
+                                               
                                                 ?>
 
                                
                                             </td>
-                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-patient-view-detail.php?id=<?php echo $row["p_id"] ?>"'><span>Patient Details</span></button></td>
+                                            <td><button class="btn-view-patient-detail" ><span>Order Details</span></button></td>
                                         </tr>
                                         <?php 
                                 
-                                    }
-                                   }
+                                  
                                         ?>
     
                           

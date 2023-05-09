@@ -3,6 +3,7 @@
 
 
 <?php
+  date_default_timezone_set("Asia/Calcutta");
 
 $session_id = $_GET['id'];
 $userid = $_SESSION['user_id'];
@@ -227,6 +228,7 @@ if ($result) {
         $_SESSION['apt_time'] = $apt_time_format;
         $_SESSION['apt_no'] = $apt_no;
         $_SESSION['timer_flag'] = 1;
+
 
         $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other)
                         VALUES ('$session_id','$apt_time_format','$apt_no','0','$userid','$my_other')";

@@ -3,6 +3,9 @@
 
 
 <?php
+    date_default_timezone_set("Asia/Calcutta");
+
+  
 
     //getting data from URL 
     $session_id = $_GET['id'];
@@ -36,10 +39,18 @@
     $sql1 = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
     $result1 = mysqli_query($conn, $sql1);
 
+    //getting doctor details from the database
+    $sql2 = "SELECT * FROM tbl_docappointment WHERE docapt_id = '$lastId'";
+    $result2 = mysqli_query($conn,$sql2);
+
     //fetching data from doct table
-    if($result1){
+    if($result2){
       $row1 = mysqli_fetch_assoc($result1);
-      
+      $row2 = mysqli_fetch_assoc($result2);
+      $current_time =strtotime(date("y-m-d H:i:s"));
+      $created_date = strtotime($row2['created_at']);
+
+      // print_r($row2['created_at']);die();
       $doc_fee = $row1['charge'];
     }
 
@@ -63,7 +74,7 @@
     <script>
       window.onload = function() {
             var countdownElement = document.getElementById("countdown");
-            var timeInSeconds = 600; // 10 minutes = 10 * 60 seconds
+            var timeInSeconds = <?php echo ($created_date + 600) - $current_time?>; // 10 minutes = 10 * 60 seconds
 
             var countdownInterval = setInterval(function() {
                 var minutes = Math.floor(timeInSeconds / 60);

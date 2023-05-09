@@ -6,49 +6,40 @@
     $user_id = $_SESSION['user_id'];
 
     $sql = "SELECT * FROM  
-    tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
-    INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
-    INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
-    INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
-    AND created_by = '$user_id' 
-    AND docapt_status = 1";
+              tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
+              INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+              INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
+              INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
+              AND created_by = '$user_id' 
+              AND docapt_status = 1";
     
-    $result = mysqli_query($conn,$sql);
+    $results = mysqli_query($conn, $sql);
+
+    // Prepare an array to store the events
+    $events = array();
     
-    // Create an array to store the events
-    $appointments = [];
+    // Loop through the query results and create events
+    while ($row = mysqli_fetch_assoc($results)) {
 
-    // Fetch appointments from the database
+      $startDateTime = $row['date'] . ' ' . $row['docapt_time'];
 
-    // Iterate through the result set and convert data into FullCalendar event format
-    while ($row = mysqli_fetch_assoc($result)) {
-    
-        // Combine appointment date and time into a single datetime string
-        $startDateTime = $row['date'] . ' ' . $row['docapt_time'];
+      $event = array(
+        'id' => $row['docapt_id'],
+        'title' => 'Doctor appointment - Appointment ID' . $row['docapt_id'],
+        'start' => $startDateTime,
+        'doctor' => $row['doc_name'],
+        'appointmentNumber' => $row['docapt_no'],
+        'color' => '#FF0000' // Set the color for the event, e.g., red
+     );
 
-        //adding title
-        $title = 'Dooctor appointment - Appointment no: '.$row['docapt_no'];
+    $events[] = $event;
+}
 
-        $appointment = [
-            'id' => $row['docapt_id'],
-            'title' => $title,
-            'start' => $startDateTime,
-            'extendedProps' => [
-                'appointmentNumber' => $row['docapt_no'],
-                'personName' => $row['doc_name']
-            ],
-            'color' => '#FF0000' // Set a custom color for the event
-        ];
+header('Content-Type: application/json');
+json_encode($events);
 
-        // Add additional properties as needed
-        // $event['color'] = '#ff0000'; // Set a custom color
-
-        $appointments[] = $appointment;
-    }
-  
-    // Convert the events array to JSON format
-    //$eventsJson = json_encode($events);
 ?>
+    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,60 +52,56 @@
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
+
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+
+
     <script>
-          
-          document.addEventListener('DOMContentLoaded', function() {
-              var calendarEl = document.getElementById('calendar');
-
-               var appointments = <?php echo json_encode($appointments); ?>;
-
-              var events = appointments.map(function(appointment) {
-                return {
-                  id: appointment.id,
-                  title: appointment.title,
-                  start: appointment.start_date,
-                  end: appointment.end_date,
-                  // Additional event properties
-                  appointmentNumber: appointment.appointment_number,
-                  personName: appointment.person_name,
-                  color: appointment.color
-                };
-              });
-
-              var calendar = new FullCalendar.Calendar(calendarEl, {
-              // Other options and settings...
-                events: appointments,
-                validRange: function(nowDate) {
-                  return {
-                  start: nowDate // Start from the current date
-                  };
+        $(document).ready(function() {
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
                 },
-              });
-              
-          calendar.render();
-          });
+                // Fetch events from PHP script
+                events: 'fetch_events.php',
+                // Handle event click
+                eventClick: function(calEvent, jsEvent, view) {
+                    // Show the popup with event details
+                    showEventPopup(calEvent);
+                }
+            });
+        });
 
+        // Function to show the event popup
+        function showEventPopup(event) {
+            // Create the HTML content for the popup
+            var popupContent = '<h3>' + event.title + '</h3>' +
+                '<p><strong>Doctor:</strong> ' + event.doctor + '</p>' +
+                '<p><strong>Appointment Time:</strong> ' + event.start.format('YYYY-MM-DD HH:mm') + '</p>' +
+                '<p><strong>Appointment Number:</strong> ' + event.appointmentNumber + '</p>';
+
+            // Show the popup
+            var popup = $('<div/>', {
+                class: 'event-popup',
+                html: popupContent
+            }).appendTo('body');
+
+            // Close the popup when clicked outside or on close button
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.event-popup').length) {
+                    popup.remove();
+                }
+            });
+        }
     </script>
-
-    <style>
-      .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-        display: none;
-      }
-      .fc-event {
-        cursor: pointer;
-      }
-    </style>
-
   </head>
+
 
   <body>
     <div class="main-div">

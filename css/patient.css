@@ -613,14 +613,14 @@ input:focus {
 .form-bottom-text {
     font-weight: 600;
     color: #093e4e;
-    margin: 0px 0px 0px 250px;
+    margin: 20px 0px 0px 250px;
     font-size: 20px;
 }
 
 .book2-heading {
     font-size: 25px;
     color: #093e4e;
-    margin: 10px 0px 20px 100px;
+    margin: 10px 0px 40px 100px;
 }
 
 .switch {

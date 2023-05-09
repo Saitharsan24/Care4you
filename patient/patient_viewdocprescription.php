@@ -3,10 +3,18 @@
 
 <?php
 
-    $user_id = $_SESSION['user_id'];
-  
-    $sql = "SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id AND created_by = '$user_id'";
-    $results = mysqli_query($conn,$sql);
+    $docapt_id = $_GET['id'];
+
+    $sql = "SELECT * FROM  
+    tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
+    INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+    INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
+    INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
+    AND docapt_id = $docapt_id";
+
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_assoc($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -55,29 +63,29 @@
       <div class="tbl-content" style="margin-top:90px;">
         <div class="container-row2">
         <div class="view-sub1">
-          <div class="view-idtxt">Appointment Number <br/> 01</div>
+          <div class="view-idtxt">Reference Number <br/><?php echo $row['docapt_id'] ?></div>
           <br/>
           <div class="view-headtxt">Appointment Date</div>
-          <div class="view-datatxt">05/07/2023</div>
+          <div class="view-datatxt"><?php echo $row['date'] ?></div>
           <br/>
           <div class="view-headtxt">Doctor Name</div>
-          <div class="view-datatxt">Dr. Sepalika Mendis</div>
+          <div class="view-datatxt"><?php echo $row['doc_name'] ?></div>
           <br/> <br/>
           <button onclick="downloadImage()" class="pre-btn"><span>Download Prescription</span></button>
-          <img src="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" id="image" style="display:none">
+          <img src="../images/docprescription/Order_06_02_23_08_56_41_PM.jpeg" id="image" style="display:none">
           <script>
             function downloadImage() {
-            var img = document.getElementById("image");
-            var url = img.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-            var link = document.createElement('a');
-            link.download = 'CareForYou-Prescription.png';
-            link.href = url;
-            link.click();
+                var img = document.getElementById("image");
+                var url = img.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+                var link = document.createElement('a');
+                link.download = 'CareForYou-Prescription.png';
+                link.href = url;
+                link.click();
           }
           </script>
         </div>
         <div class="view-sub2">
-          <img src="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" alt="" class="view-sub2" style="border-radius:0px;">
+          <img src="../images/docprescription/<?php echo $row['prescription_name'] ?>" alt="" class="view-sub2" style="border-radius:0px;">
         </div>
       </div>
         </div>

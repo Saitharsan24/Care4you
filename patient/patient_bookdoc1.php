@@ -232,8 +232,10 @@ if ($result) {
                         VALUES ('$session_id','$apt_time_format','$apt_no','0','$userid','$my_other')";
 
         $insertresult = mysqli_query($conn,$sqlinsert);
+
+        $lastInsertedId = mysqli_insert_id($conn);
         
-        header('location:'.SITEURL.'patient/patient_bookdoc2.php?id='.$session_id.'&myother='.$my_other);
+        header('location:'.SITEURL.'patient/patient_bookdoc2.php?id='.$session_id.'&myother='.$my_other.'&lastid='.$lastInsertedId);
         }
     }
 

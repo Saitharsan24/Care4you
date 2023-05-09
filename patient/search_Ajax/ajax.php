@@ -49,9 +49,9 @@
 
         $result1 = mysqli_query($conn,$sql1);
         if ($result1->num_rows == 0) {
-            echo "<option value='".$row1['doctor_id']."' selected disabled hidden>No Doctors Available</option>";
+            echo "<option value='' selected disabled hidden>No Doctors Available</option>";
         } else {
-            echo "<option value='".$row1['doctor_id']."' selected disabled hidden>Select A Doctor</option>";
+            echo "<option value='' selected disabled hidden>Select A Doctor</option>";
             while ($row1 = mysqli_fetch_array($result1)) {  
                 echo "<option value='".$row1['doctor_id']."'>".$row1['doc_name']."</option>";
             }
@@ -83,10 +83,16 @@
         $date = $_POST['dates'];
         
         if ($date != '') {
-            if($_POST['doc'] == NULL){
+            if($_POST['docid'] == NULL && $_POST['spec_doc'] == NULL){
                 $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.date = '$date'";
             }
-            else{
+            else if($_POST['docid'] == NULL) {
+                echo '<script>
+                console.log('.$_POST["spec_doc"].'); </script>';
+                $spec_name = $_POST['spec_doc'];
+                $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.date = '$date' AND tbl_doctor.specialization = '$spec_name' ";
+            }
+            else if(isset($_POST['docid'])){
                 $doc_id = $_POST['docid'];
                 $out = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.doctor_id = '$doc_id' AND tbl_docsession.date ='$date'";
             }

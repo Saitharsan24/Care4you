@@ -47,13 +47,13 @@
         //echo "Drug Deleted";
         //create session varibale to disply message
         $_SESSION['deldrug'] = "";
-        header("Location: ".SITEURL."pharmacy/pharmacy_respond.php?id=".$order_id);
+        header("Location: ".SITEURL."pharmacy/pharmacy_respond2.php?id=".$order_id);
         
     }
     else
     {
         $_SESSION['deldrug'] = "";
-        header("Location: ".SITEURL."pharmacy/pharmacy_respond.php?id=".$order_id);
+        header("Location: ".SITEURL."pharmacy/pharmacy_respond2.php?id=".$order_id);
     }
 
 ?>

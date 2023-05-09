@@ -1,5 +1,6 @@
 <?php include('../config/constants.php')?>
-<?php include('../login_access.php') ?><!DOCTYPE html>
+<?php include('../login_access.php') ?>
+
 
 <?php
 
@@ -54,20 +55,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/patient.css" />
     <title>Home</title>
-    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
-    <script>
-      function handleDropdown(dropdown) {
-          var dropdownContainer = document.getElementById("dropdownContainer");
-          var otherInput = document.getElementById("otherInput");
-          if (dropdown.value === "other") {
-              dropdownContainer.style.display = "none";
-              otherInput.style.display = "block";
-          } else {
-              dropdownContainer.style.display = "block";
-              otherInput.style.display = "none";
-          }
-      }
-    </script>
+    <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>     
 </head>
 
   <body>
@@ -246,10 +234,11 @@
           $net_total = $booking_fee + $doc_fee;
           $p_name = $_POST['pname'];
           $p_contact = $_POST['contact'];
-          $p_nic = $_POST['nic']; 
+          $p_nic = $_POST['nic'];
+          $relationship = $_POST['relationship'];
 
-          $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,pat_nic,pat_contact,created_by,my_other,net_total)
-                          VALUES ('$session_id','$apt_time_format','$apt_no','0','$p_name','$p_nic','$p_contact','$user_id','$my_other','$net_total')";
+          $sqlinsert = "INSERT INTO tbl_docappointment (pat_name,relationship,pat_nic,pat_contact,net_total)
+                          VALUES ('$p_name','$relationship','$p_nic','$p_contact','$net_total')";
         
           $insertresult = mysqli_query($conn,$sqlinsert);
                        
@@ -261,11 +250,13 @@
                           WHERE session_id = '$session_id'";
        
           $updateresult = mysqli_query($conn,$sqlupdate);
+
+          //upda
                
           if($insertresult && $updateresult){
                    
-              header('location:'.SITEURL.'patient/patient_docappointments.php');
-       
+            echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
+
           }else{
        
               echo "Error: " . $s . "<br>" . mysqli_error($conn);

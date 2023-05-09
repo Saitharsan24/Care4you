@@ -29,9 +29,14 @@
         <div class="main_content"> 
             <div class="info">
             <?php 
-                if(isset($_SESSION['respond'])){
-                    echo $_SESSION['respond'];
-                    unset($_SESSION['respond']);
+                if(isset($_SESSION['med-respond1'])){
+                    echo $_SESSION['med-respond1'];
+                    unset($_SESSION['med-respond1']);
+
+                }
+                if(isset($_SESSION['nomed-respond1'])){
+                    echo $_SESSION['nomed-respond1'];
+                    unset($_SESSION['nomed-respond1']);
 
                 }
             ?>

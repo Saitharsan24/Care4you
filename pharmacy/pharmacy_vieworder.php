@@ -29,9 +29,6 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
-            <div class="back" onclick="location.href='./pharmacy_orderhistory.php?id=<?php echo $id ?>'">
-                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
-            </div>
             <div class="info">
             <div class="back" onclick="location.href='pharmacy_orderhistory.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>

@@ -193,7 +193,7 @@ a {
     flex-direction: row;
     font-size: 40px;
     font-weight: 500;
-    margin: 20px 0px 35px 70px;
+    margin: 0px 0px 35px 70px;
 }
 
 .user-name {
@@ -776,7 +776,7 @@ input::-webkit-file-upload-button {
 .view-apt-btn02 button {
     border-radius: 25px;
     height: 35px;
-    width: 100px;
+    width: 200px;
     background: #0C5C75;
     color: #ffffff;
     border: none;
@@ -924,7 +924,6 @@ input::-webkit-file-upload-button {
     max-height: 100vh; 
     overflow-y: auto; 
     margin-top:170px;
-
 }
 
 /* .make-apt-btn button {
@@ -1028,7 +1027,7 @@ input::-webkit-file-upload-button {
     border-radius: 20px;
     height: 480px;
     width: 500px;
-    margin: 30px 0px 0px 100px;
+    margin: 10px 0px 0px 210px;
     padding: 20px ;
 }
 
@@ -1039,7 +1038,15 @@ input::-webkit-file-upload-button {
     margin: 0px 0px 0px 230px;
 }
 
-.appointment-right-page-content button {
+.common-apt button  {
+    height: 60px;
+}
+
+.appointment-page-content{
+    margin-top: -35px;
+}
+
+/* .appointment-right-page-content button {
     height: 90px;
     width: 220px;
     background: #0C5C75;
@@ -1057,11 +1064,37 @@ input::-webkit-file-upload-button {
     font-weight: 600;
     transition: .3s;
     cursor: pointer;
-}
+} */
 
 .appointments-divider {
     width: 50px;
 }
+
+
+/* PATIENT LAB APPOINTMENT style start */
+
+.tbl-mylabapp{
+    width: 70%;
+    margin-left: 65px;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+
+/* VIEW Lab APPOINTMENT */
+
+.view-lab-apt-details {
+    border-radius: 15px;
+    background: white;
+    height: 520px;
+    width: 700px;
+    margin: 30px 0px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 0px 30px;
+}
+
 
 /* MAKE LAB APPOINTMENT style */
 
@@ -1111,13 +1144,13 @@ input::-webkit-file-upload-button {
 }
 
 .tbl-lab-apt{
-    width: 80%;
+    width: 77%;
     margin-left:auto; 
     margin-right:auto;
     border-spacing: 0 5px;
     margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 150px;
+    margin-bottom: 20px;
+    margin-left: 200px;
     background: #ffffff;
     border-radius: 10px;
     padding: 10px;
@@ -1156,6 +1189,10 @@ input::-webkit-file-upload-button {
   
   .tbl-lab-apt td:last-child, th:last-child {
     border-radius: 0 10px 10px 0;
+  }
+
+  .tbl-lab-apt td.nosessiontd:first-child, th:first-child{
+    border-radius: 10px 10px 10px 10px;
   }
 
 .upload-lapapt{
@@ -1885,3 +1922,201 @@ input::-webkit-file-upload-button {
   }
   
   /* editprofile.php CSS Ends */
+
+
+/* docprescriptions.php starts here */
+
+.tbl-docpre{
+    width: 90%;
+    margin-left: auto; 
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tbl-docpre td{
+    min-width: 300px;
+    max-width: 300px; /* or any value you want to set as the minimum width */
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.docpre-containor{
+    padding: 10px;
+    text-align: center; 
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    border-radius: 25px;
+    background: linear-gradient(to top, #ffffff, #fff);
+    height: 35vh;
+    border: 2px solid #0D5C75;
+}
+
+.container-row {
+    display: flex;
+}
+
+.docpre-containor .sub1{
+    margin-top: 30px;
+    border-radius: 30px;
+    width:25%;
+    background-color: #fff;
+    /* border: 1px solid #888888;
+    padding: 10px;
+    box-shadow: 1px 2px #888888; */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.docpre-containor .sub2{
+    margin-top: 30px;
+    margin-left: 5%;
+    border-radius: 10px;
+    width: 70%;
+    background-color: #fff;
+    /* border: 1px solid #888888; */
+    /* padding: 10px;
+    box-shadow: 1px 2px #888888; */
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+.idtxt{
+    font-size: 40px;
+    font-weight: 700;
+    color: #0D5C75;
+}
+
+.headtxt{
+    font-size: 12px;
+    font-weight: 620;
+    color: #0D5C75;
+}
+
+.datatxt{
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.docpre-containor .sub3{
+    margin-top: 34px;
+    border-radius: 30px;
+    width: 70%;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-row2 {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 5%;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    width: 65%;
+    border-radius: 25px;
+    background: linear-gradient(to top, #ffffff, #fff);
+    border: 2px solid #0D5C75;
+}
+
+.view-sub1{
+    padding: 25px;
+    border-radius: 30px;
+    width:35%;
+    background-color: #fff;
+    /* border: 1px solid #888888; */
+    padding: 10px;
+    padding-left: 30px;
+    /* box-shadow: 1px 2px #888888; */
+    display: inline-block;
+    text-align: center; 
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.view-sub2{
+    margin-left: 5%;
+    border-radius: 30px;
+    width:70%;
+    background-color: #fff;
+    /* border: 1px solid #888888; */
+    /* padding: 10px;
+    box-shadow: 1px 2px #888888; */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.view-idtxt{
+    font-size: 35px;
+    font-weight: 700;
+    color: #0D5C75;
+}
+
+.view-headtxt{
+    font-size: 15px;
+    font-weight: 620;
+    color: #0D5C75;
+}
+
+.view-datatxt{
+    font-size: 17px;
+    font-weight: 700;
+    color: #000;
+}
+
+.pre-btn {
+    border-radius: 10px;
+    background-color: #0D5C75;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    /* font-size: 15px; */
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 500;
+}
+    
+.pre-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+    
+.pre-btn span:after {
+    content: '\21E9';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+    
+.pre-btn:hover span {
+    padding-right: 15px;
+}
+    
+.pre-btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* docprescriptions.php ends here */

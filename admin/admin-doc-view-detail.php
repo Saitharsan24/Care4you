@@ -23,7 +23,7 @@
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</div></a></li>

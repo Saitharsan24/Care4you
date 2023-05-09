@@ -53,9 +53,9 @@
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td><input type="text" class="search-patient" name="patient-id" placeholder="search order id" id="order_id"  autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="phone-no" placeholder="search contact number" id="contact_no"  autofocus="true" /></td>
-                                        <td><input type="text" class="search-patient" name="status" placeholder="search order status" id="order_status"  autofocus="true" /></td>
+                                        <td><input type="text" class="search-order" name="patient-id" placeholder="search order id" id="order_id"  autofocus="true" /></td>
+                                        <td><input type="text" class="search-order" name="phone-no" placeholder="search contact number" id="contact_no"  autofocus="true" /></td>
+                                        <td><input type="text" class="search-order" name="status" placeholder="search order status" id="order_status"  autofocus="true" /></td>
                                         <td></td>
                                     </tr>
                                     <?php 

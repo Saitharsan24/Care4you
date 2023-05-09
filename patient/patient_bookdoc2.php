@@ -7,6 +7,7 @@
     //getting data from URL 
     $session_id = $_GET['id'];
     $my_other = $_GET['myother'];
+    $lastId = $_GET['lastid'];
 
     //retrieving session variables
     $apt_time_format = $_SESSION['apt_time'];
@@ -31,7 +32,7 @@
       }
     }
 
-    //getting registered patient details from the database
+    //getting doctor details from the database
     $sql1 = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
     $result1 = mysqli_query($conn, $sql1);
 
@@ -43,6 +44,9 @@
     }
 
     $booking_fee= 500;
+
+    
+
 ?>
 
 
@@ -198,11 +202,14 @@
         
         //inserting into doc appointment table
         $net_total = $booking_fee + $doc_fee;
-        
-        $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other,net_total)
-                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$user_id','$my_other','$net_total')";
+      
+        $aptsqlupdate = "UPDATE tbl_docappointment 
+                          SET net_total = '$net_total',
+                              docapt_status = 1
+                          WHERE
+                              docapt_id = '$lastId'";
 
-        $insertresult = mysqli_query($conn,$sqlinsert);
+        $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
                 
         //updating no of patient in docsession table
         $new_no_of_apt = $row1['no_of_appointment'] + 1;
@@ -213,7 +220,7 @@
 
         $updateresult = mysqli_query($conn,$sqlupdate);
         
-        if($insertresult && $updateresult){
+        if($aptupdateresult && $updateresult){
             
             header('location:'.SITEURL.'patient/patient_docappointments.php');
 
@@ -237,10 +244,17 @@
           $p_nic = $_POST['nic'];
           $relationship = $_POST['relationship'];
 
-          $sqlinsert = "INSERT INTO tbl_docappointment (pat_name,relationship,pat_nic,pat_contact,net_total)
-                          VALUES ('$p_name','$relationship','$p_nic','$p_contact','$net_total')";
+          $aptsqlupdate = "UPDATE tbl_docappointment 
+                            SET pat_name = '$p_name',
+                                relationship = '$relationship',
+                                pat_nic = '$p_nic',
+                                pat_contact = '$p_contact',
+                                net_total = '$net_total',
+                                docapt_status = 1
+                            WHERE
+                                docapt_id = '$lastId'";
         
-          $insertresult = mysqli_query($conn,$sqlinsert);
+          $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
                        
           //updating no of patient in docsession table
           $new_no_of_apt = $row1['no_of_appointment'] + 1;
@@ -253,7 +267,7 @@
 
           //upda
                
-          if($insertresult && $updateresult){
+          if($aptupdateresult && $updateresult){
                    
             echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
 

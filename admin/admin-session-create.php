@@ -82,11 +82,11 @@
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="" method="POST">
+                            <form action="admin-session-mail-pop.php" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>
-                                    <div class="#">
+                                    <div class="doc-id-option">
                                     <?php
                                     if($result_1){
                                         echo "Doctor ID:"; 

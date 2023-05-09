@@ -545,14 +545,10 @@ input:focus {
 .apt-btn-css {
     height: 50px;
     width: 120px;
-    margin-right: 35px;
+    margin-right: 35px;    
 }
 
-.apt-btn-space {
-    width: 50px;
-}
-
-.apt-btn button {
+.apt-btn-css button{
     height: 40px;
     width: 120px;
     background: #0C5C75;
@@ -562,6 +558,32 @@ input:focus {
     color: white;
     border: none;
 }
+
+
+
+.apt-btn-space {
+    width: 50px;
+}
+
+.apt-btn-book2 p{
+    font-size: 20px;
+    font-weight: 550;
+    color: #093e4e;
+    margin: 5px 25px 0px 0px;
+    
+}
+
+
+/* .apt-btn button {
+    height: 40px;
+    width: 120px;
+    background: #0C5C75;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    border: none;
+} */
 
 
 .apt-btn button:hover {

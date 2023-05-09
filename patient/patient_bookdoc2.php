@@ -60,6 +60,27 @@
     <link rel="stylesheet" href="../css/patient.css" />
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>     
+    <script>
+      window.onload = function() {
+            var countdownElement = document.getElementById("countdown");
+            var timeInSeconds = 600; // 10 minutes = 10 * 60 seconds
+
+            var countdownInterval = setInterval(function() {
+                var minutes = Math.floor(timeInSeconds / 60);
+                var seconds = timeInSeconds % 60;
+
+                countdownElement.innerHTML = minutes + "m " + seconds + "s";
+
+                if (timeInSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.innerHTML = "Countdown Finished";
+                }
+
+                timeInSeconds--;
+            }, 1000); // Update every second (1000ms)
+        };
+    </script>
+
 </head>
 
   <body>
@@ -166,17 +187,15 @@
                   </div>
 
                   <div class="apt-btn form-set-btn">
-            
-                    <div class="apt-btn-css">
-                      <a href="./patient_docappointments.php"><button type="submit" name="paylater">Pay Later</button></a>
+
+                    <div class="apt-btn-book2">
+                      <p id="countdown">00:00</p>
                     </div>
-
-                    <div class="apt-btn-space"></div>
-
+                  
                     <div class="apt-btn-css">
-                      <a href=""><button>Pay Now</button></a>
+                      <a href="./patient_docappointments.php"><button type="submit" name="paylater">Pay</button></a>
                     </div>
-
+                              
                   </div>
 
               </form>

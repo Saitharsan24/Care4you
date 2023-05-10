@@ -1,0 +1,42 @@
+.table-order-details{
+    margin-left:60px;
+}
+
+.doctor-tbl-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    height: 45px;
+    width: 750px;
+    margin: 50px 0px 0px 50px;
+    color: #093e4e;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.doctor-tbl-heading div {
+    margin: 0px 0px 0px 30px;
+}
+
+.divide-doctor-02 {
+    width: 100px;
+}
+
+.divide-doctor-03 {
+    width: 100px;
+}
+
+.search-row1,
+.search-row2,
+.search-row3,
+.search-row4 {
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 0px solid;
+    background: white;
+    font-size: 16px;
+    /* text-align: center; */
+}

@@ -1,0 +1,907 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+   background-color: #A5D1E1;
+}
+
+/*CSS for Scroll Bar*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px #ffffff; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #698f9d; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0D5C75;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 250px;
+  height: 100%;
+  background: #FFFFFF;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.logo{
+  width: 200px;
+  margin-top: 0px;
+  margin-left: 25px;
+}
+
+.imgframe{
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+  margin-left: 65px;
+  border: 1px solid #083746;
+  border-radius: 50%;
+}
+
+.wrapper .sidebar ul{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 10px;
+  vertical-align: middle;
+}    
+
+.wrapper .sidebar ul li a{
+  color: #000000;
+  display: block;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #0D5C75;
+}
+
+.signouttext{
+  color: #0D5C75;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 50px;
+  left: 65px;
+}
+
+.wrapper .sidebar .signouttext a{
+  color: #0D5C75;
+  display: block;
+}
+
+.wrapper .sidebar .signouttext a:hover{
+  color: #000000;
+  font-weight: 700;
+  display: block;
+}
+
+.fa-solid{
+  font-size: 17px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 250px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #000000;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+.wrapper .right-button{
+  margin-left: 470px;
+}
+
+.wrapper .left-button{
+  margin-left: -827px;
+}
+
+.welcometext{
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  bottom: 50px;
+  left: 80px;
+  display: inline;
+}
+
+.usernametext{
+  color: #0D5C75;
+  display: inline;
+}
+
+.highlighttext{
+  color: #0D5C75;
+  font-weight: 600;
+  display: inline;
+}
+
+.success{
+  color: #2ed573;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
+.error{
+  color:#ff4757;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
+}
+
+table {
+  /*border:1px solid #b3adad;*/
+  border-collapse:collapse;
+}
+
+table.center {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+table td {
+  width: 750px;
+  /*border:1px solid #b3adad;*/
+  text-align:center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#rcorners {
+  border-radius: 35px;
+  background: #ffffff;
+  padding: 20px; 
+  width: 400px;
+  height: 200px;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;  
+}
+
+.formtable{
+  /*border:1px solid #b3adad;*/
+  border-collapse:separate;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.formtable .tdtype01 {
+  width: 300px;
+  /*border:1px solid #b3adad;*/
+  padding: 5px;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #083746;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.formtable .tdtype02 {
+  background-color: #ffffff;
+  width: 300px;
+  /*border:1px solid #b3adad;*/
+  padding: 5px;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #083746;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.form-control{
+  width: 450px;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.btn-blue{
+  margin-left: 60%;
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-blue a{
+  color: #ffffff;
+}
+
+.hrefmodtext{
+  color: #000000;
+  text-align: center;
+}
+
+.hrefmodtext:hover{
+  color: #0D5C75;
+}
+
+.tbl-main{
+  width: 75%;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+/*appointments.php Starts Here*/
+
+.tbl-main{
+  width: 85%;
+}
+
+.tbl-main tr{
+  background-color: #ffffff;
+}
+
+.tbl-main thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+/* .btn-blue1{
+  background-color: #0D5C75;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.btn-blue1 a{
+  color: #ffffff;
+} */
+
+.btn-viewapp {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-viewapp span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-viewapp span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-viewapp:hover span {
+  padding-right: 15px;
+}
+
+.btn-viewapp:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*appointments.php Ends Here*/
+
+/*reguserappointment.php Starts Here*/
+
+.tbl-viewappointment{
+  border:35px solid #ffffff;
+  width: 75%;
+  height: 250px;
+  margin-left:auto; 
+  margin-right:auto;
+  background-color: #ffffff;
+  border-spacing: 20px;
+  border-collapse: separate;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+}
+
+.tbl-viewappointment .tdtype1{
+  width: 300px;
+  /*border:1px solid #b3adad;*/
+  padding: 5px;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #083746;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tbl-viewappointment .tdtype2{
+  width: auto;
+  /*border:1px solid #b3adad;*/
+  padding: 5px;
+  padding-left: 2%;
+  padding-right: 3%;
+  color: #000000;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.btn-upload{
+  background-color: #0D5C75;
+  padding: 10px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-upload a{
+  color: #ffffff;
+}
+/*reguserappointment.php Ends Here*/
+
+/*viewappointment.php Starts Here*/
+
+.rcorners01 {
+  border-radius: 35px;
+  background: #ffffff;
+  padding: 20px; 
+  width: 400px;
+  height: 210px;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.btn-option{
+  border-radius: 35px;
+  border-color: #ffffff;
+  border: 0px;
+  cursor: pointer;
+}
+
+.btn-view {
+  border-radius: 35px;
+  background: #ffffff;
+  border: none;
+  padding: 5px; 
+  width: 400px;
+  height: 210px;
+  color: #000000;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  /* line-height: 150%; */
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.btn-view:hover{
+  background: #f0f0f0;
+}
+
+.btn-view span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view span:after {
+  content: '\00bb';
+  position: relative;
+  opacity: 0;
+  top: 0;
+  right: 50px;
+  transition: 0.5s;
+}
+
+.btn-view:hover span {
+  padding-right: 20px;
+  color: #0D5C75;
+}
+
+.btn-view:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*viewappointment.php Ends Here*/
+
+.leftalign{
+  text-align: left;
+  padding-bottom: 0%;
+  margin-left: 100px;
+}
+
+/* .btn-addapp{
+  background-color: #166d87;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #8d8b8b;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-addapp a{
+  color: #ffffff;
+}
+
+.btn-addapp a:hover{
+  color: #ffffff;
+  font-weight: 700;
+} */
+
+.btn-addapp {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  padding: 5px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: -5px;
+  font-weight: 500;
+}
+
+.btn-addapp span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addapp span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addapp:hover span {
+  padding-left: 15px;
+}
+
+.btn-addapp:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.tbl-addappform{
+  border:35px solid #ffffff;
+  width: 50%;
+  height: 200px;
+  margin-left:auto; 
+  margin-right:auto;
+  background-color: #ffffff;
+  border-spacing: 20px;
+  border-collapse: separate;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+}
+
+.tbl-addappform .tdtype1{
+  width: 220px;
+  /*border:1px solid #b3adad;*/
+  padding: 2px;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #000000;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tbl-addappform .tdtype2{
+  width: auto;
+  /*border:1px solid #b3adad;*/
+  padding: 2px;
+  padding-left: 2%;
+  padding-right: 3%;
+  color: #000000;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form-addappcontrol{
+  width: 300px;
+  padding: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+p{
+  text-align: right;
+  font-size: 25px;
+}
+
+/* CSS for viewprofile.php Starts Here*/
+
+.polygons {
+  text-align: center;
+  position: relative;
+}
+.square {
+  border: 2px solid #0D5C75;
+  width: 600px;
+  height: 420px;
+  background: #ffffff;
+  position: relative;
+  top: 100px;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+.tbl-square{
+  border-collapse: separate;
+  table-layout: fixed;
+  /* border: 1px solid black; */
+}
+
+.tbl-square .type1{
+  /* border: 1px solid black; */
+  width: 245px;
+  text-align: right;
+  font-size: 16px;
+  color: #0D5C75;
+  font-weight: 500;
+}
+
+.tbl-square .type2{
+  /* border: 1px solid black; */
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.circle {
+  border: 2px solid #0D5C75;
+  width: 250px;
+  height: 250px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  left: 500px;
+  top: -15px;
+  overflow: hidden;
+}
+
+/* .circle:hover {
+  color: $primary;
+  background-color: transparent;
+  border: dashed #f7a4a7 5px;
+} */
+
+.square2 {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  background: #0D5C75;
+  left: -205px;
+  top: 430px;
+  /* border-radius: 10%; */
+}
+
+#overlap {
+  width: 10px;
+  height: 60px;
+/*   background: purple; */
+  position: relative;
+  left: -10px;
+  right: -20px;
+}
+
+.form-control2{
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* CSS for viewprofile.php Ends Here*/
+
+/* CSS for TESTS.php Ends Here*/
+
+.back{
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: row;
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0px 0px 35px 70px;
+}
+
+.doc-apt-title{
+  font-size: 35px;
+  font-weight: 700;
+  color: #093e4e;
+  margin-bottom: -15px;
+}
+
+.doc-apt-title{
+  font-size: 35px;
+  font-weight: 700;
+  color: #093e4e;
+  margin-bottom: -15px;
+}
+.tbl-content{
+  max-height: 100vh; 
+  overflow-y: auto; 
+  margin-top:170px;
+
+}
+
+.tbl-mydocapp{
+  width: 90%;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+  
+.tbl-mydocapp tr{
+  background-color: #ffffff;
+}
+
+.tbl-mydocapp thead{
+  position: sticky;
+  top: 0; /* set the table heading to be fixed */
+  z-index: 1; /* set a higher z-index to show the heading above the content */
+}
+
+.tbl-mydocapp thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-mydocapp td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 10px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-mydocapp td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-mydocapp td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.tbl-mylabapp{
+  width: 70%;
+  margin-left: 65px;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.btn-green{
+  width: 150px;
+  background-color: #0C7516;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.tbl-lab-apt td.nosessiontd:first-child, th:first-child{
+  border-radius: 10px 10px 10px 10px;
+}
+
+.btn-mkdcapt {
+  border-radius: 10px;
+  background-color: #093e4e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 220px;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.mk-apt-btn{
+  margin: 15px 0px 30px -5px;
+}
+
+.mk-odr-btn{
+  margin: 35px 0px 30px -5px;
+}
+
+.btn-mkdcapt:hover{
+  background-color: #0D5C75;
+}
+
+.btn-mkdcapt span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-mkdcapt span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-mkdcapt:hover span {
+  padding-left: 15px;
+}
+
+.btn-mkdcapt:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.book-btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  }
+  
+  .book-btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  }
+  
+  .book-btn:hover span {
+  padding-right: 15px;
+  }
+  
+  .book-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+  }
+
+  .book-btn {
+    border-radius: 10px;
+    background-color: #0D5C75;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    /* font-size: 15px; */
+    padding: 5px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 500;
+    }
+
+    .nosession{
+      color: #d41414;
+      font-weight: 700;
+  }

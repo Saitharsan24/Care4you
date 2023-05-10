@@ -6,40 +6,33 @@
     $user_id = $_SESSION['user_id'];
 
     $sql = "SELECT * FROM  
-              tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
-              INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
-              INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
-              INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
-              AND created_by = '$user_id' 
-              AND docapt_status = 1";
+    tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
+    INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+    INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
+    INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
+    AND created_by = '$user_id' 
+    AND docapt_status = 1";
     
-    $results = mysqli_query($conn, $sql);
-
-    // Prepare an array to store the events
-    $events = array();
+    $result = mysqli_query($conn,$sql);
     
-    // Loop through the query results and create events
-    while ($row = mysqli_fetch_assoc($results)) {
+    $appointments = []; // Array to store the formatted appointment data
 
-      $startDateTime = $row['date'] . ' ' . $row['docapt_time'];
+    // Fetch appointments from the database
+    // Assuming you have retrieved the appointments from your tables
+    foreach ($result as $appointmentData) {
+      $appointments[] = [
+        'id' => $appointmentData['docapt_no'], // Add the ID of the appointment
+        'title' => $appointmentData['doc_name'],
+        'start' => $appointmentData['date'],
+        'time' => $appointmentData['docapt_time'],
+        'color' => '#FF0000', // Add the desired color for the event
+    
+  ];
 
-      $event = array(
-        'id' => $row['docapt_id'],
-        'title' => 'Doctor appointment - Appointment ID' . $row['docapt_id'],
-        'start' => $startDateTime,
-        'doctor' => $row['doc_name'],
-        'appointmentNumber' => $row['docapt_no'],
-        'color' => '#FF0000' // Set the color for the event, e.g., red
-     );
-
-    $events[] = $event;
+  $appointmentsJson = json_encode($appointments);
 }
 
-header('Content-Type: application/json');
-json_encode($events);
-
 ?>
-    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,56 +45,57 @@ json_encode($events);
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
-
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
-
-
     <script>
-        $(document).ready(function() {
-            // Initialize the calendar
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                // Fetch events from PHP script
-                events: 'fetch_events.php',
-                // Handle event click
-                eventClick: function(calEvent, jsEvent, view) {
-                    // Show the popup with event details
-                    showEventPopup(calEvent);
-                }
+          document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+              events: <?php echo $appointmentsJson; ?>,
+              eventClick: function(info) {
+                // Retrieve the event data
+                var event = info.event;
+                var eventId = event.id;
+                var eventTitle = event.title;
+                var eventStart = event.start;
+                var eventColor = event.color;
+                var eventTime = event.extendedProps.time; // Retrieve the additional property: description
+
+                // Create the event details HTML content
+                var eventDetailsHTML = '<h2>' + eventTitle + '</h2>' +
+                  '<p><strong>Start:</strong> ' + eventStart + '</p>' +
+                  '<p><strong>Description:</strong> ' + eventTime + '</p>';
+
+                // Show the popup with event details
+                var popup = document.getElementById('event-details-popup');
+                var popupContent = document.getElementById('event-details-content');
+                popupContent.innerHTML = eventDetailsHTML;
+                popup.style.display = 'block';
+
+                // Prevent the default behavior (e.g., navigating to event URL)
+                info.jsEvent.preventDefault();
+              }
             });
-        });
+            calendar.render();
+          });
 
-        // Function to show the event popup
-        function showEventPopup(event) {
-            // Create the HTML content for the popup
-            var popupContent = '<h3>' + event.title + '</h3>' +
-                '<p><strong>Doctor:</strong> ' + event.doctor + '</p>' +
-                '<p><strong>Appointment Time:</strong> ' + event.start.format('YYYY-MM-DD HH:mm') + '</p>' +
-                '<p><strong>Appointment Number:</strong> ' + event.appointmentNumber + '</p>';
-
-            // Show the popup
-            var popup = $('<div/>', {
-                class: 'event-popup',
-                html: popupContent
-            }).appendTo('body');
-
-            // Close the popup when clicked outside or on close button
-            $(document).on('click', function(event) {
-                if (!$(event.target).closest('.event-popup').length) {
-                    popup.remove();
-                }
-            });
-        }
     </script>
-  </head>
 
+    <style>
+            .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+        display: none;
+      }
+    </style>
+
+  </head>
 
   <body>
     <div class="main-div">
@@ -118,9 +112,9 @@ json_encode($events);
           <a href="./patient_home.php">Home</a>
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
-          <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_doctorlist.php">Doctors</a>
-          <a href="#">Profile</a>
+          <a href="./patient_medicalrecords.php">Medical records</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
+          <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>

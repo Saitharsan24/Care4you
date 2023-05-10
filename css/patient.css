@@ -2165,3 +2165,56 @@ input::-webkit-file-upload-button {
 }
 
 /* docprescriptions.php ends here */
+
+/* View doc apt statuses */
+.docapt-st01{
+width: 175px;
+width: 150px;
+background-color: #28ae28;
+padding: 5px;
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 10px;
+border: 1px solid #ccc;
+color: #ffffff;
+font-weight: 550;
+}
+
+.docapt-st02{
+    width: 175px;
+    width: 150px;
+    background-color: #BD1010;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+    }
+
+.docapt-st03{
+    width: 175px;
+    width: 150px;
+    background-color:#093e4e;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+}
+
+.docapt-st04{
+    width: 175px;
+    width: 150px;
+    background-color: #eca3a3;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000000;
+    font-weight: 550;
+}

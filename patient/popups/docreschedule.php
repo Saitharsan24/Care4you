@@ -55,13 +55,9 @@ section.active .overlay {
 .modal-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 600px;
-  width: 100%;
-  max-height: 300px;
-  height: 100%;
-  padding: 30px 20px;
+  width: 900px;
+  height: 600px;
+  padding: 20px 0 0 20px;
   border-radius: 24px;
   background-color: #fff;
   opacity: 0;
@@ -126,7 +122,6 @@ section.active .modal-box {
         
         <form action="" method="POST">
           
-            <i class="fa-solid fa-calendar-days" style="color: #093e4e;"></i>
             <h2> Reshedule Doctor Appointment</h2>
             
 

@@ -59,7 +59,13 @@
         <div class="doc-apt-title" style="color: #000; font-size: 45px; margin-bottom:-40px;">My Orders</div>
         <div class="mk-odr-btn"><a href="./patient_makeorder.php"><button class="btn-mkdcapt"><span>make pharmacy order</span></button></a></div>
       </div>
-
+      <?php 
+              if(isset($_SESSION['add-order']))
+              {
+                echo $_SESSION['add-order'];
+                unset($_SESSION['add-order']);
+              }
+        ?>
       <div class="tbl-content">
       <table class="tbl-mydocapp" style="width:65%; margin-left: 60px;">
         <thead>
@@ -93,17 +99,22 @@
                   }
                   else if($row['order_status'] == 2)
                   { ?>
-                  <td><button class="order-st02"><?php  echo 'To be delivered';?></button></td>
+                  <td><button class="order-st02"><?php  echo 'Order Confirmed';?></button></td>
                 <?php
                   }
                   else if($row['order_status'] == 3)
                   { ?>
-                  <td><button class="order-st03"><?php  echo 'Cancelled';?></button></td>
+                  <td><button class="order-st03"><?php  echo 'Order Dispatched';?></button></td>
                 <?php
                   }
                   else if($row['order_status'] == 4)
                   { ?>
-                  <td><button class="order-st04"><?php  echo 'Complete';?></button></td>
+                  <td><button class="order-st04"><?php  echo 'Delivered';?></button></td>
+                <?php
+                  }
+                  else if($row['order_status'] == 5)
+                  { ?>
+                  <td><button class="order-st05"><?php  echo 'Cancelled';?></button></td>
                 <?php
                   } ?>
 

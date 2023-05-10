@@ -1156,8 +1156,8 @@ p{
   cursor: pointer;
 }
 
-.btn-update a{
-  color: #ffffff;
+.btn-update:hover{
+  background-color: #238f30;
 }
 
 .btn-delete{
@@ -1173,8 +1173,8 @@ p{
   cursor: pointer;
 }
 
-.btn-delete a{
-  color: #ffffff;
+.btn-delete:hover{
+  background-color: #8b1010;
 }
 
 .btn-addnew {

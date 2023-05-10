@@ -35,15 +35,15 @@ if ($result) {
   $noofapt = $row['no_of_appointment'];
 
   //to find the timeslot
-  if ($timeslot == 1) {
+  if ($timeslot == 0) {
     $starttime = strtotime('08:00:00');
-  } else if ($timeslot == 2) {
+  } else if ($timeslot == 1) {
     $starttime = strtotime('10:00:00');
-  } else if ($timeslot == 3) {
+  } else if ($timeslot == 2) {
     $starttime = strtotime('12:00:00');
-  } else if ($timeslot == 4) {
+  } else if ($timeslot == 3) {
     $starttime = strtotime('14:00:00');
-  } else if ($timeslot == 5) {
+  } else if ($timeslot == 4) {
     $starttime = strtotime('16:00:00');
   } else {
     $starttime = strtotime('18:00:00');

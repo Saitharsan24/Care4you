@@ -1,12 +1,12 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
-<?php include('./popups/docreschedule.php') ?>
+
 
 
 <?php
     
     $docapt_id = $_GET['id'];
-
+    
     $sql = "SELECT * FROM  
               tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
               INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
@@ -16,8 +16,9 @@
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);
 
-    //storing session variable of doctor id to reschedule
-    // $_SESSION[''] = $row['docl'] ;
+
+    //to reschedue doctor id passing
+    $_SESSION['reschedule'] = $row['doctor_id'];
 
     if ($row['my_other']==0) {
       $p_name = $row['first_name'];
@@ -107,6 +108,9 @@
                   <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule Appointment</button></div>
               <?php
               }
+
+              //popup including.......
+              include('./popups/docreschedule.php');
               ?>
               
             </div>

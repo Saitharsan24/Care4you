@@ -68,6 +68,7 @@ section.active .overlay {
   transition: all 0.3s ease;
   transform: translate(-65%, -50%) scale(1.2);
   
+  
 }
 
 section.active .modal-box {
@@ -208,10 +209,61 @@ section.active .modal-box {
 .tbl-common td:last-child, th:last-child {
   border-radius: 0 10px 10px 0;
 }
-
-
 </style>
 
+
+<?php 
+      //selcting available doc sessions for rescheduling
+      $rescheduledoc_id = $_SESSION['reschedule'];
+      unset($_SESSION['reschedule']);
+
+      $sqlReschedule = "SELECT * FROM tbl_docsession 
+                          INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+                          AND tbl_docsession.doctor_id = '$rescheduledoc_id'";
+
+      $resulReschedule = mysqli_query($conn,$sqlReschedule);
+
+?>
+
+
+<section id ="reshedule2" > 
+  <span class="overlay"></span>
+    <div class="modal-box" style="width:50%; height:75%;" >
+        <form action="" method="POST">
+            <h1> Book New Doctor Appointment</h1>
+            <div class="form-content" style="margin-left:-40px; margin-top:20px;">
+              <div class="form-itm">
+                <p>Doctor Name :</p>
+                <input id="doc_name" style="border:1px solid black" style="padding: 3px;" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Specialization :</p>
+                <input id="Specialization" style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Date :</p>
+                <input id="Date" style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Time :</p>
+                <input id="Time" style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Appointment No :</p>
+                <input id="Appointment" style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="buttons" style="margin-left:600px; Margin-top:-0px;">
+                <button class="modbutton close-btn">Close</button>
+              </div>
+        </div>
+        </form>
+    </div>
+</section>
 
 <section id ="reshedule1"> 
   <span class="overlay"></span>
@@ -223,6 +275,7 @@ section.active .modal-box {
             <h1> Reshedule Doctor Appointment</h1>
                 <table class="tbl-common" style="width:90%;">
                     <thead>
+
                       <tr>
                         <td style="width:25%;">Doctor Name</td>
                         <td style="width:14%;">Specialization</td>
@@ -230,19 +283,123 @@ section.active .modal-box {
                         <td style="width:25%;">Time</td>
                         <td style="width:20%;"></td>
                       </tr>
+
                     </thead>
+
                     <tbody>                    
-                      <tr>
-                        <td>Dr. Sepalika Mendis</td>
-                        <td>Cardiologist</td>
-                        <td>10/05/2023</td>
-                        <td>8.00 AM - 10.00 AM</td>
-                        <td>
-                          
-                            <p class="book-btn" onclick="openPopup2()"><span>Book Now</span></p>
-                          
-                        </td>
-                      </tr>
+                    <?php 
+                        //printing each row of doctor sessions
+                        while($rowReschedule= mysqli_fetch_assoc($resulReschedule)){
+                            if ($rowReschedule['no_of_appointment'] < 13 && $rowReschedule['status'] == 1){ 
+                              $session_id = $row['session_id'];
+                    ?>      
+                          <tr>
+                            <td><?php echo $rowReschedule['doc_name'] ?></td>
+                            <td><?php echo $rowReschedule['specialization'] ?></td>
+                            <td><?php echo $rowReschedule['date'] ?></td>
+                                      <?php
+                                          if($rowReschedule['time_slot']==0){
+                                              $time="8am-10am";   
+                                          }else if($rowReschedule['time_slot']==1){
+                                              $time='10am-12pm';
+                                          }else if($rowReschedule['time_slot']==2){
+                                              $time='12pm-2pm';
+                                          }else if($rowReschedule['time_slot']==3){
+                                              $time='2pm-4pm';
+                                          }else if($rowReschedule['time_slot']==4){
+                                              $time='4pm-6pm';
+                                          }else{   
+                                              $time='6pm-8pm';
+                                          } 
+                                      ?>                              
+                            <td><?php echo $time ?></td>
+
+                                  <?php // checking for appointment number and time for rescheduling
+
+                                          $sql = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
+
+                                          $result = mysqli_query($conn, $sql);
+
+                                          if ($result) {
+
+                                            //getting variables from database
+                                            $row = mysqli_fetch_assoc($result);
+                                            $timeslot = $row['time_slot'];
+                                            $noofapt = $row['no_of_appointment'];
+
+                                            //to find the timeslot
+                                            if ($timeslot == 0) {
+                                              $starttime = strtotime('08:00:00');
+                                            } else if ($timeslot == 1) {
+                                              $starttime = strtotime('10:00:00');
+                                            } else if ($timeslot == 2) {
+                                              $starttime = strtotime('12:00:00');
+                                            } else if ($timeslot == 3) {
+                                              $starttime = strtotime('14:00:00');
+                                            } else if ($timeslot == 4) {
+                                              $starttime = strtotime('16:00:00');
+                                            } else {
+                                              $starttime = strtotime('18:00:00');
+                                            }
+
+                                            //Code for available appointment number
+                                            $aptnosql = "SELECT docapt_id,docapt_no, docapt_status,my_other,docapt_flag FROM tbl_docappointment WHERE session_id ='$session_id'";
+                                            $aptnoresult = mysqli_query($conn,$aptnosql);
+                                            
+                                            if(mysqli_num_rows($aptnoresult) != 0){
+                                                  
+                                                    $flag = 0;
+                                                                    
+                                                    while ($aptnorow = mysqli_fetch_assoc($aptnoresult)) {
+                                                      
+                                                        for($i = 1; $i < 13; $i++){
+                                                          if($aptnorow['docapt_no'] == $i && $aptnorow['docapt_status'] == 2 && $aptnorow['docapt_flag']==0){
+                                                            $apt_no = $i;
+                                                            $flag= 1;
+                                                            $apt_id = $aptnorow['docapt_id'];
+                                                            $sqlupdateflag = "UPDATE tbl_docappointment
+                                                                                  SET docapt_flag ='1' 
+                                                                                  WHERE docapt_id = '$apt_id'";
+                                                            break;
+                                                          }
+                                                        }
+                                                      
+                                                      if($flag == 1){
+                                                        break;
+                                                      }
+                                                    }
+
+                                                    if($flag == 0){
+                                                      $apt_no = $noofapt + 1;
+                                                    }  
+
+                                            } else {
+                                                $apt_no = 1;
+                                            }         
+
+                                            //code for appointment time
+                                            $apt_dur = 600;
+                                            $apt_time = $starttime + (($apt_no-1) * $apt_dur);
+                                            $apt_time_format = date('h:i A', $apt_time);
+                                          }
+                                  ?>
+
+                            <td>
+                                
+                                <p class="book-btn" onclick="
+                                document.getElementById('doc_name').value ='<?php echo $rowReschedule['doc_name'] ?>' ;
+                                document.getElementById('Specialization').value ='<?php echo $rowReschedule['specialization'] ?>' ;
+                                document.getElementById('Date').value ='<?php echo $rowReschedule['date'] ?>' ;
+                                document.getElementById('Time').value ='<?php echo $apt_time_format ?>' ;
+                                document.getElementById('Appointment').value ='<?php echo $apt_no ?>' ;
+                                openPopup2()"><span>Book Now</span></p>
+                              
+                            </td>
+                    <?php 
+                          }
+                        }
+                    ?>    
+                          </tr>
                     </tbody>
                 </table>
 
@@ -253,44 +410,7 @@ section.active .modal-box {
     </div>
 </section>
 
-<section id ="reshedule2" > 
-  <span class="overlay"></span>
-    <div class="modal-box" style="width:50%; height:75%;" >
-        <form action="" method="POST">
-            <h1> Book New Doctor Appointment</h1>
-            <div class="form-content" style="margin-left:-40px; margin-top:20px;">
-              <div class="form-itm">
-                <p>Doctor Name :</p>
-                <input style="border:1px solid black" style="padding: 3px;" type="text" value="" readonly>
-              </div>
 
-              <div class="form-itm">
-                <p>Specialization :</p>
-                <input style="border:1px solid black" type="text" value="" readonly>
-              </div>
-
-              <div class="form-itm">
-                <p>Date :</p>
-                <input style="border:1px solid black" type="text" value="" readonly>
-              </div>
-
-              <div class="form-itm">
-                <p>Time :</p>
-                <input style="border:1px solid black" type="text" value="" readonly>
-              </div>
-
-              <div class="form-itm">
-                <p>Appointment No :</p>
-                <input style="border:1px solid black" type="text" value="" readonly>
-              </div>
-
-              <div class="buttons" style="margin-left:600px; Margin-top:-0px;">
-                <button class="modbutton close-btn">Close</button>
-              </div>
-        </div>
-        </form>
-    </div>
-</section>
 
 <script>
   function openPopup() {
@@ -315,6 +435,7 @@ overlay.addEventListener("click", closePopup);
 
 
   function openPopup2() {
+    
 
     const section2 = document.getElementById("reshedule2");
     section2.classList.add("active");
@@ -329,7 +450,3 @@ overlay.addEventListener("click", closePopup);
 
 
 
-<?php 
-    
-
-?>

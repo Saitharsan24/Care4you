@@ -5,6 +5,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.buttons{
+  margin-left:720px;
+}
 
 .modbutton {
   width: 100px;
@@ -63,19 +66,27 @@ section.active .overlay {
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
-  transform: translate(-50%, -50%) scale(1.2);
+  transform: translate(-65%, -50%) scale(1.2);
   
 }
 
 section.active .modal-box {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-65%, -50%) scale(1);
 }
 
 .modal-box i.fa-solid.fa-sack-dollar {
   font-size: 70px;
   color: #0e6680;
+}
+
+.modal-box h1 {
+  margin-top: 30px;
+  margin-left: 50px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
 }
 
 .modal-box h2 {
@@ -113,32 +124,181 @@ section.active .modal-box {
   outline: 0;
 }
 
+.search-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-bottom: 20px;
+    color: #093e4e;
+    font-weight: 600;
+    align-items: center;
+}
+
+.apt-heading {
+    font-size: 25px;
+    margin: 30px 0px 20px 80px;
+    color: #093e4e;
+}
+
+.search-row select {
+    width: 350px;
+    border-radius: 10px;
+    margin-left: 20px;
+    font-size: 16px;
+    border: none;
+    padding: 8px;
+}
+
+.search-row input {
+    width: 350px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    padding: 8px;
+}
+
+.search-row input:focus {
+    outline: none;
+}
+
+.search-row select:focus {
+    outline: none;
+}
+
+.tbl-common{
+  margin-left: 40px;
+  /* width: 100%; */
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  font-size: 15px;
+}
+  
+.tbl-common tr{
+  background-color: #ffffff;
+}
+
+.tbl-common thead{
+  position: sticky;
+  top: 0; /* set the table heading to be fixed */
+  z-index: 1; /* set a higher z-index to show the heading above the content */
+}
+
+.tbl-common thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-common td{
+  background-color: #D4FAFC;
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 10px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-common td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-common td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+
 </style>
 
-<section> 
+
+<section id ="reshedule1"> 
   <span class="overlay"></span>
 
     <div class="modal-box">
         
         <form action="" method="POST">
           
-            <h2> Reshedule Doctor Appointment</h2>
-            
+            <h1> Reshedule Doctor Appointment</h1>
+                <table class="tbl-common" style="width:90%;">
+                    <thead>
+                      <tr>
+                        <td style="width:25%;">Doctor Name</td>
+                        <td style="width:14%;">Specialization</td>
+                        <td style="width:16%;">Date</td>
+                        <td style="width:25%;">Time</td>
+                        <td style="width:20%;"></td>
+                      </tr>
+                    </thead>
+                    <tbody>                    
+                      <tr>
+                        <td>Dr. Sepalika Mendis</td>
+                        <td>Cardiologist</td>
+                        <td>10/05/2023</td>
+                        <td>8.00 AM - 10.00 AM</td>
+                        <td>
+                          
+                            <p class="book-btn" onclick="openPopup2()"><span>Book Now</span></p>
+                          
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
 
             <div class="buttons">
             <button class="modbutton close-btn">Close</button>
-            <button class="modbutton" type="submit" name="update_charge"  style="background-color: #008000; color: #fff;">Update</button>
             </div>
         </form>
+    </div>
+</section>
 
+<section id ="reshedule2" > 
+  <span class="overlay"></span>
+    <div class="modal-box" style="width:50%; height:75%;" >
+        <form action="" method="POST">
+            <h1> Book New Doctor Appointment</h1>
+            <div class="form-content" style="margin-left:-40px; margin-top:20px;">
+              <div class="form-itm">
+                <p>Doctor Name :</p>
+                <input style="border:1px solid black" style="padding: 3px;" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Specialization :</p>
+                <input style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Date :</p>
+                <input style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Time :</p>
+                <input style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="form-itm">
+                <p>Appointment No :</p>
+                <input style="border:1px solid black" type="text" value="" readonly>
+              </div>
+
+              <div class="buttons" style="margin-left:600px; Margin-top:-0px;">
+                <button class="modbutton close-btn">Close</button>
+              </div>
+        </div>
+        </form>
     </div>
 </section>
 
 <script>
   function openPopup() {
-    const section = document.querySelector("section");
+    const section = document.getElementById("reshedule1");
     section.classList.add("active");
   }
+
+  
 
   const overlay = document.querySelector(".overlay"),
     closeBtn = document.querySelector(".close-btn");
@@ -150,7 +310,24 @@ section.classList.remove("active");
 
 closeBtn.addEventListener("click", closePopup);
 overlay.addEventListener("click", closePopup);
+
+
+
+
+  function openPopup2() {
+
+    const section2 = document.getElementById("reshedule2");
+    section2.classList.add("active");
+    const section = document.getElementById("reshedule1");
+    section.classList.remove("active");
+   
+    
+  }
+
 </script>
+
+
+
 
 <?php 
     

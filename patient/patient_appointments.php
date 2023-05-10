@@ -15,39 +15,23 @@
     
     $result = mysqli_query($conn,$sql);
     
-    // Create an array to store the events
-    $appointments = [];
+    $appointments = []; // Array to store the formatted appointment data
 
     // Fetch appointments from the database
-
-    // Iterate through the result set and convert data into FullCalendar event format
-    while ($row = mysqli_fetch_assoc($result)) {
+    // Assuming you have retrieved the appointments from your tables
+    foreach ($result as $appointmentData) {
+      $appointments[] = [
+        'id' => $appointmentData['docapt_no'], // Add the ID of the appointment
+        'title' => $appointmentData['doc_name'],
+        'start' => $appointmentData['date'],
+        'time' => $appointmentData['docapt_time'],
+        'color' => '#FF0000', // Add the desired color for the event
     
-        // Combine appointment date and time into a single datetime string
-        $startDateTime = $row['date'] . ' ' . $row['docapt_time'];
+  ];
 
-        //adding title
-        $title = 'Dooctor appointment - Appointment no: '.$row['docapt_no'];
+  $appointmentsJson = json_encode($appointments);
+}
 
-        $appointment = [
-            'id' => $row['docapt_id'],
-            'title' => $title,
-            'start' => $startDateTime,
-            'extendedProps' => [
-                'appointmentNumber' => $row['docapt_no'],
-                'personName' => $row['doc_name']
-            ],
-            'color' => '#FF0000' // Set a custom color for the event
-        ];
-
-        // Add additional properties as needed
-        // $event['color'] = '#ff0000'; // Set a custom color
-
-        $appointments[] = $appointment;
-    }
-  
-    // Convert the events array to JSON format
-    //$eventsJson = json_encode($events);
 ?>
 
 <!DOCTYPE html>
@@ -62,42 +46,42 @@
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
     <script>
-          
           document.addEventListener('DOMContentLoaded', function() {
-              var calendarEl = document.getElementById('calendar');
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+              events: <?php echo $appointmentsJson; ?>,
+              eventClick: function(info) {
+                // Retrieve the event data
+                var event = info.event;
+                var eventId = event.id;
+                var eventTitle = event.title;
+                var eventStart = event.start;
+                var eventColor = event.color;
+                var eventTime = event.extendedProps.time; // Retrieve the additional property: description
 
-               var appointments = <?php echo json_encode($appointments); ?>;
+                // Create the event details HTML content
+                var eventDetailsHTML = '<h2>' + eventTitle + '</h2>' +
+                  '<p><strong>Start:</strong> ' + eventStart + '</p>' +
+                  '<p><strong>Description:</strong> ' + eventTime + '</p>';
 
-              var events = appointments.map(function(appointment) {
-                return {
-                  id: appointment.id,
-                  title: appointment.title,
-                  start: appointment.start_date,
-                  end: appointment.end_date,
-                  // Additional event properties
-                  appointmentNumber: appointment.appointment_number,
-                  personName: appointment.person_name,
-                  color: appointment.color
-                };
-              });
+                // Show the popup with event details
+                var popup = document.getElementById('event-details-popup');
+                var popupContent = document.getElementById('event-details-content');
+                popupContent.innerHTML = eventDetailsHTML;
+                popup.style.display = 'block';
 
-              var calendar = new FullCalendar.Calendar(calendarEl, {
-              // Other options and settings...
-                events: appointments,
-                validRange: function(nowDate) {
-                  return {
-                  start: nowDate // Start from the current date
-                  };
-                },
-              });
-              
-          calendar.render();
+                // Prevent the default behavior (e.g., navigating to event URL)
+                info.jsEvent.preventDefault();
+              }
+            });
+            calendar.render();
           });
 
     </script>
 
     <style>
-      .popup {
+            .popup {
         position: fixed;
         top: 50%;
         left: 50%;
@@ -108,9 +92,6 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         z-index: 9999;
         display: none;
-      }
-      .fc-event {
-        cursor: pointer;
       }
     </style>
 
@@ -131,9 +112,9 @@
           <a href="./patient_home.php">Home</a>
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
-          <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_doctorlist.php">Doctors</a>
-          <a href="#">Profile</a>
+          <a href="./patient_medicalrecords.php">Medical records</a>
+          <a href="./patient_doctorlist.php">View doctors</a>
+          <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>

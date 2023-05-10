@@ -2,6 +2,30 @@
 <?php include('../login_access.php') ?>
 
 
+
+<?php 
+//Redirection from javascript to clear tentative booking
+
+    if(isset($_GET['cancelId'])){
+
+      $clear_apt = $_GET['cancelId'];
+      //print_r('hi'.$clear_apt);die();
+      
+      $sqlclear = "DELETE FROM tbl_docappointment WHERE docapt_id = '$clear_apt' ";
+      $resultClear = mysqli_query($conn, $sqlclear);
+
+      if($resultClear){
+
+        unset($_SESSION['cleardocapt']);
+        header('location:'.SITEURL.'patient/patient_docappointments.php');
+      }
+
+    }
+?>
+
+
+
+
 <?php
     date_default_timezone_set("Asia/Calcutta");
 
@@ -84,7 +108,8 @@
 
                 if (timeInSeconds <= 0) {
                     clearInterval(countdownInterval);
-                    countdownElement.innerHTML = "Countdown Finished";
+                    <?php $_SESSION['cleardocapt'] = $lastId; ?>
+                    window.location = "http://localhost/Care4you/patient/patient_bookdoc2.php?cancelId=<?php echo $lastId ?>";
                 }
 
                 timeInSeconds--;

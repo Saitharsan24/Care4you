@@ -190,6 +190,10 @@ if ($result) {
   
     if(isset($_POST['next'])){
 
+        //deleting if there is any appointment is pending in the database
+        
+
+
         //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];
 

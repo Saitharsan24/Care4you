@@ -18,7 +18,7 @@
                 $result = mysqli_query($conn, $query);
                 $row = mysqli_fetch_array($result);
                 $email=$row['email'];
-                $message="dshbuybfuybufyb";   
+                $message="dshbuybfuybufyb " ;   
      
 //                 $query_1="SELECT tbl_docsession.session_id, tbl_docsession.date, tbl_docsession.time_slot, tbl_docsession.room_no, tbl_docsession.assistant_id, tbl_doctor.doc_name, tbl_doctor.contact_number, tbl_doctor.slmc_number, tbl_doctor.charge 
 // FROM tbl_docsession 
@@ -35,7 +35,7 @@
                 $mail = new PHPMailer(true);
 
                 try {
-                  
+                   
                     //Server settings
                     $mail->isSMTP();                                     //Send using SMTP
                     $mail->Host       = 'smtp.gmail.com';                //Set the SMTP server to send through
@@ -53,11 +53,12 @@
                     $mail->isHTML(true);                                  //Set email format to HTML
                     $mail->Subject = 'Session Confirmation';
                     $mail->Body    = 'Your OTP code for password reset is:';
-                
                     $mail->send();
-                    
+                   
                     echo 'Message has been sent';
 
+
+                    
                     
                     // Redirect the user to the OTP verification page
                     header('location:'.SITEURL.'.admin/admin-session-view.php');

@@ -29,16 +29,6 @@
       $p_nic = $row['pat_nic'];
     }
 
-    if($row['docapt_status']==0){
-          $doc_status = "Payment pending";
-    }elseif($row['docapt_status']==1){
-          $doc_status = "Confirmed";
-    }elseif($row['docapt_status']==2){
-          $doc_status = "Cancelled";
-    }else{
-          $doc_status = "Completed";
-    }
-
 ?>
 
 <!DOCTYPE html>
@@ -93,14 +83,14 @@
           <div>
                   <?php 
 
-                      if($row['docapt_status']==0){
-                          echo ' '.'<button class="order-st00">Payment Pending</button>';
-                      } elseif($row['docapt_status']==1){
-                          echo ' '.'<button class="order-st01">Confirmed</button>';
+                      if($row['docapt_status']==1){
+                          echo ' '.'<button class="docapt-st01">Confirmed</button>';
                       } elseif($row['docapt_status']==2){
-                          echo ' '.'<button class="order-st02"">Cancelled</button>';   
+                          echo ' '.'<button class="docapt-st02">Cancelled</button>';
+                      } elseif($row['docapt_status']==3){
+                          echo ' '.'<button class="docapt-st03"">Completed</button>';   
                       } else{
-                          echo ' '.'<button class="order-st04">Completed</button>';
+                          echo ' '.'<button class="docapt-st04">Not attended</button>';
                       }
                   
                   ?>
@@ -108,9 +98,17 @@
           </div>
           <div class="view-details-row">Total Amount :<div><?php echo 'Rs.'.$row['net_total'] ?></div></div>
             <div class="view-apt-btn">
-              <div class="view-apt-btn01"><button>Cancel appointment</button></div>
-              <div class="view-apt-divider"></div>
-              <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule appointment</button></div>
+                      
+              <?php 
+              if($row['docapt_status']==1){
+              ?> 
+                  <div class="view-apt-btn01"><button>Cancel appointment</button></div>
+                  <div class="view-apt-divider"></div>
+                  <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule appointment</button></div>
+              <?php
+              }
+              ?>
+              
             </div>
         </div>
       </div>

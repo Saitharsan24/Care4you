@@ -40,6 +40,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin-view-patient.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
@@ -54,7 +56,7 @@
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php"><div class="highlighttext">Patient</div></a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-doc-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>

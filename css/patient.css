@@ -546,14 +546,10 @@ input:focus {
 .apt-btn-css {
     height: 50px;
     width: 120px;
-    margin-right: 35px;
+    margin-right: 35px;    
 }
 
-.apt-btn-space {
-    width: 50px;
-}
-
-.apt-btn button {
+.apt-btn-css button{
     height: 40px;
     width: 120px;
     background: #0C5C75;
@@ -563,6 +559,32 @@ input:focus {
     color: white;
     border: none;
 }
+
+
+
+.apt-btn-space {
+    width: 50px;
+}
+
+.apt-btn-book2 p{
+    font-size: 20px;
+    font-weight: 550;
+    color: #093e4e;
+    margin: 5px 25px 0px 0px;
+    
+}
+
+
+/* .apt-btn button {
+    height: 40px;
+    width: 120px;
+    background: #0C5C75;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    border: none;
+} */
 
 
 .apt-btn button:hover {
@@ -592,14 +614,14 @@ input:focus {
 .form-bottom-text {
     font-weight: 600;
     color: #093e4e;
-    margin: 0px 0px 0px 250px;
+    margin: 20px 0px 0px 250px;
     font-size: 20px;
 }
 
 .book2-heading {
     font-size: 25px;
     color: #093e4e;
-    margin: 10px 0px 20px 100px;
+    margin: 10px 0px 40px 100px;
 }
 
 .switch {
@@ -1975,6 +1997,29 @@ input::-webkit-file-upload-button {
     border: 2px solid #0D5C75;
 }
 
+.docpre-containor-empty{
+    padding: 10px;
+    text-align: center; 
+    margin: 0 200px 0 0;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    border-radius: 25px;
+    background: linear-gradient(to top, #ffffff, #fff);
+    height: 35vh;
+    border: 2px solid #0D5C75;
+}
+
+.docpre-containor-empty{
+    color: #BD1010;
+}
+
+.docpre-containor-empty p{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 90px 0 0 240px
+}
+
 .container-row {
     display: flex;
 }
@@ -2139,28 +2184,55 @@ input::-webkit-file-upload-button {
 
 /* docprescriptions.php ends here */
 
-/* makelabappointment.php starts here */
-
-.ortext{
-    margin-left: 470px;
-    margin-top: -20px;
-    font-size: 20px;
-    font-weight: 700;
-    color: #0D5C75;
+/* View doc apt statuses */
+.docapt-st01{
+width: 175px;
+width: 150px;
+background-color: #28ae28;
+padding: 5px;
+padding-left: 10px;
+padding-right: 10px;
+border-radius: 10px;
+border: 1px solid #ccc;
+color: #ffffff;
+font-weight: 550;
 }
 
-.testselect{
-    width: 345px;
-    padding: 2px;
-    border-radius: 5px;
-    font-size: 14px;
-    outline: none;
-    border: 0px;
-    height: 40px;
-  }
+.docapt-st02{
+    width: 175px;
+    width: 150px;
+    background-color: #BD1010;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+    }
 
-#test_name  option:first-child {
-    font-size: 10px;
-  }  
+.docapt-st03{
+    width: 175px;
+    width: 150px;
+    background-color:#093e4e;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+}
 
-/* makelabappointment.php ends here */
+.docapt-st04{
+    width: 175px;
+    width: 150px;
+    background-color: #eca3a3;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000000;
+    font-weight: 550;
+}

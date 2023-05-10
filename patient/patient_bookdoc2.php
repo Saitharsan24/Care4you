@@ -2,11 +2,39 @@
 <?php include('../login_access.php') ?>
 
 
+
+<?php 
+//Redirection from javascript to clear tentative booking
+
+    if(isset($_GET['cancelId'])){
+
+      $clear_apt = $_GET['cancelId'];
+      //print_r('hi'.$clear_apt);die();
+      
+      $sqlclear = "DELETE FROM tbl_docappointment WHERE docapt_id = '$clear_apt' ";
+      $resultClear = mysqli_query($conn, $sqlclear);
+
+      if($resultClear){
+
+        unset($_SESSION['cleardocapt']);
+        header('location:'.SITEURL.'patient/patient_docappointments.php');
+      }
+
+    }
+?>
+
+
+
+
 <?php
+    date_default_timezone_set("Asia/Calcutta");
+
+  
 
     //getting data from URL 
     $session_id = $_GET['id'];
     $my_other = $_GET['myother'];
+    $lastId = $_GET['lastid'];
 
     //retrieving session variables
     $apt_time_format = $_SESSION['apt_time'];
@@ -31,18 +59,29 @@
       }
     }
 
-    //getting registered patient details from the database
+    //getting doctor details from the database
     $sql1 = "SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id AND session_id = '$session_id'";
     $result1 = mysqli_query($conn, $sql1);
 
+    //getting doctor details from the database
+    $sql2 = "SELECT * FROM tbl_docappointment WHERE docapt_id = '$lastId'";
+    $result2 = mysqli_query($conn,$sql2);
+
     //fetching data from doct table
-    if($result1){
+    if($result2){
       $row1 = mysqli_fetch_assoc($result1);
-      
+      $row2 = mysqli_fetch_assoc($result2);
+      $current_time =strtotime(date("y-m-d H:i:s"));
+      $created_date = strtotime($row2['created_at']);
+
+      // print_r($row2['created_at']);die();
       $doc_fee = $row1['charge'];
     }
 
     $booking_fee= 500;
+
+    
+
 ?>
 
 
@@ -56,6 +95,28 @@
     <link rel="stylesheet" href="../css/patient.css" />
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>     
+    <script>
+      window.onload = function() {
+            var countdownElement = document.getElementById("countdown");
+            var timeInSeconds = <?php echo ($created_date + 600) - $current_time?>; // 10 minutes = 10 * 60 seconds
+
+            var countdownInterval = setInterval(function() {
+                var minutes = Math.floor(timeInSeconds / 60);
+                var seconds = timeInSeconds % 60;
+
+                countdownElement.innerHTML = minutes + "m " + seconds + "s";
+
+                if (timeInSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    <?php $_SESSION['cleardocapt'] = $lastId; ?>
+                    window.location = "http://localhost/Care4you/patient/patient_bookdoc2.php?cancelId=<?php echo $lastId ?>";
+                }
+
+                timeInSeconds--;
+            }, 1000); // Update every second (1000ms)
+        };
+    </script>
+
 </head>
 
   <body>
@@ -162,17 +223,15 @@
                   </div>
 
                   <div class="apt-btn form-set-btn">
-            
-                    <div class="apt-btn-css">
-                      <a href="./patient_docappointments.php"><button type="submit" name="paylater">Pay Later</button></a>
+
+                    <div class="apt-btn-book2">
+                      <p id="countdown">00:00</p>
                     </div>
-
-                    <div class="apt-btn-space"></div>
-
+                  
                     <div class="apt-btn-css">
-                      <a href=""><button>Pay Now</button></a>
+                      <a href="./patient_docappointments.php"><button type="submit" name="paylater">Pay</button></a>
                     </div>
-
+                              
                   </div>
 
               </form>
@@ -198,11 +257,14 @@
         
         //inserting into doc appointment table
         $net_total = $booking_fee + $doc_fee;
-        
-        $sqlinsert = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,created_by,my_other,net_total)
-                        VALUES ('$session_id','$apt_time_format','$apt_no','0','$user_id','$my_other','$net_total')";
+      
+        $aptsqlupdate = "UPDATE tbl_docappointment 
+                          SET net_total = '$net_total',
+                              docapt_status = 1
+                          WHERE
+                              docapt_id = '$lastId'";
 
-        $insertresult = mysqli_query($conn,$sqlinsert);
+        $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
                 
         //updating no of patient in docsession table
         $new_no_of_apt = $row1['no_of_appointment'] + 1;
@@ -213,7 +275,7 @@
 
         $updateresult = mysqli_query($conn,$sqlupdate);
         
-        if($insertresult && $updateresult){
+        if($aptupdateresult && $updateresult){
             
             header('location:'.SITEURL.'patient/patient_docappointments.php');
 
@@ -237,10 +299,17 @@
           $p_nic = $_POST['nic'];
           $relationship = $_POST['relationship'];
 
-          $sqlinsert = "INSERT INTO tbl_docappointment (pat_name,relationship,pat_nic,pat_contact,net_total)
-                          VALUES ('$p_name','$relationship','$p_nic','$p_contact','$net_total')";
+          $aptsqlupdate = "UPDATE tbl_docappointment 
+                            SET pat_name = '$p_name',
+                                relationship = '$relationship',
+                                pat_nic = '$p_nic',
+                                pat_contact = '$p_contact',
+                                net_total = '$net_total',
+                                docapt_status = 1
+                            WHERE
+                                docapt_id = '$lastId'";
         
-          $insertresult = mysqli_query($conn,$sqlinsert);
+          $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
                        
           //updating no of patient in docsession table
           $new_no_of_apt = $row1['no_of_appointment'] + 1;
@@ -253,7 +322,7 @@
 
           //upda
                
-          if($insertresult && $updateresult){
+          if($aptupdateresult && $updateresult){
                    
             echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
 

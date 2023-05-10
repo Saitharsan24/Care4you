@@ -213,10 +213,6 @@ body{
   background-color: #ffffff;
 }
 
-.search_1{
-  background-color: #ffffff ;
-}
-
 .tbl-main-patient thead td{
   color: #0D5C75;
   font-weight: 700;
@@ -241,8 +237,7 @@ body{
   border-radius: 0 10px 10px 0;
 }
 
-
-.search-patient{
+.search-order{
   width: 80%;
   padding: 7px 22px;
   margin: 8px 0;
@@ -250,12 +245,12 @@ body{
  
 }
 
-.search-patient::placeholder {
+.search-order::placeholder {
   color: rgb(0, 0, 0);
   font-size: 10px;
   font-style: italic;
 }
-
+  
 
 .to-reg-patient-page{
   position: absolute;
@@ -291,153 +286,3 @@ body{
   cursor: pointer;
 }
 /* admin-patient-view.php page end here */
-
-
-/* admin-patient-view-detail.php page start here*/
-
-.container-row {
-  margin-left: -25px;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.container01 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 6%;
-  margin-bottom: auto;
-  margin-left: auto;
-  width: 30vh;
-  height: 30vh;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  border: 1px solid #888888;
-  padding: 10px;
-  box-shadow: 2px 5px #888888;
-  position: relative;
-  z-index: 2;
-}
-
-.container02 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-  margin-bottom: auto;
-  margin-left: -10%;
-  margin-right: auto;
-  width: 50%;
-  height: 70vh;
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  border: 1px solid #888888;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
-  position: relative;
-  z-index: 1;
-}
-
-.tbl-patientview{
-  margin-left: -120px;
-  width: 110%;
-  table-layout: fixed;
-  text-align: center;
-  vertical-align: middle;
-  border-collapse: separate;
-}
-
-.tbl-patientview td {
-  padding: 5px;
-  text-align: center;
-  vertical-align: middle;
-  /* border: 1px solid #000; */
-}
-
-.tbl-patientview td.typeR{
-  width: 35%;
-  font-size: 14px;
-  font-weight: 550;
-  color: #0D5C75;
-  text-align: right;
-}
-
-.tbl-patientview td.typeL{
-  width:65%;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: left;
-  background-color: #ccc;
-  border-radius: 25px;
-}
-
-.tbl-patientview td.typeC{
-  width: 100%;
-  padding-bottom: 15px;
-  padding-left: 150px;
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-  color: #0D5C75;
-}
-
-/* edit button */
-
-.btn-edit-patient-detail {
-  border-radius: 15px;
-  background-color: #0D5C75;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 5px;
-  width: 120px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-}
-
-.btn-edit-patient-detail:hover{
-  background-color: #083746;
-}
-
-/* activate/disable button */
-
-.btn-activate {
-  border-radius: 15px;
-  background-color: #0C7516;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 5px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-}
-
-.btn-activate:hover{
-  background-color: #0f6018;
-}
-
-.btn-disable {
-  border-radius: 15px;
-  background-color: #BD1010;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  padding: 5px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  font-weight: 500;
-}
-
-.btn-disable:hover{
-  background-color: #760d0d;
-}
-
-/* admin-patient-view-detail.php page end here*/

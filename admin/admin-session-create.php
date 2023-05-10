@@ -69,7 +69,7 @@
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php"><div class="highlighttext">Sessions</div></a></li>
                 <li><a href="admin-patient-view.php">Patient</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-doc-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
@@ -82,11 +82,11 @@
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="" method="POST">
+                            <form action="admin-session-mail-pop.php" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>
-                                    <div class="#">
+                                    <div class="doc-id-option">
                                     <?php
                                     if($result_1){
                                         echo "Doctor ID:"; 

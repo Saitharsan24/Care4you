@@ -68,13 +68,15 @@
       <script>
         $(document).ready(function(){
           $("#date-input").change(function(){
+            var date_sel = $(this).val();
             var doc_name = $("#doc_name").val();
-            var date_sel =$(this).val();
+            var specializations =$("#specialization-select").val();
             $.ajax({
               url: './search_Ajax/ajax.php',
               type: 'post',
               data: {docid: doc_name,
-              dates: date_sel},
+              dates: date_sel,
+            spec_doc: specializations},
               success: function(response){
                             console.log(response);
                             $( "#here" ).load(window.location.href + " #here" );

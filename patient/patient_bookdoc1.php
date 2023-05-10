@@ -2,6 +2,17 @@
 <?php include('../login_access.php') ?>
 
 
+
+<?php //DELETING IF THERE IS ANY PENDING BOOKING
+
+    $sqlclear = "DELETE FROM tbl_docappointment WHERE docapt_status = 0";
+    $resultClear = mysqli_query($conn, $sqlclear);
+    
+?>
+
+
+
+
 <?php
   date_default_timezone_set("Asia/Calcutta");
 
@@ -192,8 +203,6 @@ if ($result) {
 
         //deleting if there is any appointment is pending in the database
         
-
-
         //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];
 

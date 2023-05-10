@@ -548,6 +548,15 @@ input:focus {
     margin-right: 35px;    
 }
 
+.stripe-button-el:active span{
+    display: block; 
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    background-color: #093e4e;
+
+}
+
 .apt-btn-css button{
     height: 40px;
     width: 120px;
@@ -1537,7 +1546,7 @@ input::-webkit-file-upload-button {
 }
 
 .order-st02{
-    background-color: #90EE90;
+    background-color: #28ae28;
     width: 175px;
     width: 150px;
     padding: 5px;
@@ -1563,7 +1572,7 @@ input::-webkit-file-upload-button {
 }
 
 .order-st04{
-    background-color: #0C7516;
+    background-color: #093e4e;
     width: 175px;
     width: 150px;
     padding: 5px;
@@ -1586,7 +1595,7 @@ input::-webkit-file-upload-button {
 .view-order-details{
     border-radius: 15px;
     background: white;
-    height: 475px;
+    height: 560px;
     width: 500px;
     margin: 30px 0px 0px 200px;
     display: flex;

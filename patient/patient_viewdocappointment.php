@@ -75,11 +75,11 @@
           <div class="view-details-row">Doctor Name :<div><?php echo $row['doc_name'] ?></div></div>
           <div class="view-details-row">Date :<div><?php echo $row['date'] ?></div></div>
           <div class="view-details-row">Appointment No :<div><?php echo $row['docapt_no'] ?></div></div>
-          <div class="view-details-row">Appointment time :<div><?php echo $row['docapt_time'] ?></div></div>
+          <div class="view-details-row">Appointment Time :<div><?php echo $row['docapt_time'] ?></div></div>
           <div class="view-details-row">Room No :<div><?php echo $row['room_no'] ?></div></div>
-          <div class="view-details-row">Patient name :<div><?php echo $p_name ?></div></div>
+          <div class="view-details-row">Patient Name :<div><?php echo $p_name ?></div></div>
           <div class="view-details-row">NIC No :<div><?php echo $p_nic ?></div></div>
-          <div class="view-details-row">Session status :
+          <div class="view-details-row">Session Status :
           <div>
                   <?php 
 
@@ -102,9 +102,9 @@
               <?php 
               if($row['docapt_status']==1){
               ?> 
-                  <div class="view-apt-btn01"><button>Cancel appointment</button></div>
+                  <div class="view-apt-btn01"><button onclick="opencancelPopup()">Cancel Appointment</button></div>
                   <div class="view-apt-divider"></div>
-                  <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule appointment</button></div>
+                  <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule Appointment</button></div>
               <?php
               }
               ?>

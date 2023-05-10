@@ -107,6 +107,7 @@ body {
     background-color: #F7F7F7;
     padding-left: 2%;
     padding-right: 3%;
+    border-radius: 25px;
 }
 
 .error {
@@ -116,7 +117,7 @@ body {
     background-color: #F7F7F7;
     padding-left: 2%;
     padding-right: 3%;
-    border-radius: 10%;
+    border-radius: 25px;
 }
 
 /*Signout Button CSS */
@@ -1023,6 +1024,10 @@ input::-webkit-file-upload-button {
     border-radius: 0 10px 10px 0;
 }
 
+.tbl-mydocapp td.nosessiontd:first-child, th:first-child {
+    border-radius: 10px 10px 10px 10px;
+}
+
 .btn-yellow{
     width: 150px;
     background-color: #d7ad16;
@@ -1522,7 +1527,7 @@ input::-webkit-file-upload-button {
 .order-st00{
     width: 175px;
     width: 150px;
-    background-color: #FDD147;
+    background-color: #FAEAB1;
     padding: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -1533,7 +1538,7 @@ input::-webkit-file-upload-button {
 }
 
 .order-st01{
-    background-color: #F48484;
+    background-color: #FDD147;
     width: 175px;
     width: 150px;
     padding: 5px;
@@ -1546,7 +1551,7 @@ input::-webkit-file-upload-button {
 }
 
 .order-st02{
-    background-color: #28ae28;
+    background-color: #0C7516;
     width: 175px;
     width: 150px;
     padding: 5px;
@@ -1559,7 +1564,20 @@ input::-webkit-file-upload-button {
 }
 
 .order-st03{
-    background-color: #BD1010;
+    background-color: #FFA07A;
+    width: 175px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
+}
+
+.order-st04{
+    background-color: #2196F3;
     width: 175px;
     width: 150px;
     padding: 5px;
@@ -1571,8 +1589,8 @@ input::-webkit-file-upload-button {
     font-weight: 550;
 }
 
-.order-st04{
-    background-color: #093e4e;
+.order-st05{
+    background-color: #BD1010;
     width: 175px;
     width: 150px;
     padding: 5px;

@@ -206,7 +206,7 @@
                 $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php?id=" . $order_id . "';</script>";
 
             }
             else{
@@ -219,7 +219,7 @@
                 $_SESSION['id'] = $order_id;
                 //Redirect to the pharmacy_respond.php page
                 //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php?id=" . $order_id . "';</script>";
 
             }
 
@@ -234,7 +234,7 @@
             $_SESSION['id'] = $order_id;
             //Redirect to the pharmacy_respond.php page
             //header("location:".SITEURL.'pharmacy/pharmacy_respond.php');
-            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";            
+            echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php?id=" . $order_id . "';</script>";            
         }
     }
 ?>

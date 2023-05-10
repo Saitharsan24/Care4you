@@ -42,7 +42,7 @@
         </div>
 
         <div class="tbl-content">
-        <table class="tbl-mydocapp tbl-mylabapp">
+        <table class="tbl-mydocapp" style="width: 68%;margin-left: 65px;margin-right: auto;border-collapse: separate;border-spacing: 0 15px;">
         <thead>
             <tr>
                 <td>Reference No</td>

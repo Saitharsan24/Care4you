@@ -1,5 +1,5 @@
-
-<?php include('../config/constants.php')?>
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
 <?php 
         // displaying First name and nic from database
         $user_id = $_SESSION['user_id'];
@@ -8,7 +8,9 @@
         $result = mysqli_query($conn, $query);
     
         $row = $result -> fetch_assoc();
-        $p_name = $row['first_name'];
+        $f_name = $row['first_name'];
+        $l_name = $row['last_name'];
+        $p_name = $f_name . " " . $l_name;;
         $p_nic = $row['nic'];
 ?>
 

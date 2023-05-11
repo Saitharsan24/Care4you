@@ -294,30 +294,30 @@ body{
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #000;
+  color: #ffffff;
   font-weight: 550;
 }
 
 .btn-ppending{
   width: 150px;
-  background-color: #FDD147;
+  background-color: #bcf10c;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #000;
+  color: #ffffff;
   font-weight: 550;
 }
 .btn-confirmed{
   width: 150px;
-  background-color: #1aff1e;
+  background-color: #28ae28;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #000;
+  color: #ffffff;
   font-weight: 550;
 }
 .btn-dispatch{
@@ -328,31 +328,31 @@ body{
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #000;
+  color: #ffffff;
   font-weight: 550;
 }
 
 .btn-deliver{
   width: 150px;
-  background-color: #030582;
+  background-color: #093e4e;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #000;
+  color: #ffffff;
   font-weight: 550;
 }
 
 .btn-cancelled{
   width: 150px;
-  background-color: #fd4747;
+  background-color: #BD1010;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #000;
+  color: #ffffff;
   font-weight: 550;
 }
 /* admin-order-view.php page end here */

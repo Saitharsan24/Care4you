@@ -39,7 +39,7 @@
             $res1 = mysqli_query($conn, $sql);
 
         if($res1){
-            header("Location: /Care4you/admin/admin-session-view.php");
+            header("Location: /Care4you/admin/admin-session-mail.php?doc_id=".$doc_id);
         }else{
             echo "Error: " . "<br>" . mysqli_error($conn); die();
         }
@@ -82,7 +82,7 @@
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="admin-session-mail-pop.php" method="POST">
+                            <form action="" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>

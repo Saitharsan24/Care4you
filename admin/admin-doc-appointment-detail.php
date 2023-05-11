@@ -144,15 +144,15 @@
                         <td class="typeL">
                         <?php
                               if($row['docapt_status']==0){
-                                echo '<button vs class="#"> Pending </button>';
+                                echo '<button vs class="btn-pending"> Pending </button>';
                               }else if($row['docapt_status']==1){
-                                echo '<button class="#"> Confirm</button>';
+                                echo '<button class="btn-confirmed"> Confirm</button>';
                               }else if($row['docapt_status']==2){
-                                echo '<button class="#"> Completed </button>'; 
+                                echo '<button class="btn-completed"> Completed </button>'; 
                               }else if($row['docapt_status']==3){
-                                echo '<button class="#"> Cancelled </button>'; 
-                              }else{
-                                echo '<button class="#"> Not Attended </button>';                  
+                                echo '<button class="btn-cancelled"> Cancelled </button>'; 
+                              }else if($row['docapt_status']==4){
+                                echo '<button class="btn-nattended"> Not Attended </button>';                  
                               }
                               ?> 
                         </td>

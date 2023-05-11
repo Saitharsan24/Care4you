@@ -390,6 +390,73 @@ body{
     opacity: 1;
     left: 0;
   }
+
+  /* buttons of status */
+  .btn-pending{
+    width: 175px;
+    width: 150px;
+    background-color: #FDD147;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+  }
+
+  .btn-confirmed{
+    width: 175px;
+    width: 150px;
+    background-color: #28ae28;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+  }
+
+  .btn-completed{
+    width: 175px;
+    width: 150px;
+    background-color: #093e4e;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+  }
+
+  .btn-cancelled{
+    width: 175px;
+    width: 150px;
+    background-color: #BD1010;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+  }
+
+  .btn-nattended{
+    width: 175px;
+    width: 150px;
+    background-color: #bd1097;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
+  }
+
   
   /* admin-doc-appointment.php page end here*/
 

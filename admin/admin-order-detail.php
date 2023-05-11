@@ -112,7 +112,7 @@ if(isset($_GET['cancel'])){
                             } else if ($row['order_status'] == 4) {
                                 echo '<button class="btn-deliver">Delivered </button>';
                             } else if ($row['order_status'] == 5) {
-                                echo '<button class="#"> Cancelled </button>';
+                                echo '<button class="btn-cancelled"> Cancelled </button>';
                             }
                             ?>
                         </td>

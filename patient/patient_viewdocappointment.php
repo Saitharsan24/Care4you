@@ -112,7 +112,6 @@
                   <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule Appointment</button></div>
               <?php
               }
-
               //popup including.......
               include('./popups/docreschedule.php');
               ?>

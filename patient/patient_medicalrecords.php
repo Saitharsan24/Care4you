@@ -24,7 +24,7 @@
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php" style="color: #0c5c75; font-weight: bold">Medical Records</a>
-          <a href="./patient_doctorlist.php">Doctors</a>
+          <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
           <a href="#">Profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -36,10 +36,10 @@
            
         </div>
         <div class="record-buttons">
-          <div><a href="./patient_docprescriptions.php"><button>Doctor Prescriptions</button></a></div>
-          <div class="appointments-divider"></div>
+          <div><a href="./patient_docprescriptions.php"><button style="margin-left:10px;">Doctor Prescriptions</button></a></div>
+          <div class="appointments-divider2"></div>
           <div><a href="./patient_labreports.php"><button>Lab Reports</button></a></div>
-          <div class="appointments-divider"></div>
+          <div class="appointments-divider2"></div>
           <div><a href="./patient_otherrecords.php"><button>Other Records</button></a></div>
         </div>
       </div>

@@ -116,7 +116,7 @@ section.active .overlay {
   width: 900px;
   height: 600px;
   padding: 20px 0 0 20px;
-  border-radius: 24px;
+  border-radius: 50px;
   background-color: #fff;
   opacity: 0;
   pointer-events: none;
@@ -246,7 +246,7 @@ section.active .modal-box {
 }
 
 .tbl-common td{
-  background-color: #D4FAFC;
+  background-color: #fff;
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -263,6 +263,48 @@ section.active .modal-box {
 .tbl-common td:last-child, th:last-child {
   border-radius: 0 10px 10px 0;
 }
+
+
+.button {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #0e6680;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0D5C75;
+}
+
+.modal-box i {
+  font-size: 70px;
+  color: #0e6680;
+}
+.modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
+.modal-box .buttons {
+  margin-top: 25px;
+}
+.modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
+
 </style>
 
 
@@ -317,12 +359,12 @@ section.active .modal-box {
 
               <div class="form-itm">
                 <p>Time :</p>
-                <input id="Time" style="border:1px solid black" type="text" value="" readonly>
+                <input id="Time" style="border:1px solid black" type="text" name="apttime" value="" readonly>
               </div>
 
               <div class="form-itm">
                 <p>Appointment No :</p>
-                <input id="Appointment" style="border:1px solid black" type="text" value="" readonly>
+                <input id="Appointment" style="border:1px solid black" name="aptno" type="text" value="" readonly>
               </div>
 
               <div class="form-itm">
@@ -494,11 +536,22 @@ section.active .modal-box {
 
 
 
+<section id="cancel">
+  <span class="overlay" onclick="closePopupC()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-question" style="margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure you want to <br/> Cancel your Appointment?</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button" style="width:100px;">Yes</button>
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">No</button>
+    </div>
+  </div>
+</section>
+
+
 <script>
-  function openPopup() {
-    const section = document.getElementById("reshedule1");
-    section.classList.add("active");
-  }
 
   function closePopup() {
   const section = document.getElementById("reshedule1");
@@ -549,6 +602,8 @@ section.active .modal-box {
 
       //getting session_id from POST Method
       $newsession_id = $_POST['sessionid'];
+      $newapt_no = $_POST['aptno'];
+      $newapt_time = $_POST['apttime'];
       //echo "<script> console.log($currentSessId) </script>";die();
 
       //getting detials from old appointment 
@@ -596,16 +651,14 @@ section.active .modal-box {
 
       //creating new appointment for reschedule
       $query2 = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,relationship,pat_nic,pat_contact,created_by,my_other,net_total)
-      VALUES ('$newsession_id','$apt_time_format','$apt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total')";
+      VALUES ('$newsession_id','$newapt_time','$newapt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total')";
 
       $result2 = mysqli_query($conn,$query2);
 
 
       //updating new session no of patient +1
-      $new_no_of_apt = $noofapt +1;
-
       $sqlNewUpdate = "UPDATE tbl_docsession
-                      SET no_of_appointment ='$new_no_of_apt' 
+                      SET no_of_appointment = no_of_appointment + 1 
                       WHERE session_id = '$newsession_id'";
 
       $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
@@ -615,10 +668,10 @@ section.active .modal-box {
 
 
       $sqlOldUpdate = "UPDATE tbl_docsession
-                      SET no_of_appointment = no_of_appointment + 1 
+                      SET no_of_appointment = no_of_appointment - 1 
                       WHERE session_id = '$currentSessId'";
 
-      $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
+      $resultOldUpdate = mysqli_query($conn,$sqlOldUpdate);
 
 
       echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php</script>";
@@ -626,4 +679,4 @@ section.active .modal-box {
   }
 
 ?>
-
+  

@@ -113,7 +113,7 @@
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical records</a>
-          <a href="./patient_doctorlist.php">View doctors</a>
+          <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -123,21 +123,33 @@
         <div class="text-content">
           <div class="appointments-head"><h2>My Appointments</h2></div>
         </div>
-        <div class="appointment-page-content">
-          
-          <div class="appointment-right-page-content">
-            <div class="mk-apt-btn common-apt"><a href="./patient_docappointments.php"><button class="btn-mkdcapt"><span>Doctor appointment</span></button></a></div>
+        
+          <div class="myapt-containor">
+            <div class="apt-consub1">
+                <div id='calendar'></div>
+                <div id="event-details-popup" class="popup">
+                  <div id="event-details-content"></div>
+                </div>
+            </div>
+            <div class="apt-consub2">
+            <div class="mk-apt-btn common-apt">
+              <a href="./patient_docappointments.php">
+                <button class="btn-mkdcapt"  style="font-size: 18px;">
+                  <span>Doctor Appointments</span>
+                </button>
+              </a>
+            </div>
               <div class="appointments-divider"></div>
-            <div class="mk-apt-btn common-apt"><a href="./patient_labappointments.php"><button class="btn-mkdcapt"><span>Lab appointment</sapn></button></a></div>
+            <div class="mk-apt-btn common-apt">
+              <a href="./patient_labappointments.php">
+                <button class="btn-mkdcapt" style="font-size: 18px;">
+                  <span>Lab Appointments</sapn>
+                </button>
+              </a>
+            </div>
+            </div>
           </div>
-          
-          <div class="appointment-left-page-content">
-              <div id='calendar'></div>
-              <div id="event-details-popup" class="popup">
-                <div id="event-details-content"></div>
-              </div>
-          </div> 
-        </div>
+
       </div>
     </div>
   </body>

@@ -29,7 +29,7 @@
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="#">Medical records</a>
-          <a href="./patient_doctorlist.php">View doctors</a>
+          <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->

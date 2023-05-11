@@ -136,6 +136,7 @@ body{
   
   .wrapper .main_content .info div{
     margin-bottom: 20px;
+    z-index: 999;
   }
   
   .wrapper .right-button{

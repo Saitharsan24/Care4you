@@ -135,7 +135,7 @@
                         <td></td>
                         <td class="typeL">
                             <button class="btnpre"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
-                            &nbsp;
+                            &nbsp;  
                             <button class="btnpre"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
                         </td>
                     </tr>

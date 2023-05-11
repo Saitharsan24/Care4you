@@ -7,6 +7,8 @@
 }
 .buttons{
   margin-left:720px;
+  gap: 70px;
+
 }
 
 .modbutton {
@@ -21,8 +23,61 @@
   cursor: pointer;
 }
 
-.modbutton:hover {
-  background-color: #0D5C75;
+.update-btn{
+  width: 150px;
+  height:40px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #28ae28;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: -50px;
+}
+
+.back-btn{
+  width: 150px;
+  height:40px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  padding: 8px 0px 0px 40px;
+  border: none;
+  background: #093e4e;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: -50px;
+}
+
+.close-btn{
+  width: 150px;
+  height:40px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #BD1010;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: -50px;
+}
+
+.close-btn:hover{
+  background-color: #db1616;
+  transition: .3s;
+}
+
+.back-btn:hover{
+  background-color: #107c9d;
+  transition: .3s;
+}
+
+.update-btn:hover{
+  background-color: #26c826;
+  transition: .3s;
 }
 
 .modal-box {
@@ -111,7 +166,6 @@ section.active .modal-box {
 .modal-box button {
   font-size: 14px;
   padding: 6px 12px;
-  margin: 0 10px;
 }
 
 .inputtab{
@@ -215,15 +269,29 @@ section.active .modal-box {
 <?php 
       //selcting available doc sessions for rescheduling
       $rescheduledoc_id = $_SESSION['reschedule'];
+      $resdocapt_id = $_SESSION['res_apt_id'];
+      $currentSessId = $_SESSION['current_sessionid'];
+
       unset($_SESSION['reschedule']);
-
-      $sqlReschedule = "SELECT * FROM tbl_docsession 
-                          INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
-                          AND tbl_docsession.doctor_id = '$rescheduledoc_id'";
-
-      $resulReschedule = mysqli_query($conn,$sqlReschedule);
+      unset($_SESSION['res_apt_id']);
+      unset($_SESSION['current_sessionid']);
 
 ?>
+
+
+<section id="cancel">
+  <span class="overlay" onclick="closePopupC()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-question" style="margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure you want to <br/> Cancel your Appointment?</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button" style="width:100px;">Yes</button>
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">No</button>
+    </div>
+  </div>
+</section>
 
 
 <section id ="reshedule2" > 
@@ -257,8 +325,9 @@ section.active .modal-box {
                 <input id="Appointment" style="border:1px solid black" type="text" value="" readonly>
               </div>
 
-              <div class="buttons" style="margin-left:600px; Margin-top:-0px;">
-                <button class="modbutton close-btn">Close</button>
+              <div class="buttons" style="margin-left:450px; Margin-top:10px; width: 200px; display:flex; flex-direction:row; justify-content:space-between;">
+              <p class="back-btn" id="backBtn" onclick="openPopup3()">Back</p>  
+              <button class="update-btn" type="submit" name="scheduleupdate">Update</button>
               </div>
         </div>
         </form>
@@ -288,10 +357,18 @@ section.active .modal-box {
 
                     <tbody>                    
                     <?php 
+                        //Getting all session of particular doctor and wxcept currently booked session
+                        $sqlReschedule = "SELECT * FROM tbl_docsession 
+                                            INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+                                            AND tbl_docsession.doctor_id = '$rescheduledoc_id'";
+
+                        $resulReschedule = mysqli_query($conn,$sqlReschedule);
+
+
                         //printing each row of doctor sessions
                         while($rowReschedule= mysqli_fetch_assoc($resulReschedule)){
-                            if ($rowReschedule['no_of_appointment'] < 13 && $rowReschedule['status'] == 1){ 
-                              $session_id = $row['session_id'];
+                            if ($rowReschedule['no_of_appointment'] < 13 && $rowReschedule['status'] == 1 && $rowReschedule['session_id'] != $currentSessId){ 
+                              $session_id = $rowReschedule['session_id'];
                     ?>      
                           <tr>
                             <td><?php echo $rowReschedule['doc_name'] ?></td>
@@ -385,7 +462,7 @@ section.active .modal-box {
                                   ?>
 
                             <td>
-                                
+                                <!-- Passing data to next popup -->
                                 <p class="book-btn" onclick="
                                 document.getElementById('doc_name').value ='<?php echo $rowReschedule['doc_name'] ?>' ;
                                 document.getElementById('Specialization').value ='<?php echo $rowReschedule['specialization'] ?>' ;
@@ -404,7 +481,7 @@ section.active .modal-box {
                 </table>
 
             <div class="buttons">
-            <button class="modbutton close-btn">Close</button>
+            <button class="close-btn">Close</button>
             </div>
         </form>
     </div>
@@ -435,18 +512,94 @@ overlay.addEventListener("click", closePopup);
 
 
   function openPopup2() {
-    
-
+  
     const section2 = document.getElementById("reshedule2");
     section2.classList.add("active");
     const section = document.getElementById("reshedule1");
     section.classList.remove("active");
-   
-    
+  
   }
+
+  function openPopup3() {
+  
+  const section2 = document.getElementById("reshedule1");
+  section2.classList.add("active");
+  const section = document.getElementById("reshedule2");
+  section.classList.remove("active");
+
+}
+
+
+function openPopupC() {
+  const sectionC = document.getElementById("cancel");
+  sectionC.classList.add("active");
+}
+
+function closePopupC() {  
+  console.log('Check');
+const sectionC = document.getElementById("cancel");
+sectionC.classList.remove("active");
+}
 
 </script>
 
 
+<?php 
+  if(isset($_POST['scheduleupdate'])){
 
+      //getting detials from old appointment 
+      $issetquery = "SELECT * FROM tbl_docappointment WHERE docapt_id = '$resdocapt_id'";
+      $issetresults = mysqli_query($conn,$issetquery);
+      $issetrow = mysqli_fetch_assoc($issetresults);
+
+      $pat_name = $issetrow['pat_name'];
+      $relation = $issetrow['relationship'];
+      $pat_nic = $issetrow['pat_nic'];
+      $pat_contact = $issetrow['pat_contact'];
+      $my_other = $issetrow['my_other'];
+      $net_total = $issetrow['net_total'];
+      $docapt_flag = $issetrow['docapt_flag'];
+
+      $userid = $_SESSION['user_id'];
+    
+
+      //Setting old appointment to cancelled
+      $query1 = "UPDATE tbl_docappointment 
+                    SET docapt_status = 2
+                    WHERE docapt_id = '$resdocapt_id'";
+      $results1 = mysqli_query($conn,$query1);
+
+
+      //creating new appointment for reschedule
+      $query2 = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,relationship,pat_nic,pat_contact,created_by,my_other,net_total,docapt_flag)
+      VALUES ('$session_id','$apt_time_format','$apt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total','$docapt_flag')";
+
+      $result2 = mysqli_query($conn,$query2);
+
+
+      //updating new session no of patient +1
+      $new_no_of_apt = $noofapt +1;
+
+      $sqlNewUpdate = "UPDATE tbl_docsession
+                      SET no_of_appointment ='$new_no_of_apt' 
+                      WHERE session_id = '$session_id'";
+
+      $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
+
+
+      //updating old session no of patient to -1
+
+
+      $sqlOldUpdate = "UPDATE tbl_docsession
+                      SET no_of_appointment = no_of_appointment + 1 
+                      WHERE session_id = '$currentSessId'";
+
+      $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
+
+
+      echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php</script>";
+
+  }
+
+?>
 

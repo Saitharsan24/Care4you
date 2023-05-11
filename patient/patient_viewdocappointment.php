@@ -4,7 +4,8 @@
 
 
 <?php
-    
+   
+   //getting the doc apt id from URL and retrieving to display details
     $docapt_id = $_GET['id'];
     
     $sql = "SELECT * FROM  
@@ -13,12 +14,15 @@
               INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
               INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
               AND docapt_id = '$docapt_id'";
+
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);
 
 
     //to reschedue doctor id passing
     $_SESSION['reschedule'] = $row['doctor_id'];
+    $_SESSION['res_apt_id'] = $docapt_id;
+    $_SESSION['current_sessionid'] = $row['session_id'];
 
     if ($row['my_other']==0) {
       $p_name = $row['first_name'];
@@ -103,7 +107,7 @@
               <?php 
               if($row['docapt_status']==1){
               ?> 
-                  <div class="view-apt-btn01"><button onclick="opencancelPopup()">Cancel Appointment</button></div>
+                  <div class="view-apt-btn01"><button onclick="openPopupC()">Cancel Appointment</button></div>
                   <div class="view-apt-divider"></div>
                   <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule Appointment</button></div>
               <?php

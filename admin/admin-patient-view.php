@@ -62,7 +62,7 @@ $no_row = mysqli_num_rows($result);
                                         <td><input type="text" class="search-patient" name="patient-name" placeholder="search patient name" id="patient_name" onkeyup="filterPatientName()" autofocus="true" /></td>
                                         <td><input type="text" class="search-patient" name="phone-no" placeholder="search contact number" id="contact_no" onkeyup="filterContactNo()" autofocus="true" /></td>
                                         <td><input type="text" class="search-patient" name="status" placeholder="search account status" id="account_status" onkeyup="filterAccountStatus()" autofocus="true" /></td>
-                                        <td></td>
+                                        <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php 
                                    if($result){

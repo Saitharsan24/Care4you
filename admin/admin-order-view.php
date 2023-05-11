@@ -61,7 +61,7 @@ $result = mysqli_query($conn, $query);
                                         <td><input type="text" class="search-order" name="patient-id" placeholder="search order id" id="order_id"  autofocus="true" /></td>
                                         <td><input type="text" class="search-order" name="phone-no" placeholder="search contact number" id="contact_no"  autofocus="true" /></td>
                                         <td><input type="text" class="search-order" name="status" placeholder="search order status" id="order_status"  autofocus="true" /></td>
-                                        <td></td>
+                                        <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php 
                                  if($result){

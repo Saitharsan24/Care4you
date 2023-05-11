@@ -805,9 +805,12 @@ table td{
 
 .search-pha{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
  
 }
 
@@ -1104,9 +1107,12 @@ table td{
 
 .search-lab{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
  
 }
 
@@ -1323,9 +1329,12 @@ table td{
 
 .search-asst{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
  
 }
 

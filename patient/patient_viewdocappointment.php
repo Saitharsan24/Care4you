@@ -1,23 +1,28 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
-<?php include('./popups/docreschedule.php') ?>
+
 
 
 <?php
-    
+   
+   //getting the doc apt id from URL and retrieving to display details
     $docapt_id = $_GET['id'];
-
+    
     $sql = "SELECT * FROM  
               tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
               INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
               INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid 
               INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
               AND docapt_id = '$docapt_id'";
+
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);
 
-    //storing session variable of doctor id to reschedule
-    // $_SESSION[''] = $row['docl'] ;
+
+    //to reschedue doctor id passing
+    $_SESSION['reschedule'] = $row['doctor_id'];
+    $_SESSION['res_apt_id'] = $docapt_id;
+    $_SESSION['current_sessionid'] = $row['session_id'];
 
     if ($row['my_other']==0) {
       $p_name = $row['first_name'];
@@ -75,11 +80,11 @@
           <div class="view-details-row">Doctor Name :<div><?php echo $row['doc_name'] ?></div></div>
           <div class="view-details-row">Date :<div><?php echo $row['date'] ?></div></div>
           <div class="view-details-row">Appointment No :<div><?php echo $row['docapt_no'] ?></div></div>
-          <div class="view-details-row">Appointment time :<div><?php echo $row['docapt_time'] ?></div></div>
+          <div class="view-details-row">Appointment Time :<div><?php echo $row['docapt_time'] ?></div></div>
           <div class="view-details-row">Room No :<div><?php echo $row['room_no'] ?></div></div>
-          <div class="view-details-row">Patient name :<div><?php echo $p_name ?></div></div>
+          <div class="view-details-row">Patient Name :<div><?php echo $p_name ?></div></div>
           <div class="view-details-row">NIC No :<div><?php echo $p_nic ?></div></div>
-          <div class="view-details-row">Session status :
+          <div class="view-details-row">Session Status :
           <div>
                   <?php 
 
@@ -102,11 +107,14 @@
               <?php 
               if($row['docapt_status']==1){
               ?> 
-                  <div class="view-apt-btn01"><button>Cancel appointment</button></div>
+                  <div class="view-apt-btn01"><button onclick="openPopupC()">Cancel Appointment</button></div>
                   <div class="view-apt-divider"></div>
-                  <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule appointment</button></div>
+                  <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule Appointment</button></div>
               <?php
               }
+
+              //popup including.......
+              include('./popups/docreschedule.php');
               ?>
               
             </div>

@@ -1,5 +1,7 @@
 <?php include('../config/constants.php')?>
 <?php include('../login_access.php') ?>
+<?php require '../libraries/PHPMailer/vendor/autoload.php'; ?>
+<?php require '../libraries/PHPMailer/vendor/payment_config.php'; ?>
 
 
 
@@ -11,13 +13,13 @@
       $clear_apt = $_GET['cancelId'];
       //print_r('hi'.$clear_apt);die();
       
-      $sqlclear = "DELETE FROM tbl_docappointment WHERE docapt_id = '$clear_apt' ";
+      $sqlclear = "DELETE FROM tbl_docappointment WHERE docapt_id = '$clear_apt'";
       $resultClear = mysqli_query($conn, $sqlclear);
 
       if($resultClear){
 
         unset($_SESSION['cleardocapt']);
-        header('location:'.SITEURL.'patient/patient_docappointments.php');
+        header('Location:'.SITEURL.'patient/patient_docappointments.php');
       }
 
     }
@@ -46,7 +48,9 @@
     if($my_other==0){
       
       //getting user id and retrieving p_id
-      $sql = "SELECT * FROM tbl_patient WHERE userid = '$user_id'";
+      $sql = "SELECT * FROM tbl_patient 
+                INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid
+                AND tbl_patient.userid = '$user_id'";
       $results = mysqli_query($conn, $sql);
       
       //fetching data from patient table
@@ -56,6 +60,7 @@
         $pname = $row['first_name'];
         $pnic = $row['nic'];
         $pcontact = $row['contact'];
+        $pemail = $row['email'];
       }
     }
 
@@ -150,31 +155,30 @@
         
         <div class="book2-heading"><h2>Book for an Appointment</h2></div>
         <div class="book2-form">
-              <form method="POST">
+          <form action="./patient_docappointments.php" method="post" id="addform">
 
                   <div>
                     <?php 
-                        if($my_other==0){
+                        if($my_other==0){ //For myslef appointment part
                     ?>
                           <div class="form-itm">
                             <p>Patient Name :</p>
-                            <input type="text" name="pname" value="<?php echo $pname ?>" readonly/>
+                            <input type="text" value="<?php echo $pname ?>" readonly/>
                           </div>
 
                           <div class="form-itm">
                             <p>NIC No :</p>
-                            <input type="text" name="nic" value="<?php echo $pnic ?>" readonly/>
+                            <input type="text" value="<?php echo $pnic ?>" readonly/>
                           </div>
 
                           <div class="form-itm">
                             <p>Contact No :</p>
-                            <input type="text" name="contact" value="<?php echo $pcontact ?>" readonly/>
+                            <input type="text" value="<?php echo $pcontact ?>" readonly/>
                           </div>
 
                     <?php
-                        }else {
+                        }else { //For others appointment part
                     ?>
-
                           <div class="form-itm">
                             <p>Patient Full Name :</p>
                             <input type="text" name="pname" placeholder="Enter patient name" required/>
@@ -196,7 +200,9 @@
                           </div>
 
                     <?php
+                   
                         }
+                        $_SESSION['donating_amount'] = ($booking_fee+$doc_fee)*100;
                     ?>
 
                   </div>
@@ -229,12 +235,21 @@
                     </div>
                   
                     <div class="apt-btn-css">
-                      <a href="./patient_docappointments.php"><button type="submit" name="paylater">Pay</button></a>
+                    
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="<?php echo $_SESSION['public_key'] ?>"
+                            data-amount="<?php echo ($booking_fee+$doc_fee)*100 ?>" data-name="CareForYou Payment"
+                            data-description="Donate to Save Lives" data-currency="lkr"
+                            data-image="../images/logoicon.png" 
+                            data-email="<?php echo $pemail ?>">
+                        </script>
+                        <!-- <img class="cardLogos-img" src="./../../public/img/orgdashboard/card logos.jpg" alt="req"> -->
+                        <!-- <a href="./patient_docappointments.php"><button type="submit" name="paylater">Pay</button></a> -->
                     </div>
                               
                   </div>
 
-              </form>
+          </form>
         </div>
 
         <div class="form-set form-bottom-text">
@@ -242,6 +257,7 @@
         </div>
 
       </div>
+
     </div>
   </body>
 </html>
@@ -249,91 +265,132 @@
 
 <?php 
 
-    if(isset($_POST['paylater'])){
+    // if(isset($_POST['paylater'])){
       
      
-      //Inserting the system user appointment 
-      if($my_other==0){
+    //   //Inserting the system user appointment 
+    //   if($my_other==0){
         
-        //inserting into doc appointment table
-        $net_total = $booking_fee + $doc_fee;
+    //     //inserting into doc appointment table
+    //     $net_total = $booking_fee + $doc_fee;
       
-        $aptsqlupdate = "UPDATE tbl_docappointment 
-                          SET net_total = '$net_total',
-                              docapt_status = 1
-                          WHERE
-                              docapt_id = '$lastId'";
+    //     $aptsqlupdate = "UPDATE tbl_docappointment 
+    //                       SET net_total = '$net_total',
+    //                           docapt_status = 1
+    //                       WHERE
+    //                           docapt_id = '$lastId'";
 
-        $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
+    //     $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
                 
-        //updating no of patient in docsession table
-        $new_no_of_apt = $row1['no_of_appointment'] + 1;
+    //     //updating no of patient in docsession table
+    //     $new_no_of_apt = $row1['no_of_appointment'] + 1;
 
-        $sqlupdate = "UPDATE tbl_docsession
-                        SET no_of_appointment ='$new_no_of_apt' 
-                        WHERE session_id = '$session_id'";
+    //     $sqlupdate = "UPDATE tbl_docsession
+    //                     SET no_of_appointment ='$new_no_of_apt' 
+    //                     WHERE session_id = '$session_id'";
 
-        $updateresult = mysqli_query($conn,$sqlupdate);
+    //     $updateresult = mysqli_query($conn,$sqlupdate);
         
-        if($aptupdateresult && $updateresult){
+    //     if($aptupdateresult && $updateresult){
             
-            header('location:'.SITEURL.'patient/patient_docappointments.php');
+    //         header('Location:'.SITEURL.'patient/patient_docappointments.php');
 
-        }else{
+    //     }else{
 
-            echo "Error: " . $s . "<br>" . mysqli_error($conn);
-            die();
+    //         echo "Error: " . $s . "<br>" . mysqli_error($conn);
+    //         die();
 
-        }
+    //     }
         
-      }
+    //   }
      
       
-      //inserting non system users
-      if($my_other==1){
-        
-          //inserting into doc appointment table
-          $net_total = $booking_fee + $doc_fee;
-          $p_name = $_POST['pname'];
-          $p_contact = $_POST['contact'];
-          $p_nic = $_POST['nic'];
-          $relationship = $_POST['relationship'];
+    //   //inserting non system users
+    //   if($my_other==1){
 
-          $aptsqlupdate = "UPDATE tbl_docappointment 
-                            SET pat_name = '$p_name',
-                                relationship = '$relationship',
-                                pat_nic = '$p_nic',
-                                pat_contact = '$p_contact',
-                                net_total = '$net_total',
-                                docapt_status = 1
-                            WHERE
-                                docapt_id = '$lastId'";
         
-          $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
+    //       //inserting into doc appointment table
+    //       $net_total = $booking_fee + $doc_fee;
+    //       $p_name = $_POST['pname'];
+    //       $p_contact = $_POST['contact'];
+    //       $p_nic = $_POST['nic'];
+    //       $relationship = $_POST['relationship'];
+    //       // print_r($p_name);die();
+
+    //       $aptsqlupdate = "UPDATE tbl_docappointment 
+    //                         SET pat_name = '$p_name',
+    //                             relationship = '$relationship',
+    //                             pat_nic = '$p_nic',
+    //                             pat_contact = '$p_contact',
+    //                             net_total = '$net_total',
+    //                             docapt_status = 1
+    //                         WHERE
+    //                             docapt_id = '$lastId'";
+        
+    //       $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
                        
-          //updating no of patient in docsession table
-          $new_no_of_apt = $row1['no_of_appointment'] + 1;
+    //       //updating no of patient in docsession table
+    //       $new_no_of_apt = $row1['no_of_appointment'] + 1;
        
-          $sqlupdate = "UPDATE tbl_docsession
-                          SET no_of_appointment ='$new_no_of_apt' 
-                          WHERE session_id = '$session_id'";
+    //       $sqlupdate = "UPDATE tbl_docsession
+    //                       SET no_of_appointment ='$new_no_of_apt' 
+    //                       WHERE session_id = '$session_id'";
        
-          $updateresult = mysqli_query($conn,$sqlupdate);
+    //       $updateresult = mysqli_query($conn,$sqlupdate);
 
-          //upda
+    //       //redirect to appointments
                
-          if($aptupdateresult && $updateresult){
+    //       if($aptupdateresult && $updateresult){
                    
-            echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
+    //         echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
 
-          }else{
+    //       }else{
        
-              echo "Error: " . $s . "<br>" . mysqli_error($conn);
-              die();
+    //           echo "Error: " . $s . "<br>" . mysqli_error($conn);
+    //           die();
        
-          } 
+    //       } 
 
+    //   }
+
+    // }
+
+    if(isset($_POST['stripeToken'])){
+      \Stripe\Stripe::setVerifySslCerts(false);
+                        try {
+                            $token=$_POST['stripeToken'];
+    
+      $data=\Stripe\Charge::create(array(
+        "amount"=> $_SESSION['donating_amount'],
+        "currency"=>"lkr",
+        "description"=>"Cash Donation",
+        "source"=>$token,
+      ));
+        echo "Successfull";
+
+       if (isset($_POST['pname'])) {
+        print_r($_POST['pname']);die();
+       }
+        exit();
+    
+    
+    
+      } catch(\Stripe\Exception\CardException $e) {
+        $_SESSION['PaymentError'] = $e->getError()->message;
+        echo "Card Fail";
+        unset($_SESSION['donating_amount']);
+    
+        // print_r("A payment error occurred: {$e->getError()->message}");
+      } catch (\Stripe\Exception\InvalidRequestException $e) {
+        print_r("An invalid request occurred.");
+        unset($_SESSION['donating_amount']);
+    
+      } catch (Exception $e) {
+        print_r("Another problem occurred, maybe unrelated to Stripe.");
+        unset($_SESSION['donating_amount']);
+    
       }
-
+    
+      
     }
 ?>

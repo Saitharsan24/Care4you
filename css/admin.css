@@ -584,16 +584,17 @@ table td{
 
 .search-doc{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 7px;
   margin: 8px 0;
   box-sizing: border-box;
+  baorder
  
 }
 
 .search-doc::placeholder {
   color: rgb(0, 0, 0);
-  font-size: 10px;
-  font-style: italic;
+  font-size: 12px;
+  
 }
 .btn-addnew {
   position: absolute;

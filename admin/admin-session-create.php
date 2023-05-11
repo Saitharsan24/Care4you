@@ -86,13 +86,13 @@
                                 <div class="form-asst">
                                    
                                     <br>
-                                    <div class="doc-id-option">
+                                    <div class="#">
                                     <?php
                                     if($result_1){
                                         echo "Doctor ID:"; 
                                         ?>
                                      <SELECT id='doctor_id' name=doctor_id onchange="var doc_id = this.value;location.href = '/Care4you/admin/admin-session-create.php?doc_id=' + doc_id;" >
-                                        <option value="NULL" hidden></option>
+                                        <option value="NULL"   hidden></option>
                                      <?php
                                      if (isset($_GET['doc_id'])) {
                                         while($row = mysqli_fetch_assoc($result_1)){

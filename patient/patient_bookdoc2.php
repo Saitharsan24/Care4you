@@ -155,7 +155,7 @@
         
         <div class="book2-heading"><h2>Book for an Appointment</h2></div>
         <div class="book2-form">
-          <form action="./patient_docappointments.php" method="post" id="addform">
+          <form action="" method="post" id="addform">
 
                   <div>
                     <?php 
@@ -356,6 +356,7 @@
     
 
     if(isset($_POST['stripeToken'])){
+      
       \Stripe\Stripe::setVerifySslCerts(false);
                         
       try {
@@ -368,42 +369,43 @@
           "source"=>$token,
         ));
           
+                
 
-
-        if($my_other==0){
-        
-          //inserting into doc appointment table
-          $net_total = $booking_fee + $doc_fee;
-        
-          $aptsqlupdate = "UPDATE tbl_docappointment 
-                            SET net_total = '$net_total',
-                                docapt_status = 1
-                            WHERE
-                                docapt_id = '$lastId'";
-  
-          $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
+                if($my_other==0){
+                
+                  //inserting into doc appointment table
+                  $net_total = $booking_fee + $doc_fee;
                   
-          //updating no of patient in docsession table
-          $new_no_of_apt = $row1['no_of_appointment'] + 1;
-  
-          $sqlupdate = "UPDATE tbl_docsession
-                          SET no_of_appointment ='$new_no_of_apt' 
-                          WHERE session_id = '$session_id'";
-  
-          $updateresult = mysqli_query($conn,$sqlupdate);
+                  $aptsqlupdate = "UPDATE tbl_docappointment 
+                                    SET net_total = '$net_total',
+                                        docapt_status = 1
+                                    WHERE
+                                        docapt_id = '$lastId'";
           
-          if($aptupdateresult && $updateresult){
-              
-              header('Location:'.SITEURL.'patient/patient_docappointments.php');
-  
-          }else{
-  
-              echo "Error: " . $s . "<br>" . mysqli_error($conn);
-              die();
-  
-          }
+                  $aptupdateresult = mysqli_query($conn,$aptsqlupdate);
+                          
+                  //updating no of patient in docsession table
+                  $new_no_of_apt = $row1['no_of_appointment'] + 1;
           
-        }
+                  $sqlupdate = "UPDATE tbl_docsession
+                                  SET no_of_appointment ='$new_no_of_apt' 
+                                  WHERE session_id = '$session_id'";
+          
+                  $updateresult = mysqli_query($conn,$sqlupdate);
+                  
+                  if($aptupdateresult && $updateresult){
+                    
+                    $_SESSION['docsuccess'] = 1; 
+                    echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
+          
+                  }else{
+                     
+                      echo "Error: " . $s . "<br>" . mysqli_error($conn);
+                      die();
+          
+                  }
+                  
+                }
         
                 //inserting non system users
                 if($my_other==1){
@@ -415,7 +417,7 @@
                     $p_contact = $_POST['contact'];
                     $p_nic = $_POST['nic'];
                     $relationship = $_POST['relationship'];
-                    // print_r($p_name);die();
+                    //print_r($p_name);die();
           
                     $aptsqlupdate = "UPDATE tbl_docappointment 
                                       SET pat_name = '$p_name',
@@ -445,7 +447,7 @@
                       echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
           
                     }else{
-                
+                      
                         echo "Error: " . $s . "<br>" . mysqli_error($conn);
                         die();
                 

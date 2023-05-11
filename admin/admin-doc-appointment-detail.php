@@ -89,7 +89,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</a></div></li>
+                <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</a></div></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -176,7 +176,7 @@
                                 
                                 ?>
                         
-                                <button class="btn-cancel" onclick="document.getElementById('id01').style.display='block'; 
+                                <button class="btn-doc-cancel" onclick="document.getElementById('id01').style.display='block'; 
                                 document.getElementById('del').action = '?id=<?php echo $row['docapt_id']?>&cancel=<?php echo $row['docapt_id']?> ';
                                 " >
                                 <i class="fa-solid fa-toggle-off"></i>
@@ -191,7 +191,7 @@
                                 include('./admin-appointment-pop.php');
                                 ?>
 
-                                <button class="btn-confirm" onclick="document.getElementById('id01').style.display='block'; 
+                                <button class="btn-doc-confirm" onclick="document.getElementById('id01').style.display='block'; 
                                 document.getElementById('del').action = '?id=<?php echo $row['docapt_id']?>&confirm=<?php echo $row['docapt_id']?> ';
                                 " >
                                 <i class="fa-solid fa-toggle-on"></i>

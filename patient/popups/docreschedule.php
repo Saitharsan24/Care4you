@@ -295,7 +295,7 @@ section.active .modal-box {
 
 
 <section id ="reshedule2" > 
-  <span class="overlay"></span>
+  <span class="overlay" onclick="closePopupW2()"></span>
     <div class="modal-box" style="width:50%; height:75%;" >
         <form action="" method="POST">
             <h1> Book New Doctor Appointment</h1>
@@ -325,6 +325,10 @@ section.active .modal-box {
                 <input id="Appointment" style="border:1px solid black" type="text" value="" readonly>
               </div>
 
+              <div class="form-itm">
+                <input id="sessionid" style="border:1px solid black" name="sessionid" type="text" value="" hidden>
+              </div>
+
               <div class="buttons" style="margin-left:450px; Margin-top:10px; width: 200px; display:flex; flex-direction:row; justify-content:space-between;">
               <p class="back-btn" id="backBtn" onclick="openPopup3()">Back</p>  
               <button class="update-btn" type="submit" name="scheduleupdate">Update</button>
@@ -335,7 +339,7 @@ section.active .modal-box {
 </section>
 
 <section id ="reshedule1"> 
-  <span class="overlay"></span>
+  <span class="overlay" onclick="closePopup()"></span>
 
     <div class="modal-box">
         
@@ -368,7 +372,7 @@ section.active .modal-box {
                         //printing each row of doctor sessions
                         while($rowReschedule= mysqli_fetch_assoc($resulReschedule)){
                             if ($rowReschedule['no_of_appointment'] < 13 && $rowReschedule['status'] == 1 && $rowReschedule['session_id'] != $currentSessId){ 
-                              $session_id = $rowReschedule['session_id'];
+                            $session_id = $rowReschedule['session_id'];  
                     ?>      
                           <tr>
                             <td><?php echo $rowReschedule['doc_name'] ?></td>
@@ -469,6 +473,7 @@ section.active .modal-box {
                                 document.getElementById('Date').value ='<?php echo $rowReschedule['date'] ?>' ;
                                 document.getElementById('Time').value ='<?php echo $apt_time_format ?>' ;
                                 document.getElementById('Appointment').value ='<?php echo $apt_no ?>' ;
+                                document.getElementById('sessionid').value ='<?php echo $rowReschedule['session_id'] ?>' ;
                                 openPopup2()"><span>Book Now</span></p>
                               
                             </td>
@@ -481,7 +486,7 @@ section.active .modal-box {
                 </table>
 
             <div class="buttons">
-            <button class="close-btn">Close</button>
+            <button class="close-btn" onclick="closePopup()">Close</button>
             </div>
         </form>
     </div>
@@ -495,21 +500,15 @@ section.active .modal-box {
     section.classList.add("active");
   }
 
-  
+  function closePopup() {
+  const section = document.getElementById("reshedule1");
+  section.classList.remove("active");
+  }
 
-  const overlay = document.querySelector(".overlay"),
-    closeBtn = document.querySelector(".close-btn");
-
-function closePopup() {
-const section = document.querySelector("section");
-section.classList.remove("active");
-}
-
-closeBtn.addEventListener("click", closePopup);
-overlay.addEventListener("click", closePopup);
-
-
-
+  function closePopupW2() {
+    const section = document.getElementById("reshedule2");
+    section.classList.remove("active");
+  }
 
   function openPopup2() {
   
@@ -527,19 +526,19 @@ overlay.addEventListener("click", closePopup);
   const section = document.getElementById("reshedule2");
   section.classList.remove("active");
 
-}
+  }
 
 
-function openPopupC() {
+  function openPopupC() {
+    const sectionC = document.getElementById("cancel");
+    sectionC.classList.add("active");
+  }
+
+  function closePopupC() {  
+    console.log('Check');
   const sectionC = document.getElementById("cancel");
-  sectionC.classList.add("active");
-}
-
-function closePopupC() {  
-  console.log('Check');
-const sectionC = document.getElementById("cancel");
-sectionC.classList.remove("active");
-}
+  sectionC.classList.remove("active");
+  }
 
 </script>
 
@@ -547,18 +546,43 @@ sectionC.classList.remove("active");
 <?php 
   if(isset($_POST['scheduleupdate'])){
 
+
+      //getting session_id from POST Method
+      $newsession_id = $_POST['sessionid'];
+      //echo "<script> console.log($currentSessId) </script>";die();
+
       //getting detials from old appointment 
       $issetquery = "SELECT * FROM tbl_docappointment WHERE docapt_id = '$resdocapt_id'";
+      
       $issetresults = mysqli_query($conn,$issetquery);
       $issetrow = mysqli_fetch_assoc($issetresults);
 
-      $pat_name = $issetrow['pat_name'];
-      $relation = $issetrow['relationship'];
-      $pat_nic = $issetrow['pat_nic'];
-      $pat_contact = $issetrow['pat_contact'];
+      if(isset($issetrow['pat_name'])){
+        $pat_name = $issetrow['pat_name'];
+      }else{
+        $pat_name = "";
+      }
+
+      if(isset($issetrow['relationship'])){
+        $relation = $issetrow['relationship'];
+      }else{
+        $relation = "";
+      }
+
+      if(isset($issetrow['pat_nic'])){
+        $pat_nic = $issetrow['pat_nic'];
+      }else{
+        $pat_nic = "";
+      }
+
+      if(isset($issetrow['pat_contact'])){
+        $pat_contact = $issetrow['pat_contact'];
+      }else{
+        $pat_contact = "";
+      }
+     
       $my_other = $issetrow['my_other'];
       $net_total = $issetrow['net_total'];
-      $docapt_flag = $issetrow['docapt_flag'];
 
       $userid = $_SESSION['user_id'];
     
@@ -571,8 +595,8 @@ sectionC.classList.remove("active");
 
 
       //creating new appointment for reschedule
-      $query2 = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,relationship,pat_nic,pat_contact,created_by,my_other,net_total,docapt_flag)
-      VALUES ('$session_id','$apt_time_format','$apt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total','$docapt_flag')";
+      $query2 = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,relationship,pat_nic,pat_contact,created_by,my_other,net_total)
+      VALUES ('$newsession_id','$apt_time_format','$apt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total')";
 
       $result2 = mysqli_query($conn,$query2);
 
@@ -582,7 +606,7 @@ sectionC.classList.remove("active");
 
       $sqlNewUpdate = "UPDATE tbl_docsession
                       SET no_of_appointment ='$new_no_of_apt' 
-                      WHERE session_id = '$session_id'";
+                      WHERE session_id = '$newsession_id'";
 
       $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
 

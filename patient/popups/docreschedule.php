@@ -317,12 +317,12 @@ section.active .modal-box {
 
               <div class="form-itm">
                 <p>Time :</p>
-                <input id="Time" style="border:1px solid black" type="text" value="" readonly>
+                <input id="Time" style="border:1px solid black" type="text" name="apttime" value="" readonly>
               </div>
 
               <div class="form-itm">
                 <p>Appointment No :</p>
-                <input id="Appointment" style="border:1px solid black" type="text" value="" readonly>
+                <input id="Appointment" style="border:1px solid black" name="aptno" type="text" value="" readonly>
               </div>
 
               <div class="form-itm">
@@ -549,6 +549,8 @@ section.active .modal-box {
 
       //getting session_id from POST Method
       $newsession_id = $_POST['sessionid'];
+      $newapt_no = $_POST['aptno'];
+      $newapt_time = $_POST['apttime'];
       //echo "<script> console.log($currentSessId) </script>";die();
 
       //getting detials from old appointment 
@@ -596,16 +598,14 @@ section.active .modal-box {
 
       //creating new appointment for reschedule
       $query2 = "INSERT INTO tbl_docappointment (session_id,docapt_time,docapt_no,docapt_status,pat_name,relationship,pat_nic,pat_contact,created_by,my_other,net_total)
-      VALUES ('$newsession_id','$apt_time_format','$apt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total')";
+      VALUES ('$newsession_id','$newapt_time','$newapt_no','1','$pat_name','$relation','$pat_nic','$pat_contact','$userid','$my_other','$net_total')";
 
       $result2 = mysqli_query($conn,$query2);
 
 
       //updating new session no of patient +1
-      $new_no_of_apt = $noofapt +1;
-
       $sqlNewUpdate = "UPDATE tbl_docsession
-                      SET no_of_appointment ='$new_no_of_apt' 
+                      SET no_of_appointment = no_of_appointment + 1 
                       WHERE session_id = '$newsession_id'";
 
       $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
@@ -615,10 +615,10 @@ section.active .modal-box {
 
 
       $sqlOldUpdate = "UPDATE tbl_docsession
-                      SET no_of_appointment = no_of_appointment + 1 
+                      SET no_of_appointment = no_of_appointment - 1 
                       WHERE session_id = '$currentSessId'";
 
-      $resultNewUpdate = mysqli_query($conn,$sqlNewUpdate);
+      $resultOldUpdate = mysqli_query($conn,$sqlOldUpdate);
 
 
       echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php</script>";
@@ -626,4 +626,4 @@ section.active .modal-box {
   }
 
 ?>
-
+  

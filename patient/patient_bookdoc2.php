@@ -140,7 +140,7 @@
           <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical records</a>
-          <a href="./patient_doctorlist.php">View doctors</a>
+          <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -239,7 +239,7 @@
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="<?php echo $_SESSION['public_key'] ?>"
                             data-amount="<?php echo ($booking_fee+$doc_fee)*100 ?>" data-name="CareForYou Payment"
-                            data-description="Donate to Save Lives" data-currency="lkr"
+                            data-description="Make doctor appointment payment" data-currency="lkr"
                             data-image="../images/logoicon.png" 
                             data-email="<?php echo $pemail ?>">
                         </script>

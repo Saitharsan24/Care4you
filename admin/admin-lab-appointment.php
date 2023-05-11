@@ -52,9 +52,9 @@
                     <div class="back" onclick="location.href='admin-appointment.php'">
                         <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
                     </div>
-                   <div class="doc-apt-title"> Doctor Appointments</div>
+                   <div class="lab-apt-title"> Lab Appointments</div>
                     <span>
-                        <table class="tbl-main-doc-appoint" id="tbl-main-app">
+                        <table class="tbl-main-lab-appoint" id="tbl-main-app">
                             <thead>
                                 <tr>
                                 <td>Reference No</td>   <!-- from tbl_docappointment table -->
@@ -75,44 +75,25 @@
                                         <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php
-                                    if($result){
-                            while($row=mysqli_fetch_array($result)){
-                                 ?>
+                                                                   ?>
                                
                                         <tr>
-                                            <td><?php echo $row['docapt_id'] ?></td>
+                                            <td></td>
                                             <td>
                                                 <?php
-                                                      if($row['my_other']==1){
-                                                        echo $row['pat_name'];     // if user book for others(under 18), patient name should be get form tbl_docapointment table
-                                                      }
-                                                      if($row['my_other']==0){
-                                                        echo $row['first_name'];   // if user book for them self, patient name should be get form tbl_patient table
-                                                      }
+                                                     
                                                 ?>
                                             </td>
-                                            <td><?php echo $row['date'] ?></td>
+                                            <td></td>
                                             <td><button class="btn-green">
                                              <?php
-                              if($row['docapt_status']==0){
-                                echo '<button vs class="btn-pending"> Pending </button>';
-                              }else if($row['docapt_status']==1){
-                                echo '<button class="btn-confirmed"> Confirm</button>';
-                              }else if($row['docapt_status']==2){
-                                echo '<button class="btn-completed"> completed </button>'; 
-                              }else if($row['docapt_status']==3){
-                                echo '<button class="btn-cancelled"> cancelled </button>'; 
-                              }else if($row['docapt_status']==4){
-                                echo '<button class="btn-nattended">  Not Attended</button>';
-                              }
+                            
                               ?> 
                                               </td>
                                             
-                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-doc-appointment-detail.php?id=<?php echo $row["docapt_id"]; ?>"'><span>Appointment Details</span></button></td>
+                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-lab-appointment-detail.php"'><span>Appointment Details</span></button></td>
                                         </tr>
                                        <?php
-                            }
-                        }
                                        ?>
                           
                             </tbody>

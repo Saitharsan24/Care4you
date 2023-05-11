@@ -61,7 +61,7 @@ $result=mysqli_query($conn,$query);
                             <td><input type="text" class="search-session" name="doc-name" id="doctor_name" placeholder="search doctor name" onkeyup="filterDoctorName()"  autofocus="true"/></td>
                             <td><input type="text" class="search-session" name="room-no" id="room_no" placeholder="search room no" onkeyup="filterRoomNo()" autofocus="true"/></td>
                             <td><input type="text" class="search-session" name="session-status" id="session_status" placeholder="search session status"onkeyup="filterSessionStatus()"  autofocus="true"/></td>
-                            <td></td>
+                            <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                         </tr>
                         </form>
                         <?php 

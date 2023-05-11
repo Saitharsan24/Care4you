@@ -58,7 +58,7 @@ $no_row=mysqli_num_rows($result);
                             <td><input type="text" class="search-asst" name="asst-id" id="asst-id" placeholder="search Assistant ID" autofocus="true" onkeyup="filterAsstID()"/></td>
                             <td><input type="text" class="search-asst" name="asst-name" id="asst-name" placeholder="search Name"  autofocus="true" onkeyup="filterAsstName()"/></td>
                             <td><input type="text" class="search-asst" name="asst-status" id="asst-status" placeholder="search Status" autofocus="true" onkeyup="filterAsstStatus()"/></td>
-                            <td><button class="btn-search"><span>Search&emsp;</span></button></td>
+                            <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                         </tr>
                         <?php
                         if($result){

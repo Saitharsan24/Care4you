@@ -40,7 +40,7 @@
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
           <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_doctorlist.php">View doctors</a>
+          <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
           <a href="#">View profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->

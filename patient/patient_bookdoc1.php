@@ -2,6 +2,17 @@
 <?php include('../login_access.php') ?>
 
 
+
+<?php //DELETING IF THERE IS ANY PENDING BOOKING
+
+    $sqlclear = "DELETE FROM tbl_docappointment WHERE docapt_status = 0";
+    $resultClear = mysqli_query($conn, $sqlclear);
+    
+?>
+
+
+
+
 <?php
   date_default_timezone_set("Asia/Calcutta");
 
@@ -24,15 +35,15 @@ if ($result) {
   $noofapt = $row['no_of_appointment'];
 
   //to find the timeslot
-  if ($timeslot == 1) {
+  if ($timeslot == 0) {
     $starttime = strtotime('08:00:00');
-  } else if ($timeslot == 2) {
+  } else if ($timeslot == 1) {
     $starttime = strtotime('10:00:00');
-  } else if ($timeslot == 3) {
+  } else if ($timeslot == 2) {
     $starttime = strtotime('12:00:00');
-  } else if ($timeslot == 4) {
+  } else if ($timeslot == 3) {
     $starttime = strtotime('14:00:00');
-  } else if ($timeslot == 5) {
+  } else if ($timeslot == 4) {
     $starttime = strtotime('16:00:00');
   } else {
     $starttime = strtotime('18:00:00');
@@ -112,7 +123,7 @@ if ($result) {
         <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
         <a href="./patient_pharmorders.php">Orders</a>
         <a href="./patient_medicalrecords.php">Medical records</a>
-        <a href="./patient_doctorlist.php">View doctors</a>
+        <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
         <a href="#">View profile</a>
       </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -192,8 +203,6 @@ if ($result) {
 
         //deleting if there is any appointment is pending in the database
         
-
-
         //getting from POST method whether it is myself or others
         $my_other = $_POST['aptfor'];
 

@@ -39,7 +39,7 @@
             $res1 = mysqli_query($conn, $sql);
 
         if($res1){
-            header("Location: /Care4you/admin/admin-session-view.php");
+            header("Location: /Care4you/admin/admin-session-mail.php?doc_id=".$doc_id);
         }else{
             echo "Error: " . "<br>" . mysqli_error($conn); die();
         }
@@ -82,17 +82,17 @@
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="admin-session-mail-pop.php" method="POST">
+                            <form action="" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>
-                                    <div class="doc-id-option">
+                                    <div class="#">
                                     <?php
                                     if($result_1){
                                         echo "Doctor ID:"; 
                                         ?>
                                      <SELECT id='doctor_id' name=doctor_id onchange="var doc_id = this.value;location.href = '/Care4you/admin/admin-session-create.php?doc_id=' + doc_id;" >
-                                        <option value="NULL" hidden></option>
+                                        <option value="NULL"   hidden></option>
                                      <?php
                                      if (isset($_GET['doc_id'])) {
                                         while($row = mysqli_fetch_assoc($result_1)){

@@ -1,10 +1,15 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./patient_getinfo.php') ?>
+<?php require '../libraries/PHPMailer/vendor/autoload.php'; ?>
+<?php require '../libraries/PHPMailer/vendor/payment_config.php'; ?>
+
 
 <?php 
     $order_id = $_GET['id'];
     $order_status = $_GET['status'];
 
+    //getting order details
     $sql = "SELECT * FROM tbl_respondedorders WHERE order_id = '$order_id'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -13,10 +18,12 @@
     $respond_date = $row['responddate'];
     $respond_time = $row['respondtime'];
 
-
+  //getting medicine details 
     $sql1= "SELECT * FROM tbl_addmedicine WHERE order_id = '$order_id'";
     $result1 = mysqli_query($conn, $sql1);
     
+
+    //getting patient email
 ?>
 
 
@@ -54,6 +61,13 @@
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
       <div class="home-right">
+
+        <a href="./patient_pharmorderViewDetails.php?id=<?php echo $order_id?>&status=<?php echo $order_status?>">
+          <div class="back">
+          <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+        </div>
+        </a>
+
         <div class="view-order-heading"><h2>My Order Review</h2></div>
         <div class="view-review-details">
           
@@ -97,12 +111,60 @@
         </div>
 
         <div class="view-orderreview-btn">
-                <div class="view-order-btn02"><a href="./patient_pharmorderViewDetails.php?id=<?php echo $order_id;?>&status=<?php echo $order_status;?>"><button>Back</button></a></div>
-                <div class="view-apt-divider"></div>
-                <div class="review-order-btn01"><a href=""><button>Pay now</button></a></div>
+                <div class="">
+                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="<?php echo $_SESSION['public_key'] ?>"
+                            data-amount="<?php echo $row['nettotal']*100 ?>" data-name="CareForYou Payment"
+                            data-description="Make laboratory appointment payment" data-currency="lkr"
+                            data-image="../images/logoicon.png" 
+                            data-email="<?php echo $email ?>">
+                        </script>   
+                </div>
           </div>
       </div>
 
     </div>
   </body>
 </html>
+
+
+<?php
+ if(isset($_POST['stripeToken'])){
+  \Stripe\Stripe::setVerifySslCerts(false);
+                    try {
+                        $token=$_POST['stripeToken'];
+
+  $data=\Stripe\Charge::create(array(
+    "amount"=> $_SESSION['donating_amount'],
+    "currency"=>"lkr",
+    "description"=>"Cash Donation",
+    "source"=>$token,
+  ));
+    echo "Successfull";
+
+   if (isset($_POST['pname'])) {
+    print_r($_POST['pname']);die();
+   }
+    exit();
+
+
+
+  } catch(\Stripe\Exception\CardException $e) {
+    $_SESSION['PaymentError'] = $e->getError()->message;
+    echo "Card Fail";
+    unset($_SESSION['donating_amount']);
+
+    // print_r("A payment error occurred: {$e->getError()->message}");
+  } catch (\Stripe\Exception\InvalidRequestException $e) {
+    print_r("An invalid request occurred.");
+    unset($_SESSION['donating_amount']);
+
+  } catch (Exception $e) {
+    print_r("Another problem occurred, maybe unrelated to Stripe.");
+    unset($_SESSION['donating_amount']);
+
+  }
+
+  
+}
+?>

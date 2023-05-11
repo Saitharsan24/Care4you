@@ -37,7 +37,7 @@
         <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
         <a href="./patient_pharmorders.php">Orders</a>
         <a href="./patient_medicalrecords.php">Medical records</a>
-        <a href="./patient_doctorlist.php">View doctors</a>
+        <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
         <a href="#">View profile</a>
       </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
@@ -76,7 +76,21 @@
                           <td><?php echo $row['docapt_no'] ?></td>
                           <td><?php echo $row['date'] ?></td>
                           <td><?php echo $row['docapt_time'] ?></td>
-                          <td> <button class="btn-green"> Confirmed </button></td>
+                          <td>             
+                              <?php 
+
+                                  if($row['docapt_status']==1){
+                                      echo ' '.'<button class="docapt-st01">Confirmed</button>';
+                                  } elseif($row['docapt_status']==2){
+                                      echo ' '.'<button class="docapt-st02">Cancelled</button>';
+                                  } elseif($row['docapt_status']==3){
+                                      echo ' '.'<button class="docapt-st03"">Completed</button>';   
+                                  } else{
+                                      echo ' '.'<button class="docapt-st04">Not attended</button>';
+                                  }
+
+                              ?>
+                          </td>
                           <td><a href="./patient_viewdocappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="book-btn"><span>View Status</span></button></a></td>
                       </tr>
                   <?php 

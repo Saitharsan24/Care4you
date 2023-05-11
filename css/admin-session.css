@@ -416,52 +416,56 @@ body{
   font-style: italic;
 }
 
+/* buttons of status */
 .btn-paypend{
-  width: 150px;
-  background-color: #FDD147;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #000;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #FDD147;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
-
 .btn-confirmed{
-  background-color: #0C7516;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #28ae28;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
 
 .btn-completed{
-  background-color:#083746;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #093e4e;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
 
 .btn-cancelled{
-  background-color: #BD1010;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #BD1010;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
 
 /* admin-session-view.php end here */
@@ -578,8 +582,36 @@ body{
   cursor: pointer;
 }
 
-.doc-id-option{
- 
+.doc-id-select section{
+  position: relative;
+  font-family: Arial;
+  
+}
+
+select {
+  font-size: 18px;
+  background-color: #b1d7f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 205px;
+  height: 43px;
+  border-radius: 10px;
+}
+
+select option {
+  font-size: 16px;
+  background-color: #336274;
+  padding: 5px;
+}
+
+input[type="date"] {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  width: 205px;
+  height: 43px;
+  /* Add any other styles you want to apply to the date field here */
 }
 /* admin-session-create.php end here */
 

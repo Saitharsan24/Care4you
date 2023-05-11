@@ -913,6 +913,7 @@ input::-webkit-file-upload-button {
     transition: all 0.5s;
     cursor: pointer;
     font-weight: 500;
+    margin: 30px 0px 0px 0px;
 }
 
 .mk-apt-btn{

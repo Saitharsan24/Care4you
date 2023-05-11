@@ -61,7 +61,7 @@ section.active .overlay {
   width: 900px;
   height: 600px;
   padding: 20px 0 0 20px;
-  border-radius: 24px;
+  border-radius: 50px;
   background-color: #fff;
   opacity: 0;
   pointer-events: none;
@@ -191,7 +191,7 @@ section.active .modal-box {
 }
 
 .tbl-common td{
-  background-color: #D4FAFC;
+  background-color: #fff;
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -209,6 +209,46 @@ section.active .modal-box {
   border-radius: 0 10px 10px 0;
 }
 
+
+.button {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  padding: 14px 22px;
+  border: none;
+  background: #0e6680;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0D5C75;
+}
+
+.modal-box i {
+  font-size: 70px;
+  color: #0e6680;
+}
+.modal-box h2 {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+.modal-box h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
+.modal-box .buttons {
+  margin-top: 25px;
+}
+.modal-box button {
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 10px;
+}
 
 </style>
 
@@ -292,16 +332,30 @@ section.active .modal-box {
     </div>
 </section>
 
+<section id="cancel">
+  <span class="overlay" onclick="closePopupC()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-question" style="margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure you want to <br/> Cancel your Appointment?</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button" style="width:100px;">Yes</button>
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">No</button>
+    </div>
+  </div>
+</section>
+
+
 <script>
-  function openPopup() {
-    const section = document.getElementById("reshedule1");
-    section.classList.add("active");
-  }
 
-  
+function openPopup() {
+  const section = document.getElementById("reshedule1");
+  section.classList.add("active");
+}
 
-  const overlay = document.querySelector(".overlay"),
-    closeBtn = document.querySelector(".close-btn");
+const overlay = document.querySelector(".overlay"),
+closeBtn = document.querySelector(".close-btn");
 
 function closePopup() {
 const section = document.querySelector("section");
@@ -311,18 +365,26 @@ section.classList.remove("active");
 closeBtn.addEventListener("click", closePopup);
 overlay.addEventListener("click", closePopup);
 
+function openPopup2() {
 
+  const section2 = document.getElementById("reshedule2");
+  section2.classList.add("active");
+  const section = document.getElementById("reshedule1");
+  section.classList.remove("active");
 
+}
 
-  function openPopup2() {
+function openPopupC() {
+  const sectionC = document.getElementById("cancel");
+  sectionC.classList.add("active");
+}
 
-    const section2 = document.getElementById("reshedule2");
-    section2.classList.add("active");
-    const section = document.getElementById("reshedule1");
-    section.classList.remove("active");
-   
-    
-  }
+function closePopupC() {  
+  console.log('Check');
+const sectionC = document.getElementById("cancel");
+sectionC.classList.remove("active");
+}
+
 
 </script>
 

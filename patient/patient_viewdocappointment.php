@@ -102,7 +102,7 @@
               <?php 
               if($row['docapt_status']==1){
               ?> 
-                  <div class="view-apt-btn01"><button onclick="opencancelPopup()">Cancel Appointment</button></div>
+                  <div class="view-apt-btn01"><button onclick="openPopupC()">Cancel Appointment</button></div>
                   <div class="view-apt-divider"></div>
                   <div class="view-apt-btn02"><button onclick="openPopup()">Reschedule Appointment</button></div>
               <?php

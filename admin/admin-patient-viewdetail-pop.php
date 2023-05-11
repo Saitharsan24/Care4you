@@ -1,4 +1,4 @@
-<a href="#" onclick="openPopup()"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+<i onclick="openPopup()" class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i>
 
 <style>
 * {
@@ -53,6 +53,7 @@ button:hover {
 section.active .overlay {
   opacity: 1;
   pointer-events: auto;
+  z-index: 998;
 }
 
 .modal-box {
@@ -76,6 +77,7 @@ section.active .modal-box {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
+  z-index: 999;
 }
 
 .modal-box i {

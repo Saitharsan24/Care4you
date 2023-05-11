@@ -36,10 +36,10 @@
            
         </div>
         <div class="record-buttons">
-          <div><a href="./patient_docprescriptions.php"><button>Doctor Prescriptions</button></a></div>
-          <div class="appointments-divider"></div>
+          <div><a href="./patient_docprescriptions.php"><button style="margin-left:10px;">Doctor Prescriptions</button></a></div>
+          <div class="appointments-divider2"></div>
           <div><a href="./patient_labreports.php"><button>Lab Reports</button></a></div>
-          <div class="appointments-divider"></div>
+          <div class="appointments-divider2"></div>
           <div><a href="./patient_otherrecords.php"><button>Other Records</button></a></div>
         </div>
       </div>

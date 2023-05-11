@@ -1,5 +1,6 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popups/otherrecord.php') ?>
 
 <?php
 
@@ -49,8 +50,8 @@
       </div>
 
       <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
-        <div class="doc-apt-title">My Medical Records</div>
-        <div class="mk-apt-btn"><a href="#"><button class="btn-mkdcapt"><span>upload a record</span></button></a></div>
+        <div class="doc-apt-title" style="margin-bottom:10px;">My Medical Records</div>
+        <div class="mk-apt-btn"><button class="btn-mkdcapt" onclick="openPopup()"><span>upload a record</span></button></div>
       </div>
 
       <div class="tbl-content">

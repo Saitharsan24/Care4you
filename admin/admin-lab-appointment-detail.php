@@ -23,7 +23,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</a></div></li>
+                <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</a></div></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -35,9 +35,9 @@
             <div class="back" onclick="location.href='admin-lab-appointment.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
-            <div class="doc-apt-title-detail" id="id"> Lab Appointments Details</div>
+            <div class="lab-apt-title-detail" id="id"> Lab Appointments Details</div>
             
-            <table class="view-apt" id="tbl-main-app">
+            <table class="view-lab-apt" id="tbl-main-app">
                    <tr>
                         <td class="typeR">Reference No :</td>
                         <td class="typeL"> </td>

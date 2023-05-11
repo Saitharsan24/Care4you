@@ -224,8 +224,8 @@ body{
 
 .button-doc{    
   position: absolute;
-  width: 334px;
-  height: 211px;
+ width: 334px;
+    height: 211px;
   left: 500px;
   top: 200px;
   background-color: #0C5C75;
@@ -573,7 +573,7 @@ body{
     font-weight: 600;
   }
 
-  .btn-cancel{
+  .btn-doc-cancel{
     width: 180px;
     background-color: #800000;
     padding: 5px;
@@ -585,7 +585,7 @@ body{
     cursor: pointer;
   }
 
-  .btn-confirm{
+  .btn-doc-confirm{
     width: 180px;
     background-color: #008000;
     padding: 5px;
@@ -874,4 +874,78 @@ font-style: italic;
 /* admin-lab-appointment.php page end here*/
 
 
+  /* admin-lab-appointment-datails.php page start here*/
+  .lab-apt-title-detail{
+    position: absolute;
+    left: 592px;
+    top: 71px;
+    font-size: 39px;
+    font-weight: 626;
+    width: 635px;
+    color: #093e4e;
+    margin-bottom: -15px;
+}
+  .view-lab-apt {
+    margin-top: 7%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: 478px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #888888;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+}
+
+
+
+.view-lab tr td{
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+  }
   
+  .view-lab-apt td.typeR{
+    text-align: center;
+    color: #0D5C75;
+    font-weight: 600;
+  }
+
+  
+.view-lab-apt td.typeL{
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .btn-lab-cancel{
+    width: 180px;
+    background-color: #800000;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-lab-confirm{
+    width: 180px;
+    background-color: #008000;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  
+   /* admin-lab-appointment-datails.php page end here*/

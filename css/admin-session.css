@@ -513,76 +513,24 @@ body{
   font-size: 15px;
 }
 
-.btn-create-session{
-  position:relative;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-
-.btn-create-session-back{
-  position: absolute;
-  left: 121px;
-  bottom:-32px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
 
 
 .btn-create-session{
   position: absolute;
-  left: 410px;
-  bottom: 41px;
-  width: 131px;
+    left: 226px;
+    bottom: 32px;
+    width: 180px;
+  width: 180px;
   background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 5px;
   border-radius: 25px;
   border: 1px solid #ccc;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
 }
 
-
-.btn-create-session-back{
-  position: absolute;
-  left: 93px;
-  bottom: 41px;
-  width: 116px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
 
 .doc-id-select section{
   position: relative;
@@ -592,7 +540,7 @@ body{
 
 select {
   font-size: 18px;
-  background-color: #b1d7f5;
+  background-color: #c5dde5;;
   border: 1px solid #ccc;
   padding: 10px;
   width: 205px;
@@ -602,15 +550,18 @@ select {
 
 select option {
   font-size: 16px;
-  background-color: #336274;
+  background-color: #c5dde5;
   padding: 5px;
 }
 
 input[type="date"] {
+  position: relative;
+  left: 19px;
+  top:0px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background-color: #f2f2f2;
+  background-color: #c5dde5;
   width: 205px;
   height: 43px;
   /* Add any other styles you want to apply to the date field here */

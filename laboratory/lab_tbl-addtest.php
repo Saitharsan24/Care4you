@@ -1,8 +1,5 @@
-
-        <button class="btn-gray" style="width:250px;">
-            <a href="#">
+        <button class="btn-gray" style="width:250px;cursor:pointer;" onclick="openPopup1()" >
                 + Add Available Tests
-            </a>
         </button>
         <table class="tbl-addmed">
             <thead>
@@ -27,7 +24,7 @@
 
         <br>
 
-        <button class="btn-gray" style="width:250px;">
+        <button class="btn-gray" style="width:250px;cursor:pointer;" onclick="openPopup2()" >
             <a href="#">
                 + Add Unavailable Tests
             </a>

@@ -32,14 +32,14 @@
       <div class="profile-image">
         <img src="../images/user.png" alt="profile-image" />
       </div>
-      <div class="nav-links">
-        <a href="./patient_home.php">Home</a>
-        <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
-        <a href="./patient_pharmorders.php">Orders</a>
-        <a href="./patient_medicalrecords.php">Medical records</a>
-        <!-- <a href="./patient_doctorlist.php">View doctors</a> -->
-        <a href="#">View profile</a>
-      </div>
+        <div class="nav-links">
+          <a href="./patient_home.php">Home</a>
+          <a href="./patient_appointments.php"  style="color: #0c5c75; font-weight: bold">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
+          <a href="./patient_medicalrecords.php">Medical Records</a>
+          <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
+          <a href="./patient_viewprofile.php">Profile</a>
+        </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
       <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
     </div>

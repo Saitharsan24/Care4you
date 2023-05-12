@@ -2276,7 +2276,8 @@ font-weight: 550;
 /* CSS for viewprofile.php Starts Here*/
 
 .polygons {
-    text-align: center;
+    text-align: left;
+    margin-left: 12%;
     position: relative;
   }
   .square {
@@ -2285,12 +2286,13 @@ font-weight: 550;
     height: 520px;
     background: #ffffff;
     position: relative;
-    top: 150px;
+    top: 120px;
     display: inline-block;
     border-radius: 10%;
   }
   
   .tbl-square{
+    margin-top: -10px;
     table-layout: fixed;
     text-align: center;
     vertical-align: middle;
@@ -2342,12 +2344,12 @@ font-weight: 550;
   
   .circle {
     border: 2px solid #0D5C75;
-    width: 250px;
-    height: 250px;
+    width: 225px;
+    height: 225px;
     background: #ffffff;
     border-radius: 50%;
     position: absolute;
-    left: 500px;
+    left: 195px;
     top: 15px;
     overflow: hidden;
   }
@@ -2424,8 +2426,8 @@ font-weight: 550;
     height: 50px;
     position: absolute;
     background: #0D5C75;
-    left: -205px;
-    top: 450px;
+    left: -450px;
+    top: 555px;
     /* border-radius: 10%; */
   }
   
@@ -2444,8 +2446,8 @@ font-weight: 550;
     height: 50px;
     position: absolute;
     background: #0D5C75;
-    left: -205px;
-    top: 465px;
+    left: -450px;
+    top: 540px;
     /* border-radius: 10%; */
   }
   
@@ -2454,7 +2456,7 @@ font-weight: 550;
     height: 50px;
     position: absolute;
     background: #0D5C75;
-    left: -235px;
+    left: -450px;
     top: 370px;
     /* border-radius: 10%; */
   }

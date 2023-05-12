@@ -41,8 +41,7 @@
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php">Orders</a>
           <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_doctorlist.php">Doctors</a>
-          <a href="./patient_viewprofile.php">Profile</a>
+          <a href="./patient_viewprofile.php"  style="color: #0c5c75; font-weight: bold">Profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -64,7 +63,7 @@
             ?>
             <div class="polygons">
                 <div class="square">
-                    <br /><br /><br /><br /><br /><br />
+                    <br /><br /><br /><br /><br /><br /><br />
                     <table class="tbl-square">
                         <tr>
                             <td class="type1">First Name :</td>
@@ -90,12 +89,18 @@
                             <td class="type1">Contact Numer :</td>
                             <td class="type2"><?php echo '0'.$contact; ?></td>
                         </tr>
+                        <tr>
+                            <td class="type1">Address :</td>
+                            <td class="type2"><?php echo $address; ?></td>
+                        </tr>
                     </table> 
                 </div>
-                    <a href="pharmacy_editprofile.php"><button class="btn-editP square2"><i class="fa-solid fa-pen-to-square"></i> &nbsp; Edit Profile</button></a>                      
-                    <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="circle" />
+                    <a href="patient_editprofile.php"><button class="btn-editP square2"><i class="fa-solid fa-pen-to-square"></i> &nbsp; Edit Profile</button></a>                      
+                    <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="circle" />
                     <div id="overlap"></div>
             </div>
        </div>
   </body>
 </html>
+
+

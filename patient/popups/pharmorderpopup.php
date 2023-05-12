@@ -307,15 +307,29 @@ section.active .modal-box {
 
 
 
-<section id="cancel">
-  <span class="overlay" onclick="closePopupC()"></span>
+<section id="orderplaced">
+  <span class="overlay" onclick="closePopupOS()"></span>
 
   <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
     <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
-    <h3 style="font-size:20px; font-weight:700;">Successfully<br/>created your appointment</h3>
+    <h3 style="font-size:20px; font-weight:700;"><b>Your Order has been placed</b><br/>please wait for the response from pharmacy</h3>
 
     <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
-      <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">Ok</button>
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupOS()">Ok</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="orderfail">
+  <span class="overlay" onclick="closePopupOF()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:600;"><b>Order Unsuccessful</b><br/>please try agian!</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupOF()">Ok</button>
     </div>
   </div>
 </section>
@@ -325,14 +339,26 @@ section.active .modal-box {
 
 
 <script>
-    function openPopupC() {
-    const sectionC = document.getElementById("cancel");
+    function openPopupOS() {
+    const sectionC = document.getElementById("orderplaced");
     sectionC.classList.add("active");
   }
 
-  function closePopupC() {  
+  function closePopupOS() {  
     console.log('Check');
-  const sectionC = document.getElementById("cancel");
+  const sectionC = document.getElementById("orderplaced");
+  sectionC.classList.remove("active");
+  }
+  
+
+  function openPopupOF() {
+    const sectionC = document.getElementById("orderfail");
+    sectionC.classList.add("active");
+  }
+
+  function closePopupOF() {  
+    console.log('Check');
+  const sectionC = document.getElementById("orderfail");
   sectionC.classList.remove("active");
   }
 

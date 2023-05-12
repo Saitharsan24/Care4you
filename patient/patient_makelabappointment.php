@@ -69,58 +69,84 @@
         ?>
 
         <form action="" method="POST" enctype="multipart/form-data">
-        <div class="form-content make-order">
-            <div class="form-itm">
-                <p>Name :</p>
-                <input type="text" name="pname" value="<?php echo $p_name;?>" readonly/>
-            </div>
-            <div class="form-itm">
-                <p>Contact No :</p>
-                <input type="tel" name="contactnumber" pattern="[0-0]{1}[0-9]{9}" required/>
-            </div>
-            <div class="form-itm">
-                <p>NIC No :</p>
-                <input type="text" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" value="<?php echo $p_nic;?>" readonly/>
-            </div>
-            <div class="form-itm other-order">
-                <p>Date :</p>
-                <input type="date" name="date" id="date">
-            </div>
-            <!-- <div class="form-itm">
-              <input type="text">
-            </div> -->
-            <div class="form-itm type-file">
-                <p>Upload Prescription :</p>
-                <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
-            </div>
-            <div class="ortext"> or </div>
-            <div class="form-itm">
-                <p>Seletct Test :</p>
-                <select name="test_name[]" id="test_name" class="testselect" multiple="multiple">
-                  <option value="" hidden> Select Test Name </option>
-                  <?php
-                    $tstnamesql = "SELECT test_name FROM tbl_labtests;";
-                    $tstNresult = mysqli_query($conn, $tstnamesql);
-                    while ($row = mysqli_fetch_assoc($tstNresult)) {
-                      echo "<option value='" . $row['test_id'] . "'>" . $row['test_name'] . "</option>";
-                    }
-                  ?>                               
-                </select>
-            </div>
-            <div class="apt-btn order-btn">
-                <div class="apt-btn-css"><a href="patient_pharmorders.php">
-                <button type="submit" name="submit" style="width:230px; margin-left:8px;">
-                  Make Lab Appointment
-                </button>
-                </div>
-            </div>
-        </div>
+              <div class="form-content make-order">
+                  <div class="form-itm">
+                      <p>Name :</p>
+                      <input type="text" name="name" value="<?php echo $p_name;?>" readonly/>
+                  </div>
+                  <div class="form-itm">
+                      <p>Contact No :</p>
+                      <input type="tel" name="contactnumber" pattern="[0-0]{1}[0-9]{9}" required/>
+                  </div>
+                  <div class="form-itm">
+                      <p>NIC No :</p>
+                      <input type="text" name="nic" pattern="[0-9]{9}[Vv0-9]{1,3}" value="<?php echo $p_nic;?>" readonly/>
+                  </div>
+                  <div class="form-itm other-order">
+                      <p>Date :</p>
+                      <input type="date" name="date" id="date">
+                  </div>
+                  <!-- <div class="form-itm">
+                    <input type="text">
+                  </div> -->
+                  <div class="form-itm type-file">
+                      <p>Upload Prescription :</p>
+                      <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription"/>
+                  </div>
+                  <div class="ortext"> or </div>
+                  <div class="form-itm">
+                      <p>Seletct Test :</p>
+                      <select name="test_name[]" id="test_name" class="testselect" multiple="multiple">
+                        <option value="" hidden> Select Test Name </option>
+                        <?php
+                          $tstnamesql = "SELECT * FROM tbl_labtests WHERE prescription = 0";
+                          $tstNresult = mysqli_query($conn, $tstnamesql);
+                          while ($row = mysqli_fetch_assoc($tstNresult)) {
+                            echo "<option value='" . $row['test_id'] . "'>" . $row['test_name'] . "</option>";
+                          }
+                        ?>                               
+                      </select>
+                  </div>
+                  <div class="apt-btn order-btn">
+                      <div class="apt-btn-css"><a href="patient_pharmorders.php">
+                        <button type="submit" name="createlabapt" style="width:230px; margin-left:8px;">
+                          Make Lab Appointment
+                        </button>
+                      </div>
+                  </div>
+              </div>
         </form>
+
       </div>
     </div>
   </body>
 </html>
 
 <?php
+  if(isset($_POST['createlabapt'])){
+
+    //getting values from post variable
+    $labaptDate = $_POST['date'];
+    $contact = $_POST['contactnumber'];
+
+    //creating lab appointments 
+    $sql = "INSERT INTO tbl_labappointment (labapt_date,contact,created_by) 
+              VALUES ('$labaptDate','$contact','$user_id')";
+    
+    $result = mysqli_query($conn,$sql);
+
+    //inseting lab tests which do not need prescription
+    $lastInsertedId = mysqli_insert_id($conn);
+
+    for ($i=0; $i < count($_POST['test_name']) ; $i++) {
+      $labtestinsert = $_POST['test_name'][$i];
+      $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_id)
+                VALUES ('$lastInsertedId','$labtestinsert')";
+      $result1= mysqli_query($conn,$sql1);
+    }
+    
+    
+
+  }
 
 ?>

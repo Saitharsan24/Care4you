@@ -18,41 +18,17 @@
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
-                <li><a href="lab_home.php"><div class="highlighttext">Home</div></a></li>
-                <li><a href="lab_appointments.php">Lab Appointments</a></li>
-                <li><a href="">Lab tests</a></li>
+                <li><a href="lab_home.php">Home</a></li>
+                <li><a href="lab_newappointments.php">New Appointments</a></li>
+                <li><a href="lab_appointmenthistory.php"><div class="highlighttext">Appointment History</div></a></li>
+                <li><a href="lab_testsinfo.php">Lab Tests</a></li>
                 <li><a href="lab_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content"> 
             <div class="info">
-            <span>
-            <table class="tbl-viewappointment">
-                <tr>
-                    <td class="tdtype1">Lab Appointment ID :</td>
-                    <td class="tdtype2"></td>
-                </tr>
-                <tr>
-                    <td class="tdtype1">Patient Name :</td>
-                    <td class="tdtype2"></td>
-                </tr>
-                <tr>
-                    <td class="tdtype1">Appointment Date :</td>
-                    <td class="tdtype2"></td>
-                </tr>
-                <tr>
-                    <td class="tdtype1">Tests Done :</td>
-                    <td class="tdtype2"></td>
-                </tr>
-                <tr>
-                    <td class="tdtype2"><button class="btn-upload">Upload Report</button></td>
-                    <td class="tdtype2"></td>
-                </tr>
-            </table>
-            <br /> <br />
-            <button class="btn-blue">Save</button>
-            </span>
+            
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <?php include('../config/constants.php'); ?>
+<?php include('../login_access.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,10 +12,12 @@
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
-<?php include('admin_getinfo.php') ?>
+    <?php include('admin_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -24,9 +27,11 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="admin-system-users.php">System Users</div></a></li>
+                <li><a href="admin-system-users.php">
+                        <div class="highlighttext">System Users</div>
+                    </a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -86,7 +91,7 @@
 
             ?>
             
-               <table class="view-doc" style="width: 57%; margin-left: 450px;">
+               <table class="view-doc" >
                     <tr>
                         <td rowspan = 5 style="width:100px;">
                             <img src="../images/user-profilepic/doctor/<?php echo $row['profile_picture']; ?>" alt="user" class="ppframe">

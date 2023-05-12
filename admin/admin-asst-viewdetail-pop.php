@@ -1,3 +1,6 @@
+
+<a href="#" onclick="openPopup()"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+
 <style>
 * {
   margin: 0;
@@ -21,7 +24,6 @@
 .modbutton:hover {
   background-color: #0D5C75;
 }
-
 .modal-box {
   display: block;
   position: fixed;
@@ -68,7 +70,6 @@ section.active .overlay {
   pointer-events: none;
   transition: all 0.3s ease;
   transform: translate(-50%, -50%) scale(1.2);
-  
 }
 
 section.active .modal-box {
@@ -117,49 +118,36 @@ section.active .modal-box {
   outline: 0;
 }
 
-.button {
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-  padding: 14px 22px;
-  border: none;
-  background: #0e6680;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #0D5C75;
-}
-
-.modal-box i {
-  font-size: 70px;
-  color: #0e6680;
-}
-.modal-box h2 {
-  margin-top: 20px;
-  font-size: 25px;
-  font-weight: 500;
-  color: #333;
-}
-.modal-box h3 {
-  font-size: 16px;
-  font-weight: 400;
-  color: #333;
-  text-align: center;
-}
-.modal-box .buttons {
-  margin-top: 25px;
-}
-.modal-box button {
-  font-size: 14px;
-  padding: 6px 12px;
-  margin: 0 10px;
-}
-
 </style>
 
-<section> 
+<?php
+$phonenoErr ="";
+$phoneno="";
+$isValid = true;
+function validateInput($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+ // Validate contact number
+ if (empty($_POST["phone_no"])) {
+  $phonenoErr = "*Contact number is required";
+    $isValid = false;
+} else {
+    $$phoneno = validateInput($_POST["phone_no"]);
+    // Check if contact number is a valid 10-digit number
+    if (!preg_match("/^[0-9]{10}$/", $contactNo)) {
+        $contactNoErr = "*Enter 10-digit contact number";
+        $isValid = false;
+    }
+}
+?>
+
+<section>
+  <a href="#" onclick="openPopup()"></a>
   <span class="overlay"></span>
 
     <div class="modal-box">
@@ -167,13 +155,18 @@ section.active .modal-box {
         <form action="" method="POST">
           
             <i class="fa-solid fa-sack-dollar"></i>
-            <h2> Enter New Doctor Charge (per session) </h2>
-            <input type="number" step="500" name="charge" class="inputtab" placeholder="Enter New Doctor Charge per Session" />
+            <h2> Enter the New Phone Number </h2>
+            <input type="text"  name="phone_no" class="inputtab" placeholder="Enter New Phone Number " value=<?php $row['phoneno']; ?>>
+            <span class="error"><?php echo $phonenoErr; ?></span>
+
 
             <div class="buttons">
             <button class="modbutton close-btn">Close</button>
-            <button class="modbutton" type="submit" name="update_charge"  style="background-color: #008000; color: #fff;">Update</button>
+            <button class="modbutton" type="submit" name="update_phoneno"  style="background-color: #008000; color: #fff;">Update</button>
             </div>
+
+            
+
         </form>
 
     </div>
@@ -196,3 +189,27 @@ section.classList.remove("active");
 closeBtn.addEventListener("click", closePopup);
 overlay.addEventListener("click", closePopup);
 </script>
+
+<?php
+               
+                if(isset($_POST['update_phoneno']))
+                {
+                    $id = $_GET['id'];
+                   
+                   $phone_no= $_POST['phone_no'];
+                   
+                   $query = "UPDATE tbl_assistant SET phoneno='$phone_no' WHERE assistant_id=$id";
+                   $resq=mysqli_query($conn,$query);
+                
+                    if($resq)
+                    {
+                        $_SESSION['update-charge'] = '<div class="success">Assitant phone number has Updated Successfully</div>';
+                        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view-detail.php?id=$id';</script>";
+                    }
+                    else
+                    {
+                        $_SESSION['update-charge'] = '<div class="error">Failed to Update Assitant phone number </div>';
+                        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view-detail.php?id=$id';</script>";
+                    }
+                }
+            ?>

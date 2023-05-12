@@ -188,6 +188,67 @@ body{
 /* Navigation Bar CSS Ends Here*/
 
 
+/* admin-appointment.php page end here */
+.system-users{
+  color: #000000;
+  font-size: 40px;
+  font-weight: 600;
+  left: 75px;
+  display: inline;
+}
+
+.button-lab{    
+  position: absolute;
+  width: 334px;
+    height: 211px;
+  left: 980px;
+  top: 200px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.button-lab:hover{
+  background-color: #e1ebef;
+  color: #0C5C75;
+  cursor: pointer;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+
+.button-doc{    
+  position: absolute;
+ width: 334px;
+    height: 211px;
+  left: 500px;
+  top: 200px;
+  background-color: #0C5C75;
+  border-radius: 25px;
+  border-width: 0px;
+  color: #FFFFFF;
+  font-family: 'poppins';
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.button-doc:hover{
+  background-color: #e1ebef;
+  color: #0C5C75;
+  cursor: pointer;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+/*  admin-appointment.php page end here*/
+
+
 
 
 /* admin-doc-appointment.php page start here*/
@@ -293,7 +354,7 @@ body{
   }
   
   
-  .tbl-main-appoint{
+  .tbl-main-doc-appoint{
     position: absolute;
     left: 317px;
     top: 110px;
@@ -304,17 +365,17 @@ body{
     border-spacing: 0 15px;
   }
   
-  .tbl-main-appoint tr{
+  .tbl-main-doc-appoint tr{
     background-color: #ffffff;
   }
   
-  .tbl-main-appoint thead td{
+  .tbl-main-doc-appoint thead td{
     color: #0D5C75;
     font-weight: 700;
     padding: 5px;
   }
   
-  .tbl-main-appoint td{
+  .tbl-main-doc-appoint td{
     /*border:1px solid #b3adad;*/
     color: #000000;
     text-align: center;
@@ -324,11 +385,11 @@ body{
     padding-right: 0%;
   }
   
-  .tbl-main-appoint td:first-child, th:first-child {
+  .tbl-main-doc-appoint td:first-child, th:first-child {
     border-radius: 10px 0 0 10px;
   }
   
-  .tbl-main-appoint td:last-child, th:last-child {
+  .tbl-main-doc-appoint td:last-child, th:last-child {
     border-radius: 0 10px 10px 0;
   }
   
@@ -336,9 +397,12 @@ body{
   
 .search-appoint{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
  
 }
 
@@ -509,7 +573,7 @@ body{
     font-weight: 600;
   }
 
-  .btn-cancel{
+  .btn-doc-cancel{
     width: 180px;
     background-color: #800000;
     padding: 5px;
@@ -521,7 +585,7 @@ body{
     cursor: pointer;
   }
 
-  .btn-confirm{
+  .btn-doc-confirm{
     width: 180px;
     background-color: #008000;
     padding: 5px;
@@ -535,4 +599,353 @@ body{
   
   
    /* admin-doc-appointment-datails.php page end here*/
+
+   /* admin-lab-appointment.php page start here*/
+
+.lab-list{
+  position:absolute;
+  color: #000000;
+  font-size: 32px;
+  font-weight: 600;
+  top: 50px;
+  left: 726px;
+
+}
+
+.lab-apt-title{
+  position: absolute;
+  left: 474px;
+  top: 56px;
+  font-size: 34px;
+  font-weight: 626;
+  width: 490px;
+  color: #093e4e;
+  margin-bottom: -15px;
+}
+.btn-search{
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-search span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-search span:after {
+  content: '🔍︎';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-search:hover span {
+  padding-right: 15px;
+}
+
+.btn-search:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.btn-view-appoint-detail {
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view-appoint-detail span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view-appoint-detail span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-view-appoint-detail:hover span {
+  padding-right: 15px;
+}
+
+.btn-view-appoint-detail:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.tbl-main-lab-appoint{
+  position: absolute;
+  left: 317px;
+  top: 110px;
+  width: 1194px;
+  margin-left:auto; 
+  margin-right:auto;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.tbl-main-lab-appoint tr{
+  background-color: #ffffff;
+}
+
+.tbl-main-lab-appoint thead td{
+  color: #0D5C75;
+  font-weight: 700;
+  padding: 5px;
+}
+
+.tbl-main-lab-appoint td{
+  /*border:1px solid #b3adad;*/
+  color: #000000;
+  text-align: center;
+  width: 300px;
+  padding: 15px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+
+.tbl-main-lab-appoint td:first-child, th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.tbl-main-lab-appoint td:last-child, th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+
+
+.search-appoint{
+width: 80%;
+padding: 7px 7px 7px 10px;
+margin: 8px 0;
+box-sizing: border-box;
+border-radius: 10px;
+border: none;
+background-color:#c5dde5;
+
+}
+
+.search-appoint::placeholder {
+color: rgb(0, 0, 0);
+font-size: 10px;
+font-style: italic;
+}
+
+.btn-addnew {
+  position: absolute;
+  left: 1285px;
+  top: 42px;
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-addnew span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-addnew span:after {
+  content: '\002B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -20px;
+  transition: 0.5s;
+}
+
+.btn-addnew:hover span {
+  padding-left: 15px;
+}
+
+.btn-addnew:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+/* buttons of status */
+.btn-pending{
+  width: 175px;
+  width: 150px;
+  background-color: #FDD147;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-confirmed{
+  width: 175px;
+  width: 150px;
+  background-color: #28ae28;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-completed{
+  width: 175px;
+  width: 150px;
+  background-color: #093e4e;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-cancelled{
+  width: 175px;
+  width: 150px;
+  background-color: #BD1010;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-nattended{
+  width: 175px;
+  width: 150px;
+  background-color: #bd1097;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+
+/* admin-lab-appointment.php page end here*/
+
+
+  /* admin-lab-appointment-datails.php page start here*/
+  .lab-apt-title-detail{
+    position: absolute;
+    left: 592px;
+    top: 71px;
+    font-size: 39px;
+    font-weight: 626;
+    width: 635px;
+    color: #093e4e;
+    margin-bottom: -15px;
+}
+  .view-lab-apt {
+    margin-top: 7%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: 478px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #888888;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+}
+
+
+
+.view-lab tr td{
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+  }
   
+  .view-lab-apt td.typeR{
+    text-align: center;
+    color: #0D5C75;
+    font-weight: 600;
+  }
+
+  
+.view-lab-apt td.typeL{
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .btn-lab-cancel{
+    width: 180px;
+    background-color: #800000;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-lab-confirm{
+    width: 180px;
+    background-color: #008000;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  
+   /* admin-lab-appointment-datails.php page end here*/

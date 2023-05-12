@@ -116,7 +116,7 @@ section.active .overlay {
   width: 900px;
   height: 600px;
   padding: 20px 0 0 20px;
-  border-radius: 50px;
+  border-radius: 24px;
   background-color: #fff;
   opacity: 0;
   pointer-events: none;
@@ -246,7 +246,7 @@ section.active .modal-box {
 }
 
 .tbl-common td{
-  background-color: #fff;
+  background-color: #D4FAFC;
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -263,8 +263,6 @@ section.active .modal-box {
 .tbl-common td:last-child, th:last-child {
   border-radius: 0 10px 10px 0;
 }
-
-
 .button {
   font-size: 18px;
   font-weight: 400;
@@ -327,11 +325,13 @@ section.active .modal-box {
   <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
     <i class="fa-solid fa-circle-question" style="margin-top:-20px;"></i> <br/>
     <h3 style="font-size:20px; font-weight:700;">Are you sure you want to <br/> Cancel your Appointment?</h3>
-
-    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
-      <button class="button" style="width:100px;">Yes</button>
-      <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">No</button>
-    </div>
+    
+    <form action="" method="post">
+      <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+        <button class="button" style="width:100px;" type="submit" name="cancel-apt">Yes</button>
+        <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">No</button> 
+      </div>
+    </form>
   </div>
 </section>
 
@@ -536,22 +536,11 @@ section.active .modal-box {
 
 
 
-<section id="cancel">
-  <span class="overlay" onclick="closePopupC()"></span>
-
-  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
-    <i class="fa-solid fa-circle-question" style="margin-top:-20px;"></i> <br/>
-    <h3 style="font-size:20px; font-weight:700;">Are you sure you want to <br/> Cancel your Appointment?</h3>
-
-    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
-      <button class="button" style="width:100px;">Yes</button>
-      <button class="button  close-btn " style="width:100px;" onclick="closePopupC()">No</button>
-    </div>
-  </div>
-</section>
-
-
 <script>
+  function openPopup() {
+    const section = document.getElementById("reshedule1");
+    section.classList.add("active");
+  }
 
   function closePopup() {
   const section = document.getElementById("reshedule1");
@@ -673,9 +662,38 @@ section.active .modal-box {
 
       $resultOldUpdate = mysqli_query($conn,$sqlOldUpdate);
 
+      $_SESSION['reschedulesuccess'] = 1;
+      echo "<script>
+                window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';
+            </script>";
 
-      echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php</script>";
+  }
+  
 
+
+  if(isset($_POST['cancel-apt'])){
+    
+    $cancelapt_id = $_GET['id'];
+    
+    //updating the appointment to cancelled
+    $cancelaptsql = "UPDATE tbl_docappointment
+                        SET docapt_status = 2 
+                        WHERE docapt_id = '$cancelapt_id'";
+
+    $cancelResult = mysqli_query($conn,$cancelaptsql);
+
+    //changing the no of patients by -1
+    $sqlOldUpdate = "UPDATE tbl_docsession
+                      SET no_of_appointment = no_of_appointment - 1 
+                      WHERE session_id = '$currentSessId'";
+
+      $resultOldUpdate = mysqli_query($conn,$sqlOldUpdate);
+    
+
+    $_SESSION['cancelaptsuccess'] = 1;
+    echo "<script>
+              window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';
+          </script>";
   }
 
 ?>

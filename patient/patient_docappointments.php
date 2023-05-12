@@ -1,8 +1,28 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popups/docappointment_success.php')?>
 
 <?php
 
+    //do appointment success and fail popup 
+    if(isset($_SESSION['docsuccess'])){
+      unset($_SESSION['docsuccess']);
+      echo "<script>openPopupC();</script>";
+    }
+
+    //reschedule success popup
+    if(isset($_SESSION['reschedulesuccess'])){
+      unset($_SESSION['reschedulesuccess']);
+      echo "<script>openPopupR();</script>";
+    }
+
+    //cancelapt success popup
+    if(isset($_SESSION['cancelaptsuccess'])){
+      unset($_SESSION['cancelaptsuccess']);
+      echo "<script>openPopupCS();</script>";
+    }
+
+    //getting details to display my appointments
     $user_id = $_SESSION['user_id'];
   
     $sql = "SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id AND created_by = '$user_id'";

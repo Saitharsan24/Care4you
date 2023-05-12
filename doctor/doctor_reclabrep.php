@@ -27,52 +27,37 @@
         <div class="main_content"> 
             <div class="info">
 
-            <div class="back" onclick="location.href='doctor_responsesession.php'">
+            <div class="back" onclick="location.href='doctor_viewrecords.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
 
             <div class="text-content">
                 <div class="common-title"  style="margin-bottom:-10px;margin-top:-20px;">
-                    Appointments on &nbsp; 2023 - 05 - 14
+                    <img src="../images/logo.png" alt="logo" width="100px" height="50px"> <br/>
+                    Past Lab Reports
                 </div>
             </div>
 
             <div class="tbl-content">
-                <table class="tbl-common" style="width:85%;">
+                <table class="tbl-common" style="width:65%; margin-top:20px;">
                     <thead>
                         <tr>
-                            <td>Appointment No</td>
-                            <td>Patient ID</td>
-                            <td>Patient Name</td>
-                            <td>Appointment Time</td>
-                            <td>Medical Record Access</td>
+                            <td>Test ID</td>
+                            <td>Test Name</td>
+                            <td>Report Issued Date</td>
                             <td></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>01</td>
-                            <td>15</td>
-                            <td>Mrs. Sanjeewani Silva</td>
-                            <td>3.00 PM - 3.10 PM</td>
-                            <td class="allowed">Access Allowed</td>
-                            <td><a href="doctor_viewrecords.php"><button class="btn-view"  style="width:150px;"><span>View Records</span></td></a>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>21</td>
-                            <td>Mrs. Amal Perera</td>
-                            <td>3.10 PM - 3.20 PM</td>
-                            <td class="denied">Access Denied</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>04</td>
-                            <td>Ms. Kaveesha Dilki</td>
-                            <td>3.20 PM - 3.30 PM</td>
-                            <td class="allowed">Access Allowed</td>
-                            <td><a href="doctor_viewrecords.php"><button class="btn-view"  style="width:150px;"><span>View Records</span></td></a>
+                            <td>Blood Culture</td>
+                            <td>15/04/2023</td>
+                            <td>
+                                <a href="../images/lab-reports/patient-report/LFT.pdf" target="_blank">
+                                <button onclick="downloadPDF()" class="btn-view" style="width:200px;"><span>View Lab Report</span></button>
+                                </a>
+                            </td>
                         </tr>        
                     </tbody>
                 </table>

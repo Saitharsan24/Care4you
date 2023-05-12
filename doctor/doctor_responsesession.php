@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/doctor.css"> 
     <title>Doctor</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,8 +19,7 @@
             <img src="../images/user-profilepic/doctor/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="doctor_home.php">Home</a></li>
-                <li><a href="#"><div class="highlighttext">Sessions</div></a></li>
-                <li><a href="doctor_viewpatient.php">Patients</a></li>
+                <li><a href="doctor_session.php"><div class="highlighttext">Sessions</div></a></li>
                 <li><a href="doctor_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -63,10 +63,21 @@
                         <td class="typeR">Assigned Assistant :</td>
                         <td class="typeL">Mashi De Silva</td>
                     </tr>
+                    <!-- if resonse pending -->
                     <tr>
                         <td class="typeL" style="padding-left:150px;"><a href="#"><button class="st01">✔&nbsp;Confirm Session</button></a></td>
                         <td class="typeR" style="padding-right:110px;"><a href="#"><button class="st03">✖&nbsp;Cancel Session</button></a></td>
                     </tr>
+                    <!-- if resonse pending -->
+
+                    <!-- if session confirmed -->
+                    <tr>
+                        <td colspan="2">
+                            <a href="doctor_appointments.php"><button class="btn-view"  style="width:175px;"><span>View Appointments</span>
+                        </td></a>
+                    </tr>
+                    <!-- if session confirmed -->
+
                 </table>
             </div>
             </div>

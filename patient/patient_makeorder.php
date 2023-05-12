@@ -128,8 +128,7 @@
         
 
         //Check whether the prescription is uploaded or not
-            //print_r($_FILES['prescription']);
-            //die(); //Break the code to prevent data insertion
+          
         
             if(isset($_FILES['prescription']['name']))
             {
@@ -149,8 +148,6 @@
                     $ext = end(explode('.',$prescription_name));
 
                     //Rename the prescription
-
-                    
                     $prescription_name = "Order_".date('d_m_y_h_i_s_A').".".$ext;
 
                     //Get the source path
@@ -185,16 +182,7 @@
         //SQL Query to insert Order to database
         $sql = "INSERT INTO tbl_neworder (pname,paddress,nic,contactnumber,prescription_name,remarks,orderdate,ordertime,userid) 
                 VALUES ('$pname','$paddress','$nic','$contactnumber','$prescription_name','$remarks','$date','$time','$user_id')";
-                // pname = '$pname',
-                // paddress = '$pname',
-                // nic = '$nic',
-                // contactnumber = '$contactnumber',
-                // prescription_name = '$prescription_name',
-                // remarks = '$remarks',
-                // orderdate = '$date',
-                // ordertime = '$time'
-                // ";
-
+       
         //Execute the query and Save order details in database
         $res = mysqli_query($conn ,$sql);
 
@@ -203,14 +191,16 @@
         if($res == TRUE)
         {
             //Query executed and order details saved in database
-            $_SESSION['add-order'] = "<div class='success'>Order placed successfully</div>";
+
+            $_SESSION['add-order'] = 1;
             //Redirect to home page
             header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
         }
         else
         {
             //Failed to execute the query
-            $_SESSION['add-order'] = "<div class='error'>Failed to place order</div>";
+            $_SESSION['add-order'] = 2;
+
             //Redirect to placeorder page
             header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
         }

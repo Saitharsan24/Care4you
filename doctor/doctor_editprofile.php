@@ -1,57 +1,36 @@
-<?php include('../config/constants.php')?>
+<?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
-
-<?php 
-
-    $user_id = $_SESSION['user_id'];
-    $sql = "SELECT first_name FROM tbl_patient WHERE userid = '$user_id'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/patient.css" />
-    <link rel="stylesheet" href="../css/patient_home_slider.css">
-    <title>Home</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <title>Doctor</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
-    <script src="../script/slider.js"></script>
-  </head>
-  
-  <body>
-<?php include('patient_getinfo.php') ?>
-    <div class="main-div">
-      <div class="home-left">
-        <div class="nav-logo">
-          <a href="./patient_home.php">
-            <img src="../images/logo.png" alt="logo" />
-          </a>
+</head>
+<body>
+<?php include('doctor_getinfo.php') ?>
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
+            <ul>
+                <li><a href="doctor_home.php">Home</a></li>
+                <li><a href="doctor_session.php">Sessions</a></li>
+                <li><a href="doctor_viewpatient.php">Patients</a></li>
+                <li><a href="doctor_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
+            </ul>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
-        <div class="profile-image">
-          <img src="../images/user.png" alt="profile-image" />
-        </div>
-        <div class="nav-links">
-          <a href="./patient_home.php">Home</a>
-          <a href="./patient_appointments.php">Appointments</a>
-          <a href="./patient_pharmorders.php">Orders</a>
-          <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_viewprofile.php" style="color: #0c5c75; font-weight: bold">Profile</a>
-        </div>
-        <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
-        <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
-      </div>
-        <div class="home-right">
-            <div class="back" onclick="location.href='patient_viewprofile.php'">
+        <div class="main_content"> 
+            <div class="info">
+            <div class="back" onclick="location.href='doctor_viewprofile.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
-            <div class="polygons">
-                <div class="square">
+            <div class="polygons" style="margin-top:-40px;">
+                <div class="square" style="height:560px;">
                     <br /><br /><br /><br /><br /><br/>
                     <?php
                         if(isset($_SESSION['upload']))
@@ -61,12 +40,12 @@
                         }
                     ?>
                     <form id="upload-form" method="POST" enctype="multipart/form-data">
-                        <figcaption class="txtpp" style="text-align:center;"><a href="#" id="file-link">Change Profile Picture</a><br/>
+                        <figcaption class="txtpp"><a href="#" id="file-link">Change Profile Picture</a><br/>
                         </figcaption>
                         <input type="file" name="file" id="file-input" accept="image/*">
                         <input type="hidden" name="ppUpdate" value="1">
                     </form>
-                    <br /><br /><br /><br /><br/><br/>
+                    <br /><br /><br /><br /><br/>
 
                     <!-- Code for hide the submit button -->
                     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -94,10 +73,10 @@
                             $extension = pathinfo($ppname, PATHINFO_EXTENSION);
 
                             // Generate a unique filename
-                            $new_ppname = 'User_' . $p_id . '_Updated' . '.' . $extension;
+                            $new_ppname = 'User_' . $doctor_id . '_Updated' . '.' . $extension;
 
                             // Move the file to a permanent location
-                            $destination= "../images/user-profilepic/patient/".$new_ppname;
+                            $destination= "../images/user-profilepic/doctor/".$new_ppname;
 
                             //Upload the Profile Picture
                             $upload = move_uploaded_file($_FILES['file']['tmp_name'], $destination);
@@ -107,14 +86,14 @@
                             {
                                 $_SESSION['upload'] = "Failed to upload Profile Picture! Please Retry";
                                 //Redirect to edit profile page
-                                header('location:'.SITEURL.'/patient/patient_editprofile.php'); 
+                                header('location:'.SITEURL.'/doctor/doctor_editprofile.php'); 
                                 //Stop the process
                                 die();
                             }
                             else
                             {
                                 // Store the filename in the database
-                                $sqlpp = "UPDATE tbl_patient SET profile_picture='$new_ppname' WHERE p_id ='$p_id'";
+                                $sqlpp = "UPDATE tbl_doctor SET profile_picture='$new_ppname' WHERE doctor_id ='$doctor_id'";
 
                                 //Execute the query and Save profile picture name in database
                                 $respp = mysqli_query($conn ,$sqlpp);
@@ -124,13 +103,13 @@
                                 {
                                     $_SESSION['upload'] = '<div class="ppUp">Profile Picture Updated Successfully</div>';
                                     //Redirect to edit profile page
-                                    header('location:'.SITEURL.'/patient/patient_editprofile.php'); 
+                                    header('location:'.SITEURL.'/doctor/doctor_editprofile.php'); 
                                 }
                                 else
                                 {
                                     $_SESSION['upload'] = '<div class="ppUpEr">Failed to Update Profile Picture! Please Retry</div>';
                                     //Redirect to edit profile page
-                                    header('location:'.SITEURL.'/patient/patient_editprofile.php');
+                                    header('location:'.SITEURL.'/doctor/doctor_editprofile.php');
                                 }
 
                             }
@@ -141,17 +120,11 @@
                     </figure>
                     <span>
                     <form action="" method="POST">
-                    <table class="tbl-square">
+                    <table class="tbl-square" style="border-radius:60px;">
                         <tr>
-                            <td class="type1">First Name :</td>
+                            <td class="type1">Name :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" name="first_name" value="<?php echo $first_name; ?>" required=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="type1">Last Name :</td>
-                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" name="last_name" value="<?php echo $last_name; ?>" required=""/>
+                            <input type="text" name="doc_name" value="<?php echo $doc_name; ?>" required=""/>
                             </td>
                         </tr>
                         <tr>
@@ -167,6 +140,24 @@
                             </td>
                         </tr>
                         <tr>
+                            <td class="type1">SLMC Number :</td>
+                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
+                            <input type="text" name="SLMC_number" value="<?php echo $SLMC_number; ?>" required=""/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type1">Specialization :</td>
+                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
+                            <input type="text" name="specialization" value="<?php echo $specialization; ?>" required="" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="type1">Charge per Session (Rs.) :</td>
+                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
+                            <input type="text" name="charge" value="<?php echo $charge; ?>" required="" readonly/>
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="type1">NIC Number :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
                             <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" required=""/>
@@ -175,24 +166,18 @@
                         <tr>
                             <td class="type1">Contact Numer :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="tel" class="form-control" name="contact" value="<?php echo '0'.$contact; ?>" required=""/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="type1">Address :</td>
-                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" class="form-control" name="address" value="<?php echo $address; ?>" required="" />
+                            <input type="tel" class="form-control" name="contact_number" value="<?php echo '0'.$contact_number; ?>" required=""/>
                             </td>
                         </tr>
                         <tr>
                             <td class="type1" style="padding-right: 15px;">
                             <button class="btn-pwd" style="font-size: 13px;" type="button">
-                                <a href="patient_changepassword.php">
+                                <a href="doctor_changepassword.php">
                                     <span><i class="fa-solid fa-lock" style="font-size: 15px;"></i> &nbsp; Change Password</span>
                                 </a>
                             </button>
                             </td>
-                            <td class="type2" style="background-color: #fff; padding-bottom: 25px;">
+                            <td class="type2" style="background-color: #fff;">
                             <?php
                                 if(isset($_SESSION['update-user']))
                                 {
@@ -204,15 +189,17 @@
                         </tr>
                     </table> 
                 </div>
-                    <a href="patient_editprofile.php"><button class="btn-saveP square4" type="submit" name="update">
+                    <a href="doctor_editprofile.php"><button class="btn-saveP square4"  style="margin-top: 130px;" type="submit" name="update">
                     <i class="fa-solid fa-rotate-right"></i>
                     &nbsp; Update Profile</button></a>
                     </form>                      
-                    <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="circle" style="margin-top:-10px;margin-left:-10px;"/>
+                    <img src="../images/user-profilepic/doctor/<?php echo $profile_picture; ?>" alt="user" class="circle" style="margin-top:-10px;"/>
                     <div id="overlap"></div>
             </div>
+            </div>
         </div>
-  </body>
+    </div>
+</body>
 </html>
 
 <?php
@@ -223,14 +210,13 @@
         //echo "<p>Button Clicked</p>";
 
         //Step 01 - Get the data from the form
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
+        $doc_name = $_POST['doc_name'];
+        $SLMC_number = $_POST['SLMC_number'];
         $nic = $_POST['nic'];
-        $contact = $_POST['contact'];
-        $address = $_POST['address'];
+        $contact_number = $_POST['contact_number'];
 
         //Step 02 - SQL Query to get the current data from Database
-        $selsql = "SELECT first_name,last_name, nic, contact, address FROM tbl_patient WHERE p_id ='$p_id'";
+        $selsql = "SELECT doc_name, SLMC_number, nic, contact_number FROM tbl_doctor WHERE doctor_id ='$doctor_id'";
         $selres = mysqli_query($conn , $selsql) or die(mysqli_error($conn));
         $row = mysqli_fetch_assoc($selres);
 
@@ -239,21 +225,20 @@
         // $row2 = mysqli_fetch_assoc($selres2);
         
         //Step 03 - Compare updated data with current data
-        if ($row['first_name'] == $first_name && $row['last_name'] == $last_name && $row['nic'] == $nic && $row['contact'] == $contact  && $row['address'] == $address ) {
+        if ($row['doc_name'] == $doc_name && $row2['SLMC_number'] == $SLMC_number && $row['nic'] == $nic && $row['contact_number'] == $contact_number) {
             // Data is not updated
             $_SESSION['update-user'] = '<div class="ppUpEr" style="padding-top:25px;"> No Changes made to Profile Details</div>';
-            echo "<script> window.location.href='http://localhost/Care4you/patient/patient_editprofile.php';</script>";
+            echo "<script> window.location.href='http://localhost/Care4you/doctor/doctor_editprofile.php';</script>";
         }
         else {
             // Data is updated
             //Step 04 - SQL Query to save the data in Database
-            $sql3 = "UPDATE tbl_patient SET 
-                first_name = '$first_name',
-                last_name = '$last_name',
+            $sql3 = "UPDATE tbl_doctor SET 
+                doc_name = '$doc_name',
+                SLMC_number = '$SLMC_number',
                 nic = '$nic',                
-                contact = '$contact',
-                address = '$address'
-                WHERE p_id ='$p_id'
+                contact_number = '$contact_number'
+                WHERE doctor_id ='$doctor_id'
             ";
             //echo $sql;
             $res3 = mysqli_query($conn , $sql3) or die(mysqli_error($conn));
@@ -271,20 +256,20 @@
                 //echo "Data Inserted";
 
                 //Create Session Variable to display message
-                $_SESSION['update-user'] = '<div class="success"> Profile Details Updated Successfully</div>';
+                $_SESSION['update-user'] = '<div class="successD"> Profile Details Updated Successfully</div>';
                 //Redirect to the pharmacy_respond.php page
                 // header("location:".SITEURL.'pharmacy/pharmacy_viewprofile.php');
-                echo "<script> window.location.href='http://localhost/Care4you/patient/patient_viewprofile.php';</script>";
+                echo "<script> window.location.href='http://localhost/Care4you/doctor/doctor_viewprofile.php';</script>";
             }
             else {
                 //Data not inserted
                 //echo "Fail to Insert Data";
 
                 //Create Session Variable to display message
-                $_SESSION['update-user'] = '<div class="error"> Failed to Update Profile Details</div>';
+                $_SESSION['update-user'] = '<div class="errorD"> Failed to Update Profile Details</div>';
                 //Redirect to the pharmacy_respond.php page
                 // header("location:".SITEURL.'pharmacy/pharmacy_viewprofile.php');
-                echo "<script> window.location.href='http://localhost/Care4you/patient/patient_viewprofile.php';</script>";
+                echo "<script> window.location.href='http://localhost/Care4you/doctor/doctor_viewprofile.php';</script>";
             }
         }
     }

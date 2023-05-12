@@ -124,7 +124,7 @@
                     $_SESSION['user_id'] = $userid;
 
                     //Redirect to home page
-                    header('location:'.SITEURL.'doctor/doctorHome.php');
+                    header('location:'.SITEURL.'doctor/doctor_home.php');
                 }
                 elseif($usertype=="pharmacist")
                 {

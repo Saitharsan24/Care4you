@@ -1,56 +1,35 @@
-<?php include('../config/constants.php')?>
+<?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
-
-<?php 
-
-    $user_id = $_SESSION['user_id'];
-    $sql = "SELECT first_name FROM tbl_patient WHERE userid = '$user_id'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/patient.css" />
-    <link rel="stylesheet" href="../css/patient_home_slider.css">
-    <title>Home</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <title>Doctor</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
-    <script src="../script/slider.js"></script>
-  </head>
-  
-  <body>
-<?php include('patient_getinfo.php') ?>
-    <div class="main-div">
-      <div class="home-left">
-        <div class="nav-logo">
-          <a href="./patient_home.php">
-            <img src="../images/logo.png" alt="logo" />
-          </a>
+</head>
+<body>
+<?php include('doctor_getinfo.php') ?>
+    <div class="wrapper">
+        <div class="sidebar">
+            <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
+            <ul>
+                <li><a href="doctor_home.php">Home</a></li>
+                <li><a href="doctor_session.php">Sessions</a></li>
+                <li><a href="doctor_viewpatient.php">Patients</a></li>
+                <li><a href="doctor_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
+            </ul>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
-        <div class="profile-image">
-          <img src="../images/user.png" alt="profile-image" />
-        </div>
-        <div class="nav-links">
-          <a href="./patient_home.php">Home</a>
-          <a href="./patient_appointments.php">Appointments</a>
-          <a href="./patient_pharmorders.php">Orders</a>
-          <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_viewprofile.php" style="color: #0c5c75; font-weight: bold">Profile</a>
-        </div>
-        <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
-        <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
-      </div>
-        <div class="home-right">
-        <div class="back" onclick="location.href='patient_editprofile.php'">
+        <div class="main_content"> 
+            <div class="info">
+            <div class="back" onclick="location.href='doctor_editprofile.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
-            <div class="polygons" style="margin-top:70px;">
+            <div class="polygons">
                 <div class="square" style="height:370px; border-radius:25px;">
                     <br /><br /><br /><br /><br /><br/>
                     <?php
@@ -73,6 +52,8 @@
 
                         }
                     ?>
+                    </figure>
+                    <span>
                     <form action="" method="POST">
                     <table class="tbl-square">
                         <tr>
@@ -95,18 +76,20 @@
                         </tr>
                     </table> 
                 </div>
-                    <a href="patient_editprofile.php">
+                    <a href="doctor_editprofile.php">
                     <button class="btn-saveP square5" type="submit" name="submit">
                     <i class="fa-solid fa-key"></i>
                     &nbsp; Change Password
                     </button>
                     </a>
                     </form>                      
-                    <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="circle" style="margin-top:-10px;"/>
+                    <img src="../images/user-profilepic/doctor/<?php echo $profile_picture; ?>" alt="user" class="circle" style="margin-top:-10px;"/>
                     <div id="overlap"></div>
             </div>
+            </div>
         </div>
-  </body>
+    </div>
+</body>
 </html>
 
 <?php 
@@ -118,8 +101,8 @@ if(isset($_POST['submit'])) {
 
     // Check if new password matches confirm password
     if($newpwd !== $confirmpwd) {
-        $_SESSION['pwd-not-match'] = "<div class='ppUpEr' style='text-align:center;margin-top: -25px;margin-bottom: 25px;'>Password Did Not Match</div>";
-        header('location: patient_changepassword.php');
+        $_SESSION['pwd-not-match'] = "<div class='ppUpEr'>Password Did Not Match</div>";
+        header('location: doctor_changepassword.php');
         exit();
     }
 
@@ -143,24 +126,23 @@ if(isset($_POST['submit'])) {
             $stmt->execute();
 
             if($stmt->affected_rows == 1) {
-                $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully</div>";
-                header('location: patient_viewprofile.php');
+                $_SESSION['change-pwd'] = "<div class='successD'>Password Changed Successfully</div>";
+                header('location: doctor_viewprofile.php');
                 exit();
             } else {
-                $_SESSION['change-pwd'] = "<div class='ppUpEr'  style='text-align:center;margin-top: -25px;margin-bottom: 25px;'>Failed to Change Password</div>";
-                header('location: patient_changepassword.php');
+                $_SESSION['change-pwd'] = "<div class='ppUpEr'>Failed to Change Password</div>";
+                header('location: doctor_changepassword.php');
                 exit();
             }
         } else {
-            $_SESSION['old-pwd-not-match'] = "<div class='ppUpEr' style='text-align:center;margin-top: -25px;margin-bottom: 25px;'>Old Password Did Not Match</div>";
-            header('location: patient_changepassword.php');
+            $_SESSION['old-pwd-not-match'] = "<div class='ppUpEr'>Old Password Did Not Match</div>";
+            header('location: doctor_changepassword.php');
             exit();
         }
     } else {
-        $_SESSION['old-pwd-not-match'] = "<div class='ppUpEr' style='margin-top:140px;text-align:center;margin-top: -25px;margin-bottom: 25px;'>Old Password Did Not Match</div>";
-        header('location: patient_changepassword.php');
+        $_SESSION['old-pwd-not-match'] = "<div class='ppUpEr'>Old Password Did Not Match</div>";
+        header('location: doctor_changepassword.php');
         exit();
     }
 }
 ?>
-

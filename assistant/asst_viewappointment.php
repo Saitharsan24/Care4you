@@ -86,57 +86,117 @@
                         <td class="typeR">Appointment Time :</td>
                         <td class="typeL"><?php echo $row['docapt_time'] ?></td>
                     </tr>
-                    <tr>
-                        <td class="typeR">Appointment Status :</td>
-                        <td class="typeL">
-                            <?php 
-                                // if($row['docapt_status']==1){
-                                //     echo ' '.'<button class="order-st00">Confirmed</button>';
-                                // } elseif($row['docapt_status']==2){
-                                //     echo ' '.'<button class="order-st01">Completed</button>';
-                                // }
-                            ?>
-                            <label class="switch">
-                                <input type="checkbox" id="toggle">
-                                <span class="slider round"></span>
-                                <span id="toggle-text">Not Attended</span>
-                            </label>
-                            <script>
-                                const toggle = document.getElementById("toggle");
-                                const toggleText = document.getElementById("toggle-text");
 
-                                toggle.addEventListener("change", function() {
-                                if (this.checked) {
-                                    toggleText.textContent = "Attended";
-                                } else {
-                                    toggleText.textContent = "Not Attended";
-                                }  
-                                });
-                            </script>
-                        </td>
-                    </tr>
+                    <?php 
+                        if($row['docapt_status'] == 1){
+                    ?>
+                            <tr>
+                                <td class="typeR">Appointment Status :</td>
+                                <td class="typeL">
+                                    <?php 
+                                        // if($row['docapt_status']==1){
+                                        //     echo ' '.'<button class="order-st00">Confirmed</button>';
+                                        // } elseif($row['docapt_status']==2){
+                                        //     echo ' '.'<button class="order-st01">Completed</button>';
+                                        // }
+                                    ?>
+
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggle">
+                                        <span class="slider round"></span>
+                                        <span id="toggle-text">Not Attended</span>
+                                    </label>
+                                    <script>
+                                        const toggle = document.getElementById("toggle");
+                                        const toggleText = document.getElementById("toggle-text");
+
+                                        toggle.addEventListener("change", function() {
+                                        if (this.checked) {
+                                            toggleText.textContent = "Attended";
+                                        } else {
+                                            toggleText.textContent = "Not Attended";
+                                        }  
+                                        });
+                                    </script>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Upload Prescription :</td>
+                                <td class="typeL">
+                                <form method="POST">  
+                                <div class="type-file upload-input">
+                                    <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
+                                </div>
+                                </td>
+                        
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Other Remarks :</td>
+                                <td class="typeL">
+                                    <textarea class="textarea" name="address" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
+                                </td>
+                            </tr>
+                    <?php
+                        }
+
+                        if($row['docapt_status'] == 3 || $row['docapt_status'] == 4){
+                    ?>          
+                                
+                            <tr>    
+                                <td class="typeR">Appointment Status :</td>
+                                
+                                <td class="typeL">
+                                    <?php 
+                                    if($row['docapt_status']==3){
+                                        echo ' '.'<button class="docapt-st03">Completed</button>';
+                                    } elseif($row['docapt_status']==4){
+                                        echo ' '.'<button class="docapt-st04">Not Attended</button>';
+                                    } 
+                                    ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Prescription :</td>
+                                <td class="typeL">
+                                    <?php 
+                                        echo $row['prescription_name']; 
+                                    ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Other Remarks :</td>
+                                <td class="typeL">
+                                   <?php echo $row['other_remark']; ?>
+                                </td>
+                            </tr>
+                    <?php 
+                        }
+                    ?>
+
                     <tr>
-                        <td class="typeR">Upload Prescription :</td>
-                        <td class="typeL">
-                        <form method="POST">  
-                        <div class="type-file upload-input">
-                            <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
-                        </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="typeR">Other Remarks :</td>
-                        <td class="typeL">
-                        <form method="POST">
-                            <textarea class="textarea" name="address" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="typeL">
-                            <button class="btnpre"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
-                            &nbsp;  
-                            <button class="btnpre"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                        <td>        
+                                <?php 
+                                    if ($row['docapt_status']==1) {
+                                ?>
+                                        <button class="btnpre"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
+                                        &nbsp;
+                                <?php
+                                    }
+                                ?>
+                                
+                                <?php
+                                    if ($row['docapt_status'] == 3 || $row['docapt_status'] == 4) {
+                                ?>
+                                        <button class="btnpre" onclick="openPopupE()"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                                        <?php include('./asst_popups/editprespopup.php') ?>
+                                <?php 
+                                    }
+                                ?>
+
                         </td>
                     </tr>
                 </table>

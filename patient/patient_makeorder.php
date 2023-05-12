@@ -191,7 +191,7 @@
         if($res == TRUE)
         {
             //Query executed and order details saved in database
-
+            print_r("test");die();
             $_SESSION['add-order'] = 1;
             //Redirect to home page
             header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 

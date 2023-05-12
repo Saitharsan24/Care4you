@@ -1,5 +1,5 @@
-
-<?php include('../config/constants.php')?>
+<?php include('../config/constants.php') ?>
+<?php include('../login_access.php') ?>
 <?php 
         // displaying First name and nic from database
         $user_id = $_SESSION['user_id'];
@@ -8,7 +8,9 @@
         $result = mysqli_query($conn, $query);
     
         $row = $result -> fetch_assoc();
-        $p_name = $row['first_name'];
+        $f_name = $row['first_name'];
+        $l_name = $row['last_name'];
+        $p_name = $f_name . " " . $l_name;;
         $p_nic = $row['nic'];
 ?>
 
@@ -38,8 +40,8 @@
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
           <a href="./patient_medicalrecords.php">Medical Records</a>
-          <a href="./patient_doctorlist.php">View doctors</a>
-          <a href="#">View profile</a>
+          <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
+          <a href="./patient_viewprofile.php">Profile</a>
         </div>
         <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -126,8 +128,7 @@
         
 
         //Check whether the prescription is uploaded or not
-            //print_r($_FILES['prescription']);
-            //die(); //Break the code to prevent data insertion
+          
         
             if(isset($_FILES['prescription']['name']))
             {
@@ -147,8 +148,6 @@
                     $ext = end(explode('.',$prescription_name));
 
                     //Rename the prescription
-
-                    
                     $prescription_name = "Order_".date('d_m_y_h_i_s_A').".".$ext;
 
                     //Get the source path
@@ -183,16 +182,7 @@
         //SQL Query to insert Order to database
         $sql = "INSERT INTO tbl_neworder (pname,paddress,nic,contactnumber,prescription_name,remarks,orderdate,ordertime,userid) 
                 VALUES ('$pname','$paddress','$nic','$contactnumber','$prescription_name','$remarks','$date','$time','$user_id')";
-                // pname = '$pname',
-                // paddress = '$pname',
-                // nic = '$nic',
-                // contactnumber = '$contactnumber',
-                // prescription_name = '$prescription_name',
-                // remarks = '$remarks',
-                // orderdate = '$date',
-                // ordertime = '$time'
-                // ";
-
+       
         //Execute the query and Save order details in database
         $res = mysqli_query($conn ,$sql);
 
@@ -201,14 +191,16 @@
         if($res == TRUE)
         {
             //Query executed and order details saved in database
-            $_SESSION['add-order'] = "<div class='success'>Order placed successfully</div>";
+            print_r("test");die();
+            $_SESSION['add-order'] = 1;
             //Redirect to home page
             header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
         }
         else
         {
             //Failed to execute the query
-            $_SESSION['add-order'] = "<div class='error'>Failed to place order</div>";
+            $_SESSION['add-order'] = 2;
+
             //Redirect to placeorder page
             header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
         }

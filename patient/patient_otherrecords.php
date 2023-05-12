@@ -1,5 +1,6 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popups/otherrecord.php') ?>
 
 <?php
 
@@ -33,12 +34,12 @@
         <img src="../images/user.png" alt="profile-image" />
       </div>
       <div class="nav-links">
-        <a href="./patient_home.php">Home</a>
-        <a href="./patient_appointments.php">Appointments</a>
-        <a href="./patient_pharmorders.php">Orders</a>
-        <a href="./patient_medicalrecords.php" style="color: #0c5c75; font-weight: bold">Medical Records</a>
-        <a href="./patient_doctorlist.php">Doctors</a>
-        <a href="#">Profile</a>
+          <a href="./patient_home.php">Home</a>
+          <a href="./patient_appointments.php">Appointments</a>
+          <a href="./patient_pharmorders.php">Orders</a>
+          <a href="./patient_medicalrecords.php" style="color: #0c5c75; font-weight: bold">Medical Records</a>
+          <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
+          <a href="./patient_viewprofile.php">Profile</a>
       </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
       <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -49,8 +50,8 @@
       </div>
 
       <div class="text-content" style="display: inline; flex-direction: inherit; margin: 40px 0px 0px 70px; position: fixed;">
-        <div class="doc-apt-title">My Medical Records</div>
-        <div class="mk-apt-btn"><a href="#"><button class="btn-mkdcapt"><span>upload a record</span></button></a></div>
+        <div class="doc-apt-title" style="margin-bottom:10px;">My Medical Records</div>
+        <div class="mk-apt-btn"><button class="btn-mkdcapt" onclick="openPopup()"><span>upload a record</span></button></div>
       </div>
 
       <div class="tbl-content">

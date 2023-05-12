@@ -754,11 +754,29 @@ p{
   padding-right: 3%;
 }
 
+.successD{
+  margin-top: -10px;
+  color: #2ed573;
+  font-size: 12px;
+  font-weight: 700;
+  padding-left: 2%;
+  padding-right: 3%;
+}
+
 .error{
   color:#ff4757;
   font-size: 13px;
   font-weight: 700;
   background-color: #F7F7F7;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 10%;
+}
+
+.errorD{
+  color:#ff4757;
+  font-size: 12px;
+  font-weight: 700;
   padding-left: 2%;
   padding-right: 3%;
   border-radius: 10%;
@@ -1156,8 +1174,8 @@ p{
   cursor: pointer;
 }
 
-.btn-update a{
-  color: #ffffff;
+.btn-update:hover{
+  background-color: #238f30;
 }
 
 .btn-delete{
@@ -1173,8 +1191,8 @@ p{
   cursor: pointer;
 }
 
-.btn-delete a{
-  color: #ffffff;
+.btn-delete:hover{
+  background-color: #8b1010;
 }
 
 .btn-addnew {
@@ -1263,3 +1281,81 @@ p{
 }
 
 /* editprofile.php CSS Ends */
+
+.st00{
+  width: 175px;
+  width: 150px;
+  background-color: #FAEAB1;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.st01{
+  background-color: #FDD147;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.st02{
+  background-color: #0C7516;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+.st03{
+  background-color: #FFA07A;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.st04{
+  background-color: #2196F3;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+.st05{
+  background-color: #BD1010;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}

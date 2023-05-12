@@ -404,10 +404,12 @@ body{
 
 .search-session{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
-  
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
 }
 
 .search-session::placeholder {
@@ -416,52 +418,56 @@ body{
   font-style: italic;
 }
 
+/* buttons of status */
 .btn-paypend{
-  width: 150px;
-  background-color: #FDD147;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #000;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #FDD147;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
-
 .btn-confirmed{
-  background-color: #0C7516;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #28ae28;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
 
 .btn-completed{
-  background-color:#083746;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #093e4e;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
 
 .btn-cancelled{
-  background-color: #BD1010;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
+  width: 175px;
+    width: 150px;
+    background-color: #BD1010;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-weight: 550;
 }
 
 /* admin-session-view.php end here */
@@ -507,79 +513,58 @@ body{
   font-size: 15px;
 }
 
-.btn-create-session{
-  position:relative;
-  left: 570px;
-  bottom:-30px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-
-
-.btn-create-session-back{
-  position: absolute;
-  left: 121px;
-  bottom:-32px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
 
 
 .btn-create-session{
   position: absolute;
-  left: 410px;
-  bottom: 41px;
-  width: 131px;
+    left: 226px;
+    bottom: 32px;
+    width: 180px;
+  width: 180px;
   background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding: 5px;
   border-radius: 25px;
   border: 1px solid #ccc;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
 }
 
 
-.btn-create-session-back{
-  position: absolute;
-  left: 93px;
-  bottom: 41px;
-  width: 116px;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
+.doc-id-select section{
+  position: relative;
+  font-family: Arial;
+  
 }
 
-.doc-id-option{
- 
+select {
+  font-size: 18px;
+  background-color: #c5dde5;;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 205px;
+  height: 43px;
+  border-radius: 10px;
+}
+
+select option {
+  font-size: 16px;
+  background-color: #c5dde5;
+  padding: 5px;
+}
+
+input[type="date"] {
+  position: relative;
+  left: 19px;
+  top:0px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #c5dde5;
+  width: 205px;
+  height: 43px;
+  /* Add any other styles you want to apply to the date field here */
 }
 /* admin-session-create.php end here */
 

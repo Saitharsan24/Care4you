@@ -25,7 +25,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php"><div class="highlighttext">System Users</div></a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -101,7 +101,7 @@ if(isset($_POST['reg']))
     VALUES ('labtec', '$username', '$hashed_password', '$email')";
 
     $res1 = mysqli_query($conn, $sql);
-print_r($res1);die();
+//print_r($res1);die();
     $last_id = $conn->insert_id;
 
     $sql = "INSERT INTO tbl_labtec (fullname, nic, contact_number, profile_picture, userid)
@@ -117,7 +117,7 @@ print_r($res1);die();
     }
     else
     {
-        echo "Error: " . $s . "<br>" . mysqli_error($conn);
+        echo "Error: "  . "<br>" . mysqli_error($conn);
         die();
     }
       

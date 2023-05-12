@@ -83,12 +83,12 @@
                                 <td>
                                     <?php 
                                         if($row['status']==1){
-                                            echo ' '.'<button class="order-st00">Confirmed</button>';
+                                            echo ' '.'<button class="docapt-st01">Confirmed</button>';
                                         } elseif($row['status']==2){
-                                            echo ' '.'<button class="order-st01">Completed</button>';
-                                        }
+                                            echo ' '.'<button class="docapt-st03">Completed</button>';
+                                        } 
                                     ?>
-                                </td>
+                                </td>   
                                 <td><a href="./asst_viewsession.php?id=<?php echo $row['session_id']     ?>"><button class="btn-viewapp"><span>View Session</span></button></a></td>
                             </tr>
                     <?php 

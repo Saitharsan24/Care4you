@@ -39,7 +39,7 @@
             $res1 = mysqli_query($conn, $sql);
 
         if($res1){
-            header("Location: /Care4you/admin/admin-session-view.php");
+            header("Location: /Care4you/admin/admin-session-mail.php?doc_id=".$doc_id);
         }else{
             echo "Error: " . "<br>" . mysqli_error($conn); die();
         }
@@ -79,20 +79,24 @@
         </div>
             <div class="main_content">
                 <div class="info">
+                <div class="back" onclick="location.href='admin-session-view.php'">
+                        <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+                    </div>
+
                     <div class="head-create-session">Create Session</div>
                     <div class="square-create-session">
                         <div class="form-asst">
-                            <form action="admin-session-mail-pop.php" method="POST">
+                            <form action="" method="POST">
                                 <div class="form-asst">
                                    
                                     <br>
-                                    <div class="doc-id-option">
+                                    <div class="#">
                                     <?php
                                     if($result_1){
                                         echo "Doctor ID:"; 
                                         ?>
                                      <SELECT id='doctor_id' name=doctor_id onchange="var doc_id = this.value;location.href = '/Care4you/admin/admin-session-create.php?doc_id=' + doc_id;" >
-                                        <option value="NULL" hidden></option>
+                                        <option value="NULL"   hidden></option>
                                      <?php
                                      if (isset($_GET['doc_id'])) {
                                         while($row = mysqli_fetch_assoc($result_1)){
@@ -157,7 +161,7 @@
                                                                 $date_selected = $_GET['date'];
                                                                 $room_no = $_GET['room'];
                                                                 $query="SELECT time_slot FROM tbl_docsession 
-                                                                WHERE (date = '$date_selected' AND doctor_id = $doc_id AND room_no = '$room_no')
+                                                                WHERE (date  '$date_selected' AND doctor_id = $doc_id AND room_no = '$room_no')
                                                                 OR (date = '$date_selected' AND assistant_id = $assi_id AND room_no = '$room_no')
                                                                 OR (date = '$date_selected'  AND room_no = '$room_no')
                                                                 OR (date = '$date_selected' AND doctor_id = $doc_id )
@@ -177,22 +181,22 @@
                                                                     <label>Time Slot :</label>
                                                                     <select name="time-slot" class="form-create-session">
                                                                         <?php 
-                                                                        if (!in_array("8am-10am",$time_slot)) {
+                                                                        if (!in_array("0",$time_slot)) {
                                                                            echo '<option>8am-10am</option>';
                                                                         }
-                                                                        if (!in_array("10am-12pm",$time_slot)) {
+                                                                        if (!in_array("1",$time_slot)) {
                                                                             echo '<option>10am-12pm</option>';
                                                                          }
-                                                                         if (!in_array("12pm-2pm",$time_slot)) {
+                                                                         if (!in_array("2",$time_slot)) {
                                                                             echo '<option>12pm-2pm</option>';
                                                                          }
-                                                                         if (!in_array("2pm-4pm",$time_slot)) {
+                                                                         if (!in_array("3",$time_slot)) {
                                                                             echo '<option>2pm-4pm</option>';
                                                                          }
-                                                                         if (!in_array("4pm-6pm",$time_slot)) {
+                                                                         if (!in_array("4",$time_slot)) {
                                                                             echo '<option>4pm-6pm</option>';
                                                                          }
-                                                                         if (!in_array("6pm-8pm",$time_slot)) {
+                                                                         if (!in_array("5",$time_slot)) {
                                                                             echo '<option>6pm-8pm</option>';
                                                                          }
                                                                         
@@ -255,12 +259,6 @@
 
                                      
                                 </form>
-                                        
-
-                            
-                           
-                            <button class="btn-create-session-back" type="button" onclick="location.href='admin-session-view.php'">Back</button>
-                      
                         </div>
 
                     </div>

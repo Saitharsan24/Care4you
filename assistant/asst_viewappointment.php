@@ -1,8 +1,13 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <?php include('asst_getinfo.php') ?>
+<?php include('./asst_popups/editprespopup.php') ?>
 
 <?php 
+
+    
+
+
     $docapt_id = $_GET['id'];
     $sql = "SELECT * FROM tbl_docappointment 
                 INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid  
@@ -53,6 +58,7 @@
                 </div>
             </div>
             <div class="container2">
+                <form method="post">
                 <table class="viewtblAPP">
                     <tr>
                         <td colspan="2">
@@ -86,60 +92,121 @@
                         <td class="typeR">Appointment Time :</td>
                         <td class="typeL"><?php echo $row['docapt_time'] ?></td>
                     </tr>
-                    <tr>
-                        <td class="typeR">Appointment Status :</td>
-                        <td class="typeL">
-                            <?php 
-                                // if($row['docapt_status']==1){
-                                //     echo ' '.'<button class="order-st00">Confirmed</button>';
-                                // } elseif($row['docapt_status']==2){
-                                //     echo ' '.'<button class="order-st01">Completed</button>';
-                                // }
-                            ?>
-                            <label class="switch">
-                                <input type="checkbox" id="toggle">
-                                <span class="slider round"></span>
-                                <span id="toggle-text">Not Attended</span>
-                            </label>
-                            <script>
-                                const toggle = document.getElementById("toggle");
-                                const toggleText = document.getElementById("toggle-text");
 
-                                toggle.addEventListener("change", function() {
-                                if (this.checked) {
-                                    toggleText.textContent = "Attended";
-                                } else {
-                                    toggleText.textContent = "Not Attended";
-                                }  
-                                });
-                            </script>
-                        </td>
-                    </tr>
+                    <?php 
+                        if($row['docapt_status'] == 1){
+                    ?>  
+                            <tr>
+                                <td class="typeR">Appointment Status :</td>
+                                <td class="typeL">
+                                    <?php 
+                                        // if($row['docapt_status']==1){
+                                        //     echo ' '.'<button class="order-st00">Confirmed</button>';
+                                        // } elseif($row['docapt_status']==2){
+                                        //     echo ' '.'<button class="order-st01">Completed</button>';
+                                        // }
+                                    ?>
+
+                                    <label class="switch">
+                                        <input type="checkbox" id="toggle" name="attendance">
+                                        <span class="slider round"></span>
+                                        <span id="toggle-text">Not Attended</span>
+                                    </label>
+                                    <script>
+                                        const toggle = document.getElementById("toggle");
+                                        const toggleText = document.getElementById("toggle-text");
+
+                                        toggle.addEventListener("change", function() {
+                                        if (this.checked) {
+                                            toggleText.textContent = "Attended";
+                                        } else {
+                                            toggleText.textContent = "Not Attended";
+                                        }  
+                                        });
+                                    </script>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Upload Prescription :</td>
+                                <td class="typeL">
+                                <form method="POST">  
+                                <div class="type-file upload-input">
+                                    <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
+                                </div>
+                                </td>
+                        
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Other Remarks :</td>
+                                <td class="typeL">
+                                    <textarea class="textarea" name="asst-remark" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
+                                </td>
+                            </tr>
+                    <?php
+                        }
+
+                        if($row['docapt_status'] == 3 || $row['docapt_status'] == 4){
+                    ?>          
+                                
+                            <tr>    
+                                <td class="typeR">Appointment Status :</td>
+                                
+                                <td class="typeL">
+                                    <?php 
+                                    if($row['docapt_status']==3){
+                                        echo ' '.'<button class="docapt-st03">Completed</button>';
+                                    } elseif($row['docapt_status']==4){
+                                        echo ' '.'<button class="docapt-st04">Not Attended</button>';
+                                    } 
+                                    ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Prescription :</td>
+                                <td class="typeL">
+                                    <?php 
+                                        echo $row['prescription_name']; 
+                                    ?>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="typeR">Other Remarks :</td>
+                                <td class="typeL">
+                                   <?php echo $row['other_remark']; ?>
+                                </td>
+                            </tr>
+                    <?php 
+                        }
+                    ?>
+
                     <tr>
-                        <td class="typeR">Upload Prescription :</td>
-                        <td class="typeL">
-                        <form method="POST">  
-                        <div class="type-file upload-input">
-                            <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
-                        </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="typeR">Other Remarks :</td>
-                        <td class="typeL">
-                        <form method="POST">
-                            <textarea class="textarea" name="address" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="typeL">
-                            <button class="btnpre"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
-                            &nbsp;
-                            <button class="btnpre"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                        <td>        
+                                <?php 
+                                    if ($row['docapt_status']==1) {
+                                ?>
+                                        <button class="btnpre" type="submit" name="des-upload"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
+                                        &nbsp;
+                                <?php
+                                    }
+                                ?>
+                                
+                                <?php
+                                    if ($row['docapt_status'] == 3 || $row['docapt_status'] == 4) {
+                                ?>
+                                        <button type="button" class="btnpre" onclick="openPopupE()"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                                        
+                                <?php 
+                                    }
+                                ?>
+
                         </td>
                     </tr>
                 </table>
+                </form>
             </div>
             </div>
             
@@ -147,3 +214,38 @@
         </div>
 </body>
 </html>
+
+
+<?php 
+    if(isset($_POST['des-upload'])){
+
+        if(isset($_POST['attendance'])){
+            $attended_check = 3;
+        } else{
+            $attended_check = 4;
+        }
+        
+        $remarks = $_POST['asst-remark'];
+
+
+        $sql = "UPDATE tbl_docappointment 
+                    SET docapt_status = '$attended_check',
+                        other_remark = '$remarks'
+                    WHERE docapt_id = '$docapt_id'";
+
+        $result = mysqli_query($conn,$sql);
+
+        if ($result) {
+            // $_SESSION['pres-upload'] == 1;
+            // echo "<script> window.location.href='http://localhost/Care4you/assistant/asst_viewappointment.php?id=$docapt_id';</script>";
+            echo "<script>openPopupPU()</script>";
+        }
+    
+    }
+    // if(isset($_SESSION['pres-upload'])){
+    //     unset($_SESSION['pres-upload']);
+        
+    // }
+
+
+?>

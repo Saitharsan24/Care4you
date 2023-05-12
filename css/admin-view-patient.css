@@ -136,6 +136,7 @@ body{
   
   .wrapper .main_content .info div{
     margin-bottom: 20px;
+    z-index: 999;
   }
   
   .wrapper .right-button{
@@ -244,9 +245,12 @@ body{
 
 .search-patient{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
  
 }
 

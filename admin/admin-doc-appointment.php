@@ -38,7 +38,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</div></a></li>
+                <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</div></a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -49,12 +49,12 @@
                 <div class="info">
 
                 
-                    <div class="back" onclick="location.href='admin-system-users.php'">
+                    <div class="back" onclick="location.href='admin-appointment.php'">
                         <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
                     </div>
                    <div class="doc-apt-title"> Doctor Appointments</div>
                     <span>
-                        <table class="tbl-main-appoint" id="tbl-main-app">
+                        <table class="tbl-main-doc-appoint" id="tbl-main-app">
                             <thead>
                                 <tr>
                                 <td>Reference No</td>   <!-- from tbl_docappointment table -->
@@ -72,7 +72,7 @@
                                         <td><input type="text" class="search-appoint" name="#" id="patient_name" autofocus="true" placeholder="search Patient name" onkeyup="filterPatientName()" /></td>
                                         <td><input type="text" class="search-appoint" name="#" id="date" autofocus="true" placeholder="search appointment date" onkeyup="filterDate()" /></td>
                                         <td><input type="text" class="search-appoint" name="#" id="appt_status" autofocus="true" placeholder="search status" onkeyup="filterStatus()"/></td>
-                                        <td></td>
+                                        <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php
                                     if($result){
@@ -95,16 +95,18 @@
                                             <td><button class="btn-green">
                                              <?php
                               if($row['docapt_status']==0){
-                                echo '<button vs class="active-status"> Pending </button>';
+                                echo '<button vs class="btn-pending"> Pending </button>';
                               }else if($row['docapt_status']==1){
-                                echo '<button class="passive-status"> Confirm</button>';
+                                echo '<button class="btn-confirmed"> Confirm</button>';
                               }else if($row['docapt_status']==2){
-                                echo '<button class="passive-status"> completed </button>'; 
-                              }else{
-                                echo '<button class="passive-status"> cancelled </button>'; 
+                                echo '<button class="btn-completed"> completed </button>'; 
+                              }else if($row['docapt_status']==3){
+                                echo '<button class="btn-cancelled"> cancelled </button>'; 
+                              }else if($row['docapt_status']==4){
+                                echo '<button class="btn-nattended">  Not Attended</button>';
                               }
                               ?> 
-                                                </button></td>
+                                              </td>
                                             
                                             <td><button class="btn-view-appoint-detail" onclick='location.href="admin-doc-appointment-detail.php?id=<?php echo $row["docapt_id"]; ?>"'><span>Appointment Details</span></button></td>
                                         </tr>

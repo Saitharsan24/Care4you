@@ -89,7 +89,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php"><div class="highlighttext">Appointments</a></div></li>
+                <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</a></div></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -144,15 +144,15 @@
                         <td class="typeL">
                         <?php
                               if($row['docapt_status']==0){
-                                echo '<button vs class="#"> Pending </button>';
+                                echo '<button vs class="btn-pending"> Pending </button>';
                               }else if($row['docapt_status']==1){
-                                echo '<button class="#"> Confirm</button>';
+                                echo '<button class="btn-confirmed"> Confirm</button>';
                               }else if($row['docapt_status']==2){
-                                echo '<button class="#"> Completed </button>'; 
+                                echo '<button class="btn-completed"> Completed </button>'; 
                               }else if($row['docapt_status']==3){
-                                echo '<button class="#"> Cancelled </button>'; 
-                              }else{
-                                echo '<button class="#"> Not Attended </button>';                  
+                                echo '<button class="btn-cancelled"> Cancelled </button>'; 
+                              }else if($row['docapt_status']==4){
+                                echo '<button class="btn-nattended"> Not Attended </button>';                  
                               }
                               ?> 
                         </td>
@@ -176,7 +176,7 @@
                                 
                                 ?>
                         
-                                <button class="btn-cancel" onclick="document.getElementById('id01').style.display='block'; 
+                                <button class="btn-doc-cancel" onclick="document.getElementById('id01').style.display='block'; 
                                 document.getElementById('del').action = '?id=<?php echo $row['docapt_id']?>&cancel=<?php echo $row['docapt_id']?> ';
                                 " >
                                 <i class="fa-solid fa-toggle-off"></i>
@@ -191,7 +191,7 @@
                                 include('./admin-appointment-pop.php');
                                 ?>
 
-                                <button class="btn-confirm" onclick="document.getElementById('id01').style.display='block'; 
+                                <button class="btn-doc-confirm" onclick="document.getElementById('id01').style.display='block'; 
                                 document.getElementById('del').action = '?id=<?php echo $row['docapt_id']?>&confirm=<?php echo $row['docapt_id']?> ';
                                 " >
                                 <i class="fa-solid fa-toggle-on"></i>

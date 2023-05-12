@@ -54,9 +54,9 @@
           <a href="./patient_home.php">Home</a>
           <a href="./patient_appointments.php">Appointments</a>
           <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
-          <a href="#">Medical records</a>
-          <a href="./patient_doctorlist.php">View doctors</a>
-          <a href="#">View profile</a>
+          <a href="./patient_medicalrecords.php">Medical Records</a>
+          <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
+          <a href="./patient_viewprofile.php">Profile</a>
         </div>
         <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
       </div>
@@ -84,19 +84,34 @@
                       } elseif($order_status== 1){
                           echo ' '.'<button class="order-st01">Payment Pending</button>';
                       } elseif($order_status== 2){
-                          echo ' '.'<button class="order-st02"">To be delivered</button>';   
+                          echo ' '.'<button class="order-st02"">Confirmed</button>';   
                       } elseif($order_status== 3){
-                        echo ' '.'<button class="order-st03"">Complete</button>';
+                        echo ' '.'<button class="order-st03"">Dispatched</button>';
                       } else{
-                          echo ' '.'<button class="order-st04">Cancelled</button>';
+                          echo ' '.'<button class="order-st04">Complete</button>';
                       }
                   ?>
               </div>
           </div>
           <div class="view-orderdetails-row">Prescription :<div class="uploaded-file"><a href="<?php echo SITEURL;?>/images/pharmacy-orders/<?php echo $prescription; ?>" target="blank"> <?php echo $prescription; ?></a></div></div>
           <div class="view-orderdetails-row">NIC No :<div><?php echo ' '.$nic;?></div></div>
-          <div class="view-orderdetails-row">Other items :<div><?php echo ' '.$other_items;?></div></div>
+          
+          <?php 
+            if($other_items == ''){
+          ?>
+          
+          <div class="view-orderdetails-row">Other items :<div style="color:rgb(165, 164, 170); font-style:italic"> No other items requested</div></div>
         
+          <?php 
+            } else {
+          ?>
+
+          <div class="view-orderdetails-row">Other items :<div><?php echo $other_items ?></div></div>
+          
+          <?php
+            }
+          ?>
+
           <div class="view-order-btn">
             <?php if (isset($row['responddate'])) { ?>
               <div class="view-order-btn02"><a href="./patient_pharmorderViewReview.php?id=<?php echo $row['order_id'];?>&status=<?php echo $row['order_status'];?>"><button>View review</button></a></div>

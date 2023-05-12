@@ -155,7 +155,7 @@ body{
   
   /* Navigation Bar CSS Ends Here*/
 
-  /* admin-patient-view.php page start here*/
+  /* admin-order-view.php page start here*/
 
 
 .btn-view-patient-detail {
@@ -239,9 +239,12 @@ body{
 
 .search-order{
   width: 80%;
-  padding: 7px 22px;
+  padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
  
 }
 
@@ -285,4 +288,194 @@ body{
   font-weight: 500;
   cursor: pointer;
 }
-/* admin-patient-view.php page end here */
+/* buttons css of the status  */
+.btn-rpending{
+  width: 150px;
+  background-color: #FDD147;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-ppending{
+  width: 150px;
+  background-color: #bcf10c;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+.btn-confirmed{
+  width: 150px;
+  background-color: #28ae28;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+.btn-dispatch{
+  width: 150px;
+  background-color: #0bb2d7;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-deliver{
+  width: 150px;
+  background-color: #093e4e;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+.btn-cancelled{
+  width: 150px;
+  background-color: #BD1010;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #ffffff;
+  font-weight: 550;
+}
+
+/* button for clear filter */
+.btn-search{
+  border-radius: 10px;
+  background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 175px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-search span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-search span:after {
+  content: '🔍︎';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-search:hover span {
+  padding-right: 15px;
+}
+
+.btn-search:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* admin-order-view.php page end here */
+
+
+  /* admin-order-datails.php page start here*/
+  .order-title-detail{
+    position: absolute;
+    left: 592px;
+    top: 71px;
+    font-size: 39px;
+    font-weight: 626;
+    width: 635px;
+    color: #093e4e;
+    margin-bottom: -15px;
+}
+  .view-order {
+    margin-top: 7%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    height: 478px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #888888;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+}
+
+
+
+.view-order tr td{
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .view-order td.typeR{
+    text-align: center;
+    color: #0D5C75;
+    font-weight: 600;
+  }
+
+  
+.view-order td.typeL{
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .btn-cancel{
+    width: 180px;
+    background-color: #800000;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-confirm{
+    width: 180px;
+    background-color: #008000;
+    padding: 5px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  
+   /* admin-order-datails.php page end here*/
+  

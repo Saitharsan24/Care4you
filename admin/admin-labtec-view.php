@@ -31,7 +31,7 @@ $no_row=mysqli_num_rows($result);
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php"><div class="highlighttext">System Users</div></a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -60,7 +60,7 @@ $no_row=mysqli_num_rows($result);
                             <td><input type="text" class="search-lab" name="lab-id" id="lab-id" placeholder="search Lap technician ID" onkeyup="filterLabId()"  autofocus="true"/></td>
                             <td><input type="text" class="search-lab" name="lab-name" id="lab-name" placeholder="search Name" onkeyup="filterLabName()" autofocus="true"/></td>
                             <td><input type="text" class="search-lab" name="lab-status"  id="lab-status" placeholder="search Account Status" onkeyup="filterLabStatus()" autofocus="true"/></td>
-                            <td><button class="btn-search"><span>Search&emsp;</span></button></td>
+                            <td><button class="btn-search"><span>Clear filter&emsp;</span></button></td>
                         </tr>
                         <?php 
                           if($result){

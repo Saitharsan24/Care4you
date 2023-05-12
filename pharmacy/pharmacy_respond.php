@@ -1,12 +1,13 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <link rel="stylesheet" href="../css/pharmacy-orders.css"> 
     <title>Pharmacy</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
@@ -26,8 +27,9 @@
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
-        <div class="main_content"> 
+        <div class="main_content" style="overflow: hidden;"> 
             <div class="info">
+
             <?php 
                 if(isset($_SESSION['add'])){
                     echo $_SESSION['add'];
@@ -59,194 +61,287 @@
                 //Get the Order ID
                 $id = $_GET['id'];
                 //Query to get all data from tbl_neworder for selected order
-                $sql2 = "SELECT * FROM tbl_neworder WHERE order_id=$id";
+                $sql = "SELECT * FROM tbl_neworder WHERE order_id=$id";
                 //Exeute the Query                                    
-                $res2 = mysqli_query($conn, $sql2);
+                $res = mysqli_query($conn, $sql);
 
                 //Check Query executed or not
-                if($res2 == TRUE)
+                if($res == TRUE)
                 {
-                    $count2 =mysqli_num_rows($res2);
-                    if($count2 == 1)
+                    $count =mysqli_num_rows($res);
+                    if($count == 1)
                     {
                         //echo "Order Available";
-                        $row = mysqli_fetch_assoc($res2);
+                        $row = mysqli_fetch_assoc($res);
                         $order_id = $row['order_id'];
                         $pname = $row['pname'];
+                        $paddress = $row['paddress'];
+                        $contactnumber = $row['contactnumber'];
                         $prescription_name = $row['prescription_name'];
                         $remarks = $row['remarks'];
+                        $order_status = $row['order_status'];
                     }
                 }
             ?>
-            <div class="back" onclick="location.href='pharmacy_viewneworder.php?id=<?php echo $id; ?>'">
-                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
-            </div>  
-            <table class="tbl-respond">             
-            <form action="" method="POST">
-                <tr>
-                    <td class="tdtype1">Order ID :</td>
-                    <td class="tdtype2"><input type="text" class="form-repondcontrol" name="order_id" required="" autofocus="true" value="<?php echo $order_id; ?>"readonly/></td>
-                </tr>
-                <tr>
-                    <td class="tdtype1">Patient Name :</td>
-                    <td class="tdtype2"><input type="text" class="form-repondcontrol" name="pname" required="" autofocus="true" value="<?php echo $pname; ?>"readonly/></td>
-                </tr>
-                <tr>
-                    <td class="tdtype1" style="vertical-align:top;">Prescription :</td>
-                    <td class="tdtype2">
-                    <?php
-                            //Check whether the prescription name is available or not
-                            if($prescription_name!= "")
-                            {
-                                //Prescription availabl-3-+
-                                ?>
-                                <?php
-                                    //Get the extension of the prescription
-                                    $tmp = explode('.',$prescription_name);
-                                    $ext = end($tmp);
-                                    //echo $ext;
 
-                                    if($ext=='gif'||$ext=='png'||$ext=='jpg'||$ext=='jpeg'||$ext=='tiff')
-                                    {
-                                        ?>
-                                        <a title="Open in new window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
-                                        <img src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" width="400px">
-                                        </a>
-                                        <?php
-                                    }
-                                    else if($ext=='pdf')
-                                    {?>
-                                        <iframe src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" frameborder="0" height="100%" width="100%" onclick="location.href='<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>'"></iframe>
-                                        <a title="Open in new window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
-                                        <?php echo "Order".$order_id."-Prescription.".$ext; ?>
-                                        </a>
-                                    <?php }
-                                    else
-                                    {
-                                        ?>
-                                        <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
-                                        <?php echo "Order".$order_id."-Prescription.".$ext; ?>
-                                        </a>
-                                        <?php
-                                    }
-                            }
-                            else
-                            {
-                                //Prescription not available
-                                echo "<div class='error'>Prescription not available</div>";
-                            }
-                        ?>
-                    </td>
-                </tr>
-                
-                <?php
-                if($remarks != "")
+            <div class="back" onclick="location.href='<?php echo SITEURL;  ?>/pharmacy/pharmacy_viewneworder.php?id=<?php echo $order_id;?>'">
+                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+            </div>
+
+            <div class="text-content">
+                <div class="common-title"  style="margin-bottom:-10px;margin-top:-20px;">
+                <i class="fa-solid fa-pager" style="font-size: 35px;"></i>
+                    &nbsp; Order Details
+                </div>
+            </div>
+
+            <?php
+                //Check whether the prescription name is available or not
+                if($prescription_name!= "")
+                {
+                    //Prescription available
+                    //Get the extension of the prescription
+                    $tmp = explode('.',$prescription_name);
+                    $ext = end($tmp);
+                    //echo $ext;
+
+                    if($ext=='gif'||$ext=='png'||$ext=='jpg'||$ext=='jpeg'||$ext=='tiff')
                     {
                         ?>
-                        <tr>
-                            <td class="tdtype1">Remarks :</td>
-                            <td class="tdtype2"><input type="text" class="form-repondcontrol" name="remarks" required="" autofocus="true" value="<?php echo $remarks; ?>"readonly/></td>
-                        </tr>
+                        <div class="containorLarge">
+                            <div class="containorSLeft">
+                                <div class="idtxt">Order ID : <?php echo $order_id; ?> </div>
+
+                                <br/>
+
+                                <div class="headtxt">Patient Name</div>
+                                <div class="datatxt"><?php echo $pname; ?></div>
+
+                                <div class="headtxt">Patient Address</div>
+                                <div class="datatxt"><?php echo $paddress; ?></div>                   
+                                
+                                <div class="headtxt">Contact Number</div> 
+                                <div class="datatxt"><?php echo '0'.$contactnumber; ?></div>                   
+                                
+                                <div class="headtxt">Order Status</div> 
+                                <div class="datatxt">
+                                    <?php
+                                        if($order_status == 0) { ?>
+                                            <button class="btn-yellow"> <?php echo 'Payment Pending';?> </button>
+                                    <?php
+                                        } else if($order_status == 1) { ?>
+                                            <button class="btn-green"> <?php echo 'Payment Completed'; ?> </button>
+                                    <?php
+                                        } ?>
+                                </div>  
+                                
+                                <div class="headtxt">Other Items</div> 
+                                <div class="datatxt">
+                                    <?php
+                                        if($remarks != ""){
+                                            echo $remarks;
+                                        }
+                                        else{
+                                            echo "<div class='grayouttext'>No any other items ordered</div>";
+                                        } 
+                                    ?>
+                                </div>
+
+                            </div>
+                            <div class="containorSRight">
+                                <a href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" download>
+                                    <img src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" class="containorSR" style="width:90%; max-height:60vh;">
+                                </a>
+                                <a class="datatxt2-link" title="Open Prescription in New Window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
+                                    <?php echo "Order".$order_id." - Prescription.".$ext; ?> &nbsp;
+                                    <i class="fa-solid fa-expand"></i>
+                                </a>
+                            </div>
+                            <?php include('pharmacy_tbl-addmed.php') ?>
+                        </div>
+                        <?php
+                    }
+                    elseif ($ext=='pdf')
+                    {
+                        ?>
+                        <div class="containorLarge">
+                            <div class="containorSLeft">
+                                <div class="idtxt">Order ID : <?php echo $order_id; ?> </div>
+
+                                <br/>
+
+                                <div class="headtxt">Patient Name</div>
+                                <div class="datatxt"><?php echo $pname; ?></div>
+
+                                <div class="headtxt">Patient Address</div>
+                                <div class="datatxt"><?php echo $paddress; ?></div>                   
+                                
+                                <div class="headtxt">Contact Number</div> 
+                                <div class="datatxt"><?php echo '0'.$contactnumber; ?></div>                   
+                                
+                                <div class="headtxt">Order Status</div> 
+                                <div class="datatxt">
+                                    <?php
+                                        if($order_status == 0) { ?>
+                                            <button class="btn-yellow"> <?php echo 'Payment Pending';?> </button>
+                                    <?php
+                                        } else if($order_status == 1) { ?>
+                                            <button class="btn-green"> <?php echo 'Payment Completed'; ?> </button>
+                                    <?php
+                                        } ?>
+                                </div>  
+                                
+                                <div class="headtxt">Other Items</div> 
+                                <div class="datatxt">
+                                    <?php
+                                        if($remarks != ""){
+                                            echo $remarks;
+                                        }
+                                        else{
+                                            echo "<div class='grayouttext'>No any other items ordered</div>";
+                                        } 
+                                    ?>
+                                </div>
+
+                            </div>
+                            <div class="containorSRight">
+                                <iframe src="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" frameborder="0" class="containorSR" style="width:90%;min-height:60vh;" onclick="location.href='<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>'">
+                                </iframe>
+                                <a class="datatxt2-link" title="Open Prescription in New Window" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" target="_blank">
+                                    <?php echo "Order".$order_id." - Prescription.".$ext; ?> &nbsp;
+                                    <i class="fa-solid fa-expand"></i>
+                                </a>
+                            </div>
+                            <?php include('pharmacy_tbl-addmed.php') ?>
+                        </div>
                         <?php
                     }
                     else
                     {
                         ?>
-                        <tr>
-                            <td class="tdtype1">Remarks :</td>
-                            <td class="tdtype2"><input type="text" class="form-repondcontrol-gray" name="remarks" required="" autofocus="true" value="No any remarks to display"readonly/></td>
-                        </tr>
+                        <div class="containorLargetxt">
+                            <div class="containorSL" style="margin-right:5; min-width:45%;">
+                                <div class="idtxt">Order ID : <?php echo $order_id; ?> </div>
+
+                                <br/>
+
+                                <table class="tbl-pdf">
+                                    <tr>
+                                        <td class="typeR"><div class="headtxt">Patient Name : </div></td>
+                                        <td class="typeL"><div class="datatxt2"><?php echo $pname; ?></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="typeR"><div class="headtxt">Patient Address : </div></td>
+                                        <td class="typeL"><div class="datatxt2"><?php echo $paddress; ?></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="typeR"><div class="headtxt">Contact Number : </div></td>
+                                        <td class="typeL"><div class="datatxt2"><?php echo '0'.$contactnumber; ?></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="typeR"><div class="headtxt">Prescription : </div></td>
+                                        <td class="typeL">
+                                        <div class="datatxt2">
+                                            <a class="datatxt2-link" href="<?php echo SITEURL; ?>/images/pharmacy-orders/<?php echo $prescription_name; ?>" download>
+                                                <?php echo "Order".$order_id." - Prescription.".$ext; ?> &nbsp;
+                                                <i class="fa-solid fa-file-arrow-down"></i>
+                                            </a>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="typeR"><div class="headtxt">Order Status : </div></td>
+                                        <td class="typeL">
+                                        <div class="datatxt2">
+                                            <?php
+                                                if($order_status == 0) { ?>
+                                                    <button class="btn-yellow"> <?php echo 'Payment Pending';?> </button>
+                                            <?php
+                                                } else if($order_status == 1) { ?>
+                                                    <button class="btn-green"> <?php echo 'Payment Completed'; ?> </button>
+                                            <?php
+                                                } ?>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="typeR"><div class="headtxt">Other Items : </div></td>
+                                        <td class="typeL">
+                                        <div class="datatxt2" style="margin-top:-22px;">
+                                            <?php
+                                                if($remarks != ""){
+                                                    echo $remarks;
+                                                }
+                                                else{
+                                                    echo "<div class='grayouttext'>No any other items ordered</div>";
+                                                } 
+                                            ?>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <?php include('pharmacy_tbl-addmed.php') ?>
+                        </div>
                         <?php
                     }
-                ?>
-                <tr>
-                    <td class="tdtype1">Available Medicines :</td>
-                    <td class="tdtype2"><button class="btn-gray">
-                        <a href="<?php echo SITEURL;  ?>pharmacy/pharmacy_addmedicine.php?id=<?php echo $order_id;?>">+ Add Medicine</a></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="tdtype1">
-                        <table class="tbl-addmed">
-                            <thead>
-                                <tr>
-                                    <td>Drug Name</td>
-                                    <td>Unit Price (Rs.)</td>
-                                    <td>Quantity</td>
-                                    <td>Total (Rs.)</td>
-                                    <td></td>
-                                </tr>
-                            </thead>
-                            <tbody>
+                }
+                else
+                {
+                    //Prescription not available
+                    ?>
+                        <div class="containorLarge">
+                            <div class="containorSLeft">
+                                <div class="idtxt">Order ID : <?php echo $order_id; ?> </div>
 
-                                <?php
-                                    //Query to get all data from tbl_addmedicine table
-                                    $sql = "SELECT * FROM tbl_addmedicine WHERE order_id=$order_id";
+                                <br/>
 
-                                    //Exeute the Query                                    
-                                    $res = mysqli_query($conn, $sql);
+                                <div class="headtxt">Patient Name</div>
+                                <div class="datatxt"><?php echo $pname; ?></div>
 
-                                    //Check Query executed or not
-                                    if($res == TRUE){
-
-                                        //Count rows in tbl_addmedicine table
-                                        $count = mysqli_num_rows($res);     //funtion to get all rows in tbl_addmedicine table
-                                        
-                                        //Check the number of rows
-                                        if($count > 0)
-                                        {
-                                            while($rows = mysqli_fetch_assoc($res))
-                                            {
-
-                                                //Use while loop to get all data in tbl_addmedicine table
-                                                $drugname = $rows['drugname'];
-                                                $unitprice = $rows['unitprice'];
-                                                $quantity = $rows['quantity'];
-                                                $total = $rows['total'];
-
-                                                //Display the Values in Table
-                                                ?>
-                                                
-                                                <tr>
-                                                    <td><?php echo $drugname ?></td>
-                                                    <td><?php echo $unitprice ?></td>
-                                                    <td><?php echo $quantity ?></td>
-                                                    <td><?php echo $total ?></td>
-                                                    <td>
-                                                    <a href="<?php echo SITEURL; ?>/pharmacy/pharmacy_respondeddrugdelete.php?order_id=<?php echo $order_id;?>&drugname=<?php echo $drugname;?>&quantity=<?php echo $quantity;?>">
-                                                        <i class="fa-solid fa-xmark" style="color:red;"></i>
-                                                    </a>
-                                                    </td>
-                                                </tr>
-                                                
-                                                <?php
-
-                                            }
-
+                                <div class="headtxt">Patient Address</div>
+                                <div class="datatxt"><?php echo $paddress; ?></div>                   
+                                
+                                <div class="headtxt">Contact Number</div> 
+                                <div class="datatxt"><?php echo '0'.$contactnumber; ?></div>                   
+                                
+                                <div class="headtxt">Order Status</div> 
+                                <div class="datatxt">
+                                    <?php
+                                        if($order_status == 0) { ?>
+                                            <button class="btn-yellow"> <?php echo 'Payment Pending';?> </button>
+                                    <?php
+                                        } else if($order_status == 1) { ?>
+                                            <button class="btn-green"> <?php echo 'Payment Completed'; ?> </button>
+                                    <?php
+                                        } ?>
+                                </div>  
+                                
+                                <div class="headtxt">Other Items</div> 
+                                <div class="datatxt">
+                                    <?php
+                                        if($remarks != ""){
+                                            echo $remarks;
                                         }
-                                        else
-                                        {
-                                            //Have no data in tbl_addmedicine table
-                                        }
-                                    }
+                                        else{
+                                            echo "<div class='grayouttext'>No any other items ordered</div>";
+                                        } 
+                                    ?>
+                                </div>
 
-                                ?>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <!-- <tr>
-                    <td class="tdtype1">Net Total (Rs.) :</td>
-                    <td class="tdtype2"><input type="number" min="0" class="form-repondcontrol" name="total" required="" autofocus="true"/></td>
-                </tr> -->
-                <tr>
-                    <td class="tdtype1">Unavailable Medicines :</td>
-                    <td class="tdtype2"><input type="text" class="form-repondcontrol" name="unavailablemedicines" autofocus="true"/></td>
-                </tr>
-            </table>
-            <br /> <br />
-            <button type="submit" class="btn-blue" name="sendrespond">Send Respond</button>
-            </form>
+                            </div>
+                            <div class="containorSRight">
+                                <div class="warntext">
+                                    Prescription Unavailable or Not Uploded! <br/>
+                                    Please inform customer to cancel the order.
+                                </div>
+                            </div>
+                            <?php include('pharmacy_tbl-addmed.php') ?>
+                        </div>
+                    <?php
+
+                }
+            ?>
             </div>
         </div>
     </div>
@@ -260,9 +355,6 @@
     if(isset($_POST['sendrespond']))
     {
         //Get the data from the form
-        $order_id = $_POST['order_id'];
-        $pname = $_POST['pname'];
-        $temp = $_POST['remarks'];
         $unavailablemedicines = $_POST['unavailablemedicines'];
 
         //Query to check medicines are added or not
@@ -370,7 +462,7 @@
                     $res5 = mysqli_query($conn, $sql5);
 
                     //Responded order details added to table
-                    $_SESSION['med-respond1'] = '<div class="success">Medicine Available Repond Sent!</div>';
+                    $_SESSION['med-respond1'] = 'Medicine Available Repond Sent!';
                     //Redirect to the pharmacy_neworders.php page
                     //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
                     echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
@@ -382,7 +474,7 @@
                     $_SESSION['med-respond2'] = '<div class="error">Fail to Send Respond!</div>';
                     //Redirect to the pharmacy_respond2.php page
                     //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
-                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php?id=" . $order_id . "';</script>";
                 }
 
 
@@ -399,7 +491,7 @@
                     $_SESSION['nomedmsg-respond'] = '<div class="error">Please fill Medicine Unvailable Message!</div>';
                     //Redirect to the pharmacy_respond2.php page
                     //header("location:".SITEURL."pharmacy/pharmacy_respond2.php?id=".$order_id);
-                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php?id=" . $order_id . "';</script>";
+                    echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php?id=" . $order_id . "';</script>";
                 }
                 else
                 {
@@ -497,7 +589,7 @@
                         $res5 = mysqli_query($conn, $sql5);
 
                         //Responded order details added to table
-                        $_SESSION['nomed-respond1'] = '<div class="success">Repond Sent!</div>';
+                        $_SESSION['nomed-respond1'] = 'Repond Sent!';
                         //Redirect to the pharmacy_neworders.php page
                         //header("location:".SITEURL.'pharmacy/pharmacy_neworders.php');
                         echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_neworders.php';</script>";
@@ -509,7 +601,7 @@
                         $_SESSION['nomed-respond2'] = '<div class="error">Fail to Send Respond!</div>';
                         //Redirect to the pharmacy_respond2.php page
                         //header("location:".SITEURL.'pharmacy/pharmacy_respond2.php');
-                        echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond2.php';</script>";
+                        echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_respond.php?id=" . $order_id . "';</script>";
                     }
 
                 }

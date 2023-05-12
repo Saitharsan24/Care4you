@@ -2,6 +2,11 @@
 <?php include('../login_access.php') ?>
 
 <?php
+$query = "SELECT * FROM tbl_neworder";
+$result = mysqli_query($conn, $query);
+//$row = mysqli_fetch_array($result);
+//print_r($row);die()
+//$no_row = mysqli_num_rows($result);
 
 
 ?>
@@ -31,7 +36,7 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patient</a></li>
                 <li><a href="admin-order-view.php"><div class="highlighttext"></div>Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
                 <li><a href="#">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
@@ -56,29 +61,40 @@
                                         <td><input type="text" class="search-order" name="patient-id" placeholder="search order id" id="order_id"  autofocus="true" /></td>
                                         <td><input type="text" class="search-order" name="phone-no" placeholder="search contact number" id="contact_no"  autofocus="true" /></td>
                                         <td><input type="text" class="search-order" name="status" placeholder="search order status" id="order_status"  autofocus="true" /></td>
-                                        <td></td>
+                                        <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php 
-                                //    if($result){
-                                //     while ($row = mysqli_fetch_array($result)) {
+                                 if($result){
+                                   while ($row = mysqli_fetch_array($result)) {
 
                                    ?>
                                 <tr>
-                                            <td></td>
+                                            <td><?php echo $row['order_id']; ?></td>
                                             
-                                            <td></td>
+                                            <td><?php echo $row['contactnumber']; ?></td>
                                             <td>
-                                               
-                                                <?php
-                                               
-                                                ?>
-
-                               
+                                            <?php 
+                                             if($row['order_status']==0){
+                                                echo '<button class="btn-rpending"> Response pending </button>';
+                                              }else if($row['order_status']==1){
+                                                echo '<button class="btn-ppending"> Payment pending </button>';
+                                              }   else if($row['order_status']==2){
+                                                echo '<button class="btn-confirmed">Order Confirm</button>';
+                                              }else if($row['order_status']==3){
+                                                echo '<button class="btn-dispatch">Order Dispatched</button>';
+                                              }else if($row['order_status']==4){
+                                                echo '<button class="btn-deliver">Delivered</button>';
+                                              }else if($row['order_status']==5){
+                                                echo '<button class="btn-cancelled">Cancelled</button>';
+                                              }
+                                            
+                                            ?>
                                             </td>
-                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-order-detail.php"'><span>Order Details</span></button></td>
+                                            <td><button class="btn-view-patient-detail" onclick='location.href="admin-order-detail.php?id=<?php echo $row["order_id"]; ?>"'><span>Order Details</span></button></td>
                                         </tr>
                                         <?php 
-                                
+                                   }
+                                }
                                   
                                         ?>
     

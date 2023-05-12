@@ -96,13 +96,13 @@
             <div class="ortext"> or </div>
             <div class="form-itm">
                 <p>Seletct Test :</p>
-                <select name="test_name" id="test_name" class="testselect">
-                  <option value=""> Select Test Name </option>
+                <select name="test_name[]" id="test_name" class="testselect" multiple="multiple">
+                  <option value="" hidden> Select Test Name </option>
                   <?php
                     $tstnamesql = "SELECT test_name FROM tbl_labtests;";
                     $tstNresult = mysqli_query($conn, $tstnamesql);
                     while ($row = mysqli_fetch_assoc($tstNresult)) {
-                      echo "<option value='" . $row['test_name'] . "'>" . $row['test_name'] . "</option>";
+                      echo "<option value='" . $row['test_id'] . "'>" . $row['test_name'] . "</option>";
                     }
                   ?>                               
                 </select>

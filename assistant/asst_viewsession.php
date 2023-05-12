@@ -98,7 +98,7 @@
                                 if($row['status']==1){
                                     echo ' '.'<button class="order-st00">Confirmed</button>';
                                 } elseif($row['status']==2){
-                                    echo ' '.'<button class="order-st01">Completed</button>';
+                                    echo ' '.'<button class="docapt-st03">Completed</button>';
                                 }
                             ?>
                         </td>

@@ -13,6 +13,18 @@ body{
    background-color: #A5D1E1;
 }
 
+.back{
+  margin-top: -30px;
+  position: fixed;
+  color: #0D5C75;
+  cursor: pointer;
+}
+
+.back:hover{
+  color: #073645;
+}
+
+
 /*CSS for Scroll Bar*/
 
 /* width */
@@ -188,305 +200,324 @@ body{
   display: inline;
 }
 
-table {
-  /*border:1px solid #b3adad;*/
-  border-collapse:collapse;
-}
+/* ----------------------------------------------------------------------------------------------- */
 
-table{
-  margin-top: 1%;
-  margin-bottom: auto;
-  margin-left: auto; 
-  margin-right: auto;
-}
 
-table td {
-  width: 750px;
-  /*border:1px solid #b3adad;*/
-  text-align:center;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-#rcorners {
-  border-radius: 35px;
-  background: #ffffff;
-  padding: 20px; 
-  width: 400px;
-  height: 200px;
-  color: #000000;
+.text-content {
+  display: flex;
+  flex-direction: row;
+  font-size: 40px;
+  font-weight: 500;
   text-align: center;
-  font-size: 28px;
-  font-weight: 600;  
-}
-.top{
-    margin-left: 900px;
+  justify-content: center;
+  align-items: center;
 }
 
-.formtable{
-  /*border:1px solid #b3adad;*/
-  border-collapse:collapse;
-  margin-top: 3%;
-  margin-bottom: 5%;
-  margin-left: auto; 
-  margin-right: auto;
+.common-title{
+  position: sticky;
+  font-size: 35px;
+  font-weight: 700;
+  color: #093e4e;
 }
 
-.formtable td {
-  width: 300px;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 3%;
-  padding-right: 3%;
-  color: #083746;
-  text-align: right;
-  font-size: 20px;
-  font-weight: 500;
+.tbl-content{
+  max-height: 100vh; 
+  overflow-y: auto;
 }
 
-.form-control{
-  width: 450px;
-  padding: 2px;
-  border-radius: 10px;
-  font-size: 15px;
-}
-
-.btn-blue2{
-  /* margin-left: 60%; */
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 500;
-  width: 150px;
-}
-
-.btn-blue2 a{
-  color: #ffffff;
-}
-
-.btn-blue{
-  margin-left: 60%;
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.btn-blue a{
-  color: #ffffff;
-}
-
-.btn-green{
-  /* margin-left:1; */
-  background-color: #17852b;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 500;
-  width: 120px;
-}
-
-.btn-blue a{
-  color: #ffffff;
-}
-.hrefmodtext{
-  color: #000000;
-  text-align: center;
-}
-
-.hrefmodtext:hover{
-  color: #0D5C75;
-}
-
-.tbl-main{
-  width: 75%;
+.tbl-common{
+  width: 80%;
   margin-left:auto; 
   margin-right:auto;
   border-collapse: separate;
   border-spacing: 0 15px;
 }
-
-/*appointments.php Starts Here*/
-
-.tbl-main{
-  width: 85%;
-}
-
-.tbl-main tr{
+  
+.tbl-common tr{
   background-color: #ffffff;
 }
 
-.tbl-main thead td{
-  color: #0D5C75;
-  font-weight: 700;
-  padding: 5px;
+.tbl-common thead{
+  position: sticky;
+  top: 0; /* set the table heading to be fixed */
+  z-index: 1; /* set a higher z-index to show the heading above the content */
 }
 
-.tbl-main td{
+.tbl-common thead td{
+  color: #0D5C75;
+  font-weight: 680;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.tbl-common td{
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
   width: 300px;
-  padding: 15px;
+  padding: 10px;
   padding-left: 0%;
   padding-right: 0%;
+  font-size: 16px;
 }
 
-.tbl-main td:first-child, th:first-child {
+.tbl-common td.allowed{
+  font-size: 14px;
+  color: #28ae28;
+  font-weight: 550;
+}
+
+.tbl-common td.denied{
+  font-size: 14px;
+  color: red;
+  font-weight: 550;
+}
+
+.tbl-common td:first-child, th:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-.tbl-main td:last-child, th:last-child {
+.tbl-common td:last-child, th:last-child {
   border-radius: 0 10px 10px 0;
 }
 
-.btn-blue1{
+.tbl-common td.a .btn-view{
+  color: #fff;
+}
+
+.btn-view{
+  border-radius: 10px;
   background-color: #0D5C75;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  /* font-size: 15px; */
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.btn-view span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-view span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-view:hover span {
+  padding-right: 15px;
+}
+
+.btn-view:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.st01{
+  width: 175px;
+  width: 150px;
+  background-color: #28ae28;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
   color: #ffffff;
-  font-weight: 500;
-}
+  font-weight: 550;
+  }
+  
+.st02{
+    width: 175px;
+    width: 150px;
+    background-color: #d7ad16;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    color: #000;
+    font-weight: 550;
+    }
 
-.btn-blue1 a{
-  color: #ffffff;
-}
-
-/*appointments.php Ends Here*/
-
-/*viewappointment.php Starts Here*/
-
-.tbl-viewappointment{
-  border:35px solid #ffffff;
-  width: 75%;
-  height: 250px;
-  margin-left:auto; 
-  margin-right:auto;
-  background-color: #ffffff;
-  border-spacing: 20px;
-  border-collapse: separate;
-  border-radius: 20px;
-  border: 3px solid #ffffff;
-}
-
-.tbl-viewappointment .tdtype1{
-  width: 300px;
-  /*border:1px solid #b3adad;*/
+.st03{
+  width: 175px;
+  width: 150px;
+  background-color: red;
   padding: 5px;
-  padding-left: 3%;
-  padding-right: 3%;
-  color: #083746;
-  text-align: right;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.tbl-viewappointment .tdtype2{
-  width: auto;
-  /*border:1px solid #b3adad;*/
-  padding: 5px;
-  padding-left: 2%;
-  padding-right: 3%;
-  color: #000000;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.btn-upload{
-  background-color: #0D5C75;
-  padding: 10px;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;
-  color: #ffffff;
+  color: #fff;
+  font-weight: 550;
+  }
+
+.st01:hover{
+  cursor: pointer;
+  background-color: #fff;
+  padding: 3px;
+  color: #28ae28;
+  border: 5px solid #28ae28;
+}
+
+.st03:hover{
+  cursor: pointer;
+  background-color: #fff;
+  padding: 3px;
+  color: red;
+  border: 5px solid red;
+}
+/* view sessions Starts */
+
+.container-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.container01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 20%;
+  height: 60vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.container02 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3% 8% 50px auto;
+  width: 50%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6%;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 25%;
+  height: 60vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3% 8% 50px auto;
+  width: 50%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.sessionidTXT{
+  font-size: 35px;
+  color: #0D5C75;
+  font-weight: 700;
+}
+
+.sessionidTXT i{
+  font-size: 35px;
+  color: #0D5C75;
+  font-weight: 700;
+}
+
+.viewtbl {
+  width: 95%;
+  table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
+
+.viewtbl td {
+  width: 50%;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
+}
+
+.viewtbl td.typeR{
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 550;
+  color: #0D5C75;
+  text-align: right;
 }
 
-.btn-upload a{
-  color: #ffffff;
+.viewtbl td.typeL{
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
 }
-/*viewappointment.php Ends Here*/
 
-/*remarks.php Starts Here*/
+.viewtblAPP {
+  width: 95%;
+  table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-collapse: collapse;
+}
 
-.tbl-remarks{
-    border:35px solid #ffffff;
-    width: 70%;
-    height: 300px;
-    margin-left:auto; 
-    margin-right:auto;
-    background-color: rgba(255, 255, 255, 0.8);;
-    border-spacing: 20px;
-    border-collapse: separate;
-    border-radius: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.8);;
-  }
-  
-  .tbl-remarks .tdtype1{
-    width: 250px;
-    /*border:1px solid #b3adad;*/
-    padding: 5px;
-    padding-left: 3%;
-    padding-right: 3%;
-    color: #083746;
-    text-align: right;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  .tbl-remarks .tdtype2{
-    width: auto;
-    /*border:1px solid #b3adad;*/
-    padding: 5px;
-    padding-left: 2%;
-    padding-right: 3%;
-    color: #000000;
-    text-align: left;
-    font-size: 20px;
-    font-weight: 500;
-  }
+.viewtblAPP td {
+  width: 50%;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 1px solid #000; */
+}
 
-  textarea {
-    resize: none;
-    width: 450px;
-    padding: 2px;
-    border-radius: 10px;
-    font-size: 15px;
- }
+.viewtblAPP td.typeR{
+  font-size: 15px;
+  font-weight: 550;
+  color: #0D5C75;
+  text-align: right;
+}
 
- input[type=file]::file-selector-button {
-    margin-right: 20px;
-    border: none;
-    background: #0D5C75;
-    padding: 8px 16px;
-    border-radius: 10px;
-    color: #fff;
-    cursor: pointer;
-    transition: background .2s ease-in-out;
-  }
-  
-  input[type=file]::file-selector-button:hover {
-    background: #09475a;
-  }
-  
-  /*remarks.php Ends Here*/
+.viewtblAPP td.typeL{
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */

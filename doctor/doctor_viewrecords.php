@@ -20,7 +20,6 @@
             <ul>
                 <li><a href="doctor_home.php">Home</a></li>
                 <li><a href="doctor_session.php"><div class="highlighttext">Sessions</div></a></li>
-                <li><a href="doctor_viewpatient.php">Patients</a></li>
                 <li><a href="doctor_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -37,9 +36,44 @@
                     Mrs. Sanjeewani Silva - Medical Records
                 </div>
             </div>
+                <div class="container-row">
 
-            
-           
+                    <a href="doctor_recdocpre.php">
+                    <div class="rec-containor c1">
+                        <br/>
+                        <img src="../images/logo.png" alt="logo" width="100px" height="50px">
+                        <br/><br/>
+                        <div class="rec-title">Doctor <br/> Prescriptions
+                        <br/><br/>
+                        <i class="fa-solid fa-user-doctor" style="font-size:65px;"></i>
+                        </div>
+                        </a>
+                    </div>
+                    
+
+                    <a href="doctor_reclabrep.php">
+                    <div class="rec-containor c2">
+                        <br/>
+                        <img src="../images/logo.png" alt="logo" width="100px" height="50px">
+                        <br/><br/>
+                        <div class="rec-title">Lab <br/> Reports
+                        <br/><br/>
+                        <i class="fa-solid fa-flask-vial" style="font-size:65px;"></i>
+                        </div>
+                        </a>
+                    </div>
+
+                    <a href="doctor_recother.php">
+                    <div class="rec-containor c3">
+                        <br/><br/><br/><br/><br/>
+                        <div class="rec-title">Other <br/> Records
+                        <br/><br/>
+                        <i class="fa-solid fa-file-medical" style="font-size:65px;"></i>
+                        </div>
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

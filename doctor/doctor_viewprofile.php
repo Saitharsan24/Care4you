@@ -20,7 +20,6 @@
             <ul>
                 <li><a href="doctor_home.php">Home</a></li>
                 <li><a href="doctor_session.php">Sessions</a></li>
-                <li><a href="doctor_viewpatient.php">Patients</a></li>
                 <li><a href="doctor_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>

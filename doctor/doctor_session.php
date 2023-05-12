@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/doctor.css"> 
     <title>Doctor</title>
+    <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,8 +19,7 @@
             <img src="../images/user-profilepic/doctor/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="doctor_home.php">Home</a></li>
-                <li><a href="#"><div class="highlighttext">Sessions</div></a></li>
-                <li><a href="doctor_viewpatient.php">Patients</a></li>
+                <li><a href="doctor_session.php"><div class="highlighttext">Sessions</div></a></li>
                 <li><a href="doctor_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
@@ -56,7 +56,7 @@
                             <td>11</td>
                             <td>05</td>
                             <td><button class="st01"> Session Confirmed </button></td>
-                            <td><a href="doctor_appointments.php"><button class="btn-view"  style="width:175px;"><span>View Appointments</span></td></a>
+                            <td><a href="doctor_responsesession.php"><button class="btn-view"  style="width:175px;"><span>View Session</span></td></a>
                         </tr>     
                     </tbody>
                 </table>

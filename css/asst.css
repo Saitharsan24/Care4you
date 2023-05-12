@@ -411,7 +411,7 @@ table td {
   align-items: center;
   margin: 3% 8% 50px auto;
   width: 50%;
-  height: 70vh;
+  height: 72vh;
   background-color: #FFFFFF;
   border-radius: 50px;
   border: 1px solid #888888;
@@ -712,7 +712,7 @@ td.nosessiontd:first-child, th:first-child {
   color: #ffffff;
   font-weight: 550;
   }
-    
+
   .docapt-st03{
       width: 175px;
       width: 150px;

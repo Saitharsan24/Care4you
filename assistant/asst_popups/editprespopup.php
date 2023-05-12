@@ -311,6 +311,7 @@ section.active .modal-box {
   <div class="modal-box" style="text-align: center; justify-content: center;align-items: center;">
     <i class="fa-solid fa-pen-to-square" style="color: #0d5c75;"></i> <br/>
 
+    <form type="submit">
     <table>
         
         <tr>
@@ -318,7 +319,7 @@ section.active .modal-box {
             <td class="typeL">
             
                 <label class="switch">
-                    <input type="checkbox" id="toggle">
+                    <input type="checkbox" id="toggle" name="attendance">
                     <span class="slider round"></span>
                     <span id="toggle-text">Not Attended</span>
                 </label>
@@ -351,24 +352,35 @@ section.active .modal-box {
             <td class="typeR">Other Remarks :</td>
             <td class="typeL">
                 <form method="POST">
-                    <textarea class="textarea" name="address" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
+                    <textarea class="textarea" name="asst-remark" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
             </td>
         </tr>
-
-
-
-
     </table>
+    </form>
 
 
 
 
     <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
-        <button class="button close-btn update" style="width:100px; background-color:#0C7516;">Update</button>
+        <button class="button close-btn update" style="width:100px; background-color:#0C7516;" type="submit" name="update-pres">Update</button>
         <button class="button  close-btn " style="width:100px;" onclick="closePopupE()">Close</button>
     </div>
   </div>
 </section>
+
+<section id="uploadsuccess">
+  <span class="overlay" onclick="closePopupPU()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Successfully<br/>uploaded prescription</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupPU()">Ok</button>
+    </div>
+  </div>
+</section>
+
 
 <script>
 function openPopupE() {
@@ -381,4 +393,49 @@ function openPopupE() {
   const sectionC = document.getElementById("editpop");
   sectionC.classList.remove("active");
   }
+
+
+  function openPopupPU() {
+    const sectionC = document.getElementById("uploadsuccess");
+    sectionC.classList.add("active");
+  }
+
+  function closePopupPU() {  
+    console.log('Check');
+  const sectionC = document.getElementById("uploadsuccess");
+  sectionC.classList.remove("active");
+  }
+
 </script>
+
+
+<?php 
+
+  if(isset($_POST['update-pres'])){
+
+      $docapt_id = $_GET['id'];
+
+        if(isset($_POST['attendance'])){
+          $attended_check = 3;
+      } else{
+          $attended_check = 4;
+      }
+      
+      $remarks = $_POST['asst-remark'];
+
+
+      $sql = "UPDATE tbl_docappointment 
+                  SET docapt_status = '$attended_check',
+                      other_remark = '$remarks'
+                  WHERE docapt_id = '$docapt_id'";  
+
+      $result = mysqli_query($conn,$sql);
+
+      if ($result) {
+          // $_SESSION['pres-upload'] == 1;
+          // echo "<script> window.location.href='http://localhost/Care4you/assistant/asst_viewappointment.php?id=$docapt_id';</script>";
+          echo "<script>openPopupPU()</script>";
+      }
+  }
+
+?>

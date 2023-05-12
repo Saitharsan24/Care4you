@@ -1,8 +1,13 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <?php include('asst_getinfo.php') ?>
+<?php include('./asst_popups/editprespopup.php') ?>
 
 <?php 
+
+    
+
+
     $docapt_id = $_GET['id'];
     $sql = "SELECT * FROM tbl_docappointment 
                 INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid  
@@ -53,6 +58,7 @@
                 </div>
             </div>
             <div class="container2">
+                <form method="post">
                 <table class="viewtblAPP">
                     <tr>
                         <td colspan="2">
@@ -89,7 +95,7 @@
 
                     <?php 
                         if($row['docapt_status'] == 1){
-                    ?>
+                    ?>  
                             <tr>
                                 <td class="typeR">Appointment Status :</td>
                                 <td class="typeL">
@@ -102,7 +108,7 @@
                                     ?>
 
                                     <label class="switch">
-                                        <input type="checkbox" id="toggle">
+                                        <input type="checkbox" id="toggle" name="attendance">
                                         <span class="slider round"></span>
                                         <span id="toggle-text">Not Attended</span>
                                     </label>
@@ -135,7 +141,7 @@
                             <tr>
                                 <td class="typeR">Other Remarks :</td>
                                 <td class="typeL">
-                                    <textarea class="textarea" name="address" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
+                                    <textarea class="textarea" name="asst-remark" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
                                 </td>
                             </tr>
                     <?php
@@ -182,7 +188,7 @@
                                 <?php 
                                     if ($row['docapt_status']==1) {
                                 ?>
-                                        <button class="btnpre"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
+                                        <button class="btnpre" type="submit" name="des-upload"><i class="fa-solid fa-arrow-up-from-bracket"></i>upload</button></form>
                                         &nbsp;
                                 <?php
                                     }
@@ -191,8 +197,8 @@
                                 <?php
                                     if ($row['docapt_status'] == 3 || $row['docapt_status'] == 4) {
                                 ?>
-                                        <button class="btnpre" onclick="openPopupE()"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
-                                        <?php include('./asst_popups/editprespopup.php') ?>
+                                        <button type="button" class="btnpre" onclick="openPopupE()"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                                        
                                 <?php 
                                     }
                                 ?>
@@ -200,6 +206,7 @@
                         </td>
                     </tr>
                 </table>
+                </form>
             </div>
             </div>
             
@@ -207,3 +214,38 @@
         </div>
 </body>
 </html>
+
+
+<?php 
+    if(isset($_POST['des-upload'])){
+
+        if(isset($_POST['attendance'])){
+            $attended_check = 3;
+        } else{
+            $attended_check = 4;
+        }
+        
+        $remarks = $_POST['asst-remark'];
+
+
+        $sql = "UPDATE tbl_docappointment 
+                    SET docapt_status = '$attended_check',
+                        other_remark = '$remarks'
+                    WHERE docapt_id = '$docapt_id'";
+
+        $result = mysqli_query($conn,$sql);
+
+        if ($result) {
+            // $_SESSION['pres-upload'] == 1;
+            // echo "<script> window.location.href='http://localhost/Care4you/assistant/asst_viewappointment.php?id=$docapt_id';</script>";
+            echo "<script>openPopupPU()</script>";
+        }
+    
+    }
+    // if(isset($_SESSION['pres-upload'])){
+    //     unset($_SESSION['pres-upload']);
+        
+    // }
+
+
+?>

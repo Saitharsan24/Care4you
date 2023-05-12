@@ -1281,3 +1281,81 @@ p{
 }
 
 /* editprofile.php CSS Ends */
+
+.st00{
+  width: 175px;
+  width: 150px;
+  background-color: #FAEAB1;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.st01{
+  background-color: #FDD147;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.st02{
+  background-color: #0C7516;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+.st03{
+  background-color: #FFA07A;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-weight: 550;
+}
+
+.st04{
+  background-color: #2196F3;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}
+
+.st05{
+  background-color: #BD1010;
+  width: 175px;
+  width: 150px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-weight: 550;
+}

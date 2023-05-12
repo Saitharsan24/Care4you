@@ -19,7 +19,8 @@
             <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
-                <li><a href="lab_appointments.php">Lab Appointments</a></li>
+                <li><a href="lab_newappointments.php">New Appointments</a></li>
+                <li><a href="lab_appointmenthistory.php">Appointment History</a></li>
                 <li><a href="lab_testsinfo.php"><div class="highlighttext">Lab Tests</div></a></li>
                 <li><a href="lab_viewprofile.php">Profile</a></li>
             </ul>
@@ -35,7 +36,7 @@
                 <div class="common-title"  style="margin-bottom:-10px;margin-top:-10px;">
                     <i class="fa-solid fa-clipboard-list" style="font-size: 35px;"></i>
                     &nbsp; Available Laboratory Test Details <br/>
-                    <a href="./patient_makedocappointment.php"><button class="btn-mkdcapt" style="width:150px;"><span>add new test</span></button></a>
+                    <a href="#"><button class="btn-mkdcapt" style="width:150px;"><span>add new test</span></button></a>
                 </div>
             </div>
             <div class="tbl-content">
@@ -45,7 +46,6 @@
                             <td style="width:15%">Test ID</td>
                             <td style="width:35% ; text-align:left">Test Name</td>
                             <td style="width:20%"></td>
-                            <td style="width:15%"></td>
                             <td style="width:15%"></td>
                         </tr>
                     </thead>
@@ -66,6 +66,10 @@
                                 {
                                     $test_id = $rows['test_id'];
                                     $test_name = $rows['test_name'];
+                                    $duration = $rows['duration'];
+                                    $charge = $rows['charge'];
+                                    $prerequirement = $rows['prerequirement'];
+                                    $NumberOfTestsPerDay = $rows['NumberOfTestsPerDay'];
                                     
                                     //display valus in the table
                                     ?>
@@ -75,14 +79,11 @@
                                         <td>
                                             <?php
                                                 // Generate the URL with the variables
-                                                $url = "http://localhost/Care4you/laboratory/lab_testview.php?test_id=" . $test_id . "&test_name=" . urlencode($test_name);
+                                                $url = "http://localhost/Care4you/laboratory/lab_testview.php?test_id=" . $test_id;
                                             ?>
                                             <a href="<?php echo $url; ?>">
                                                 <button class="btn-view" style="width:150px;"><span>View Details</span></button>
                                             </a>
-                                        </td>
-                                        <td>
-                                            <a href="<?php echo SITEURL;  ?>/laboratory/lab_testupdate.php?test_id=<?php echo $test_id;?>" class="btn-update">Update</a>
                                         </td>
                                         <td>
                                             <a href="<?php echo SITEURL;  ?>/laboratory/lab_testdelete.php?test_id=<?php echo $test_id;?>" class="btn-delete">Delete</a>

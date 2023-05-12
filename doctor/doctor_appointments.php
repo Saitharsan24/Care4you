@@ -1,7 +1,20 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php 
+    //getting session id from url
+
+    $session_id = $_GET['id'];
+
+    $sql = "SELECT * FROM tbl_docappointment WHERE session_id = '$session_id'";
+    $doct_apt = mysqli_query($conn,$sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +24,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('doctor_getinfo.php') ?>
     <div class="wrapper">
@@ -33,7 +47,7 @@
 
             <div class="text-content">
                 <div class="common-title"  style="margin-bottom:-10px;margin-top:-20px;">
-                    Appointments on &nbsp; 2023 - 05 - 14
+                    Appointments on &nbsp; Session ID - <?php echo $session_id ?>
                 </div>
             </div>
 

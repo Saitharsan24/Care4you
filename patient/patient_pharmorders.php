@@ -1,5 +1,6 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popups/pharmorderpopup.php')?>
 
 
 
@@ -10,7 +11,7 @@
                   unset($_SESSION['add-order']);
                   echo "<script>openPopupOS()</script>";
                 }
-                if($_SESSION['add-order'] == 2) {
+                else if($_SESSION['add-order'] == 2) {
                   unset($_SESSION['add-order']);
                   echo "<script>openPopupOF()</script>";
                 }

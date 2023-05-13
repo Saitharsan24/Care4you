@@ -356,14 +356,13 @@ section.active .modal-box {
             </td>
         </tr>
     </table>
-    </form>
+    
 
-
-
-      <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <div class="buttons" style="display:flex; margin-left:80px; margin-top:20px;">
           <button class="button close-btn update" style="width:100px; background-color:#0C7516;" type="submit" name="update-pres">Update</button>
           <button class="button  close-btn " style="width:100px;" onclick="closePopupE()">Close</button>
       </div>
+    </form>
   </div>
 </section>
 

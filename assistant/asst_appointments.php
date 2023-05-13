@@ -9,7 +9,8 @@
     $sql = "SELECT * FROM tbl_docappointment 
                 INNER JOIN tbl_sysusers ON tbl_docappointment.created_by = tbl_sysusers.userid  
                 INNER JOIN tbl_patient ON tbl_sysusers.userid = tbl_patient.userid
-                AND session_id = '$session_id'";
+                AND session_id = '$session_id'
+                AND (docapt_status = '1' OR docapt_status = '3' OR docapt_status = '4')";
     $results = mysqli_query($conn,$sql);    
     
     
@@ -60,7 +61,7 @@
                     <?php 
                         if(mysqli_num_rows($results) !=0 ){
                         while($row = mysqli_fetch_assoc($results)){
-                            if (($row['docapt_status'] == 1 || $row['docapt_status'] == 2)) {
+                            
                     ?>
                             <tr>
                                 <td><?php echo $row['docapt_no'] ?></td>
@@ -80,17 +81,19 @@
                                 <td>
                                     <?php 
                                         if($row['docapt_status']==1){
-                                            echo ' '.'<button class="order-st00">Confirmed</button>';
-                                    } elseif($row['docapt_status']==2){
-                                            echo ' '.'<button class="order-st01">Completed</button>';
-                                    }
+                                            echo ' '.'<button class="docapt-st01">Confirmed</button>';
+                                    } elseif($row['docapt_status']==3){
+                                            echo ' '.'<button class="docapt-st03">Completed</button>';
+                                    } elseif($row['docapt_status']==4){
+                                        echo ' '.'<button class="docapt-st04">Not Attended</button>';
+                                    } 
                                     ?>
                                 </td>
                                 <td><a href="asst_viewappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="btn-viewapp" style="font-size: 13px;"><span>View Appointment</span></button></a></td>
                             </tr>
                     <?php 
                             }
-                        }
+                        
                         }else {
                     ?>
                             <tr>

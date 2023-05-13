@@ -19,8 +19,9 @@
             <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
-                <li><a href="lab_appointments.php">Lab Appointments</a></li>
-                <li><a href="">Lab tests</a></li>
+                <li><a href="lab_newappointments.php">New Appointments</a></li>
+                <li><a href="lab_appointmenthistory.php">Appointment History</a></li>
+                <li><a href="lab_testsinfo.php">Lab Tests</a></li>
                 <li><a href="lab_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>

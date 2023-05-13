@@ -1,6 +1,22 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popups/pharmorderpopup.php')?>
 
+
+
+<?php 
+              if(isset($_SESSION['add-order']))
+              {
+                if($_SESSION['add-order'] == 1) {
+                  unset($_SESSION['add-order']);
+                  echo "<script>openPopupOS()</script>";
+                }
+                else if($_SESSION['add-order'] == 2) {
+                  unset($_SESSION['add-order']);
+                  echo "<script>openPopupOF()</script>";
+                }
+              }
+?>
 
 <?php
 
@@ -42,13 +58,13 @@
         <img src="../images/user.png" alt="profile-image" />
       </div>
       <div class="nav-links">
-        <a href="./patient_home.php">Home</a>
-        <a href="./patient_appointments.php">Appointments</a>
-        <a href="#" style="color: #0c5c75; font-weight: bold">Orders</a>
-        <a href="./patient_medicalrecords.php">Medical Records</a>
-        <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
-        <a href="#">Profile</a>
-      </div>
+          <a href="./patient_home.php">Home</a>
+          <a href="./patient_appointments.php">Appointments</a>
+          <a href="./patient_pharmorders.php" style="color: #0c5c75; font-weight: bold">Orders</a>
+          <a href="./patient_medicalrecords.php">Medical Records</a>
+          <!-- <a href="./patient_doctorlist.php">Doctors</a> -->
+          <a href="./patient_viewprofile.php">Profile</a>
+        </div>
       <!-- <div class="signout"><a href="../logout.php">Sign Out</a></div> -->
       <div class="signout"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
     </div>
@@ -59,13 +75,7 @@
         <div class="doc-apt-title" style="color: #000; font-size: 45px; margin-bottom:-40px;">My Orders</div>
         <div class="mk-odr-btn"><a href="./patient_makeorder.php"><button class="btn-mkdcapt"><span>make pharmacy order</span></button></a></div>
       </div>
-      <?php 
-              if(isset($_SESSION['add-order']))
-              {
-                echo $_SESSION['add-order'];
-                unset($_SESSION['add-order']);
-              }
-        ?>
+    
       <div class="tbl-content">
       <table class="tbl-mydocapp" style="width:65%; margin-left: 60px;">
         <thead>

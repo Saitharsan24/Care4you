@@ -14,11 +14,9 @@
         $id=$_GET['doc_id'];
         
         $_SESSION['doc_id']=$id;
-        // print_r($_SESSION['doc_id']);die();
             $doc_id=$_POST['doctor_id'];
             $asst_id=$_POST['assitant_id'];
             $date=$_POST['date'];
-            //print_r($date);die();
             $room=$_POST['room'];
             
              if($_POST['time-slot']=='8am-10am'){
@@ -223,12 +221,7 @@
                                                     
                                                     ?>
                                                
-                                            </div>
-
-
-
-
-                                            
+                                            </div>                      
                                         <?php
                                         }
                                         else{
@@ -263,25 +256,6 @@
 
                     </div>
                 </div>
-
-            <?php
-            // $id=$_GET['doc_id'];
-            // $_SESSION['doc_id']=$id;
-            
-            //   if(isset($POST['reg'])){
-            //     print_r($id);die();
-            //    // $id=$_GET['id'];
-               
-            //     $query = "SELECT * FROM tbl_doctor INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid WHERE userid=$id";
-            //     $result_1 = mysqli_query($conn, $query);
-            //     $row = mysqli_fetch_array($result_1);
-             
-            //        $email= $row['email'];
-                   
-                
-            // }
-          
-            ?>
 </body>
 
 </html>

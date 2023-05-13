@@ -22,7 +22,7 @@ $result = mysqli_query($conn, $query);
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
-        <script src="../script/admin-patient-view-filter.js"></script>
+        <script src="../script/admin-order-view-filter.js"></script>
 </head>
 
 <body>
@@ -47,7 +47,7 @@ $result = mysqli_query($conn, $query);
                 <div class="info">
 
                     <span>
-                        <table class="tbl-main-patient" id="tbl-main-patient" style="margin-top:-50px;">
+                        <table class="tbl-main-patient" id="tbl-main-order" style="margin-top:-50px;">
                             <thead>
                                 <tr>
                                     <td>Order ID</td>
@@ -58,9 +58,9 @@ $result = mysqli_query($conn, $query);
                             </thead>
                             <tbody>
                                     <tr>
-                                        <td><input type="text" class="search-order" name="patient-id" placeholder="search order id" id="order_id"  autofocus="true" /></td>
-                                        <td><input type="text" class="search-order" name="phone-no" placeholder="search contact number" id="contact_no"  autofocus="true" /></td>
-                                        <td><input type="text" class="search-order" name="status" placeholder="search order status" id="order_status"  autofocus="true" /></td>
+                                        <td><input type="text" class="search-order" name="order-id" placeholder="search order id" id="order_id" onkeyup="filterOrderId()" autofocus="true" /></td>
+                                        <td><input type="text" class="search-order" name="phone-no" placeholder="search contact number" id="contact_no" onkeyup="filterPhoneNo()" autofocus="true" /></td>
+                                        <td><input type="text" class="search-order" name="status" placeholder="search order status" id="order_status" onkeyup="filterStatus()"  autofocus="true" /></td>
                                         <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php 

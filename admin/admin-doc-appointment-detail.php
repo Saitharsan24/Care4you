@@ -163,9 +163,9 @@
                     </tr>
 
        
-               </table> 
-
-
+               <tr rowspan="2">
+               
+                <td  >
                <?php
                             if ($row['docapt_status'] == 1) { 
                         
@@ -199,7 +199,10 @@
                                 </button> 
 
                             <?php };
-                        ?>
+                        ?>   
+                        </td>
+                    </tr>
+                       </table> 
                        
             </div>
         </div>

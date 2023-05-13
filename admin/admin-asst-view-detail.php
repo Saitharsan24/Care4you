@@ -134,9 +134,8 @@
                         <td class="typeL"><?php echo $row['phoneno']; ?>
                         <?php  include('admin-asst-viewdetail-pop.php') ?>
                     </td>
-                       <?php // $_SESSION['phone-no'] = $row['phoneno'];   ?>
-                                            </tr>
-                    <tr>
+                  </tr>
+                   <tr>
                         <td class="typeR">Email Address :</td>
                         <td class="typeL"><?php echo $row['email']; ?></td>
                     </tr>

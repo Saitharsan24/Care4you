@@ -308,15 +308,15 @@ section.active .modal-box {
 <section id="editpop">
   <span class="overlay" onclick="closePopupE()"></span>
 
-  <div class="modal-box" style="text-align: center; justify-content: center;align-items: center;">
+  <div class="modal-box" style="text-align: center; justify-content: center;align-items: center; height:65%;">
     <i class="fa-solid fa-pen-to-square" style="color: #0d5c75;"></i> <br/>
 
     <form type="submit">
-    <table>
+    <table class="viewtbl" style="width:95%;">
         
         <tr>
-            <td class="typeR">Appointment Status :</td>
-            <td class="typeL">
+            <td class="typeR" style="width:50%; font-size:15px;">Appointment Status :</td>
+            <td class="typeL" style="width:50%; font-size:15px;">
             
                 <label class="switch">
                     <input type="checkbox" id="toggle" name="attendance">
@@ -339,8 +339,8 @@ section.active .modal-box {
         </tr>
 
         <tr>
-            <td class="typeR">Upload Prescription :</td>
-                <td class="typeL">
+            <td class="typeR" style="width:50%; font-size:15px;">Upload Prescription :</td>
+                <td class="typeL" style="width:50%; font-size:15px;">
                 <form method="POST">  
                 <div class="type-file upload-input">
                     <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription"/>
@@ -349,22 +349,20 @@ section.active .modal-box {
         </tr>
 
         <tr>
-            <td class="typeR">Other Remarks :</td>
-            <td class="typeL">
+            <td class="typeR" style="width:50%; font-size:15px;">Other Remarks :</td>
+            <td class="typeL" style="width:50%; font-size:15px;">
                 <form method="POST">
                     <textarea class="textarea" name="asst-remark" id="address" placeholder="Enter Doctor Remarks Here"></textarea>
             </td>
         </tr>
     </table>
+    
+
+      <div class="buttons" style="display:flex; margin-left:80px; margin-top:20px;">
+          <button class="button close-btn update" style="width:100px; background-color:#0C7516;" type="submit" name="update-pres">Update</button>
+          <button class="button  close-btn " style="width:100px;" onclick="closePopupE()">Close</button>
+      </div>
     </form>
-
-
-
-
-    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
-        <button class="button close-btn update" style="width:100px; background-color:#0C7516;" type="submit" name="update-pres">Update</button>
-        <button class="button  close-btn " style="width:100px;" onclick="closePopupE()">Close</button>
-    </div>
   </div>
 </section>
 

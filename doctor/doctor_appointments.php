@@ -6,7 +6,9 @@
 
     $session_id = $_GET['id'];
 
-    $sql = "SELECT * FROM tbl_docappointment WHERE session_id = '$session_id'";
+    $sql = "SELECT * FROM tbl_docappointment
+                INNER JOIN tbl_patient ON tbl_patient.userid = tbl_docappointment.created_by
+                AND session_id = '$session_id'";
     $doct_apt = mysqli_query($conn,$sql);
 
 ?>
@@ -41,7 +43,7 @@
         <div class="main_content"> 
             <div class="info">
 
-            <div class="back" onclick="location.href='doctor_responsesession.php'">
+            <div class="back" onclick="location.href='./doctor_responsesession.php?id=<?php echo $session_id ?>'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
 
@@ -64,30 +66,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>15</td>
-                            <td>Mrs. Sanjeewani Silva</td>
-                            <td>3.00 PM - 3.10 PM</td>
-                            <td class="allowed">Access Allowed</td>
-                            <td><a href="doctor_viewrecords.php"><button class="btn-view"  style="width:150px;"><span>View Records</span></td></a>
-                        </tr>
-                        <tr>
-                            <td>02</td>
-                            <td>21</td>
-                            <td>Mrs. Amal Perera</td>
-                            <td>3.10 PM - 3.20 PM</td>
-                            <td class="denied">Access Denied</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>04</td>
-                            <td>Ms. Kaveesha Dilki</td>
-                            <td>3.20 PM - 3.30 PM</td>
-                            <td class="allowed">Access Allowed</td>
-                            <td><a href="doctor_viewrecords.php"><button class="btn-view"  style="width:150px;"><span>View Records</span></td></a>
-                        </tr>        
+                        <?php 
+                        if($doct_apt){
+                            while($appointments = mysqli_fetch_assoc($doct_apt)){
+                        ?>
+                                <tr>
+                                    <td><?php echo $appointments['docapt_no'] ?></td>
+                                    <td><?php echo $appointments['p_id'] ?></td>
+                                    <td><?php echo $appointments['first_name'] ?></td>
+                                    <td><?php echo $appointments['docapt_time'] ?></td>
+                                    
+                                    <?php 
+                                        if($appointments['record_access'] == 1){
+                                    ?>
+                                            <td class="allowed">Access Allowed</td>
+                                    <?php
+                                        } else {
+                                    ?>  
+                                            <td class="denied">Access Denied</td>
+                                    <?php
+                                        }
+                                    ?>  
+                                    
+                                    <?php 
+                                        if($appointments['record_access'] == 1){
+                                    ?>
+                                            <td><button class="btn-view"  style="width:150px;" onclick="location.href='doctor_viewrecords.php?patid=<?php echo $appointments['created_by'] ?>&id=<?php echo $appointments['session_id'] ?>'"><span>View Records</span></a></td>
+                                    <?php
+                                        } else {
+                                    ?>  
+                                            <td></td>
+                                    <?php
+                                        }
+                                    ?>  
+                                    
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                    
                     </tbody>
                 </table>
             </div>

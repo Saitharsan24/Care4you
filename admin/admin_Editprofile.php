@@ -128,7 +128,7 @@
                   $result = mysqli_query($conn, $query);
                   $row=mysqli_fetch_array($result);
                   $userid=$row['userid'];   //for edit the email id
-                //  print_r($row['userid']);die();
+              //  print_r($userid);die();
             ?>
                     </figure>
                     <span>
@@ -233,18 +233,20 @@
                 `nic` = '$nic',                
                 `contact_number`  ='$contact_number'
                 WHERE  `adminid`='$Admin_adminid' ";
-               // print_r("test");die();
+              
             //echo $sql;
             $res3 = mysqli_query($conn , $sql3) or die(mysqli_error($conn));
             
             $sql4 = "UPDATE tbl_sysusers SET 
-               `email` = '$Admin_email'
-                WHERE `userid` ='$userid'";
+              `email` = '$email'
+                WHERE  `userid`='$userid'";
+
+          
             //echo $sql;
             $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
             
             //Step 05 - Check data is inserted (Query executed) or not & Disply Message
-            if($res3 == TRUE) {
+            if($res4) {
                 //Data inserted
                 //echo "Data Inserted";
 

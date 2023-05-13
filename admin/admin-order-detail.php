@@ -83,11 +83,7 @@ if(isset($_GET['cancel'])){
                         <td class="typeR">Order date :</td>
                         <td class="typeL"><?php echo $row['orderdate']; ?></td>
                     </tr>
-                    <tr>
-
-                        <td class="typeR">Presription :</td>
-                        <td class="typeL"><?php echo $row['prescription_name']; ?></td>
-                    </tr>
+                   
 
                     <tr>
                         <td class="typeR">Nic No :</td>
@@ -117,11 +113,8 @@ if(isset($_GET['cancel'])){
                             ?>
                         </td>
                     </tr>
-
-
-
-                </table>
-
+         <tr >
+            <td>
                 <?php
                 if ($row['order_status'] == 0||$row['order_status'] == 1||$row['order_status'] == 2) {
 
@@ -142,8 +135,9 @@ if(isset($_GET['cancel'])){
                 <?php
                 }
                 ?>
-
-
+                </td>
+             </tr>
+            </table>
             </div>
         </div>
 </body>

@@ -1,5 +1,6 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popup/newtestadd.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
-            <img src="../images/user-profilepic/pharmacist/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
+            <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
                 <li><a href="lab_newappointments.php">New Appointments</a></li>
@@ -36,7 +37,7 @@
                 <div class="common-title"  style="margin-bottom:-10px;margin-top:-10px;">
                     <i class="fa-solid fa-clipboard-list" style="font-size: 35px;"></i>
                     &nbsp; Available Laboratory Test Details <br/>
-                    <a href="#"><button class="btn-mkdcapt" style="width:150px;"><span>add new test</span></button></a>
+                    <button onclick="openPopup1()" class="btn-mkdcapt" style="width:150px;"><span>add new test</span></button>
                 </div>
             </div>
             <div class="tbl-content">

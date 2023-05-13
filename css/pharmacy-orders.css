@@ -726,7 +726,8 @@ textarea{
   margin-bottom: -27px;
   resize: none;
   border-radius: 10px;
-  padding-left: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 .nettotal{
@@ -735,4 +736,5 @@ textarea{
   outline: none;
   border: 1px solid #444343;
   padding-left: 5px;
+  padding: 5px;
 }

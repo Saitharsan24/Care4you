@@ -15,13 +15,13 @@
 <body>
 <?php include('lab_getinfo.php') ?>
     <div class="wrapper">
-        <div class="sidebar">
+        <div class="sidebar" style="width: 260px;">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
             <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
-                <li><a href="lab_newappointments.php"><div class="highlighttext">New Appointments</div></a></li>
-                <li><a href="lab_appointmenthistory.php">Appointment History</a></li>
+                <li><a href="lab_newappointments.php">New Appointments</a></li>
+                <li><a href="lab_appointmenthistory.php"><div class="highlighttext">Appointment History</div></a></li>
                 <li><a href="lab_testsinfo.php">Lab Tests</a></li>
                 <li><a href="lab_viewprofile.php">Profile</a></li>
             </ul>
@@ -37,7 +37,7 @@
             <div class="text-content">
                 <div class="common-title"  style="margin-bottom:-10px;margin-top:-20px;">
                 <i class="fa-solid fa-pager" style="font-size: 35px;"></i>
-                    &nbsp; Appointment Details
+                    &nbsp;Responded Appointment Details
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
                         </a>
                     </div>
                     <div class="containorSRLast">
-                    <?php include('lab_tbl-addtest.php') ?>
+                    <?php include('lab_tbl-addtestview.php') ?>
                 </div>
 
                 
@@ -106,7 +106,7 @@
 
                     </div>
                     <div class="containorSRLast"  style="width:60%">
-                    <?php //include('lab_tbl-addtest.php') ?>
+                    <?php //include('lab_tbl-addtestview.php') ?>
                 </div> -->
 
             </div>

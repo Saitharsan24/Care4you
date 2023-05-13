@@ -1,6 +1,4 @@
-        <button class="btn-gray" style="width:250px;cursor:pointer;" onclick="openPopup1()" >
-                + Add Available Tests
-        </button>
+        <div style="font-size:12px; margin-bottom:-5px; font-weight:600;color: #0D5C75;"> Available Tests </div>
         <table class="tbl-addmed">
             <thead>
                 <tr>
@@ -24,11 +22,7 @@
 
         <br>
 
-        <button class="btn-gray" style="width:250px;cursor:pointer;" onclick="openPopup2()" >
-            <a href="#">
-                + Add Unavailable Tests
-            </a>
-        </button>
+        <div style="font-size:12px; margin-bottom:-5px; font-weight:600;color: #0D5C75;""> Unvailable Tests </div>
         <table class="tbl-addmed">
             <thead>
                 <tr>
@@ -57,9 +51,8 @@
         Unavailable Tests :
         <textarea name="unavailablemedicines" id="unavailablemedicines" cols="50" rows="2" placeholder="Tests Unavailable in CareForYou"></textarea>
         <br/> <br/>
-        <button class="btn-respond" type="submit" name="sendrespond">
-            <span>Send Respond &nbsp;</span>
-        </button>
+        &nbsp;&nbsp;&nbsp;Total Charge (Rs) : &nbsp;
+        <input type="number" class="nettotal" style="width: 330px; margin-right: 15px;" value="3500" readonly/>
         </form>
         </div>
     </div>

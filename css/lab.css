@@ -473,17 +473,40 @@ table td {
 }
 
 .tst-cont{
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 15px;
+  display: inline-block;
+  justify-content: left;
+  align-items: left;
+  margin-top: 3%;
   margin-bottom: auto;
   margin-left: auto;
-  width: 60%;
-  height: 60vh;
+  width: 50%;
+  height: 70vh;
   background-color: #FFFFFF;
   border-radius: 50px;
 }
+
+.topic{
+  text-align: left;
+  font-size: 17px;
+  color: #0D5C75;
+  font-weight: 550;
+}
+
+.topicdata{
+  text-align: left;
+  padding: 3px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  margin-top: -15px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* --------------------------------------------------------------------------------------- */
 
 
 .st00{

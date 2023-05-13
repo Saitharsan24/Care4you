@@ -12,13 +12,13 @@
 
   if(isset($_GET['doc_id'])){
      $id=$_GET['doc_id'];
-    
+   // print_r($id);die();
     
     $query = "SELECT * FROM tbl_doctor INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid WHERE doctor_id=$id"; // fetch the details from table tbl_doctor and tbl_sysusers
                 $result = mysqli_query($conn, $query);
                 $row = mysqli_fetch_array($result);
-                $email=$row['email'];
-                $message="dshbuybfuybufyb ". $row['email'];   
+                $email=$row['email'];    // doctor mail
+                $message="session cancelled" ;   
      
                 
                 //Create an instance; passing `true` enables exceptions
@@ -48,7 +48,7 @@
                     
                     //Content
                     $mail->isHTML(true);                                  //Set email format to HTML
-                    $mail->Subject = 'Session Confirmation';
+                    $mail->Subject = 'Session Cancelled';
                     $mail->Body    = $message;
                     $mail->send();
                    

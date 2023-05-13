@@ -97,7 +97,7 @@
                             else
                             {
                                 // Store the filename in the database
-                                $sqlpp = "UPDATE tbl_admin SET profile_picture='$new_ppname' WHERE adminid ='$Admin_adminid_id'";
+                                $sqlpp = "UPDATE tbl_admin SET profile_picture='$new_ppname' WHERE adminid ='$Admin_adminid'";
 
                                 //Execute the query and Save profile picture name in database
                                 $respp = mysqli_query($conn ,$sqlpp);
@@ -121,6 +121,15 @@
                     }
                     ?>
 
+
+
+            <?php
+                  $query = "SELECT * FROM tbl_admin INNER JOIN tbl_sysusers ON tbl_admin.userid = tbl_sysusers.userid WHERE adminid= $Admin_adminid";
+                  $result = mysqli_query($conn, $query);
+                  $row=mysqli_fetch_array($result);
+                  $userid=$row['userid'];   //for edit the email id
+                //  print_r($row['userid']);die();
+            ?>
                     </figure>
                     <span>
                     <form action="" method="POST">
@@ -216,22 +225,21 @@
             $_SESSION['update-user'] = '<div class="ppUpEr" style="padding-top:25px;"> No Changes made to Profile Details</div>';
             echo "<script> window.location.href='http://localhost/Care4you/admin/admin_Editprofile.php';</script>";
         }
-        else {
+        else {//$Admin_adminid
             // Data is updated
             //Step 04 - SQL Query to save the data in Database
             $sql3 = "UPDATE tbl_admin SET 
-                fullname = '$fullname',
-                nic = '$nic',                
-                contact_number = '$contact_number'
-                WHERE adminid ='$Admin_adminid_id'
-            ";
+                 `fullname`='$fullname',  
+                `nic` = '$nic',                
+                `contact_number`  ='$contact_number'
+                WHERE  `adminid`='$Admin_adminid' ";
+               // print_r("test");die();
             //echo $sql;
             $res3 = mysqli_query($conn , $sql3) or die(mysqli_error($conn));
             
             $sql4 = "UPDATE tbl_sysusers SET 
-                email = '$Admin_email'
-                WHERE userid ='$Admin_userid'
-            ";
+               `email` = '$Admin_email'
+                WHERE `userid` ='$userid'";
             //echo $sql;
             $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
             

@@ -16,6 +16,30 @@
 
 </head>
 
+<script>
+  function openPopup1() {
+    const section = document.getElementById("section1");
+    section.classList.add("active");
+
+  }
+
+  function openPopup2() {
+    const section = document.getElementById("section2");
+    section.classList.add("active");
+
+  }
+
+  const overlay = document.querySelector(".overlay"),
+  closeBtn = document.querySelector(".close-btn");
+
+function closePopup2() {
+const section = document.querySelector("section");
+section.classList.remove("active");
+}
+
+closeBtn.addEventListener("click", closePopup);
+overlay.addEventListener("click", closePopup);
+</script>
 <body>
     <?php include('admin_getinfo.php') ?>
     <div class="wrapper">
@@ -39,10 +63,10 @@
         <div class="main_content">
             <div class="info">
             <?php 
-                if(isset($_SESSION['update-charge']))
+                if(isset($_SESSION['update-mge']))
                 {
-                    echo $_SESSION['update-charge'];
-                    unset($_SESSION['update-charge']);
+                    echo $_SESSION['update-mge'];
+                    unset($_SESSION['update-mge']);
 
                 }
             ?>
@@ -110,7 +134,7 @@
                         <td class="typeR">Charge per session :</td>
                         <td class="typeL">Rs. <?php echo $row['charge']; ?>
                         &nbsp; &nbsp;
-                        <?php  include('admin-doc-viewdetail-pop.php') ?>
+                        <?php  include('admin-doc-viewdetail-charge-pop.php') ?>
                     </td>
                     </tr>
                     <tr>
@@ -152,7 +176,10 @@
                         ?>
                         </td>
                         <td class="typeR">Contact Number :</td>
-                        <td class="typeL"><?php echo $row['contact_number']; ?></td>
+                        <td class="typeL"><?php echo $row['contact_number']; ?>
+                        <?php  include('admin-doc-viewdetail-phoneno-pop.php') ?>
+
+                    </td>
                     </tr>
                     <tr>
                         <td class="typeR">Email Address :</td>

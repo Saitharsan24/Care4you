@@ -64,14 +64,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>15</td>
-                            <td>Mrs. Sanjeewani Silva</td>
-                            <td>3.00 PM - 3.10 PM</td>
-                            <td class="allowed">Access Allowed</td>
-                            <td><a href="doctor_viewrecords.php"><button class="btn-view"  style="width:150px;"><span>View Records</span></td></a>
-                        </tr>
+                        <?php 
+                        if($doct_apt){
+                            while($  = mysqli_fetch_assoc($doct_apt)){
+                        ?>
+                                <tr>
+                                    <td>doct_apt</td>
+                                    <td>15</td>
+                                    <td>Mrs. Sanjeewani Silva</td>
+                                    <td>3.00 PM - 3.10 PM</td>
+                                    <td class="allowed">Access Allowed</td>
+                                    <td><a href="doctor_viewrecords.php"><button class="btn-view"  style="width:150px;"><span>View Records</span></td></a>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
                         <tr>
                             <td>02</td>
                             <td>21</td>

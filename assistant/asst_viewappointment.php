@@ -242,10 +242,7 @@
         }
     
     }
-    // if(isset($_SESSION['pres-upload'])){
-    //     unset($_SESSION['pres-upload']);
-        
-    // }
+
 
 
 ?>

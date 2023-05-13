@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			}
 		}
 
+        
 
             // Validate email
 		if (empty($_POST["email"])) {
@@ -105,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$ChargeErr = "*charge is required";
             $isValid = false;
 		}elseif($_POST["charge"]<0){
-            $ChargeErr = "*Enter a valid email address";
+            $ChargeErr = "*Enter a valid charge";
         } 
      
           // Validate slmc

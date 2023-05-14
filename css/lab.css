@@ -672,3 +672,36 @@ table td {
   border-radius: 50px;
 }
 
+/* .graph-container{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5%;
+  margin-bottom: auto;
+  margin-left: 5%;
+  width: 55%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  flex-direction: column;
+} */
+#home_chart {
+margin: 15px;
+height: 320px !important;
+}
+
+.graph-home{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 80%;
+  background-color: #FFFFFF;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 50px;
+  flex-direction: column;
+}

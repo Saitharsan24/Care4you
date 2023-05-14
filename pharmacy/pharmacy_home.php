@@ -1,5 +1,28 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php 
+$userid = $_SESSION['user_id'];
+$meds = array();
+        // print_r($days);die();
+        $sql = "SELECT * FROM tbl_medicine";
+        
+        $res = mysqli_query($conn, $sql);
+        // If the year and month of the donation is in the array, add the count to the array
+        while ($item =  mysqli_fetch_assoc($res)) {
+            $key = $item['med_name'];
+                $meds[$key] = $item['quantity'];
+        }
+
+        //Rename the key of the array to month plus year 
+        $meds = array_combine(array_map(function ($key) {
+            return $key;
+        }, array_keys($meds)), array_values($meds));
+
+        //Reverse the array to show the earliest month first
+        $meds = array_reverse($meds);
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +34,7 @@
     <title>Pharmacy</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -50,8 +74,83 @@
                     </div>
                 </div>
                 <div class="flex-cont">
-                    <div class="graph-cont">
-                        <<< Graph Here>>>
+                    <div class="graph-container">
+                        <div class="box-title"> Medicine Stock </div>
+                        <canvas id="home_chart" style="height:100px">
+                                            <script>
+                                                var ctx = document.getElementById('home_chart').getContext('2d');
+                                                var myChart = new Chart(ctx, {
+                                                    type: 'bar',
+                                                    data: {
+                                                        labels: <?php 
+                                                                // Get the keys, and print them out.
+                                                                $keys = array_keys($meds);
+                                                                echo json_encode($keys);
+                                                            ?>,
+                                                        datasets: [{
+                                                            label: 'Medicine Quantity',
+                                                            data: 
+                                                            <?php 
+                                                                    $values = array_values($meds);
+                                                                    echo json_encode($values);
+                                                                ?>,
+                                                            backgroundColor: [
+                                                                '#0D5C75'
+                                                            ],   
+                                                            //Barwidth
+                                                            //backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+                                                            
+                                                            borderRadius: 8,
+                                                            borderSkipped: false,
+                                                            barpercentage: 1,
+                                                            borderWidth: 2,
+                                                            
+                                                            borderSkipped: false,
+                                                            hoverOffset: 4
+                                                        }]
+                                                    },
+
+                                                    
+                                                    options: {
+
+                                                        title: {
+                                                            display: true,
+                                                            text: 'Medicine Quantity',
+                                                            // Align the chart title to the top left
+                                                            position: 'top',
+                                                            fontSize: 34,
+                                                            fontColor: '#000000',
+                                                            fontFamily: 'Poppins',
+                                                            fontStyle: 'bold'
+                                                        },
+                                                        responsive: true,
+                                                        maintainAspectRatio: false,
+                                                        scales: {
+                                                            x: {
+                                                                
+                                                                grid: {
+                                                                    display: false,
+                                                                    tickBorderDash: [10,15]
+                                                                    
+                                                            }
+                                                            },
+                                                            y: {
+                                                                grid: {
+                                                                    borderDash: [8, 4],
+                                                                    display: true,
+                                                                    tickBorderDash: [10,15]
+                                                                },
+                                                                ticks: {
+                                                                    beginAtZero: true
+                                                                },
+                                                                
+                                                            }
+                                                    }
+                                                    }
+                                                });
+                                            </script>
+
+                                        </canvas>
                     </div>
                     <div class="box-cont">
                         <div class="box-sub">

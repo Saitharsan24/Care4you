@@ -29,7 +29,7 @@
         <div class="main_content" style="overflow: hidden;"> 
             <div class="info">
             
-            <?php include('pharmacy_okpopup.php') ?>
+            <?php include('./popup/pharmacy_okpopup.php') ?>
 
             <!-- <div class="back" onclick="location.href='#'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>

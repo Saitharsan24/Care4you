@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 
         //validate confirm password
-        if(empty($_POST['confirmpassword'])){
+        if(isset($_POST['confirmpassword'])){
             $confirmPasswordErr = "*Please confirm password";
             $isValid = false;
         } elseif($_POST['password'] != $_POST['confirmpassword']){
@@ -238,7 +238,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         </div>
                     </div>
-                    <button name="reg" class="reg-foot pha">
+                    <button type="submit" name="reg" class="reg-foot pha">
                         <span>Add Assistant&nbsp;</span>
                     </button>
                 </form>

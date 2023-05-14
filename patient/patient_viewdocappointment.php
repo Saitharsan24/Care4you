@@ -2,6 +2,12 @@
 <?php include('../login_access.php') ?>
 
 
+<?php 
+  if ($_SESSION['record-accessok'] = 1) {
+    unset($_SESSION['record-accessok']);
+  }
+?>
+
 
 <?php
    
@@ -102,6 +108,29 @@
               </div>  
           </div>
           <div class="view-details-row">Total Amount :<div><?php echo 'Rs.'.$row['net_total'] ?></div></div>
+          <div class="view-details-row">Record access to doctor :<div>
+            
+                  <label class="switch">
+                    <input type="checkbox" id="toggle" name="attendance">
+                    <span class="slider round"></span>
+                    <span id="toggle-text">Not Attended</span>
+                  </label>
+                  <script>
+                    const toggle = document.getElementById("toggle");
+                    const toggleText = document.getElementById("toggle-text");
+
+                      toggle.addEventListener("change", function() {
+                          if (this.checked) {
+                            toggleText.textContent = "Accesss granted";
+                            openPopupREC()
+                          } else {
+                            toggleText.textContent = "Accesss denied";
+                          }  
+                      });
+                  </script>
+            </div>
+          </div>    
+            
             <div class="view-apt-btn">
                       
               <?php 

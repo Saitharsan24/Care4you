@@ -10,6 +10,7 @@
     <title>Pharmacy</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/pharmacy_stock_filter.js"></script>
 </head>
 <body>
 <?php include('pharmacy_getinfo.php') ?>
@@ -50,7 +51,10 @@
                 }
             ?>
             <span>
-                <table class="tbl-main">
+                <div id="drug">
+            <input type="text" class="search-drug" name="" placeholder=" search drug name" id="drug_name" onkeyup="filterDrugName()" autofocus="true" />
+                </div>
+                <table class="tbl-main" id="tbl-main">
                     <thead>
                         <tr>
                             <td>Drug Name</td>

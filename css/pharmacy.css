@@ -1399,3 +1399,23 @@ p{
   opacity: 1;
   right: 0;
 }
+
+
+/* search css for pharmacy_stock.php page */
+
+.search-drug{
+  width: 42%;
+  padding: 7px 7px 7px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color:#c5dde5;
+ 
+}
+
+.search-drug::placeholder {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  font-style: italic;
+}

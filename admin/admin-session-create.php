@@ -35,6 +35,7 @@
 
             $sql = "INSERT INTO tbl_docsession (doctor_id,date,room_no,time_slot,assistant_id) VALUES ('$doc_id', '$date','$room','$time','$asst_id')";
             $res1 = mysqli_query($conn, $sql);
+            $_SESSION['session_id'] = mysqli_insert_id($conn); //get the session_id
 
         if($res1){
             header("Location: /Care4you/admin/admin-session-mail.php?doc_id=".$doc_id);

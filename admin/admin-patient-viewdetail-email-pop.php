@@ -141,11 +141,18 @@ section.active .modal-box {
                 if(isset($_POST['update_email']))
                 {
                     $id = $_GET['id'];
-                    
-                    $email= $_POST['email'];
-                    //print_r($email);die();
+                    $email=$_POST['email'];   //assign the post variable form form
 
-                    $query = "UPDATE tbl_patient SET `email`='$email' WHERE p_id=$id";
+
+                    $query="SELECT * FROM tbl_patient INNER JOIN tbl_sysusers ON tbl_patient.userid = tbl_sysusers.userid WHERE p_id = $id"; //select tbl_patient and  tables 
+                    $result=mysqli_query($conn,$query);  //quary for get the userid from patient_id
+                    $row = mysqli_fetch_assoc($result);  
+
+
+                    $userid=  $row['userid'];  //assign the userid in $userid variable
+                   
+
+                    $query = "UPDATE tbl_sysusers SET `email`='$email' WHERE `userid`='$userid'";
                     $resq=mysqli_query($conn,$query);
 
                     if($resq)

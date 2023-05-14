@@ -33,6 +33,8 @@
 
         <?php
             $id = $_GET['id'];
+    
+         
 
             
             $query="SELECT * FROM tbl_docsession 
@@ -45,7 +47,7 @@
             $row = mysqli_fetch_assoc($result);
            
            $doc_id=$row['doctor_id'];
-            // print_r($doc_id);die();
+           
         ?>
 
         <?php
@@ -57,7 +59,7 @@
                 WHERE session_id = $sessionid";
                 
                 if (mysqli_query($conn, $query_del)) {
-                    header("Location: /Care4you/admin/admin-session-cancel-mail.php?doc_id=".$doc_id);
+                    header("Location: /Care4you/admin/admin-session-cancel-mail.php?session_id=".$id);
                                  } else {
                     echo "Error deleting record: " . mysqli_error($conn);
                 }

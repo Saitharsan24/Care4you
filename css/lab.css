@@ -549,7 +549,7 @@ table td {
 }
 
 .st03{
-  background-color: #FFA07A;
+  background-color: #093e4e;
   width: 175px;
   width: 150px;
   padding: 5px;
@@ -562,19 +562,6 @@ table td {
 }
 
 .st04{
-  background-color: #2196F3;
-  width: 175px;
-  width: 150px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  color: #fff;
-  font-weight: 550;
-}
-
-.st05{
   background-color: #BD1010;
   width: 175px;
   width: 150px;
@@ -586,3 +573,4 @@ table td {
   color: #fff;
   font-weight: 550;
 }
+

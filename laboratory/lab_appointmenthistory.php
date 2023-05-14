@@ -1,7 +1,20 @@
 <?php include ('../config/constants.php');?>
 <?php include('../login_access.php') ?>
+
+<?php 
+            $sql = "SELECT * FROM tbl_labappointment
+            INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
+                 WHERE labapt_status != 0";
+            //$result = mysqli_query($conn, $sql);
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +24,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('lab_getinfo.php') ?>
     <div class="wrapper">
@@ -59,7 +73,21 @@
                             <td>01</td>
                             <td>Sanjeewani Silva</td>
                             <td>13/05/2023</td>
-                            <td><button class="st01"> Payment Pending </button></td>
+                            <td>
+                            <?php 
+
+                                    if($row['docapt_status']==1){
+                                        echo ' '.'<button class="docapt-st01">Confirmed</button>';
+                                    } elseif($row['docapt_status']==2){
+                                        echo ' '.'<button class="docapt-st02">Cancelled</button>';
+                                    } elseif($row['docapt_status']==3){
+                                        echo ' '.'<button class="docapt-st03"">Completed</button>';   
+                                    } else{
+                                        echo ' '.'<button class="docapt-st04">Not attended</button>';
+                                    }
+
+                                    ?>
+                            </td>
                             <td>
                             <a href="./lab_viewrespondedapt.php"><button class="btn-view"><span>View Details</span></button></a>
                             </td>

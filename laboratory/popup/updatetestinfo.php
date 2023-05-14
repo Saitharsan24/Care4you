@@ -321,7 +321,7 @@ input:focus {
 
 
 <section id ="duration" > 
-  <span class="overlay"></span>
+  <span class="overlay" onclick="closePopup1()"></span>
     <div class="modal-box" style="width:40%; height:35%;" >
         <form action="" method="POST">
             <h1> Update Test Duration (in Minutes)</h1>
@@ -346,7 +346,7 @@ input:focus {
 
 
 <section id ="charge" > 
-  <span class="overlay"></span>
+  <span class="overlay" onclick="closePopup2()"></span>
     <div class="modal-box" style="width:40%; height:35%;" >
         <form action="" method="POST">
             <h1> Update Test Charge </h1>
@@ -371,7 +371,7 @@ input:focus {
 
 
 <section id ="prerequirement" > 
-  <span class="overlay"></span>
+  <span class="overlay" onclick="closePopup3()"></span>
     <div class="modal-box" style="width:40%; height:35%;" >
         <form action="" method="POST">
             <h1> Update Pre-Requirements for Test </h1>
@@ -396,7 +396,7 @@ input:focus {
 
 
 <section id ="NumberOfTestsPerDay" > 
-  <span class="overlay"></span>
+  <span class="overlay" onclick="closePopup4()"></span>
     <div class="modal-box" style="width:40%; height:35%;" >
         <form action="" method="POST">
             <h1> Update Number of Tests per Day </h1>
@@ -430,7 +430,7 @@ const overlay1 = document.querySelector(".overlay"),
 closeBtn1 = document.querySelector(".close-btn");
 
 function closePopup1() {
-const section1 = document.querySelector("section");
+const section1 = document.getElementById("duration");
 section1.classList.remove("active");
 }
 
@@ -452,7 +452,7 @@ const overlay2 = document.querySelector(".overlay"),
 closeBtn2 = document.querySelector(".close-btn");
 
 function closePopup2() {
-const section2 = document.querySelector("section");
+const section2 = document.getElementById("charge");
 section2.classList.remove("active");
 }
 
@@ -474,7 +474,7 @@ const overlay3 = document.querySelector(".overlay"),
 closeBtn3 = document.querySelector(".close-btn");
 
 function closePopup3() {
-const section3 = document.querySelector("section");
+const section3 = document.getElementById("prerequirement");
 section3.classList.remove("active");
 }
 
@@ -496,7 +496,7 @@ const overlay4 = document.querySelector(".overlay"),
 closeBtn4 = document.querySelector(".close-btn");
 
 function closePopup4() {
-const section4 = document.querySelector("section");
+const section4 = document.getElementById("NumberOfTestsPerDay");
 section4.classList.remove("active");
 }
 

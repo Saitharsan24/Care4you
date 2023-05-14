@@ -1,3 +1,59 @@
+<?php
+if (isset($_POST['add-available'])) {
+  $labaptid = (int)$_GET['id'];
+  $labtestinsert = (int)$_POST['test_name'];
+  // print_r($labtestinsert);die();
+
+  $sql ="SELECT labapt_date FROM tbl_labappointment
+      WHERE labapt_id = '$labaptid'";
+      $aptdate = mysqli_query($conn, $sql);
+      $appointment_date_obj = mysqli_fetch_assoc($aptdate);
+      $labaptDate = $appointment_date_obj['labapt_date'];
+
+      $date_apt = $labaptDate ;
+      $test_id = $labtestinsert;
+      $sql ="SELECT COUNT(tbl_addlabtest.addlabtest_id) AS tests_amount FROM tbl_addlabtest
+      INNER JOIN tbl_labtests ON tbl_labtests.test_id = tbl_addlabtest.test_id
+      INNER JOIN tbl_labappointment ON tbl_labappointment.labapt_id = tbl_addlabtest.labapt_id
+      WHERE tbl_addlabtest.test_id = '$labtestinsert'
+      AND tbl_labappointment.labapt_date ='$labaptDate'
+      AND tbl_addlabtest.confirmation_status = 1";
+      $sum = mysqli_query($conn, $sql);
+      $sum_tests = mysqli_fetch_assoc($sum);
+
+      $sql ="SELECT NumberOfTestsPerDay FROM tbl_labtests
+      WHERE test_id = '$labtestinsert'";
+      $max_tests = mysqli_query($conn, $sql);
+      $max_no_of_test = mysqli_fetch_assoc($max_tests);
+      // print_r((int)$sum_tests['tests_amount']."    ".$max_no_of_test['NumberOfTestsPerDay']);die();
+      if ((int)$sum_tests['tests_amount'] < (int)$max_no_of_test['NumberOfTestsPerDay']) {
+        $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_id,confirmation_status)
+                VALUES ('$labaptid','$labtestinsert','1')";
+        $result1= mysqli_query($conn,$sql1);
+        unset($_POST);
+        echo '<script>window.location.href = ""</script>';
+      } else {
+        $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_id,confirmation_status)
+                VALUES ('$labaptid','$labtestinsert','0')";
+        $result1= mysqli_query($conn,$sql1);
+        unset($_POST);
+        echo '<script>window.location.href = ""</script>';
+      }
+}
+
+if (isset($_POST['add-unavailable'])) {
+  $labaptid = (int)$_GET['id'];
+  $testname = $_POST['test_name'];
+
+  $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_name,confirmation_status)
+                VALUES ('$labaptid','$testname','0')";
+        $result1= mysqli_query($conn,$sql1);
+        unset($_POST);
+        echo '<script>window.location.href = ""</script>';
+}
+
+ ?>
+
 <style>
 * {
   margin: 0;
@@ -340,14 +396,14 @@ input:focus {
                     $tstnamesql = "SELECT * FROM tbl_labtests;";
                     $tstNresult = mysqli_query($conn, $tstnamesql);
                     while ($row = mysqli_fetch_assoc($tstNresult)) {
-                      echo "<option value='" . $row['test_id'] . "'>" . $row['test_name'] . "</option>";
+                      echo "<option value='".$row['test_id']."'>" . $row['test_name'] . "</option>";
                     }
                   ?>                               
                 </select>
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Add to Table</button>
+                <button type="submit" class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="add-available">Add to Table</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
         </div>
@@ -376,7 +432,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Add to Table</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="add-unavailable">Add to Table</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
         </div>

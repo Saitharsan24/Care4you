@@ -1,4 +1,9 @@
-<?php include('../config/constants.php')?>
+<?php
+
+  if (isset($_POST['add-available'])) {
+    print_r($_POST);die();
+  }
+   include('../config/constants.php')?>
 <?php include('../login_access.php') ?>
 
 <?php 
@@ -140,13 +145,39 @@
 
     for ($i=0; $i < count($_POST['test_name']) ; $i++) {
       $labtestinsert = $_POST['test_name'][$i];
-      $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_id)
-                VALUES ('$lastInsertedId','$labtestinsert')";
-      $result1= mysqli_query($conn,$sql1);
+      $date_apt = $labaptDate ;
+      $test_id = $labtestinsert;
+      $sql ="SELECT COUNT(tbl_addlabtest.addlabtest_id) AS tests_amount FROM tbl_addlabtest
+      INNER JOIN tbl_labtests ON tbl_labtests.test_id = tbl_addlabtest.test_id
+      INNER JOIN tbl_labappointment ON tbl_labappointment.labapt_id = tbl_addlabtest.labapt_id
+      WHERE tbl_addlabtest.test_id = '$labtestinsert'
+      AND tbl_labappointment.labapt_date ='$labaptDate'
+      AND tbl_addlabtest.confirmation_status = 1";
+      $sum = mysqli_query($conn, $sql);
+      $sum_tests = mysqli_fetch_assoc($sum);
+
+      $sql ="SELECT NumberOfTestsPerDay FROM tbl_labtests
+      WHERE test_id = '$labtestinsert'";
+      $max_tests = mysqli_query($conn, $sql);
+      $max_no_of_test = mysqli_fetch_assoc($max_tests);
+      // print_r((int)$sum_tests['tests_amount']."    ".$max_no_of_test['NumberOfTestsPerDay']);die();
+      if ((int)$sum_tests['tests_amount'] < (int)$max_no_of_test['NumberOfTestsPerDay']) {
+        $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_id,confirmation_status)
+                VALUES ('$lastInsertedId','$labtestinsert','1')";
+        $result1= mysqli_query($conn,$sql1);
+      } else {
+        $sql1 = "INSERT INTO tbl_addlabtest (labapt_id,test_id,confirmation_status)
+                VALUES ('$lastInsertedId','$labtestinsert','0')";
+        $result1= mysqli_query($conn,$sql1);
+      }
+      
+      
     }
     
     
 
   }
+
+
 
 ?>

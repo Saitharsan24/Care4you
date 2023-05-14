@@ -57,6 +57,7 @@
                         }
                     ?>
                     </figure>
+                    
                     <span>
                     <form action="" method="POST">
                     <table class="tbl-square">

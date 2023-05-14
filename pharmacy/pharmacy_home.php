@@ -49,25 +49,24 @@
                         <?php echo $_SESSION['user']; ?>
                     </div>
                 </div>
-                <div>
-                    <div class="flex-cont">
-                        <div class="graph-cont">
-                            <<< Graph Here >>>
+                <div class="flex-cont">
+                    <div class="graph-cont">
+                        <<< Graph Here>>>
+                    </div>
+                    <div class="box-cont">
+                        <div class="box-sub">
+                            <div class="box-title"> New Orders </div>
+                            <div class="box-data"> 05 </div>
                         </div>
-                        <div class="box-cont">
-                            <div class="box-sub">
-                                <div class="box-title"> New Orders </div>
-                                <div class="box-data"> 05 </div>
-                            </div>
-                            <div class="box-sub" style="margin-top: 15%;">
-                                <div class="box-title"> Orders Completed </div>
-                                <div class="box-data"> 10 </div>
-                            </div>
+                        <div class="box-sub" style="margin-top: 12%;">
+                            <div class="box-title"> Orders Completed </div>
+                            <div class="box-data"> 10 </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

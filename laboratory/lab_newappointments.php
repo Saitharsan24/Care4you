@@ -2,6 +2,19 @@
 <?php include('../login_access.php') ?>
 
 <?php 
+    if (isset($_SESSION['labrespond'])) {
+        include('./popup/respondedpop.php');
+        unset($_SESSION['labrespond']);
+        echo "<script>openPopupRS()</script>";
+    }
+?>
+
+
+
+
+
+
+<?php 
     $sql = "SELECT * FROM tbl_labappointment
                 INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
                      WHERE labapt_status = 0";

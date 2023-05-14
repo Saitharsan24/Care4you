@@ -349,8 +349,8 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Add Test</button>
-                <button class="modbutton close-btn">Close</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload" type="submit">Add Test</button>
+                <button class="modbutton close-btn" type="button">Close</button>
               </div>
             </div>
         </form>
@@ -378,3 +378,18 @@ section1.classList.remove("active");
 closeBtn1.addEventListener("click", closePopup1);
 overlay1.addEventListener("click", closePopup1);
 </script>
+
+
+<?php 
+  if(isset($_POST['upload'])){
+    $test_name = $_POST['test_name'];
+    $duration = $_POST['duration'];
+    $charge = $_POST['charge'];
+    $prerequirement = $_POST['prerequirement'];    
+    $NumberOfTestsPerDay = $_POST['NumberOfTestsPerDay'];
+
+    $sqlinsert = "INSERT INTO tbl_";
+
+  }
+
+?>

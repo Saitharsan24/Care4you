@@ -2,6 +2,19 @@
 <?php include('../login_access.php') ?>
 
 <?php 
+    if (isset($_SESSION['labrespond'])) {
+        include('./popup/respondedpop.php');
+        unset($_SESSION['labrespond']);
+        echo "<script>openPopupRS()</script>";
+    }
+?>
+
+
+
+
+
+
+<?php 
     $sql = "SELECT * FROM tbl_labappointment
                 INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
                      WHERE labapt_status = 0";
@@ -67,7 +80,8 @@
                             <td><?php echo $row['labapt_id'] ?></td>
                             <td><?php echo $row['first_name'] ?></td>
                             <td><?php echo $row['labapt_date'] ?></td>
-                            <td><button class="st01">Payment Pending</button></td>
+                            <td>
+                                <button class="st00">Response Pending</button></td>
                             <td>
                                 <a href="lab_viewnewappointment.php?id=<?php echo $row['labapt_id'] ?>">
                                     <button class="btn-view"><span>View Appointment</span></button>

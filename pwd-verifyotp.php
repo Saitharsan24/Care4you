@@ -75,6 +75,60 @@
             $otpErr = "*Invalid OTP number!";
         }
 
+        //Retrieving session variables
+        $email = $_SESSION['email'];
+        //$mailSent = $_SESSION['mailSent'];
+
+        $otpErr='';
+
+         // Function to validate input and prevent malicious code injection
+        function validateInput($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+            //unsetting success message session variable
+            $_SESSION['mailSent']= '';
+            
+            //getting each digit of OTP
+            $code1= $_POST['code1'];
+            $code2= $_POST['code2'];
+            $code3= $_POST['code3'];
+            $code4= $_POST['code4'];
+            $code5= $_POST['code5'];
+            $code6= $_POST['code6'];
+
+            //getting otp code
+            $otp= $code1.$code2.$code3.$code4.$code5.$code6;
+
+            $current_timestamp = time();
+
+            // Verify the OTP code
+            $sql = "SELECT * FROM tbl_password_reset WHERE email = '$email' ORDER BY created_at DESC LIMIT 1 ";
+            $result = mysqli_query($conn, $sql) or die(mysqli_error());
+
+            $row = $result -> fetch_assoc();
+            $tableOTP = $row['otp'];
+            $otpTimeStamp = $row['created_at'];
+
+            //Storing session varibles
+            $_SESSION['email'] = $email;
+            $_SESSION['otp_id'] =$row['id'];
+
+            if ($otp == $tableOTP && ($current_timestamp - $otpTimeStamp) < 600 && $row['used'] == 0){
+
+                //Redirecting to password change page
+                header("Location: pwd-resetpassword.php?" . session_name() . '=' . session_id());
+                exit();
+
+            } else {
+                $otpErr = "*Invalid OTP number!";
+            }
 
 
     }

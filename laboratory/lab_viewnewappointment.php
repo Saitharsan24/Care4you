@@ -73,7 +73,7 @@
                     <div class="datatxt" style="margin-bottom: 15px"><?php echo $albapt_details['labapt_date'] ?></div>                    
                     
                     <div class="headtxt">Appointment Status</div> 
-                    <div class="datatxt" style="margin-bottom: 15px"><button class="st01"> Pending Payment </button></div> 
+                    <div class="datatxt" style="margin-bottom: 15px"><button class="st00">Response Pending</button></div> 
                     
                     <!-- <div class="headtxt">Other Items</div> 
                     <div class="datatxt" style="margin-bottom: 10px">none</div> -->

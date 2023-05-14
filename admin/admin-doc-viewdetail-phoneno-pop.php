@@ -78,7 +78,7 @@ section.active .modal-box {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-box i.fa-solid.fa-sack-dollar {
+.modal-box i.fa-solid.fa-phone {
   font-size: 70px;
   color: #0e6680;
 }
@@ -128,7 +128,7 @@ section.active .modal-box {
     
         <form action="" method="POST">
           
-            <i class="fa-solid fa-sack-dollar"></i>
+        <i class="fa-solid fa-phone"></i>
             <h2> Enter New Doctor Contact Number </h2>
             <input type="text"  name="phoneno" class="inputtab" value="<?php echo $row['contact_number']; ?>" placeholder="Enter New Doctor contact Number" />
 

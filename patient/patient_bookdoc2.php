@@ -61,6 +61,7 @@
         $pnic = $row['nic'];
         $pcontact = $row['contact'];
         $pemail = $row['email'];
+        
       }
     }
 
@@ -443,7 +444,8 @@
                     //redirect to appointments
                         
                     if($aptupdateresult && $updateresult){
-                            
+                      
+                      $_SESSION['docsuccess'] = 1;
                       echo "<script> window.location.href='http://localhost/Care4you/patient/patient_docappointments.php';</script>";
           
                     }else{

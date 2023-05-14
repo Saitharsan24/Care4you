@@ -35,7 +35,8 @@
         return $data;
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    {
 
         //unsetting success message session variable
         $_SESSION['mailSent'] = '';
@@ -90,7 +91,8 @@
             return $data;
         }
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if ($_SERVER["REQUEST_METHOD"] == "POST")
+        {
 
             //unsetting success message session variable
             $_SESSION['mailSent']= '';
@@ -129,7 +131,7 @@
             } else {
                 $otpErr = "*Invalid OTP number!";
             }
-
+        }
 
     }
 

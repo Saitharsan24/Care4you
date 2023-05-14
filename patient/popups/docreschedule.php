@@ -734,6 +734,9 @@ section.active .modal-box {
 
       $resutls = mysqli_query($conn, $sql);
       $_SESSION['record-accessok'] = 1;
+      echo "<script>
+      window.location.href='';
+      </script>";
   }
 ?>
   

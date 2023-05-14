@@ -108,19 +108,19 @@
                                     ?>
 
                                     <label class="switch">
-                                        <input type="checkbox" id="toggle" name="attendance">
+                                        <input type="checkbox" id="toggle2" name="attendance">
                                         <span class="slider round"></span>
-                                        <span id="toggle-text">Not Attended</span>
+                                        <span class="toggle-text" id="toggle-text2">Not Attended</span>
                                     </label>
                                     <script>
-                                        const toggle = document.getElementById("toggle");
-                                        const toggleText = document.getElementById("toggle-text");
+                                        const toggle2 = document.getElementById("toggle2");
+                                        const toggleText2 = document.getElementById("toggle-text2");
 
-                                        toggle.addEventListener("change", function() {
+                                        toggle2.addEventListener("change", function() {
                                         if (this.checked) {
-                                            toggleText.textContent = "Attended";
+                                            toggleText2.innerHTML = "Attended";
                                         } else {
-                                            toggleText.textContent = "Not Attended";
+                                            toggleText2.innerHTML = "Not Attended";
                                         }  
                                         });
                                     </script>
@@ -219,120 +219,20 @@
 <?php 
     if(isset($_POST['des-upload'])){
 
-        if(isset($_FILES['prescription']['name']))
-        {
-              
-            //Upload the prescription
-            //To upload the prescription we need the file name, source path and destination path
-
-            //Get the prescription name
-            $prescription_name = $_FILES['prescription']['name'];
-            
-
-            //Upload prescription only if prescription is selected
-            if($prescription_name != "")
-            {
-                //Auto Rename the Prescription
-
-                //Get the extension of the prescription
-                $namarr =explode('.',$prescription_name);
-                $ext = end($namarr);
-
-                //Rename the prescription
-                $prescription_name = $docapt_id."_".$p_id.".".$ext;
-
-                //Get the source path
-                $source_path = $_FILES['prescription']['tmp_name'];
-
-                //Give the destination path
-                $destination_path = "../images/docprescription/".$prescription_name; 
-
-                //Upload the prescription
-                $upload = move_uploaded_file($source_path,$destination_path);
-
-                //Check whether the prescription is uploaded or not
-                if($upload == FALSE)
-                {
-                    //$_SESSION['upload'] = "Failed to upload Prescription! Please Retry";
-                    //Redirect to place order page
-                    // header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
-                    //Stop the process
-                    die();
-                }
-
-            } 
-
-        }
-        else
-        {
-            //Prescription not uploaded and prescription name is not set (Data can not save)
-            $prescription_name = "";
-        }
-
         if(isset($_POST['attendance'])){
             $attended_check = 3;
+
+            
         } else{
             $attended_check = 4;
         }
         
         $remarks = $_POST['asst-remark'];
 
-         //Check whether the prescription is uploaded or not
-         if(isset($_FILES['prescription']['name']))
-         {
-           
-             //Upload the prescription
-             //To upload the prescription we need the file name, source path and destination path
-
-             //Get the prescription name
-             $prescription_name = $_FILES['prescription']['name'];
-            
-
-             //Upload prescription only if prescription is selected
-             if($prescription_name != "")
-             {
-                 //Auto Rename the Prescription
-
-                 //Get the extension of the prescription
-                 $namarr =explode('.',$prescription_name);
-                 $ext = end($namarr);
-
-                 //Rename the prescription
-                 $prescription_name = "DocPrescription-Apt-ID".$docapt_id.".".$ext;
-
-                 //Get the source path
-                 $source_path = $_FILES['prescription']['tmp_name'];
-
-                 //Give the destination path
-                 $destination_path = "../images/docprescription/".$prescription_name; 
-
-                 //Upload the prescription
-                 $upload = move_uploaded_file($source_path,$destination_path);
-
-                 //Check whether the prescription is uploaded or not
-                 if($upload == FALSE)
-                 {
-                     $_SESSION['upload'] = "Failed to upload Prescription! Please Retry";
-                     //Redirect to place order page
-                     // header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
-                     //Stop the process
-                     die();
-                 }
-
-             } 
-
-         }
-         else
-         {
-             //Prescription not uploaded and prescription name is not set (Data can not save)
-             $prescription_name = "";
-         }
-
 
         $sql = "UPDATE tbl_docappointment 
-                    SET docapt_status = '$attended_check',  
-                        other_remark = '$remarks',
-                        prescription_name = '$prescription_name'
+                    SET docapt_status = '$attended_check',
+                        other_remark = '$remarks'
                     WHERE docapt_id = '$docapt_id'";
 
         $result = mysqli_query($conn,$sql);

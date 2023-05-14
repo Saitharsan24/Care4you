@@ -108,13 +108,24 @@
               </div>  
           </div>
           <div class="view-details-row">Total Amount :<div><?php echo 'Rs.'.$row['net_total'] ?></div></div>
-          <div class="view-details-row">Record access to doctor :<div>
-            
-                  <label class="switch">
-                    <input type="checkbox" id="toggle" name="attendance">
-                    <span class="slider round"></span>
-                    <span id="toggle-text">Not Attended</span>
+         
+                  <?php if ($row['docapt_status']==1) { ?>
+                    <div class="view-details-row">Record access to doctor :<div>
+                    <label class="switch">
+                    <?php if ($row['record_access']==0) { ?>
+                      <input type="checkbox" id="toggle" name="attendance">
+                      <span class="slider round"></span>
+                      <span id="toggle-text">Not Attended</span>
+                    <?php } else { ?>
+                      <input type="checkbox" id="toggle" name="attendance" checked>
+                      <span class="slider round"></span>
+                      <span id="toggle-text">Attended</span>
+                    <?php }
+                    ?>
+                    
                   </label>
+                  <?php } ?>
+                  
                   <script>
                     const toggle = document.getElementById("toggle");
                     const toggleText = document.getElementById("toggle-text");

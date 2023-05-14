@@ -29,6 +29,7 @@
     </div>
     <div class="bottom">
         <div class="wrapper">
+        
         <div class= "container">
         <div class="container_content">
         <div class="container_content_inner">
@@ -53,7 +54,14 @@
                         unset($_SESSION['signup']);
 
                     }
+                    // if(isset($_SESSION['data-inserted']))
+                    // {
+                    //     echo $_SESSION['data-inserted'];
+                    //     unset($_SESSION['data-inserted']);
+
+                    // }
                 ?>
+                
                 <div class="par">
                 <p class="form-signin-username">User Name</p>
                 <input type="text" class="form-control" name="username" placeholder="Enter username here" required="" autofocus="true"/><br />

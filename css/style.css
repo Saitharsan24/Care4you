@@ -842,8 +842,11 @@ a {
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 50vh;
-    margin: 30px 0px 0px 100px;
+    height: 70vh;
+    /* margin: 30px 0px 0px 100px; */
+    margin-top: 30px;
+    margin-bottom: 100px;
+    margin-left: 70px;
     overflow: auto;
     /* this will hide the scrollbar in mozilla based browsers */
     /* overflow: -moz-scrollbars-none;
@@ -898,19 +901,22 @@ a {
     color: #0C5C75;
     font-size: 35px;
     margin-top: 5px;
-    margin-left: -10px;
+    margin-left: -38px;
 }
 
 .signup-heading02 {
     font-size: 18px;
     color: #0C5C75;
     margin-top: -30px;
-    margin-left: -10px;
+    margin-left: -38px;
+    margin-bottom: -10px;
 }
 
 .signup-row {
     display: flex;
-    margin: 0px 0px 15px 0px;
+    margin: 0px 10px 15px 0px;
+    margin-left: 40px;
+    margin-bottom: 5px;
 }
 
 .row-item {
@@ -919,7 +925,7 @@ a {
 }
 
 .signup-address {
-    margin-bottom: 10px;
+    margin-bottom: -100px;
     width: 730px;
     height: 200px;
 }
@@ -932,15 +938,16 @@ a {
     border-width: 0 0 2px;
     padding: 0.5rem 0.75rem;
     margin-bottom: 10px;
+    margin-left: 40px;
     width: 730px;
     height: 80px;
 }
 
 .signup-row input {
     border-radius: 7px;
-    width: 350px;
+    width: 300px;
     /* background-color: #ffffff; */
-    padding: 0.5rem 0.75rem;
+    padding: 0.4rem 0.6rem;
     border: 1px solid #ccc;
     outline: 0;
     border-width: 0 0 2px;
@@ -960,11 +967,12 @@ a {
 }
 
 .btn-signup {
-    margin: 50px 0px 0px 190px;
+    margin-top: -170px;
+    margin-left: 270px;
 }
 
 label{
-    font-size:18px ;
+    font-size:15px;
 }
 
 /* signup.php CSS Ends */

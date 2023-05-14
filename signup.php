@@ -148,7 +148,7 @@
                         $isValid = false;
                     }
 
-                    mysqli_close($conn);
+                    // mysqli_close($conn);
                 }
             }
         }
@@ -213,7 +213,7 @@
 
             <div class="signup-heading">
                 <h2 class="signup-heading01">Sign Up</h2>
-                <p class="signup-heading02">Fill your detials to get registered</p>
+                <p class="signup-heading02">Fill your detials to get registered with us</p>
             </div>
 
             <!-- Form step1 -->
@@ -223,13 +223,13 @@
                     <div class="signup-row">
 
                         <div class="row-item">
-                            <label>First Name :</label>&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:15px;">First Name :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $firstNameErr;?></span>
 		                    <input type="text" name="firstName" id="firstName" value="<?php echo $_POST["firstName"] ?? ''; ?>">
                         </div>
 
                         <div class="row-item">
-                            <label>Last Name :</label>&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:15px;">Last Name :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $lastNameErr;?></span>
 		                    <input type="text" name="lastName" id="lastName" value="<?php echo $_POST["lastName"] ?? ''; ?>">                
                         </div>
@@ -240,8 +240,8 @@
                     <div class="signup-row">
 
                         <div class="row-item">
-                            <label class="form-text">Gender :</label>
-                            <select name="gender" id="gender">
+                            <label class="form-text" style="font-size:15px;">Gender :</label>
+                            <select name="gender" id="gender" style="width: 300px;">
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 <option value="Not Given">Preferred not to Say</option>
@@ -249,7 +249,7 @@
                         </div>
 
                         <div class="row-item">
-                            <label class="form-text">Date of Birth :</label>
+                            <label class="form-text" style="font-size:15px;">Date of Birth :</label>
                             <!-- Maximum allowed date to 18 years ago from the current date -->
                             <input type="Date" class="signup-input" name="dateofbirth" max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>" />
                         </div>
@@ -260,13 +260,13 @@
                     <div class="signup-row">
 
                         <div class="row-item">
-                            <label>NIC Number :</label>&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:15px;">NIC Number :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $nicNumberErr;?></span>
 		                    <input type="text" name="nic" id="nic" value="<?php echo $_POST["nic"] ?? ''; ?>">
                         </div>
 
                         <div class="row-item">
-                            <label>Contact Number :</label>&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:15px;">Contact Number :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $contactNumberErr;?></span>
                             <input type="text" name="contactNumber" id="contactNumber" value="<?php echo $_POST["contactNumber"] ?? ''; ?>">
                         </div>
@@ -275,22 +275,22 @@
 
                     <!-- Row 04 -->
                     <div class="signup-address">
-                        <label class="form-text">Address :</label>&nbsp;&nbsp;&nbsp;
+                        <label class="form-text" style="font-size:15px;margin-left: 40px;">Address :</label>&nbsp;&nbsp;&nbsp;
                         <span class="error"><?php echo $addressErr;?></span><br />
-                        <textarea class="textarea" name="address" id="address" placeholder="Type your address here"><?php echo $_POST["address"] ?? '' ?></textarea>
+                        <textarea style="width: 660px;" class="textarea" name="address" id="address" placeholder="Type your address here"><?php echo $_POST["address"] ?? '' ?></textarea>
                     </div>
 
                     <!-- Row 05 -->
                     <div class="signup-row">
 
-                        <div class="row-item">
-                            <label>Email :</label>&nbsp;&nbsp;&nbsp;
+                        <div class="row-item" style="margin-top: -5px;">
+                            <label style="font-size:15px;">Email :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $emailErr;?></span>
                             <input type="text" name="email" id="email" value="<?php echo $_POST["email"] ?? ''; ?>">
                         </div>
 
-                        <div class="row-item">
-                            <label>Username :</label>&nbsp;&nbsp;&nbsp;
+                        <div class="row-item" style="margin-top: -5px;">
+                            <label style="font-size:15px;">Username :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $userNameErr;?></span>
                             <input type="text" name="userName" id="userName" value="<?php echo $_POST['userName'] ?? ''; ?>">
                         </div>
@@ -301,13 +301,13 @@
                     <div class="signup-row">
 
                         <div class="row-item">
-                            <label>Password :</label>&nbsp;
+                            <label style="font-size:15px;">Password :</label>&nbsp;
                             <span class="error"><?php echo $passwordErr;?></span>
                             <input type="password" name="password" id="password">
                         </div>
 
                         <div class="row-item">
-                            <label>Confirm Password :</label>&nbsp;&nbsp;&nbsp;
+                            <label style="font-size:15px;">Confirm Password :</label>&nbsp;&nbsp;&nbsp;
                             <span class="error"><?php echo $confirmPasswordErr;?></span>
 		                    <input type="password" name="confirmPassword" id="confirmPassword">
                         </div>
@@ -328,77 +328,80 @@
 
 </html>
 
+<?php
+// Include necessary files and configuration
+// include('./config/constants.php');
+// include('./libraries/NICValidation/nic_validation.php');
 
+// Define variables and set to empty values
+$firstNameErr = $lastNameErr = $nicNumberErr = $contactNumberErr = $emailErr = "";
+$userNameErr = $passwordErr = $confirmPasswordErr = $addressErr = "";
+$isValid = true;
 
-<!--
-// $fname = "";
-// $lname = "";
-// $gender = "";
-// $dob = "";
-// $nic = "";
-// $contact = "";
-// $address = "";
-// $email = "";
-// $username = "";
-// $password = "";
-// $confirmpassword = "";
-
-// if(isset($_POST['submit']))
+// Function to validate input and prevent malicious code injection
+// function validateInput($data)
 // {
-//     $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-//     $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-//     $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-//     $dob = mysqli_real_escape_string($conn, $_POST['dateofbirth']);
-//     $nic = mysqli_real_escape_string($conn, $_POST['nic']);
-//     $contact = mysqli_real_escape_string($conn, $_POST['contactnumber']);
-//     $address = mysqli_real_escape_string($conn, $_POST['address']);
-//     $email = mysqli_real_escape_string($conn, $_POST['email']);
-//     $username = mysqli_real_escape_string($conn, $_POST['username']);
-//     $password = mysqli_real_escape_string($conn, $_POST['password']);
-//     $confirmpassword = mysqli_real_escape_string($conn, $_POST['confirmpassword']);
-
-//     // Check if the password and confirm password fields match
-//     if ($password !== $confirmpassword) {
-//         $_SESSION['signup_error'] = "Password and Confirm Password fields do not match.";
-//         $_SESSION['signup_fname'] = $fname;
-//         $_SESSION['signup_lname'] = $lname;
-//         $_SESSION['signup_gender'] = $gender;
-//         $_SESSION['signup_dob'] = $dob;
-//         $_SESSION['signup_nic'] = $nic;
-//         $_SESSION['signup_contact'] = $contact;
-//         $_SESSION['signup_address'] = $address;
-//         $_SESSION['signup_email'] = $email;
-//         $_SESSION['signup_username'] = $username;
-//         header("Location: signup.php");
-//         exit();
-//     }
-//     else {
-//         // Insert the user data into the database
-//         $sql = "INSERT INTO tbl_users SET
-//                 first_name='$fname',
-//                 last_name='$lname',
-//                 gender='$gender',
-//                 dob='$dob',
-//                 nic='$nic',
-//                 contact='$contact',
-//                 address='$address',
-//                 email='$email',
-//                 username='$username',
-//                 password='$password'";
-
-//         $res = mysqli_query($conn, $sql) or die(mysqli_error());
-
-//         if($res==TRUE)
-//         {
-//             $_SESSION['signup_success'] = "Registration Successful. Please Sign In.";
-//             header("Location: signin.php");
-//         }
-//         else
-//         {
-//             $_SESSION['signup_error'] = "Registration Failed. Please try again.";
-//             header("Location: signup.php");
-//         }
-//         exit();
-//     }
+//     $data = trim($data);
+//     $data = stripslashes($data);
+//     $data = htmlspecialchars($data);
+//     return $data;
 // }
--->
+
+// Check if form is submitted and process form data
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // ... (existing validation code)
+
+    // If all validations pass
+    if ($isValid) {
+
+        // Prepare the data for insertion (you may need to modify the column names based on your table structure)
+        $firstName = mysqli_real_escape_string($conn, $_POST["firstName"]);
+        $lastName = mysqli_real_escape_string($conn, $_POST["lastName"]);
+        $gender = mysqli_real_escape_string($conn, $_POST["gender"]);
+        $dateOfBirth = mysqli_real_escape_string($conn, $_POST["dateofbirth"]);
+        $nicNumber = mysqli_real_escape_string($conn, $_POST["nic"]);
+        $contactNumber = mysqli_real_escape_string($conn, $_POST["contactNumber"]);
+        $address = mysqli_real_escape_string($conn, $_POST["address"]);
+        $email = mysqli_real_escape_string($conn, $_POST["email"]);
+        $userName = mysqli_real_escape_string($conn, $_POST["userName"]);
+        $password = mysqli_real_escape_string($conn, $_POST["password"]);
+
+        // Generate a hashed password (you may need to use a different hashing method)
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+ 
+        date_default_timezone_set('Asia/Kolkata');
+        $acc_createdate = date('d/m/Y');
+
+        // Prepare the SQL INSERT statement
+        $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email, status)
+        VALUES ('patient', '$userName', '$hashedPassword', '$email', '0')";
+
+        $res = mysqli_query($conn, $sql);
+
+        $last_id = $conn->insert_id;
+
+        $sql1 = "INSERT INTO tbl_patient 
+                (first_name, last_name, gender, dob, nic, contact, address, acc_createdate, userid) 
+                VALUES 
+                ('$firstName', '$lastName', '$gender', '$dateOfBirth', '$nicNumber', '$contactNumber', '$address', '$acc_createdate', '$last_id')";
+
+        $res1 = mysqli_query($conn, $sql1);
+
+        // Execute the query
+        if (($res == TRUE) && ($res1 == TRUE)) {
+
+            // Data inserted successfully
+            $_SESSION['data-inserted'] = 'Step 01 Done!';
+            //header("location:".SITEURL.'signin.php');
+            echo "<script> window.location.href='http://localhost/Care4you/signin.php';</script>";
+
+        } else {
+            // Error inserting data
+            echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
+        }
+
+        // Close the database connection
+        mysqli_close($conn);
+    }
+}
+?>

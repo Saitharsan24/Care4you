@@ -333,7 +333,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" type="submit" style="background-color: #28ae28; color: #fff;width: 150px;" name="update1">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -358,7 +358,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update2">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -383,7 +383,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update3">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -408,7 +408,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update4">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -503,3 +503,20 @@ section4.classList.remove("active");
 closeBtn4.addEventListener("click", closePopup4);
 overlay4.addEventListener("click", closePopup4);
 </script>
+
+
+
+<?php 
+  if(isset($update1)){
+    $duration = $_POST['duration'];
+
+    $test_id = $_GET['test_id'];
+    $sql = "UPDATE tbl_tbl_labtests SET duration = '$duration'
+              WHERE test_id = '$test_id'";
+
+    $results = mysqli_query($conn,$sql);
+
+
+  }
+
+?>

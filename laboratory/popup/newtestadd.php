@@ -1,3 +1,22 @@
+<?php 
+  if(isset($_POST['upload'])){
+    $test_name = $_POST['test_name'];
+    $duration = $_POST['duration'];
+    $charge = $_POST['charge'];
+    $prerequirement = $_POST['prerequirement'];    
+    $NumberOfTestsPerDay = $_POST['NumberOfTestsPerDay'];
+
+    $sqlinsert = "INSERT INTO tbl_labtests (test_name,duration,charge,prerequirement,NumberOfTestsPerDay)
+                      VALUES ('$test_name','$duration','$charge','$prerequirement','$NumberOfTestsPerDay')";
+    $results = mysqli_query($conn,$sqlinsert);
+    if ($results) {
+      $_SESSION['addLabTest'] = 1;
+      
+    }
+    
+    
+  }
+?>
 <style>
 * {
   margin: 0;
@@ -349,13 +368,27 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Add Test</button>
-                <button class="modbutton close-btn">Close</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload" type="submit">Add Test</button>
+                <button class="modbutton close-btn" type="button">Close</button>
               </div>
             </div>
         </form>
     </div>
 </section>
+
+<section id="addedtest">
+  <span class="overlay" onclick="closePopupAT()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Successfully<br/>sent response to the patient</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupAT()">Ok</button>
+    </div>
+  </div>
+</section>
+
 
 
 <!-- ------------------------------------------------------------------------- -->
@@ -377,4 +410,22 @@ section1.classList.remove("active");
 
 closeBtn1.addEventListener("click", closePopup1);
 overlay1.addEventListener("click", closePopup1);
+
+
+
+function openPopupAT() {
+    const sectionC = document.getElementById("addedtest");
+    sectionC.classList.add("active");
+  }
+
+  function closePopupAT() {  
+    console.log('Check');
+  const sectionC = document.getElementById("addedtest");
+  sectionC.classList.remove("active");
+  }
+
+
+
 </script>
+
+

@@ -228,34 +228,172 @@ section.active .modal-box {
   margin: 0 10px;
 }
 
+/* pwd-forgetpassword.php CSS Starts */
+
+.fgtpwd-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    margin-left: 120px;
+}
+
+.fgtpwd-heading {
+    color: #0C5C75;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.fgtpwd-txt{
+    color: #000000;
+    font-size: 15px;
+}
+
+.fgtpwd-input{
+    margin-top: 10px;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px 1px #1B7B99;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+    color: #303030;
+    outline: none;
+}
+
+.fgtpwd-input::placeholder {
+    text-align: center;
+    font-size: 13px;
+}
+
+.btn_continue {
+    /* margin-top: 30px; */
+    background-color: #0C5C75;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.forgot-err-msg{
+    color: red;
+    font-size: 13px;
+    margin-bottom: 0px;
+
+}
+
+.forgot-continue{
+    margin-top: 10px;
+}
+
+/* pwd-forgetpassword.php CSS Ends */
+
+
+
+
+/* pwd-verifyotp.php CSS Starts */
+
+.otp-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+  
+  .otp-input {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 10px;
+}
+  
+  .otp-input:focus {
+    outline: none;
+    border-color: #0C5C75;
+}  
+
+.opt-btn{
+    margin-top: 20px;
+}
+
+.message-sent{
+    font-size: 15px;
+    color: green;
+    font-weight: 500;
+}
+
+/* pwd-verifyotp.php CSS Ends */
+
 </style>
 
 <?php 
-    if(isset($_SESSION['data-inserted']))
-    {
         ?>
         <section id="otp"  class="active">
         <span class="overlay"></span>
 
-        <div class="modal-box" style="width:32%; height:48%; text-align: center; justify-content: center;align-items: center;">
-            <i class="fa-solid fa-thumbs-up" style="margin-top:-20px;"></i> <br/>
+        <div class="modal-box" style="width:35%; height:52%; text-align: center; justify-content: center;align-items: center;">
+        <i class="fa-solid fa-hourglass-half" style="margin-top:-20px;"></i> <br/>
             <h3 style="font-size:20px; font-weight:700;">
-            Registration Successful!</h3> <br/>
-            <h4>An One-Time Password (OTP) has been sent to your email. <br/> Please activate your account by verifying the OTP</h4> 
+            Email Verification</h3> <br/>
+            <h4>An One-Time Password (OTP) has been sent to your email. <br/> Please activate your account by verifying the OTP</h4>
             
-            <form action="" method="post">
-            <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
-                <button class="button" style="width:100px;" type="button" >Yes</button>
-                <button class="button  close-btn " V style="width:100px;" type="submit" name="cancel-verify">No</button> 
-            </div>
+                <form class="form-signin" method="POST">
+                      <div class="otp-container">
+                          <input type="text" class="otp-input" name="code1" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" autofocus="true" required>
+                          <input type="text" class="otp-input" name="code2" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" >
+                          <input type="text" class="otp-input" name="code3" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" >
+                          <input type="text" class="otp-input" name="code4" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" >
+                          <input type="text" class="otp-input" name="code5" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" >
+                          <input type="text" class="otp-input" name="code6" maxlength="1" pattern="[0-9]{1}" onkeypress="return isNumberKey(event)" >
+                      </div>
+                
+                      <script>
+                      //Disable entering any character other than numbers
+                      function isNumberKey(evt){
+                          var charCode = (evt.which) ? evt.which : event.keyCode;
+                          if (charCode > 31 && (charCode < 48 || charCode > 57)){
+                              return false;
+                          }
+                          return true;
+                      }
+                      </script>
+                      
+                      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                      <script>
+                      $(document).ready(function(){
+                          // Select all the OTP input fields
+                          var otpInputs = $('.otp-input');
+                          
+                          // Add event listener on all the OTP input fields
+                          otpInputs.on('input', function() {
+                              // Get the current input field
+                              var currentInput = $(this);
+                              
+                              // Check if the input field has a value
+                              if(currentInput.val().length === 1) {
+                                  // Get the index of the current input field
+                                  var currentIndex = otpInputs.index(currentInput);
+                                  
+                                  // Move the focus to the next input field, if it exists
+                                  if(currentIndex < otpInputs.length - 1) {
+                                      otpInputs[currentIndex + 1].focus();
+                                  }
+                              }
+                          });
+                      });
+                      </script>
+
+              <div class="buttons" style="display:flex; margin-left:30px; margin-top:20px;">
+                  <button class="button" style="width:100px;" type="submit" name="verify" >Verify OTP</button>
+                  <button class="button  close-btn " V style="width:100px;" type="submit" name="cancel-verify">Cancel</button> 
+              </div>
             </form>
         </div>
-        </section>
-        <?php
-        unset($_SESSION['data-inserted']);
+</section>
 
-    }
-?>
 
 <!-- <script>
     function openPopupC() {
@@ -284,6 +422,8 @@ const section = document.querySelector("section");
 section.classList.remove("active");
 }
 
-closeBtn.addEventListener("click", closePopupOTP);
-overlay.addEventListener("click", closePopupOTP);
 </script>
+
+<?php
+
+?>

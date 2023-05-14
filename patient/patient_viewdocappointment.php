@@ -2,6 +2,12 @@
 <?php include('../login_access.php') ?>
 
 
+<?php 
+  if ($_SESSION['record-accessok'] = 1) {
+    unset($_SESSION['record-accessok']);
+  }
+?>
+
 
 <?php
    
@@ -102,6 +108,40 @@
               </div>  
           </div>
           <div class="view-details-row">Total Amount :<div><?php echo 'Rs.'.$row['net_total'] ?></div></div>
+         
+                  <?php if ($row['docapt_status']==1) { ?>
+                    <div class="view-details-row">Record access to doctor :<div>
+                    <label class="switch">
+                    <?php if ($row['record_access']==0) { ?>
+                      <input type="checkbox" id="toggle" name="attendance">
+                      <span class="slider round"></span>
+                      <span id="toggle-text">Not Attended</span>
+                    <?php } else { ?>
+                      <input type="checkbox" id="toggle" name="attendance" checked>
+                      <span class="slider round"></span>
+                      <span id="toggle-text">Attended</span>
+                    <?php }
+                    ?>
+                    
+                  </label>
+                  <?php } ?>
+                  
+                  <script>
+                    const toggle = document.getElementById("toggle");
+                    const toggleText = document.getElementById("toggle-text");
+
+                      toggle.addEventListener("change", function() {
+                          if (this.checked) {
+                            toggleText.textContent = "Accesss granted";
+                            openPopupREC()
+                          } else {
+                            toggleText.textContent = "Accesss denied";
+                          }  
+                      });
+                  </script>
+            </div>
+          </div>    
+            
             <div class="view-apt-btn">
                       
               <?php 

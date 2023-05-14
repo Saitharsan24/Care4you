@@ -1,8 +1,25 @@
+
+
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <?php include('./popup/newtestadd.php');?>
+<?php
+// print_r($_SESSION);
+?>
+
+<?php 
+    
+    if(isset($_SESSION['addLabTest'])){
+        unset($_SESSION['addLabTest']);
+        unset($_POST);
+        echo "<script>openPopupAT()</script>";
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +29,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('lab_getinfo.php') ?>
     <div class="wrapper">

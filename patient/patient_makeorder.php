@@ -90,7 +90,7 @@
             </div> -->
             <div class="form-itm type-file">
                 <p>Upload Prescription :</p>
-                <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
+                <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" c required/>
             </div>
             <div class="form-itm other-order">
                 <p>Other items :</p>

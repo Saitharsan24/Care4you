@@ -6,8 +6,7 @@
     $userid = $_SESSION['user_id'];
     $sql = "SELECT * FROM tbl_docsession 
                 INNER JOIN tbl_doctor ON tbl_docsession.doctor_id =  tbl_doctor.doctor_id
-                INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid
-                AND tbl_sysusers.userid = '$userid'";
+                AND tbl_doctor.userid = '$userid'";
     $result = mysqli_query($conn, $sql);
 ?>
 

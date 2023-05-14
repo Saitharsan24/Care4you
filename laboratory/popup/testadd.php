@@ -337,10 +337,10 @@ input:focus {
                 <select name="test_name" id="test_name" class="testselect">
                   <option value=""> Select Test Name </option>
                   <?php
-                    $tstnamesql = "SELECT test_name FROM tbl_labtests;";
+                    $tstnamesql = "SELECT * FROM tbl_labtests;";
                     $tstNresult = mysqli_query($conn, $tstnamesql);
                     while ($row = mysqli_fetch_assoc($tstNresult)) {
-                      echo "<option value='" . $row['test_name'] . "'>" . $row['test_name'] . "</option>";
+                      echo "<option value='" . $row['test_id'] . "'>" . $row['test_name'] . "</option>";
                     }
                   ?>                               
                 </select>
@@ -372,16 +372,7 @@ input:focus {
 
               <div class="form-itm2">
                 <p>Test Name :</p>
-                <select name="test_name" id="test_name" class="testselect">
-                  <option value=""> Select Test Name </option>
-                  <?php
-                    $tstnamesql = "SELECT test_name FROM tbl_labtests;";
-                    $tstNresult = mysqli_query($conn, $tstnamesql);
-                    while ($row = mysqli_fetch_assoc($tstNresult)) {
-                      echo "<option value='" . $row['test_name'] . "'>" . $row['test_name'] . "</option>";
-                    }
-                  ?>                               
-                </select>
+                <input type="text" name="test_name" id="test_name" class="testselect" style="background-color: #a5d1e1;">
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">

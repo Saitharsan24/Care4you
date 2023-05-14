@@ -1,15 +1,15 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popup/docprepopup.php')?>
 
 <?php 
     //getting session id to display sessions details
     $session_id = $_GET['id'];
 
     $userid = $_SESSION['user_id'];
-    $sql = "SELECT *,tbl_docsession.status as docstatus,tbl_sysusers.status as sysstatus FROM tbl_docsession 
+    $sql = "SELECT *,tbl_docsession.status as docstatus FROM tbl_docsession 
                 INNER JOIN tbl_doctor ON tbl_docsession.doctor_id =  tbl_doctor.doctor_id
                 INNER JOIN tbl_assistant ON tbl_assistant.assistant_id = tbl_docsession.assistant_id
-                INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid
                 AND tbl_docsession.session_id = '$session_id'";
     $result = mysqli_query($conn, $sql);
     $session_details = mysqli_fetch_assoc($result);
@@ -92,6 +92,23 @@
                         <td class="typeL"><?php echo $session_details['room_no'] ?></td>
                     </tr>
                     <tr>
+                        <td class="typeR">Session status :</td>
+                        <td class="typeL">
+                            <?php 
+                                //echo $row['status'];
+                                if($session_details['status']==0){
+                                    echo '<button class="btn-paypend"> Pending </button>';
+                                }else if($session_details['status']==1){
+                                    echo '<button class="btn-confirmed"> Confirmed </button>';
+                                }else if($session_details['status']==2){
+                                    echo '<button class="btn-completed"> Completed </button>';
+                                }else if($session_details['status']==3){
+                                    echo '<button class="btn-cancelled"> Cancelled </button>'; 
+                                }
+                                ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="typeR">Number of Appointments :</td>
                         <td class="typeL"><?php echo $session_details['no_of_appointment'] ?></td>
                     </tr>
@@ -102,19 +119,21 @@
                     
                     <?php 
                     // print_r($row);die();
-                        if ($session_details['docstatus'] == 0) {
+                        if ($session_details['status'] == 0) {
                     ?>
                             <!-- if resonse pending -->
+                            
                             <tr>
-                                <td class="typeL" style="padding-left:150px;"><a href="#"><button class="st01">✔&nbsp;Confirm Session</button></a></td>
-                                <td class="typeR" style="padding-right:110px;"><a href="#"><button class="st03">✖&nbsp;Cancel Session</button></a></td>
+                                <td class="typeL" style="padding-left:150px;"><a href="#"><button class="st01" onclick="openPopupSESA()">✔&nbsp;Confirm Session</button></a></td>
+                                <td class="typeR" style="padding-right:110px;"><a href="#"><button class="st03" onclick="openPopupSESD()">✖&nbsp;Cancel Session</button></a></td>
                             </tr>
+                            
                     <?php 
                         }
                     ?>
                     
                     <?php 
-                        if ($session_details['docstatus'] != 0 || $row['docstatus'] != 3) {
+                        if ($session_details['docstatus'] != 0 && $session_details['docstatus'] != 3) {
                     ?>
                     <!-- if session confirmed -->
                     <tr>

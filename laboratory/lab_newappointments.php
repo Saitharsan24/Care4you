@@ -1,7 +1,17 @@
 <?php include ('../config/constants.php');?>
 <?php include('../login_access.php') ?>
+
+<?php 
+    $sql = "SELECT * FROM tbl_labappointment
+                INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
+                     WHERE labapt_status = 0";
+    $result = mysqli_query($conn, $sql);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +21,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('lab_getinfo.php') ?>
     <div class="wrapper">
@@ -39,7 +50,7 @@
                 <table class="tbl-common" style="width:70%;">
                     <thead>
                         <tr>
-                            <td>Appointment No</td>
+                            <td>Appointment Id</td>
                             <td>Patient Name</td>
                             <td>Date</td>
                             <td>Order Status</td>
@@ -47,17 +58,27 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
+                        <?php
+                            while($row = mysqli_fetch_assoc($result)){
+                        ?>
+
                         <tr>
-                            <td>01</td>
-                            <td>Sanjeewani Silva</td>
-                            <td>10/05/2023</td>
-                            <td><button class="st01">Payment Pending</button></td>
+                            <td><?php echo $row['labapt_id'] ?></td>
+                            <td><?php echo $row['first_name'] ?></td>
+                            <td><?php echo $row['labapt_date'] ?></td>
                             <td>
-                                <a href="lab_viewnewappointment.php">
+                                <button class="st00">Response Pending</button></td>
+                            <td>
+                                <a href="lab_viewnewappointment.php?id=<?php echo $row['labapt_id'] ?>">
                                     <button class="btn-view"><span>View Appointment</span></button>
                                 </a>
                             </td>
                         </tr>         
+
+                        <?php 
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>

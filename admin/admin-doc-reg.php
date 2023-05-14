@@ -15,7 +15,178 @@
 
 
 </head>
+<?php
+// Define variables and set to empty values
+$fullNameErr = $nicErr = $contactNoErr = $emailErr = $SLMCErr=$specializationErr=$ChargeErr=$usernameErr=$passwordErr=$confirmpasswordErr="";
+$fullName = $nic =  $contactNo = $email =$SLMC=$specialization=$Charge= $userName=$password=$confirmpassword="";
+$isValid = true;
 
+// Function to validate input and prevent malicious code injection
+function validateInput($data)
+{
+    $data = trim($data);  //removes any whitespace or extra characters from the beginning and end of the input string
+    $data = stripslashes($data);  //removes any backslashes from the input string
+    $data = htmlspecialchars($data);  //converts any special characters in the input string to their corresponding HTML entities
+    return $data;
+}
+
+// Check if form is submitted and process form data
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+         
+     // Validate first name
+     if (empty($_POST["doc_name"])) {
+        $fullNameErr = "*Full name is required";
+        $isValid = false;
+        
+    } else {
+        $fullName = validateInput($_POST['doc_name']);
+        // Check if name only contains letters and whitespace
+        if (!preg_match("/^[a-zA-Z ]*$/", $fullName)) {
+            $fullNameErr = "*Enter a valid name";
+            $isValid = false;
+        }
+    }
+
+  
+		// Validate NIC number
+		if (empty($_POST["nic"])) {
+			$nicErr = "*NIC number is required";
+            $isValid = false;
+		} else {
+			$nic = validateInput($_POST["nic"]);
+			// Check if NIC number is in one of the valid formats
+			if (!preg_match("/^(?!0)[0-9]{12}$|^([0-9]{9}[vV])$/", $nic)) {
+				$nicErr = "*Enter a valid NIC number";
+                $isValid = false;
+			}
+		} 
+
+         // Validate contact number
+		if (empty($_POST["contact_number"])) {
+			$contactNoErr = "*Contact number is required";
+            $isValid = false;
+		} else {
+			$contactNo = validateInput($_POST["contact_number"]);
+			// Check if contact number is a valid 10-digit number
+			if (!preg_match("/^[0-9]{10}$/", $contactNo)) {
+				$contactNoErr = "*Enter 10-digit contact number";
+                $isValid = false;
+			}
+		}
+
+        
+
+            // Validate email
+		if (empty($_POST["email"])) {
+			$emailErr = "*Email is required";
+            $isValid = false;
+		} else {
+			$email = validateInput($_POST["email"]);
+			// Check if email address is valid
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				$emailErr = "*Enter a valid email address";
+                $isValid = false;
+			}
+
+            $sql = "SELECT * FROM tbl_sysusers WHERE email='$email'";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                $userNameErr = "*User already registered";
+                $isValid = false;
+            }
+
+		}
+
+
+        
+         // Validate charge
+		if (empty($_POST["charge"])) {
+			$ChargeErr = "*charge is required";
+            $isValid = false;
+		}elseif($_POST["charge"]<0){
+            $ChargeErr = "*Enter a valid charge";
+        } 
+     
+          // Validate slmc
+		if (empty($_POST["SLMC_Number"])) {
+			$SLMCErr = "*SLMC_Number is required";
+            $isValid = false;
+		 } else {
+		
+		}
+              // Validate Specialization
+		if ($_POST["specialization"]=="Select Specialization") {
+			$specializationErr = "*You have to select doctor Specialization";
+            $isValid = false;
+		} 
+
+
+           // Validate username
+           if (empty($_POST['username'])) {
+            $usernameErr = "*Username is required";
+            $isValid = false;
+        } else {
+            if (strlen($_POST['username']) < 5) {
+                $usernameErr = "*Username must contain at least 4 characters";
+                $isValid = false;
+            } else {
+                if (!preg_match("/^[a-zA-Z0-9_-]*$/", $_POST['username'])) {
+                    $usernameErr = "*Invalid username";
+                    $isValid = false;
+                } else {
+                    $username = $_POST['username'];
+                    $sql = "SELECT * FROM tbl_sysusers WHERE username='$username'";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        $usernameErr = "*Username already exists";
+                        $isValid = false;
+                    }
+
+                 
+                }
+            }
+        }
+
+          //validate password
+          if(empty($_POST['password'])){
+            $passwordErr = "*Password is required";
+            $isValid = false;
+        } elseif(strlen($_POST['password']) < 8){
+            $passwordErr = "*Must have atleast 8 characters";
+            $isValid = false;
+        } elseif(!preg_match("#[a-z]+#", $_POST['password'])){
+            $passwordErr = "*Must have atleast one lowercase letter";
+            $isValid = false;
+        } elseif(!preg_match("#[A-Z]+#", $_POST['password'])){
+            $passwordErr = "*Must have atleast one uppercase letter";
+            $isValid = false;
+        } elseif(!preg_match("#[0-9]+#", $_POST['password'])){
+            $passwordErr = "*Must contain atleast one number";
+            $isValid = false;
+        } elseif(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $_POST['password'])){
+            $passwordErr = "*Must contain atleast one special character";
+            $isValid = false;
+        }
+  
+
+        //validate confirm password
+        if(empty($_POST['confirmpassword'])){
+            $confirmPasswordErr = "*Please confirm password";
+            $isValid = false;
+        } elseif($_POST['password'] != $_POST['confirmpassword']){
+            {
+                $confirmPasswordErr = "*Passwords do not match";
+                $isValid = false;
+            }
+        }
+
+
+}
+
+?>
 <body>
     <?php include('admin_getinfo.php') ?>
     <div class="wrapper">
@@ -47,39 +218,41 @@
                     &nbsp;Doctor Registration
                 </div>
 
-                <form action="" method="POST" id="form">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                     <div class="reg-container">
                         <div class="reg-container-col">
 
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-user"></i>&nbsp;&nbsp;Full Name
-                                <input type="text" class="inputtab" name="doc_name" placeholder="Enter Doctor's Fullname" id="doc_name" required />
-                                <div class="error_1"></div>
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-user"></i>&nbsp;&nbsp;Full Name<br>
+                            <span class="error"><?php echo $fullNameErr; ?></span>
+                                <input type="text" class="inputtab" name="doc_name" placeholder="Enter Doctor's Fullname"  />
                             </div>
 
                             <div class="labeltag">&nbsp;<i class="fa-solid fa-id-badge" id="nic"></i>&nbsp;&nbsp;NIC Number <br />
-                                <input type="text" class="inputtab" name="nic" placeholder="Enter Doctor's NIC Number" required />
-                                <div class="error_1"></div>
-                            </div>
+                            <span class="error"><?php echo $nicErr; ?></span>
+                                <input type="text" class="inputtab" name="nic" placeholder="Enter Doctor's NIC Number"  />
+                                                            </div>
 
                             <div class="labeltag">&nbsp;<i class="fa-solid fa-phone"></i>&nbsp;&nbsp;Contact Number <br />
-                                <input type="text" class="inputtab" name="contact_number" placeholder="Enter Doctor's Contact Number" id="contact_name" required />
-                                <div class="error_1"></div>
+                            <span class="error"><?php echo $contactNoErr; ?></span>
+                                <input type="text" class="inputtab" name="contact_number" placeholder="Enter Doctor's Contact Number"   />
                             </div>
 
                             <div class="labeltag">&nbsp;<i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;Email Address <br />
-                                <input type="email" class="inputtab" name="email" placeholder="Enter Doctor's Email Address" id="email" required />
-                                <div class="error_1"></div>
+                            <span class="error"><?php echo $emailErr; ?></span>
+                                <input type="text" class="inputtab" name="email" placeholder="Enter Doctor's Email Address"  />
+                               
                             </div>
 
                         </div>
                         <div class="reg-container-col mid">
 
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-user-doctor"></i>&nbsp;&nbsp;SLMC Number
-                                <input type="text" class="inputtab" name="SLMC_Number" placeholder="Enter SLMC Number" id="SLMC_Number" required />
-                                <div class="error_1"></div>
-                            </div>
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-user-doctor"></i>&nbsp;&nbsp;SLMC Number<br>
+                            <span class="error"><?php echo $SLMCErr; ?></span>
+                            <input type="text" class="inputtab" name="SLMC_Number" placeholder="Enter SLMC Number"  />
+                                                           </div>
 
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-hospital-user"></i>&nbsp;&nbsp;Specialization
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-hospital-user"></i>&nbsp;&nbsp;Specialization<br>
+                            <span class="error"><?php echo $specializationErr; ?></span>
                                 <select name="specialization" id="specialization" class="inputtab">
                                     <option value="Select Specialization">Select Specialization</option>
                                     <option value="Addiction Psychiatrist">Addiction Psychiatrist</option>
@@ -133,30 +306,29 @@
                                     <option value="Yoga Therapist">Yoga Therapist</option>
                                     <option value="Zygomatic Implant Surgeon">Zygomatic Implant Surgeon</option>
                                 </select>
-                                <div class="error_1"></div>
-                            </div>
+                                                            </div>
 
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;Charge per session (Rs.)
-                                <input type="number" step="500" class="inputtab" name="charge" placeholder="Enter Doctor Charge per Session" id="charge" required />
-                                <div class="error_1"></div>
-                            </div>
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-sack-dollar"></i>&nbsp;&nbsp;Charge per session (Rs.)<br>
+                            <span class="error"><?php echo $ChargeErr; ?></span>
+                                <input type="number" step="500" class="inputtab" name="charge" placeholder="Enter Doctor Charge per Session" />
+                                                           </div>
 
                         </div>
                         <div class="reg-container-col">
 
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-user-check"></i>&nbsp;&nbsp;Username
-                                <input type="text" class="inputtab" name="username" placeholder="Enter Doctor's Username" id="username" required />
-                                <div class="error_1"></div>
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-user-check"></i>&nbsp;&nbsp;Username<br>
+                            <span class="error"><?php echo $usernameErr; ?></span>
+                                <input type="text" class="inputtab" name="username" placeholder="Enter Doctor's Username"  />
+                                                         </div>
+
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Password<br>
+                            <span class="error"><?php echo $passwordErr; ?></span>
+                                <input type="password" class="inputtab" name="password" placeholder="Enter Doctor's Password"  />
                             </div>
 
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Password
-                                <input type="password" class="inputtab" name="password" placeholder="Enter Doctor's Password" id="password" />
-                                <div class="error_1"></div>
-                            </div>
-
-                            <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;C0nfirm Password
-                                <input type="password" class="inputtab" name="confirmpassword" placeholder="Conform Doctor's Password" id="conformpassword" />
-                                <div class="error_1"></div>
+                            <div class="labeltag">&nbsp;<i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Confirm Password<br>
+                            <span class="error"><?php echo $confirmpasswordErr; ?></span>
+                                <input type="password" class="inputtab" name="confirmpassword" placeholder="Conform Doctor's Password"  />
                             </div>
 
                         </div>
@@ -174,6 +346,7 @@
 
 <?php
 if (isset($_POST['reg'])) {
+    if($isValid==true){
 
     $doc_name = $_POST['doc_name'];
     $nic = $_POST['nic'];
@@ -204,9 +377,9 @@ if (isset($_POST['reg'])) {
         // header("Location: /Care4you/admin/admin-doc-view.php");
         echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php';</script>";
     } else {
-        echo "Error: " . $s . "<br>" . mysqli_error($conn);
+        echo "Error: " . "<br>" . mysqli_error($conn);
         die();
     }
 }
-
+}
 ?>

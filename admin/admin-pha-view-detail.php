@@ -38,6 +38,8 @@
                 
             <?php
                 $id = $_GET['id'];
+            
+                
 
                 $query="SELECT * FROM tbl_pharmacist INNER JOIN tbl_sysusers ON tbl_pharmacist.userid = tbl_sysusers.userid WHERE pharmacist_id = $id";
                 $result=mysqli_query($conn,$query);

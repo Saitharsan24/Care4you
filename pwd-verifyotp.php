@@ -63,7 +63,7 @@
             $_SESSION['email'] = $email;
             $_SESSION['otp_id'] =$row['id'];
 
-            if ($otp == $tableOTP && strtotime($current_timestamp) - strtotime($otpTimeStamp) < 600 && $row['used'] == 0){
+            if ($otp == $tableOTP && ($current_timestamp - $otpTimeStamp) < 600 && $row['used'] == 0){
 
                 //Redirecting to password change page
                 header("Location: pwd-resetpassword.php?" . session_name() . '=' . session_id());

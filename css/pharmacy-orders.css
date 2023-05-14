@@ -726,7 +726,8 @@ textarea{
   margin-bottom: -27px;
   resize: none;
   border-radius: 10px;
-  padding-left: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 .nettotal{
@@ -735,4 +736,16 @@ textarea{
   outline: none;
   border: 1px solid #444343;
   padding-left: 5px;
+  padding: 5px;
+}
+
+.nettotlab{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+  border: 0px;
+  padding: 5px 5px 5px 10px;
+  background-color: #e7e7e7;
+
 }

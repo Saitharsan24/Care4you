@@ -1,7 +1,14 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+
+<?php 
+    $patient_id = $_GET['patid'];
+    $session_id = $_GET['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +18,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('doctor_getinfo.php') ?>
     <div class="wrapper">
@@ -27,7 +35,7 @@
         <div class="main_content"> 
             <div class="info">
 
-            <div class="back" onclick="location.href='doctor_appointments.php'">
+            <div class="back" onclick="location.href='doctor_appointments.php?id=<?php echo $session_id ?>'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
 

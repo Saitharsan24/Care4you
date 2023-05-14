@@ -1,7 +1,26 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php include('./popup/docprepopup.php')?>
+
+<?php 
+    //getting session id to display sessions details
+    $session_id = $_GET['id'];
+
+    $userid = $_SESSION['user_id'];
+    $sql = "SELECT *,tbl_docsession.status as docstatus FROM tbl_docsession 
+                INNER JOIN tbl_doctor ON tbl_docsession.doctor_id =  tbl_doctor.doctor_id
+                INNER JOIN tbl_assistant ON tbl_assistant.assistant_id = tbl_docsession.assistant_id
+                AND tbl_docsession.session_id = '$session_id'";
+    $result = mysqli_query($conn, $sql);
+    $session_details = mysqli_fetch_assoc($result);
+    //print_r($session_details);die();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +30,7 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <?php include('doctor_getinfo.php') ?>
     <div class="wrapper">
@@ -33,7 +53,7 @@
             <div class="container01">
                 <div class="sessionidTXT">
                     SESSION ID <br/><br/>
-                    <div style="color:#000; font-size:100px; margin-top:20px;">01</div>
+                    <div style="color:#000; font-size:100px; margin-top:20px;"><?php echo $session_id ?></div>
                 </div>
             </div>
             <div class="container02">
@@ -45,37 +65,86 @@
                     </tr>
                     <tr>
                         <td class="typeR">Session Date :</td>
-                        <td class="typeL">2023-05-14</td>
+                        <td class="typeL"><?php echo $session_details['date'] ?></td>
                     </tr>
                     <tr>
                         <td class="typeR">Time Slot :</td>
-                        <td class="typeL">3.00PM - 5.00PM</td>
+                                <?php 
+                                    //echo $row['status'];  
+                                    if($session_details['time_slot']==0){
+                                        $time="8am - 10am";   
+                                    }else if($session_details['time_slot']==1){
+                                        $time='10am - 12pm';
+                                    }else if($session_details['time_slot']==2){
+                                        $time='12pm - 2pm';
+                                    }else if($session_details['time_slot']==3){
+                                        $time='2pm - 4pm';
+                                    }else if($session_details['time_slot']==4){
+                                        $time='4pm - 6pm';
+                                    }else{   
+                                        $time='6pm-8pm';    
+                                    } 
+                                ?>
+                        <td class="typeL"><?php echo $time ?></td>
                     </tr>
                     <tr>
                         <td class="typeR">Room Number :</td>
-                        <td class="typeL">05</td>
+                        <td class="typeL"><?php echo $session_details['room_no'] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="typeR">Session status :</td>
+                        <td class="typeL">
+                            <?php 
+                                //echo $row['status'];
+                                if($session_details['status']==0){
+                                    echo '<button class="btn-paypend"> Pending </button>';
+                                }else if($session_details['status']==1){
+                                    echo '<button class="btn-confirmed"> Confirmed </button>';
+                                }else if($session_details['status']==2){
+                                    echo '<button class="btn-completed"> Completed </button>';
+                                }else if($session_details['status']==3){
+                                    echo '<button class="btn-cancelled"> Cancelled </button>'; 
+                                }
+                                ?>
+                        </td>
                     </tr>
                     <tr>
                         <td class="typeR">Number of Appointments :</td>
-                        <td class="typeL">03</td>
+                        <td class="typeL"><?php echo $session_details['no_of_appointment'] ?></td>
                     </tr>
                     <tr>
                         <td class="typeR">Assigned Assistant :</td>
-                        <td class="typeL">Mashi De Silva</td>
+                        <td class="typeL"><?php echo $session_details['name'] ?></td>
                     </tr>
-                    <!-- if resonse pending -->
-                    <tr>
-                        <td class="typeL" style="padding-left:150px;"><a href="#"><button class="st01">✔&nbsp;Confirm Session</button></a></td>
-                        <td class="typeR" style="padding-right:110px;"><a href="#"><button class="st03">✖&nbsp;Cancel Session</button></a></td>
-                    </tr>
-                    <!-- if resonse pending -->
-
+                    
+                    <?php 
+                    // print_r($row);die();
+                        if ($session_details['status'] == 0) {
+                    ?>
+                            <!-- if resonse pending -->
+                            
+                            <tr>
+                                <td class="typeL" style="padding-left:150px;"><a href="#"><button class="st01" onclick="openPopupSESA()">✔&nbsp;Confirm Session</button></a></td>
+                                <td class="typeR" style="padding-right:110px;"><a href="#"><button class="st03" onclick="openPopupSESD()">✖&nbsp;Cancel Session</button></a></td>
+                            </tr>
+                            
+                    <?php 
+                        }
+                    ?>
+                    
+                    <?php 
+                        if ($session_details['docstatus'] != 0 && $session_details['docstatus'] != 3) {
+                    ?>
                     <!-- if session confirmed -->
                     <tr>
                         <td colspan="2">
-                            <a href="doctor_appointments.php"><button class="btn-view"  style="width:175px;"><span>View Appointments</span>
+                            <a href="doctor_appointments.php?id=<?php echo $session_id ?>"><button class="btn-view"  style="width:175px;"><span>View Appointments</span>
                         </td></a>
                     </tr>
+
+                    <?php 
+                        }
+                    ?>
                     <!-- if session confirmed -->
 
                 </table>

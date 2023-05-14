@@ -1,4 +1,4 @@
-<a href="#" onclick="openPopup()"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+<a href="#" onclick="openPopup1()"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
 
 <style>
 * {
@@ -120,8 +120,8 @@ section.active .modal-box {
 
 </style>
 
-<section>
-  <a href="#" onclick="openPopup()"></a>
+<section id=section1>
+  <a href="#" onclick="openPopup1()"></a>
   <span class="overlay"></span>
 
     <div class="modal-box">
@@ -130,7 +130,7 @@ section.active .modal-box {
           
             <i class="fa-solid fa-sack-dollar"></i>
             <h2> Enter New Doctor Charge (per session) </h2>
-            <input type="number" step="500" name="charge" class="inputtab" placeholder="Enter New Doctor Charge per Session" />
+            <input type="number" step="500" name="charge" class="inputtab" value="<?php echo $row['charge']; ?>" placeholder="Enter New Doctor Charge per Session" />
 
             <div class="buttons">
             <button class="modbutton close-btn">Close</button>
@@ -148,12 +148,12 @@ section.active .modal-box {
 
                     if($resq)
                     {
-                        $_SESSION['update-charge'] = '<div class="success">Doctor Charges has Updated Successfully</div>';
+                        $_SESSION['update-mge'] = '<div class="success">Doctor Charges has Updated Successfully</div>';
                         echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view-detail.php?id=$id';</script>";
                     }
                     else
                     {
-                        $_SESSION['update-charge'] = '<div class="error">Failed to Update Doctor Charges</div>';
+                        $_SESSION['update-mge'] = '<div class="error">Failed to Update Doctor Charges</div>';
                         echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view-detail.php?id=$id';</script>";
                     }
                 }
@@ -164,20 +164,3 @@ section.active .modal-box {
     </div>
 </section>
 
-<script>
-  function openPopup() {
-    const section = document.querySelector("section");
-    section.classList.add("active");
-  }
-
-  const overlay = document.querySelector(".overlay"),
-    closeBtn = document.querySelector(".close-btn");
-
-function closePopup() {
-const section = document.querySelector("section");
-section.classList.remove("active");
-}
-
-closeBtn.addEventListener("click", closePopup);
-overlay.addEventListener("click", closePopup);
-</script>

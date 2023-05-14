@@ -90,7 +90,7 @@
             </div> -->
             <div class="form-itm type-file">
                 <p>Upload Prescription :</p>
-                <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" name="prescription" required/>
+                <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" c required/>
             </div>
             <div class="form-itm other-order">
                 <p>Other items :</p>
@@ -138,6 +138,7 @@
 
                 //Get the prescription name
                 $prescription_name = $_FILES['prescription']['name'];
+               
 
                 //Upload prescription only if prescription is selected
                 if($prescription_name != "")
@@ -145,7 +146,8 @@
                     //Auto Rename the Prescription
 
                     //Get the extension of the prescription
-                    $ext = end(explode('.',$prescription_name));
+                    $namarr =explode('.',$prescription_name);
+                    $ext = end($namarr);
 
                     //Rename the prescription
                     $prescription_name = "Order_".date('d_m_y_h_i_s_A').".".$ext;
@@ -185,13 +187,14 @@
        
         //Execute the query and Save order details in database
         $res = mysqli_query($conn ,$sql);
+        // print_r($res);die();
 
 
         //Check the execution of query
-        if($res == TRUE)
+        if($res)
         {
             //Query executed and order details saved in database
-            print_r("test");die();
+           // print_r("test");die();
             $_SESSION['add-order'] = 1;
             //Redirect to home page
             header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 

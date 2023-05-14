@@ -139,14 +139,49 @@ section.active .modal-box {
 }
 </style>
 
-<section class="active">
-    <span class="overlay"></span>
+<section id="uploadOR">
+    <span class="overlay" onclick="closePopup()"></span>
 
     <div class="modal-box">
         <img src="../images/docprescription/Order_06_02_23_08_56_41_PM.jpeg" alt="Prescription Loading Failed :(" class="cont">
-        <button class="modbutton close-btn" style="margin-top: 10px;">Close</button>
+        <button class="modbutton close-btn" style="margin-top: 10px;" onclick="closePopup()">Close</button>
     </div>
 </section>
+
+
+<section id="sessionaccept">
+  <span class="overlay" onclick="closePopupSESA()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure<br/>want to accept the session?</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+    <form method="post">
+      <button class="button  close-btn " style="width:100px; background-color:#28ae28" onclick="closePopupSESA()" type="submit" name="confirmses">Yes</button>
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupSESA()" type="button">No</button>
+    </form>
+    </div>
+  </div>
+</section>
+
+
+<section id="sessiondeny">
+  <span class="overlay" onclick="closePopupSESD()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure<br/>want to cancel the session?</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+    <form method="post">
+      <button class="button  close-btn " style="width:100px; " onclick="closePopupSESD()" type="button">No</button>
+      <button class="button  close-btn " style="width:100px; background-color:#dc1616" onclick="closePopupSESA()" type="submit" name="cancelses">Yes</button>
+    </form>
+    </div>
+  </div>
+</section>
+
 
 <script>
 function openPopup() {
@@ -154,14 +189,51 @@ function openPopup() {
   section.classList.add("active");
 }
 
-const overlay = document.querySelector(".overlay"),
-closeBtn = document.querySelector(".close-btn");
-
 function closePopup() {
-const section = document.querySelector("section");
+const section = document.getElementById("uploadOR");
 section.classList.remove("active");
 }
 
 closeBtn.addEventListener("click", closePopup);
 overlay.addEventListener("click", closePopup);
+
+
+
+function openPopupSESA() {
+  const section = document.getElementById("sessionaccept");
+  section.classList.add("active");
+}
+
+function closePopupSESA() {
+const section = document.getElementById("sessionaccept");
+section.classList.remove("active");
+}
+
+function openPopupSESD() {
+  const section = document.getElementById("sessiondeny");
+  section.classList.add("active");
+}
+
+function closePopupSESD() {
+const section = document.getElementById("sessiondeny");
+section.classList.remove("active");
+}
 </script>
+
+<?php 
+  if(isset($_POST['confirmses'])){
+    $session_id = $_GET['id'];
+    //print_r($session_id);die();
+    $sql = "UPDATE tbl_docsession SET status = 1 WHERE session_id='$session_id'";
+    $result = mysqli_query($conn, $sql);
+
+  }
+  
+  if(isset($_POST['cancelses'])){
+    $session_id = $_GET['id'];
+    //print_r($session_id);die();
+    $sql = "UPDATE tbl_docsession SET status = 3 WHERE session_id='$session_id'";
+    $result = mysqli_query($conn, $sql);
+  }
+
+?>

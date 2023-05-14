@@ -1,6 +1,30 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<script>
+  function openPopup1() {
+    const section = document.getElementById("section1");
+    section.classList.add("active");
+  }
+  function openPopup2() {
+    const section = document.getElementById("section2");
+    section.classList.add("active");
+  } 
+  function openPopup3() {
+    const section = document.getElementById("section3");
+    section.classList.add("active");
+  }
 
+  const overlay1 = document.querySelector(".overlay"),
+    closeBtn = document.querySelector(".close-btn");
+
+function closePopup1() {
+const section = document.getElementById("section1");
+section.classList.remove("active");
+}
+
+closeBtn.addEventListener("click", closePopup);
+overlay1.addEventListener("click", closePopup);
+</script>
 <?php
   
   if(isset($_POST['update']))
@@ -67,10 +91,10 @@
         <div class="main_content"> 
             <div class="info">
             <?php 
-                if(isset($_SESSION['update-contact']))
+                if(isset($_SESSION['update-mge']))
                 {
-                    echo $_SESSION['update-contact'];
-                    unset($_SESSION['update-contact']);
+                    echo $_SESSION['update-mge'];
+                    unset($_SESSION['update-mge']);
 
                 }
             ?>
@@ -120,11 +144,17 @@
             ?>
 
             <div class="container-row">
-            <img src="../images/user.png" alt="user" class="container01">
+            
             <!-- <div class="container01"></div> -->
+
             <div class="container02">
                 <table class="tbl-patientview">
-                    <tr>
+                   
+                <img src="../images/user.png" alt="user" class="container01"></td>
+                  
+
+                    
+                    
                         <td colspan="2" class="typeC">
                             <i class="fa-solid fa-address-card" style="font-size: 30px;"></i>&nbsp; Patient Details
                         </td>
@@ -149,21 +179,21 @@
                         <td class="typeR">Patient Address :</td>
                         <td class="typeL">&emsp; <?php echo $row['address'] ?>
                         &nbsp; &nbsp;
-                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        <?php  include('admin-patient-viewdetail-address-pop.php') ?>
                         </td>
                     </tr>
                     <tr>
                         <td class="typeR">Contact Number :</td>
                         <td class="typeL">&emsp; <?php echo '0'.$row['contact'] ?>
                             &nbsp; &nbsp;
-                            <?php  include('admin-patient-viewdetail-pop.php') ?>
+                            <?php  include('admin-patient-viewdetail-phoneno-pop.php') ?>
                         </td>
                     </tr>
                     <tr>
                         <td class="typeR">Email Address :</td>
                         <td class="typeL">&emsp; <?php echo $row['email'] ?>
                         &nbsp; &nbsp;
-                        <a href="#"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+                        <?php  include('admin-patient-viewdetail-email-pop.php') ?>
                         </td>
                     </tr>
                     <tr>

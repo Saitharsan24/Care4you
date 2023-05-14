@@ -738,3 +738,14 @@ textarea{
   padding-left: 5px;
   padding: 5px;
 }
+
+.nettotlab{
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
+  border: 0px;
+  padding: 5px 5px 5px 10px;
+  background-color: #e7e7e7;
+
+}

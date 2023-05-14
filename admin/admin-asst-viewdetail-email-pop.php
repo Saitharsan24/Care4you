@@ -1,4 +1,4 @@
-<a href="#" onclick="openPopup()"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
+<a href="#" onclick="openPopup2()"><i class="fa-solid fa-pen-to-square" style="color: #0D5C75; transition: color 0.2s;" onmouseover="this.style.color='#073645'" onmouseout="this.style.color='#0D5C75'"></i></a>
 
 <style>
   * {
@@ -80,7 +80,7 @@
     transform: translate(-50%, -50%) scale(1);
   }
 
-  .modal-box i.fa-solid.fa-sack-dollar {
+  .modal-box i.fa-solid.fa-envelope {
     font-size: 70px;
     color: #0e6680;
   }
@@ -122,14 +122,8 @@
 </style>
 
 
-<?php
-if(!isset($phonenoErr)){
-  $phonenoErr = "";
-  $phoneno="";
-}
-?>
 
-<section>
+<section id=section2>
   <a href="#" onclick="openPopup()"></a>
   <span class="overlay"></span>
 
@@ -137,17 +131,13 @@ if(!isset($phonenoErr)){
 
     <form method="POST">
 
-      <i class="fa-solid fa-sack-dollar"></i>
-      <h2> Enter the New Phone Number </h2>
-      <input type="text" name="phone_no" class="inputtab" placeholder="Enter New Phone Number " value=<?php $row['phoneno']; ?>>
-    <?php  if (isset($phonenoErr)){ ?>
-      <span class="error"><?php echo $phonenoErr; ?></span>
-    <?php
-    }
-    ?>
+    <i class="fa-solid fa-envelope"></i>
+      <h2> Enter the New Email ID </h2>
+      <input type="text" name="email" class="inputtab" value="<?php echo $row['email']; ?>" placeholder="Enter New mail " >
+    
       <div class="buttons">
         <button class="modbutton close-btn">Close</button>
-        <button class="modbutton" type="submit" name="update_phoneno" style="background-color: #008000; color: #fff;">Update</button>
+        <button class="modbutton" type="submit" name="update_email" style="background-color: #008000; color: #fff;">Update</button>
       </div>
 
 
@@ -157,68 +147,33 @@ if(!isset($phonenoErr)){
   </div>
 </section>
 
-<script>
-  function openPopup() {
-    const section = document.querySelector("section");
-    section.classList.add("active");
-  }
-
-  const overlay = document.querySelector(".overlay"),
-    closeBtn = document.querySelector(".close-btn");
-
-  function closePopup() {
-    const section = document.querySelector("section");
-    section.classList.remove("active");
-  }
-
-  closeBtn.addEventListener("click", closePopup);
-  overlay.addEventListener("click", closePopup);
-</script>
 
 <?php
 
-
-if (isset($_POST['update_phoneno'])) {
-  $isValid = true;
-  function validateInput($data)
-  {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-
-  // Validate contact number
-  if (empty($_POST["phone_no"])) {
-    $phonenoErr = "*Contact number is required";
-    $isValid = false;
-  } else {
-    $phoneno = validateInput($_POST["phone_no"]);
-    // Check if contact number is a valid 10-digit number
-    if (!preg_match("/^[0-9]{10}$/", $phoneno)) {
-      $phonenoErr = "*Enter 10-digit contact number";
-      $isValid = false;
-    }
-  }
+  
+  
+  if(isset($_POST['update_email'])){
+    $id = $_GET['id'];    //assign the assitant_id as $id
+  $email = $_POST['email'];   // get the email from pop form in post methode
 
 
-  $id = $_GET['id'];    //assign the assitant_id as $id
-  $phone_no = $_POST['phone_no'];   // get the phone number from pop form in post methode
 
-  if ($isValid == true) {
+      $query1="SELECT * FROM tbl_assistant WHERE assistant_id=$id";     //for get the userid using  assitant_id
+      $resq = mysqli_query($conn, $query1);
+      $row1=mysqli_fetch_array($resq);
+       $userid=$row['userid'];               //assitant's userid assign into $userid variable
+     
 
-    $query = "UPDATE tbl_assistant SET phoneno='$phone_no' WHERE assistant_id=$id";   //quary for update the phone number
-    $resq = mysqli_query($conn, $query);
+     $query2 = "UPDATE tbl_sysusers SET email='$email' WHERE userid=$userid";   //quary for update the email
+     $resq = mysqli_query($conn, $query2);
+
 
     if ($resq) {
-      $_SESSION['update-charge'] = '<div class="success">Assitant phone number has Updated Successfully</div>';
+      $_SESSION['update-charge'] = '<div class="success">Assitant email has Updated Successfully</div>';
       echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view-detail.php?id=$id';</script>";
     } else {
-      $_SESSION['update-charge'] = '<div class="error">Failed to Update Assitant phone number </div>';
+      $_SESSION['update-charge'] = '<div class="error">Failed to Update Assitant email </div>';
       echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view-detail.php?id=$id';</script>";
     }
-  }else{
-    // echo "<script>openPopup()</script>";
-  }
 }
 ?>

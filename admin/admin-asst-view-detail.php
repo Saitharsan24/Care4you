@@ -15,6 +15,31 @@
 <body>
 <?php include('admin_getinfo.php');
 ?>
+
+<script>
+  function openPopup1() {
+    const section = document.getElementById("section1");
+    section.classList.add("active");
+  }
+
+  function openPopup2() {
+    const section = document.getElementById("section2");
+    section.classList.add("active");
+  }
+
+
+  const overlay = document.querySelector(".overlay"),
+    closeBtn = document.querySelector(".close-btn");
+
+  function closePopup() {
+    const section = document.querySelector("section");
+    section.classList.remove("active");
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+  overlay.addEventListener("click", closePopup);
+</script>          <!--script for edit pop up -->
+
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -132,12 +157,14 @@
                         </td>
                         <td class="typeR">Contact Number :</td>
                         <td class="typeL"><?php echo $row['phoneno']; ?>
-                        <?php  include('admin-asst-viewdetail-pop.php') ?>
+                        <?php  include('admin-asst-viewdetail-contactno-pop.php') ?>
                     </td>
                   </tr>
                    <tr>
                         <td class="typeR">Email Address :</td>
-                        <td class="typeL"><?php echo $row['email']; ?></td>
+                        <td class="typeL"><?php echo $row['email']; ?>
+                        <?php  include('admin-asst-viewdetail-email-pop.php') ?>
+                    </td>
                     </tr>
 
                </table> 

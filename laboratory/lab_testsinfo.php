@@ -111,7 +111,9 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo SITEURL;  ?>/laboratory/lab_testdelete.php?test_id=<?php echo $test_id;?>" class="btn-delete">Delete</a>
+                                            <!-- <a href="<?php //echo SITEURL;  ?>/laboratory/lab_testdelete.php?test_id=<?php //echo $test_id;?>" class="btn-delete">Delete</a> -->
+                                            <button onclick="openPopupOTP()" class="btn-delete">Delete</button>
+                                            <?php include('./popup/testdelete.php');?>
                                         </td>
                                     </tr>
                                     <?php 

@@ -34,7 +34,7 @@ $result = mysqli_query($conn, $sql);
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
                 <li><a href="lab_newappointments.php">New Appointments</a></li>
-                <li><a href="lab_appointmenthistory.php"><div class="highlighttext">Appointment History</a></div></li>
+                <li><a href="lab_appointmenthistory.php"><div class="highlighttext">Appointment History</div></a></li>
                 <li><a href="lab_testsinfo.php">Lab Tests</a></li>
                 <li><a href="lab_viewprofile.php">Profile</a></li>
             </ul>

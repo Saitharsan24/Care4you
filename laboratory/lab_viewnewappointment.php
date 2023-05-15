@@ -86,20 +86,18 @@ $albapt_details = mysqli_fetch_assoc($result);
                         </div>
 
                         <div class="headtxt">Appointment Status</div>
-                        <div class="datatxt" style="margin-bottom: 15px"><button class="st00">Response Pending</button>
+                        <div class="datatxt" style="margin-bottom: 15px">
+                            <button class="st00">Response Pending</button>
                         </div>
-
-                        <!-- <div class="headtxt">Other Items</div> 
-                    <div class="datatxt" style="margin-bottom: 10px">none</div> -->
 
                     </div>
                     <div class="containorSR" style="margin-top:20px;">
-                        <a href="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" download>
-                            <img src="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" class="containorSR"
+                        <a href="../images/labapt-prescription/<?php echo $albapt_details['prescription_name'] ?>" download>
+                            <img src="../images/labapt-prescription/<?php echo $albapt_details['prescription_name'] ?>" class="containorSR"
                                 style="width:90%; max-height:60vh;">
                         </a>
                         <a class="datatxt2-link" title="Open Prescription in New Window"
-                            href="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" target="_blank">
+                            href="../images/labapt-prescription/<?php echo $albapt_details['prescription_name'] ?>" target="_blank">
                             PrescriptionName.ext &nbsp;
                             <i class="fa-solid fa-expand"></i>
                         </a>

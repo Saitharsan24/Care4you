@@ -5,6 +5,12 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+p{
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .buttons{
   margin-left:720px;
 }
@@ -322,7 +328,8 @@ input:focus {
 
 <section id ="duration" > 
   <span class="overlay" onclick="closePopup1()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+    <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Test Duration (in Minutes)</h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -347,7 +354,8 @@ input:focus {
 
 <section id ="charge" > 
   <span class="overlay" onclick="closePopup2()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Test Charge </h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -372,7 +380,8 @@ input:focus {
 
 <section id ="prerequirement" > 
   <span class="overlay" onclick="closePopup3()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Pre-Requirements for Test </h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -397,7 +406,8 @@ input:focus {
 
 <section id ="NumberOfTestsPerDay" > 
   <span class="overlay" onclick="closePopup4()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+  <i class="fa-solid fa-list-ol" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Number of Tests per Day </h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -422,7 +432,8 @@ input:focus {
 
 <section id ="PreRe" > 
   <span class="overlay" onclick="closePopup5()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Prescription Requirements </h1>
             <div class="form-content" style="margin-left:-100px; margin-top:20px;">
@@ -559,6 +570,8 @@ overlay5.addEventListener("click", closePopup5);
 
 <?php 
   if(isset($update1)){
+
+    echo 'clicked';
 
     $duration = $_POST['duration'];
 

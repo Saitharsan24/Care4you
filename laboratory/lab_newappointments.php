@@ -43,9 +43,7 @@ $result = mysqli_query($conn, $sql);
             <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="imgframe">
             <ul>
                 <li><a href="lab_home.php">Home</a></li>
-                <li><a href="lab_newappointments.php">
-                        <div class="highlighttext">New Appointments</div>
-                    </a></li>
+                <li><a href="lab_newappointments.php"><div class="highlighttext">New Appointments</div></a></li>
                 <li><a href="lab_appointmenthistory.php">Appointment History</a></li>
                 <li><a href="lab_testsinfo.php">Lab Tests</a></li>
                 <li><a href="lab_viewprofile.php">Profile</a></li>
@@ -65,7 +63,7 @@ $result = mysqli_query($conn, $sql);
                 <div class="tbl-content">
                     <table class="tbl-common" style="width:70%;">
                         <thead>
-                            <tr>
+                            <tr style="background-color: white;">
                                 <td>Appointment Id</td>
                                 <td>Patient Name</td>
                                 <td>Date</td>
@@ -79,7 +77,7 @@ $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
 
-                                <tr>
+                                <tr style="background-color: white;">
                                     <td>
                                         <?php echo $row['labapt_id'] ?>
                                     </td>

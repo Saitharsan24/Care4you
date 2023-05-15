@@ -372,10 +372,16 @@ if (isset($_POST['reg'])) {
 
     $res2 = mysqli_query($conn, $sql);
 
+    // $_SESSION['userid'] = mysqli_insert_id($conn);
+    // $userid=$_SESSION['userid'];
+    // print_r($userid);die();
+
+    
 
     if ($res1 && $res2) {
-        // header("Location: /Care4you/admin/admin-doc-view.php");
-        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php';</script>";
+        //header( "Location: /Care4you/admin/admin-doc-reg-mail.php?userid=".$userid);
+       
+        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-reg-mail.php?';</script>";
     } else {
         echo "Error: " . "<br>" . mysqli_error($conn);
         die();

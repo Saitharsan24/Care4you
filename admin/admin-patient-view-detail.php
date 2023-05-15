@@ -193,7 +193,6 @@ overlay1.addEventListener("click", closePopup);
                         <td class="typeR">Email Address :</td>
                         <td class="typeL">&emsp; <?php echo $row['email'] ?>
                         &nbsp; &nbsp;
-                        <?php  include('admin-patient-viewdetail-email-pop.php') ?>
                         </td>
                     </tr>
                     <tr>

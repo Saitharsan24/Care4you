@@ -73,11 +73,11 @@
         <br/>
         <div class="text">
         <form action="" method="POST">
-        Unavailable Medicines :
+        Other Remarks :
         <textarea name="unavailablemedicines" id="unavailablemedicines" cols="50" rows="2"></textarea>
         <br/> <br/>
-        &emsp; &emsp; &emsp; &nbsp; Net Total (Rs) :
-        <input type="number" class="nettotal" readonly/> 
+        <!-- &emsp; &emsp; &emsp; &nbsp; Net Total (Rs) :
+        <input type="number" class="nettotal" readonly/>  -->
         <br/> <br/>
         <button class="btn-respond" type="submit" name="sendrespond">
             <span>Send Respond &nbsp;</span>

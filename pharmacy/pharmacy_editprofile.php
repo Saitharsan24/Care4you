@@ -137,13 +137,13 @@
                         <tr>
                             <td class="type1">Email Address :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required=""/>
+                            <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" readonly/>
                             </td>
                         </tr>
                         <tr>
                             <td class="type1">NIC Number :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" required=""/>
+                            <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" readonly/>
                             </td>
                         </tr>
                         <tr>

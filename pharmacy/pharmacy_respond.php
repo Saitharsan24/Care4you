@@ -371,13 +371,13 @@
                 $medadded = TRUE;
                 //Medicines Added to order
                  
-                //01.empty remarks convert
-                if($temp =="No any remarks to display"){
-                    $remarks = "";
-                }
-                else{
-                    $remarks = $temp;
-                }
+                // //01.empty remarks convert
+                // if($temp =="No any remarks to display"){
+                //     $remarks = "";
+                // }
+                // else{
+                //     $remarks = $temp;
+                // }
 
                 //02.get the responded date
                 date_default_timezone_set('Asia/Kolkata');
@@ -499,12 +499,12 @@
                     //No any Medicines Added to order and Unavailable Medicines Message filled
 
                     //01.empty remarks convert
-                    if($temp =="No any remarks to display"){
-                        $remarks = "";
-                    }
-                    else{
-                        $remarks = $temp;
-                    }
+                    // if($temp =="No any remarks to display"){
+                    //     $remarks = "";
+                    // }
+                    // else{
+                    //     $remarks = $temp;
+                    // }
 
                     //02.get the responded date
                     date_default_timezone_set('Asia/Kolkata');

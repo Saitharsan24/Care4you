@@ -52,7 +52,7 @@
             ?>
             <span>
                 <div id="drug">
-            <input type="text" class="search-drug" name="" placeholder=" search drug name" id="drug_name" onkeyup="filterDrugName()" autofocus="true" />
+            <input type="text" class="search-test" name="" placeholder=" search drug name" id="drug_name" onkeyup="filterDrugName()" autofocus="true" />
                 </div>
                 <table class="tbl-main" id="tbl-main">
                     <thead>

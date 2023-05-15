@@ -6,8 +6,8 @@ function filterTestName() {
   
     table = document.getElementById("tbl-common");
     tr = table.getElementsByTagName("tr");          // the getElementsByTagName() function is used to assign the tags in a array
-    for (i = 2; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+    for (i = 1; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
   
       if (td) {
         txtValue = td.textContent.toUpperCase() || td.innerText.toUpperCase();

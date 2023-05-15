@@ -711,11 +711,14 @@ height: 95% !important;
 
 
 
-/* search css for pharmacy_stock.php page */
+/* search css for lap_test.php page */
 
-.search-drug {
-  width: 100%;
-  padding: 5px;
+
+
+.search-test {
+  width: 42%;
+  padding: 7px 7px 7px 10px;
+  margin: 8px 0;
   box-sizing: border-box;
   border-radius: 10px;
   border: none;
@@ -723,8 +726,9 @@ height: 95% !important;
 
 }
 
-.search-drug::placeholder {
+.search-test::placeholder {
   color: rgb(0, 0, 0);
   font-size: 10px;
   font-style: italic;
 }
+

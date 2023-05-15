@@ -2560,4 +2560,21 @@ font-weight: 550;
   } */
   
   /* CSS for viewprofile.php Ends Here*/
+
+  .ortext{
+    color: #0C5C75;
+    font-weight: 650;
+    font-size: 25px;
+    margin-left: 450px;
+    margin-top: -10px;
+  }
   
+  .testselect{
+    width: 350px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+  }

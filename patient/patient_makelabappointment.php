@@ -33,7 +33,7 @@ $p_nic = $row['nic'];
   <title>Home</title>
   <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
-
+<?php include('patient_getinfo.php') ?>
 <body>
   <div class="main-div">
     <div class="home-left">
@@ -141,9 +141,57 @@ if (isset($_POST['createlabapt'])) {
   $labaptDate = $_POST['date'];
   $contact = $_POST['contactnumber'];
 
+  //Check whether the prescription is uploaded or not
+
+
+  if (isset($_FILES['prescription']['name'])) {
+
+    //Upload the prescription
+    //To upload the prescription we need the file name, source path and destination path
+
+    //Get the prescription name
+    $prescription_name = $_FILES['prescription']['name'];
+
+
+    //Upload prescription only if prescription is selected
+    if ($prescription_name != "") {
+      //Auto Rename the Prescription
+
+      //Get the extension of the prescription
+      $namarr = explode('.', $prescription_name);
+      $ext = end($namarr);
+
+      //Rename the prescription
+      $prescription_name = "LabAppointment_" . $fullname . "." . $ext;
+
+      //Get the source path
+      $source_path = $_FILES['prescription']['tmp_name'];
+
+      //Give the destination path
+      $destination_path = "../images/labapt-prescription/" . $prescription_name;
+
+      //Upload the prescription
+      $upload = move_uploaded_file($source_path, $destination_path);
+
+      //Check whether the prescription is uploaded or not
+      if ($upload == FALSE) {
+        $_SESSION['upload'] = "Failed to upload Prescription! Please Retry";
+        //Redirect to place order page
+        // header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
+        //Stop the process
+        die();
+      }
+
+    }
+
+  } else {
+    //Prescription not uploaded and prescription name is not set (Data can not save)
+    $prescription_name = "";
+  }
+
   //creating lab appointments 
-  $sql = "INSERT INTO tbl_labappointment (labapt_date,contact,created_by) 
-              VALUES ('$labaptDate','$contact','$user_id')";
+  $sql = "INSERT INTO tbl_labappointment (labapt_date,contact,created_by,prescription_name) 
+              VALUES ('$labaptDate','$contact','$user_id','$prescription_name')";
 
   $result = mysqli_query($conn, $sql);
 

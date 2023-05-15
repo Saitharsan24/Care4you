@@ -44,7 +44,7 @@
         <div class="main_content" style="overflow: hidden;"> 
             <div class="info">
 
-            <div class="back" onclick="location.href='lab_viewnewappointment.php'">
+            <div class="back" onclick="location.href='lab_.php'">
                 <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
             </div>
 

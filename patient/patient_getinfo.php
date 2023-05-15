@@ -44,6 +44,7 @@
                 $contact = $row2['contact'];
                 $address = $row2['address'];
                 $profile_picture = $row2['profile_picture'];
+                $fullname = $first_name." ".$last_name;
                 
             }
         }

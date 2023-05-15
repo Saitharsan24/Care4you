@@ -479,16 +479,17 @@ table td {
   display: inline-block;
   justify-content: left;
   align-items: left;
-  margin-top: 3%;
+  margin-top: 1%;
   margin-bottom: auto;
   margin-left: auto;
   width: 50%;
-  height: 70vh;
+  height: 77vh;
   background-color: #FFFFFF;
   border-radius: 50px;
 }
 
 .topic{
+  margin-top: -10px;
   text-align: left;
   font-size: 17px;
   color: #0D5C75;

@@ -79,7 +79,6 @@
 
         //Step 01 - Get the data from the form
         $name = $_POST['name'];
-        $strength = $_POST['strength'];
         $quantity = $_POST['qty'];
         $unitprice = $_POST['price'];
         
@@ -91,7 +90,6 @@
         //Step 02 - SQL Query to save the data in Database
         $sql = "INSERT INTO tbl_medicine SET 
                 med_name = '$name',
-                strength ='$strength',
                 quantity = '$quantity',                
                 unit_price = '$unitprice'
                 ";

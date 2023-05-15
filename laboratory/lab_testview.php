@@ -22,7 +22,15 @@
             $charge = $rows['charge'];
             $prerequirement = $rows['prerequirement'];
             $NumberOfTestsPerDay = $rows['NumberOfTestsPerDay'];
+            $prescription = $rows['prescription'];
         }
+    }
+
+    if($prescription == 1){
+        $pre = "Prescription Required";
+    }
+    else{
+        $pre = "Prescription Not Required";
     }
 ?>
 
@@ -66,14 +74,13 @@
                 </div>
 
                 <div class="tst-cont">
+                    <br>
 
                     <div class="topic"> Test ID :</div>
                     <div class="topicdata">&emsp; <?php echo $test_id; ?> </div>
 
                     <div class="topic"> Test Name :</div>
                     <div class="topicdata">&emsp; <?php echo $test_name; ?> </div>
-
-                    
 
                     <div class="topic"> Test Duration (in Minutes) :  &emsp; 
                         <i onclick="openPopup1()" class="fa-solid fa-pen-to-square" style="font-size:12px; cursor:pointer; color: #000; transition: color 0.2s;" onmouseover="this.style.color='#0D5C75'" onmouseout="this.style.color='#000'"></i>
@@ -89,6 +96,11 @@
                         <i onclick="openPopup3()" class="fa-solid fa-pen-to-square" style="font-size:12px; cursor:pointer; color: #000; transition: color 0.2s;" onmouseover="this.style.color='#0D5C75'" onmouseout="this.style.color='#000'"></i>
                     </div>
                     <div class="topicdata">&emsp; <?php echo $prerequirement; ?> </div>
+
+                    <div class="topic"> Prescription Required or Not :  &emsp;
+                        <i onclick="openPopup5()" class="fa-solid fa-pen-to-square" style="font-size:12px; cursor:pointer; color: #000; transition: color 0.2s;" onmouseover="this.style.color='#0D5C75'" onmouseout="this.style.color='#000'"></i>
+                    </div>
+                    <div class="topicdata">&emsp; <?php echo $pre; ?> </div>
 
                     <div class="topic"> Number of Tests per Day :  &emsp;
                         <i onclick="openPopup4()" class="fa-solid fa-pen-to-square" style="font-size:12px; cursor:pointer; color: #000; transition: color 0.2s;" onmouseover="this.style.color='#0D5C75'" onmouseout="this.style.color='#000'"></i>

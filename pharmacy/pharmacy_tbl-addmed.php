@@ -73,7 +73,7 @@
         <br/>
         <div class="text">
         <form action="" method="POST">
-        Unavailable Medicines :
+        Other Remarks :
         <textarea name="unavailablemedicines" id="unavailablemedicines" cols="50" rows="2"></textarea>
         <br/> <br/>
         &emsp; &emsp; &emsp; &nbsp; Net Total (Rs) :

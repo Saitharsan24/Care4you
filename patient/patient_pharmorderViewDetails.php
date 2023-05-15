@@ -111,13 +111,22 @@
           <?php
             }
           ?>
-
+                              
           <div class="view-order-btn">
             <?php if (isset($row['responddate'])) { ?>
               <div class="view-order-btn02"><a href="./patient_pharmorderViewReview.php?id=<?php echo $row['order_id'];?>&status=<?php echo $row['order_status'];?>"><button>View review</button></a></div>
             <?php } ?>
             <div class="view-apt-divider"></div>
-            <div class="view-order-btn01"><a href=""><button>Cancel Order</button></a></div>
+
+            <?php 
+              if($row['order_status'] == 0 || $row['order_status'] == 1){
+            ?>
+              <div class="view-order-btn01"><button onclick="openPopupOCAN()">Cancel Order</button></div>
+              
+            <?php
+              include ('./popups/pharmorderpopup.php'); 
+              }
+            ?>
           </div>
         </div>
       </div>

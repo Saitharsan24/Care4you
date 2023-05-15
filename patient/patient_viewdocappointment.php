@@ -136,6 +136,7 @@
                             openPopupREC()
                           } else {
                             toggleText.textContent = "Accesss denied";
+                            openPopupDEC()
                           }  
                       });
                   </script>

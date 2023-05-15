@@ -351,6 +351,22 @@ section.active .modal-box {
   </div>
 </section>
 
+<section id="declineaccess">
+  <span class="overlay" onclick="closePopupDEC()"></span>
+
+  <div class="modal-box" style="width:38%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-question" style="margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure you want to <br/> revoke permissoin from doctor to access your records?</h3>
+    
+    <form action="" method="post">
+      <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+        <button class="button" style="width:100px;" type="submit" name="revoke-record">Yes</button>
+        <button class="button  close-btn " style="width:100px;" onclick="closePopupDEC()">No</button> 
+      </div>
+    </form>
+  </div>
+</section>
+
 
 
 <section id ="reshedule2" > 
@@ -610,6 +626,20 @@ section.active .modal-box {
   sectionC.classList.remove("active");
   }
 
+
+  function openPopupDEC() {
+    const sectionC = document.getElementById("declineaccess");
+    sectionC.classList.add("active");
+  }
+
+  function closePopupDEC() {  
+    console.log('Check');
+  const sectionC = document.getElementById("declineaccess");
+  sectionC.classList.remove("active");
+  }
+
+  
+
 </script>
 
 
@@ -738,5 +768,18 @@ section.active .modal-box {
       window.location.href='';
       </script>";
   }
+
+  if(isset($_POST['revoke-record'])){
+
+    $docapt_id = $_GET['id'];
+    $sql = "UPDATE tbl_docappointment SET record_access = 0
+              WHERE docapt_id = '$docapt_id'";
+
+    $resutls = mysqli_query($conn, $sql);
+    $_SESSION['record-accessok'] = 1;
+    echo "<script>
+    window.location.href='';
+    </script>";
+}
 ?>
   

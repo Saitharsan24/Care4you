@@ -3,6 +3,81 @@
 <?php include('./popups/otherrecord.php') ?>
 
 <?php
+if (isset($_POST)) {
+  if(isset($_POST['upload']))
+          {
+      // print_r($_POST);die();
+              $doctor_name = $_POST["doctor_name"];
+              $rtype = $_POST["rtype"];
+              // $record_name = $_FILES["record"]["name"];
+              $description = $_POST["description"];
+              
+          
+
+              //Check whether the record is uploaded or not
+                  //print_r($_FILES['record']);
+                  //die(); //Break the code to prevent data insertion
+              
+                  if(isset($_FILES['record']['name']))
+                  {
+                    
+                      //Upload the record
+                      //To upload the record we need the file name, source path and destination path
+
+                      //Get the record name
+                      $record_name = $_FILES['record']['name'];
+                  
+
+                      //Upload record only if record is selected
+                      if($record_name != "")
+                      {
+                          //Auto Rename the record
+
+                          //Get the extension of the record
+                          $s = explode('.',$record_name);
+                          $ext = end($s);
+
+                          //Rename the record
+                          $record_name = "Record_".date('dmyhisA').".".$ext;
+
+                          //Get the source path
+                          $source_path = $_FILES['record']['tmp_name'];
+
+                          //Give the destination path
+                          $destination_path = "../images/patient-records/".$record_name; 
+
+                          //Upload the record
+                          $upload = move_uploaded_file($source_path,$destination_path);
+
+                          //Check whether the record is uploaded or not
+                          if($upload == FALSE)
+                          {
+                              $_SESSION['upload'] = "Failed to upload record! Please Retry";
+                              //Redirect to place order page
+                              // header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
+                              //Stop the process
+                              die();
+                          }
+
+                      } 
+
+                  }
+                  else
+                  {
+                      //record not uploaded and record name is not set (Data can not save)
+                      $record_name = "";
+                  }
+
+            $userid = $_SESSION['user_id'];
+
+            $sql="INSERT INTO tbl_otherrecords (doctor_name,record_type,file_name,description,userid)
+                      VALUES ('$doctor_name','$rtype','$record_name','$description',$userid)";    
+            $result = mysqli_query($conn,$sql); 
+                  
+                  
+          } 
+  // print_r($_POST);die();
+}
 
     $user_id = $_SESSION['user_id'];
   
@@ -118,5 +193,8 @@
     </div>
   </div>
 </body>
-
+<?php
+          //Check whether the Place Order button is clicked
+          
+        ?>
 </html>

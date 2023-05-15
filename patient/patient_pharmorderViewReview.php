@@ -112,13 +112,19 @@
 
         <div class="view-orderreview-btn">
                 <div class="">
+                <?php 
+                  if($row['order_status'] == 1 && (int)$row['nettotal'] != 0){
+                ?>
                         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="<?php echo $_SESSION['public_key'] ?>"
                             data-amount="<?php echo $row['nettotal']*100 ?>" data-name="CareForYou Payment"
                             data-description="Make laboratory appointment payment" data-currency="lkr"
                             data-image="../images/logoicon.png" 
                             data-email="<?php echo $email ?>">
-                        </script>   
+                        </script> 
+                <?php 
+                  }
+                ?>  
                 </div>
           </div>
       </div>

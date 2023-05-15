@@ -65,6 +65,8 @@
   margin-left: -50px;
 }
 
+
+
 .close-btn:hover{
   background-color: #db1616;
   transition: .3s;
@@ -334,6 +336,21 @@ section.active .modal-box {
   </div>
 </section>
 
+<section id="cancelorder">
+  <span class="overlay" onclick="closePopupOCAN()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-question" style="color:#0e6680;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:600;">Are you sure<br/>want to cancel the order?</h3>
+
+    <form action="" method="POST">
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button  close-btn " style="width:100px;" type="submit" name="cancelOrder">Yes</button>
+      <button class="button  close-btn " style="width:100px;"  type="button" onclick="closePopupOCAN()" style="background-color:#BD1010;">No</button>
+    </div>
+    </form>
+  </div>
+</section>
 
 
 
@@ -362,5 +379,30 @@ section.active .modal-box {
   sectionC.classList.remove("active");
   }
 
+  function openPopupOCAN() {
+    const sectionC = document.getElementById("cancelorder");
+    sectionC.classList.add("active");
+  }
+
+  function closePopupOCAN() {  
+    console.log('Check');
+  const sectionC = document.getElementById("cancelorder");
+  sectionC.classList.remove("active");
+  }
  
 </script>
+
+
+<?php 
+  if(isset($_POST['cancelOrder'])){
+
+    $order_id = $_GET['id'];
+    $sql = "UPDATE tbl_respondedorders 
+              SET order_status = 5
+              WHERE order_id ='$order_id'";
+
+    $resultDelete = mysqli_query($conn, $sql);
+
+
+  }
+?>

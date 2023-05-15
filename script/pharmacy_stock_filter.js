@@ -6,7 +6,7 @@ function filterDrugName() {
 
   table = document.getElementById("tbl-main");
   tr = table.getElementsByTagName("tr");          // the getElementsByTagName() function is used to assign the tags in a array
-  for (i = 2; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];
 
     if (td) {

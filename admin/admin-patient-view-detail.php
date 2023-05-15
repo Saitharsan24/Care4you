@@ -151,10 +151,6 @@ overlay1.addEventListener("click", closePopup);
                 <table class="tbl-patientview">
                    
                 <img src="../images/user.png" alt="user" class="container01"></td>
-                  
-
-                    
-                    
                         <td colspan="2" class="typeC">
                             <i class="fa-solid fa-address-card" style="font-size: 30px;"></i>&nbsp; Patient Details
                         </td>

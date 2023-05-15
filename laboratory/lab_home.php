@@ -14,9 +14,7 @@ if ($respr == TRUE) {
 }
 
 //Pending Reports
-$sqlplr = "SELECT * FROM tbl_labappointment
-            INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
-            WHERE labapt_status = 2 AND labapt_date > CURDATE()";
+$sqlplr = "SELECT * FROM tbl_labappointment WHERE labapt_status = 2 AND labapt_date > CURDATE()";
 //echo $sqlplr;
 $resplr = mysqli_query($conn, $sqlplr);
 if ($resplr == TRUE) {

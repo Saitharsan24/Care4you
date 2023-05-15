@@ -90,9 +90,9 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content">
-        
-            <div class="order-filter-btn">
-                <div class="right-button order-filter-main-btn">
+        <div class="info">
+            <div class="order-filter-btn2">
+                <div class="right-button order-filter-main-btn2">
                     <a href="?pendingid "><button class="btn-press <?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
                     <a href="?tobeid"><button class="btn-press <?php echo $btn_tobe ?>" name="tobedelivered">To be delivered</button></a>
                     <a href="?dispatchid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Dispatched</button></a>
@@ -102,13 +102,10 @@
 
                 <?php 
                     if(isset($_GET['pendingid']) || isset($_GET['tobeid']) || isset($_GET['completeid'])){ ?>
-                        <div class="clearfilt-order"><a href="./pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>Clear filter</a></div>
+                        <div class="clearfilt-order"><a href="./pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>clear filter</a></div>
                 <?php }?>
 
             </div>
-        
-            <div class="info">
-            <span>
                 <table class="tbl-main">
                     <thead>
                         <tr>
@@ -162,7 +159,6 @@
 
                     </tbody>
                 </table>
-            </span>
             </div>
         </div>
     </div>

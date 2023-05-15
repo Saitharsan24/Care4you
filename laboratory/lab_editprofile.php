@@ -144,7 +144,7 @@
                         <tr>
                             <td class="type1">NIC Number :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" required=""/>
+                            <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" required="" readonly/>
                             </td>
                         </tr>
                         <tr>
@@ -195,21 +195,19 @@
 
         //Step 01 - Get the data from the form
         $fullname = $_POST['fullname'];
-        $email = $_POST['email'];
-        $nic = $_POST['nic'];
         $contact_number = $_POST['contact_number'];
 
         //Step 02 - SQL Query to get the current data from Database
-        $selsql = "SELECT fullname, nic, contact_number FROM tbl_labtec WHERE labtec_id ='$labtec_id'";
+        $selsql = "SELECT fullname, contact_number FROM tbl_labtec WHERE labtec_id ='$labtec_id'";
         $selres = mysqli_query($conn , $selsql) or die(mysqli_error($conn));
         $row = mysqli_fetch_assoc($selres);
 
-        $selsql2 = "SELECT email FROM tbl_sysusers WHERE userid ='$userid'";
-        $selres2 = mysqli_query($conn , $selsql2) or die(mysqli_error($conn));
-        $row2 = mysqli_fetch_assoc($selres2);
+        // $selsql2 = "SELECT email FROM tbl_sysusers WHERE userid ='$userid'";
+        // $selres2 = mysqli_query($conn , $selsql2) or die(mysqli_error($conn));
+        // $row2 = mysqli_fetch_assoc($selres2);
         
         //Step 03 - Compare updated data with current data
-        if ($row['fullname'] == $fullname && $row['nic'] == $nic && $row['contact_number'] == $contact_number) {
+        if ($row['fullname'] == $fullname && $row['contact_number'] == $contact_number) {
             // Data is not updated
             $_SESSION['update-user'] = '<div class="ppUpEr" style="padding-top:25px;"> No Changes made to Profile Details</div>';
             echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_editprofile.php';</script>";
@@ -219,7 +217,6 @@
             //Step 04 - SQL Query to save the data in Database
             $sql3 = "UPDATE tbl_labtec SET 
                 fullname = '$fullname',
-                nic = '$nic',                
                 contact_number = '$contact_number'
                 WHERE labtec_id ='$labtec_id'
             ";

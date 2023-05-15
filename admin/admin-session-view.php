@@ -42,9 +42,9 @@ $result=mysqli_query($conn,$query);
         <div class="main_content">
             <div class="info">
             
-            <button class="btn-addnew" style="width:170px;" onclick="location.href='admin-session-create.php'"><span>create session</span></button>
+            <button class="btn-addnew" style="width:170px; cursor: pointer;" onclick="location.href='admin-session-create.php'"><span>create session</span></button>
             <div class="content">
-                <table class="tbl-main-session" id="tbl-main-session">
+                <table class="tbl-main-session" id="tbl-main-session" style="width: 80%;">
                     <thead>
                         <tr>
                             <td>Session ID</td>    <!-- form tbl_session table  -->

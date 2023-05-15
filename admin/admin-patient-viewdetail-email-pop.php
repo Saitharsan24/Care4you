@@ -59,10 +59,7 @@ section.active .overlay {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 600px;
-  width: 100%;
-  max-height: 300px;
-  height: 100%;
+
   padding: 30px 20px;
   border-radius: 24px;
   background-color: #fff;
@@ -78,7 +75,7 @@ section.active .modal-box {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-box i.fa-solid.fa-sack-dollar {
+.modal-box i{
   font-size: 70px;
   color: #0e6680;
 }

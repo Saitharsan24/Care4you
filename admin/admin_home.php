@@ -1,6 +1,48 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
+
+<?php
+
+    //Pending Session
+    $PSsql = "SELECT status FROM tbl_docsession WHERE status = '0'";                                   
+    $PSres = mysqli_query($conn, $PSsql);
+
+    if($PSres == TRUE)
+    {
+        $PScount = mysqli_num_rows($PSres);
+    }
+
+    //Pending Lab Reports
+    $sqlplr = "SELECT * FROM tbl_labappointment WHERE labapt_status = 2 AND labapt_date > CURDATE()";
+    //echo $sqlplr;
+
+    $resplr = mysqli_query($conn, $sqlplr);
+    if ($resplr == TRUE) {
+        $countplr = mysqli_num_rows($resplr);
+    }
+
+    //Pending Orders
+    $NOsql = "SELECT * FROM tbl_neworder";                                   
+    $NOres = mysqli_query($conn, $NOsql);
+
+    if($NOres == TRUE)
+    {
+        $NOcount = mysqli_num_rows($NOres);
+    }
+
+    $POsql = "SELECT order_status FROM tbl_respondedorders WHERE order_status > 3 ";                                   
+    $POres = mysqli_query($conn, $POsql);
+
+    if($POres == TRUE)
+    {
+        $POcount = mysqli_num_rows($POres);
+    }
+
+    $sum = $NOcount + $POcount;
+
+?>
+
 <?php
 $days = array();
 for ($i = 0; $i < 7; $i++) {
@@ -176,23 +218,23 @@ $days3 = array_reverse($days3);
                                             $values = array_values($days);
                                             echo json_encode($values);
                                             ?>,
-                                            borderColor: "red",
+                                            borderColor: "#F7A4A4",
                                             fill: false
                                         }, {
-                                            label: 'Completed Orders',
+                                            label: 'Completed Pharmacy Orders',
                                             data: <?php
                                             $values = array_values($days2);
                                             echo json_encode($values);
                                             ?>,
-                                            borderColor: "blue",
+                                            borderColor: "#607EAA",
                                             fill: false
                                         }, {
-                                            label: 'Completed Orders',
+                                            label: 'Completed Lab Appointments',
                                             data: <?php
                                             $values = array_values($days3);
                                             echo json_encode($values);
                                             ?>,
-                                            borderColor: "green",
+                                            borderColor: "#03C988",
                                             fill: false
                                         }]
                                     },
@@ -225,15 +267,15 @@ $days3 = array_reverse($days3);
                     <div class="box-cont">
                         <div class="box-sub">
                             <div class="box-title"> Pending Sessions </div>
-                            <div class="box-data"> 05 </div>
+                            <div class="box-data"> <?php echo $PScount; ?> </div>
                         </div>
                         <div class="box-sub" style="margin-top: 6%;">
                             <div class="box-title"> Pending Lab Reports </div>
-                            <div class="box-data"> 10 </div>
+                            <div class="box-data"> <?php echo $countplr; ?> </div>
                         </div>
                         <div class="box-sub" style="margin-top: 6%;">
                             <div class="box-title"> Pending Orders </div>
-                            <div class="box-data"> 10 </div>
+                            <div class="box-data"> <?php echo $sum; ?> </div>
                         </div>
                     </div>
                 </div>

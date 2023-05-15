@@ -590,8 +590,13 @@ body::-webkit-scrollbar {
   padding: 40px;
   border-radius: 25px;
   background: linear-gradient(to top, #ffffff, #fff);
-  height: 75vh;
+  height: 80vh;
   border: 2px solid #0D5C75;
+  overflow: auto;
+}
+
+.containorLarge::-webkit-scrollbar{
+  height: 80%;
 }
 
 .containorLargetxt{

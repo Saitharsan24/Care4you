@@ -28,6 +28,8 @@
     <title>Laboratory</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/labtest_filter.js"></script>
+    <script src="../script/labtest_filter.js"></script>
 </head>
 
 <body>
@@ -58,8 +60,11 @@
                     <button onclick="openPopup1()" class="btn-mkdcapt" style="width:150px;"><span>add new test</span></button>
                 </div>
             </div>
-            <div class="tbl-content">
-                <table class="tbl-common" style="width:75%;">
+            
+            <input type="text" class="search-test" name="" placeholder="Search by Test Name" id="test_name" onkeyup="filterTestName()" autofocus="true" />
+                         
+            <div class="tbl-content">            
+                <table class="tbl-common" id="tbl-common" style="width:75%;">
                     <thead>
                         <tr>
                             <td style="width:15%">Test ID</td>
@@ -67,6 +72,7 @@
                             <td style="width:20%"></td>
                             <td style="width:15%"></td>
                         </tr>
+                       
                     </thead>
                     <tbody>
                         <?php

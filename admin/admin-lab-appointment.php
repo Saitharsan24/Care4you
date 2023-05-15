@@ -18,12 +18,14 @@
 
 <?php
   
-  $sql = "SELECT * FROM  
-  tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
-  INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
-  INNER JOIN tbl_patient ON tbl_docappointment.created_by = tbl_patient.userid ";
+//   $sql = "SELECT * FROM  
+//   tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id
+//   INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id
+//   INNER JOIN tbl_patient ON tbl_docappointment.created_by = tbl_patient.userid ";
 
-  $result = mysqli_query($conn,$sql);
+$sql="SELECT * FROM tbl_labappointment INNER JOIN tbl_patient ON tbl_labappointment.created_by=tbl_patient.userid ";
+$result = mysqli_query($conn,$sql);
+//print_r($result);die();
  
 ?>
 
@@ -75,25 +77,22 @@
                                         <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                                     </tr>
                                     <?php
+                                                                if($result){
+                                                                    while($row=mysqli_fetch_array($result)){
                                                                    ?>
                                
                                         <tr>
-                                            <td></td>
-                                            <td>
-                                                <?php
+                                            <td><?php echo $row['labapt_id'] ?></td>
+                                            <td><?php  echo $row['first_name'] ?>  </td>
                                                      
-                                                ?>
-                                            </td>
-                                            <td></td>
-                                            <td><button class="btn-green">
-                                             <?php
-                            
-                              ?> 
-                                              </td>
-                                            
-                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-lab-appointment-detail.php"'><span>Appointment Details</span></button></td>
+
+                                           <td><?php echo $row['labapt_date'] ?></td>
+                                            <td><?php echo $row['labapt_status'] ?></td>    
+                                            <td><button class="btn-view-appoint-detail" onclick='location.href="admin-lab-appointment-detail.php?id=<?php echo $row["labapt_id"]; ?>"'><span>Appointment Details</span></button></td>
                                         </tr>
                                        <?php
+                                                                    }
+                                                                }
                                        ?>
                           
                             </tbody>

@@ -13,6 +13,12 @@
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+<?php
+
+  $apt_id=$_GET['id'];
+  print_r($apt_id);die();
+?>
+
 <body>
     <div class="wrapper">
         <div class="sidebar">
@@ -39,20 +45,20 @@
             
             <table class="view-lab-apt" id="tbl-main-app">
                    <tr>
-                        <td class="typeR">Reference No :</td>
+                        <td class="typeR">Reference No :</td>   <!--from tbl_labappointment -->
                         <td class="typeL"> </td>
 
                         </tr>
                     <tr>
-                        <td class="typeR">Doctor Name :</td>
+                        <td class="typeR">Doctor Name :</td>     <!--from tbl_doctor -->
                         <td class="typeL"></td>
                     </tr>
                     <tr>
-                        <td class="typeR">Date :</td>
+                        <td class="typeR">Date :</td>              <!--from tbl_labappointment -->
                         <td class="typeL"></td>
                     </tr>
                     <tr>
-                        <td class="typeR">Appointment No :</td>
+                        <td class="typeR">Appointment No :</td>        <!--from tbl_labappointment -->
                         <td class="typeL"> </td>                 
                     
                     </tr>

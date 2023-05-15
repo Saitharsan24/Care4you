@@ -708,3 +708,27 @@ height: 95% !important;
   border-radius: 50px;
   flex-direction: column;
 }
+
+
+
+/* search css for lap_test.php page */
+
+
+
+.search-test {
+  width: 42%;
+  padding: 7px 7px 7px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color: #ccc;
+
+}
+
+.search-test::placeholder {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  font-style: italic;
+}
+

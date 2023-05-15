@@ -95,8 +95,6 @@
                 ";
         //echo $sql;
 
-        //Step 03 - Execute the Query and save data in Database
-        include ('../config/constants.php');
 
         $res = mysqli_query($conn , $sql) or die(mysqli_error($conn));
 

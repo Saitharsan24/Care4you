@@ -809,7 +809,7 @@ font-style: italic;
 }
 
 /* buttons of status */
-.btn-pending{
+.btn-pending-lab{
   width: 175px;
   width: 150px;
   background-color: #FDD147;
@@ -822,7 +822,7 @@ font-style: italic;
   font-weight: 550;
 }
 
-.btn-confirmed{
+.btn-confirmed-lab{
   width: 175px;
   width: 150px;
   background-color: #28ae28;
@@ -835,7 +835,7 @@ font-style: italic;
   font-weight: 550;
 }
 
-.btn-completed{
+.btn-completed-lab{
   width: 175px;
   width: 150px;
   background-color: #093e4e;
@@ -848,7 +848,7 @@ font-style: italic;
   font-weight: 550;
 }
 
-.btn-cancelled{
+.btn-cancelled-lab{
   width: 175px;
   width: 150px;
   background-color: #BD1010;
@@ -861,7 +861,7 @@ font-style: italic;
   font-weight: 550;
 }
 
-.btn-nattended{
+.btn-ppending-lab{
   width: 175px;
   width: 150px;
   background-color: #bd1097;

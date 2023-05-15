@@ -28,10 +28,8 @@
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="admin-system-users.php">
-                        <div class="highlighttext">System Users</div>
-                    </a></li>
+                <li><a href="admin-reports.php"><div class="highlighttext">Reports</div></a></li>
+                <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>

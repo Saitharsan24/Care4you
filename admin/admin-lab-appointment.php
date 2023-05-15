@@ -41,7 +41,7 @@ $result = mysqli_query($conn,$sql);
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</div></a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
@@ -87,13 +87,30 @@ $result = mysqli_query($conn,$sql);
                                                      
 
                                            <td><?php echo $row['labapt_date'] ?></td>
-                                            <td><?php echo $row['labapt_status'] ?></td>    
+                                            <td><?php 
+                                             
+                                             if($row['labapt_status']==0){
+                                                echo '<button vs class="btn-pending-lab">response pending </button>';
+                                              }else if($row['labapt_status']==1){
+                                                echo '<button class="btn-ppending-lab"> pending payment</button>';
+                                              }else if($row['labapt_status']==2){
+                                                echo '<button class="btn-confirmed-lab"> confirmed </button>'; 
+                                              }else if($row['labapt_status']==3){
+                                                echo '<button class="btn-completed-lab"> complete </button>'; 
+                                              }else if($row['labapt_status']==4){
+                                                echo '<button class="btn-cancelled-lab">  cancelled</button>';
+                                              }
+
+                                            ?></td>    
                                             <td><button class="btn-view-appoint-detail" onclick='location.href="admin-lab-appointment-detail.php?id=<?php echo $row["labapt_id"]; ?>"'><span>Appointment Details</span></button></td>
                                         </tr>
                                        <?php
                                                                     }
                                                                 }
                                        ?>
+                                      
+             
+                   
                           
                             </tbody>
                         </table>

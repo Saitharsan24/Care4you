@@ -138,7 +138,7 @@
                         <tr>
                             <td class="type1">Email Address :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required=""/>
+                            <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required="" readonly/>
                             </td>
                         </tr>
                         <tr>
@@ -209,7 +209,7 @@
         $row2 = mysqli_fetch_assoc($selres2);
         
         //Step 03 - Compare updated data with current data
-        if ($row['fullname'] == $fullname && $row2['email'] == $email && $row['nic'] == $nic && $row['contact_number'] == $contact_number) {
+        if ($row['fullname'] == $fullname && $row['nic'] == $nic && $row['contact_number'] == $contact_number) {
             // Data is not updated
             $_SESSION['update-user'] = '<div class="ppUpEr" style="padding-top:25px;"> No Changes made to Profile Details</div>';
             echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_editprofile.php';</script>";
@@ -226,12 +226,12 @@
             //echo $sql;
             $res3 = mysqli_query($conn , $sql3) or die(mysqli_error($conn));
             
-            $sql4 = "UPDATE tbl_sysusers SET 
-                email = '$email'
-                WHERE userid ='$userid'
-            ";
-            //echo $sql;
-            $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
+            // $sql4 = "UPDATE tbl_sysusers SET 
+            //     email = '$email'
+            //     WHERE userid ='$userid'
+            // ";
+            // //echo $sql;
+            // $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
             
             //Step 05 - Check data is inserted (Query executed) or not & Disply Message
             if($res3 == TRUE) {

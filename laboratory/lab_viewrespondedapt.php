@@ -10,6 +10,7 @@
 
     $result =  mysqli_query($conn, $sql);
     $rowDetails = mysqli_fetch_assoc($result);
+    $rowDetails['labapt_id'] = $labapt_id;
 ?>
 
 

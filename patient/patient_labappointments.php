@@ -81,14 +81,17 @@ $results = mysqli_query($conn, $sqlsel);
                   <td>
                     <?php
 
-                    if ($row['labapt_status'] == 1) {
-                      echo ' ' . '<button class="docapt-st01">Confirmed</button>';
+                    if ($row['labapt_status'] == 0) {
+                      echo ' ' . '<button class="order-st01">Response Pending</button>';
+                    }
+                    elseif ($row['labapt_status'] == 1) {
+                      echo ' ' . '<button class="docapt-st01">Payment Pending</button>';
                     } elseif ($row['labapt_status'] == 2) {
-                      echo ' ' . '<button class="docapt-st02">Cancelled</button>';
+                      echo ' ' . '<button class="docapt-st02">Confirmed</button>';
                     } elseif ($row['labapt_status'] == 3) {
                       echo ' ' . '<button class="docapt-st03"">Completed</button>';
                     } else {
-                      echo ' ' . '<button class="docapt-st04">Not Attended</button>';
+                      echo ' ' . '<button class="docapt-st04">Cancelled</button>';
                     }
 
                     ?>

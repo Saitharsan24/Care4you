@@ -305,7 +305,7 @@ body{
   }
   
   .reg-foot span:after {
-    content: '✔';
+    content: 'âœ”';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -448,17 +448,25 @@ body{
     flex-direction: row;
     justify-content: space-around;
     width: 1200px;
-    height: 300px;
+    height: 350px;
 }
 
-.reg-container select{
+.reg-container input{
   width: 350px;
   border-radius: 20px;
   height: 40px;
   font-size: 15px;
   padding: 5px;
+  margin-bottom: 20px;
 }
-
+.reg-container select {
+  width: 350px;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 28px;
+}
 .reg-container option{
   width: 350px;
   border-radius: 20px;
@@ -474,3 +482,4 @@ body{
   font-size: 15px;
   font-weight: 500;
 }
+

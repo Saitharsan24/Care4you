@@ -373,9 +373,10 @@ if (isset($_POST['reg'])) {
     $res2 = mysqli_query($conn, $sql);
 
 
+    
+
     if ($res1 && $res2) {
-        // header("Location: /Care4you/admin/admin-doc-view.php");
-        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php';</script>";
+        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php?';</script>";
     } else {
         echo "Error: " . "<br>" . mysqli_error($conn);
         die();

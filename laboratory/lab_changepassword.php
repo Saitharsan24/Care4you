@@ -2,17 +2,19 @@
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/pharmacy.css"> 
+    <link rel="stylesheet" href="../css/pharmacy.css">
     <title>Laboratory</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<?php include('lab_getinfo.php') ?>
+    <?php include('lab_getinfo.php') ?>
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -22,89 +24,158 @@
                 <li><a href="lab_newappointments.php">New Appointments</a></li>
                 <li><a href="lab_appointmenthistory.php">Appointment History</a></li>
                 <li><a href="lab_testsinfo.php">Lab Tests</a></li>
-                <li><a href="lab_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
+                <li><a href="lab_viewprofile.php">
+                        <div class="highlighttext">Profile</div>
+                    </a></li>
             </ul>
-            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
+            <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                </a></div>
         </div>
-        <div class="main_content"> 
+        <div class="main_content">
             <div class="info">
-            <div class="back" onclick="location.href='lab_editprofile.php'">
-                <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
-            </div>
-            <div class="polygons">
-                <div class="square" style="height:370px; border-radius:25px;">
-                    <br /><br /><br /><br /><br /><br/>
-                    <?php
-                        if(isset($_SESSION['change-pwd']))
-                        {
+                <div class="back" onclick="location.href='lab_editprofile.php'">
+                    <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
+                </div>
+                <div class="polygons">
+                    <div class="square" style="height:370px; border-radius:25px;">
+                        <br /><br /><br /><br /><br /><br />
+                        <?php
+                        if (isset($_SESSION['change-pwd'])) {
                             echo $_SESSION['change-pwd'];
                             unset($_SESSION['change-pwd']);
 
                         }
-                        if(isset($_SESSION['pwd-not-match']))
-                        {
+                        if (isset($_SESSION['pwd-not-match'])) {
                             echo $_SESSION['pwd-not-match'];
                             unset($_SESSION['pwd-not-match']);
 
                         }
-                        if(isset($_SESSION['old-pwd-not-match']))
-                        {
+                        if (isset($_SESSION['old-pwd-not-match'])) {
                             echo $_SESSION['old-pwd-not-match'];
                             unset($_SESSION['old-pwd-not-match']);
 
                         }
-                    ?>
-                    </figure>
-                    <span>
-                    <form action="" method="POST">
-                    <table class="tbl-square">
-                        <tr>
-                            <td class="type1">Current Password :</td>
-                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="password" name="oldpwd" required="" autofocus="true"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="type1">New Password :</td>
-                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="password" name="newpwd" required="" autofocus="true"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="type1">Confirm Password :</td>
-                            <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="password" name="confirmpwd" required="" autofocus="true"/>
-                            </td>
-                        </tr>
-                    </table> 
-                </div>
+                        if (isset($_SESSION['empty-pwd'])) {
+                            echo $_SESSION['empty-pwd'];
+                            unset($_SESSION['empty-pwd']);
+
+                        }
+                        if (isset($_SESSION['pwd-length'])) {
+                            echo $_SESSION['pwd-length'];
+                            unset($_SESSION['pwd-length']);
+
+                        }
+                        if (isset($_SESSION['pwd-lowercase'])) {
+                            echo $_SESSION['pwd-lowercase'];
+                            unset($_SESSION['pwd-lowercase']);
+
+                        }
+                        if (isset($_SESSION['pwd-uppercase'])) {
+                            echo $_SESSION['pwd-uppercase'];
+                            unset($_SESSION['pwd-uppercase']);
+
+                        }
+                        if (isset($_SESSION['pwd-number'])) {
+                            echo $_SESSION['pwd-number'];
+                            unset($_SESSION['pwd-number']);
+
+                        }
+                        if (isset($_SESSION['pwd-special-char'])) {
+                            echo $_SESSION['pwd-special-char'];
+                            unset($_SESSION['pwd-special-char']);
+
+                        }
+                        ?>
+                        </figure>
+                        <span>
+                            <form action="" method="POST">
+                                <table class="tbl-square">
+                                    <tr>
+                                        <td class="type1">Current Password :</td>
+                                        <td class="type2"
+                                            style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
+                                            <input type="password" name="oldpwd" required="" autofocus="true" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="type1">New Password :</td>
+                                        <td class="type2"
+                                            style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
+                                            <input type="password" name="newpwd" required="" autofocus="true" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="type1">Confirm Password :</td>
+                                        <td class="type2"
+                                            style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
+                                            <input type="password" name="confirmpwd" required="" autofocus="true" />
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
                     <a href="lab_editprofile.php">
-                    <button class="btn-saveP square5" type="submit" name="submit">
-                    <i class="fa-solid fa-key"></i>
-                    &nbsp; Change Password
-                    </button>
+                        <button class="btn-saveP square5" type="submit" name="submit">
+                            <i class="fa-solid fa-key"></i>
+                            &nbsp; Change Password
+                        </button>
                     </a>
-                    </form>                      
-                    <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user" class="circle" style="margin-top:-10px;"/>
+                    </form>
+                    <img src="../images/user-profilepic/labtec/<?php echo $profile_picture; ?>" alt="user"
+                        class="circle" style="margin-top:-10px;" />
                     <div id="overlap"></div>
-            </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
 
-<?php 
+<?php
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $oldpwd = $_POST['oldpwd'];
     $newpwd = $_POST['newpwd'];
     $confirmpwd = $_POST['confirmpwd'];
 
     // Check if new password matches confirm password
-    if($newpwd !== $confirmpwd) {
+    if ($newpwd !== $confirmpwd) {
         $_SESSION['pwd-not-match'] = "<div class='ppUpEr'>Password Did Not Match</div>";
         header('location: lab_changepassword.php');
+        exit();
+    }
+
+
+    // Validate new password
+    if (empty($newpwd)) {
+        $_SESSION['empty-pwd'] = "<div class='ppUpEr'>Password is required</div>";
+        //header('location: lab_changepassword.php');
+        echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_changepassword.php';</script>";
+        exit();
+    } elseif (strlen($newpwd) < 8) {
+        $_SESSION['pwd-length'] = "<div class='ppUpEr'>Password must have at least 8 characters</div>";
+        //header('location: lab_changepassword.php');
+        echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_changepassword.php';</script>";
+        exit();
+    } elseif (!preg_match("#[a-z]+#", $newpwd)) {
+        $_SESSION['pwd-lowercase'] = "<div class='ppUpEr'>Password must have at least one lowercase letter</div>";
+        //header('location: lab_changepassword.php');
+        echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_changepassword.php';</script>";
+        exit();
+    } elseif (!preg_match("#[A-Z]+#", $newpwd)) {
+        $_SESSION['pwd-uppercase'] = "<div class='ppUpEr'>Password must have at least one uppercase letter</div>";
+        //header('location: lab_changepassword.php');
+        echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_changepassword.php';</script>";
+        exit();
+    } elseif (!preg_match("#[0-9]+#", $newpwd)) {
+        $_SESSION['pwd-number'] = "<div class='ppUpEr'>Password must contain at least one number</div>";
+        //header('location: lab_changepassword.php');
+        echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_changepassword.php';</script>";
+        exit();
+    } elseif (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $newpwd)) {
+        $_SESSION['pwd-special-char'] = "<div class='ppUpEr'>Password must contain at least one special character</div>";
+        //header('location: lab_changepassword.php');
+        echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_changepassword.php';</script>";
         exit();
     }
 
@@ -114,11 +185,11 @@ if(isset($_POST['submit'])) {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if($result->num_rows == 1) {
+    if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
 
         // Verify if the old password is correct
-        if(password_verify($oldpwd, $row['password'])) {
+        if (password_verify($oldpwd, $row['password'])) {
             // Hash the new password
             $hashed_newpwd = password_hash($newpwd, PASSWORD_DEFAULT);
 
@@ -127,7 +198,7 @@ if(isset($_POST['submit'])) {
             $stmt->bind_param("si", $hashed_newpwd, $userid);
             $stmt->execute();
 
-            if($stmt->affected_rows == 1) {
+            if ($stmt->affected_rows == 1) {
                 $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully</div>";
                 header('location: lab_viewprofile.php');
                 exit();

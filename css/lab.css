@@ -477,26 +477,27 @@ table td {
   padding-right: 80px;
   padding-top: 15px;
   display: inline-block;
-  justify-content: left;
-  align-items: left;
-  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1%;
   margin-bottom: auto;
   margin-left: auto;
   width: 50%;
-  height: 70vh;
+  height: 77vh;
   background-color: #FFFFFF;
   border-radius: 50px;
 }
 
 .topic{
-  text-align: left;
+  margin-top: -10px;
+  text-align: center;
   font-size: 17px;
   color: #0D5C75;
   font-weight: 550;
 }
 
 .topicdata{
-  text-align: left;
+  text-align: center;
   padding: 3px;
   background-color: #f3f3f3;
   border-radius: 10px;

@@ -37,7 +37,7 @@
     </div>
     <div class="home-right">
 
-      <div class="back" onclick="location.href='patient_docappointments.php'">
+      <div class="back" onclick="location.href='patient_labappointments.php'">
         <i class="fa-solid fa-circle-arrow-left" style="font-size: 35px;"></i>
       </div>
 

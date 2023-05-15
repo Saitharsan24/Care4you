@@ -107,10 +107,10 @@ $test_details_null = mysqli_query($conn, $sql);
 
                     </div>
                     <div class="containorSRight">
-                        <a href="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" download>
-                            <img src="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" class="containorSR" style="width:90%; max-height:60vh;">
+                        <a href="../images/labapt-prescription/<?php echo $albapt_details['prescription_name'] ?>" download>
+                            <img src="../images/labapt-prescription/<?php echo $albapt_details['prescription_name'] ?>" class="containorSR" style="width:90%; max-height:60vh;">
                         </a>
-                        <a class="datatxt2-link" title="Open Prescription in New Window" href="../images/pharmacy-orders/Order_06_02_23_08_56_41_PM.jpeg" target="_blank">
+                        <a class="datatxt2-link" title="Open Prescription in New Window" href="../images/labapt-prescription/<?php echo $albapt_details['prescription_name'] ?>" target="_blank">
                             PrescriptionName.ext &nbsp;
                             <i class="fa-solid fa-expand"></i>
                         </a>

@@ -37,11 +37,11 @@
             <form class="form-signin" action="#" method="POST">       
                 <h2 class="form-signin-heading">Sign In</h2>
                 <?php 
-                    if(isset($_SESSION['login']))
-                    {
-                        echo $_SESSION['login'];
-                        unset($_SESSION['login']);
-                    }
+                    // if(isset($_SESSION['login']))
+                    // {
+                    //     echo $_SESSION['login'];
+                    //     unset($_SESSION['login']);
+                    // }
                     if(isset($_SESSION['no-login-message']))
                     {
                         echo $_SESSION['no-login-message'];

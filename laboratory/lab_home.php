@@ -1,8 +1,41 @@
 <?php include('../config/constants.php'); ?>
 <?php include('../login_access.php') ?>
-<!DOCTYPE html>
+
+
 <?php
 
+//Pending to Respond Count
+$sqlpr = "SELECT * FROM tbl_labappointment
+            INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
+            WHERE labapt_status = 0";
+$respr = mysqli_query($conn, $sqlpr);
+if ($respr == TRUE) {
+    $countpr = mysqli_num_rows($respr);
+}
+
+//Pending Reports
+$sqlplr = "SELECT * FROM tbl_labappointment
+            INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
+            WHERE labapt_status = 2 AND labapt_date > CURDATE()";
+//echo $sqlplr;
+$resplr = mysqli_query($conn, $sqlplr);
+if ($resplr == TRUE) {
+    $countplr = mysqli_num_rows($resplr);
+}
+
+// Today Appointments
+$sqlta = "SELECT * FROM tbl_labappointment
+            INNER JOIN tbl_patient ON tbl_labappointment.created_by = tbl_patient.userid
+            WHERE (labapt_status = 1 OR labapt_status = 2) AND labapt_date = CURDATE()";
+//echo $sqlplr;
+$resta = mysqli_query($conn, $sqlta);
+if ($resta == TRUE) {
+    $countta = mysqli_num_rows($resta);
+}
+?>
+
+
+<?php
 $days = array();
 for ($i = 0; $i < 7; $i++) {
     $days[date('D', strtotime("-$i day"))] = 0;
@@ -27,9 +60,8 @@ $days = array_combine(array_map(function ($key) {
 
 //Reverse the array to show the earliest month first
 $days = array_reverse($days);
-
-
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -67,12 +99,12 @@ $days = array_reverse($days);
                 // if (isset($_SESSION['login'])) {
                 //     echo $_SESSION['login'];
                 //     unset($_SESSION['login']);
-
+                
                 // }
                 // if (isset($_SESSION['no-login-message'])) {
                 //     echo $_SESSION['no-login-message'];
                 //     unset($_SESSION['no-login-message']);
-
+                
                 // }
                 ?>
                 <div class="welcometext">Welcome <div class="usernametext">
@@ -82,15 +114,19 @@ $days = array_reverse($days);
                 <div class="flex-cont">
                     <!-- <div class="btm-box box-title" style="font-size: 30px;"> Today Appointments : 15</div> -->
                     <div class="left-cont">
-                        <div class="box-title"> <i class="fa-solid fa-calendar-day" style="font-weight: 650;font-size: 45px;margin-top: 32px;"></i> </div>
+                        <div class="box-title"> <i class="fa-solid fa-calendar-day"
+                                style="font-weight: 650;font-size: 45px;margin-top: 32px;"></i> </div>
                         <div class="box-title" style="margin-top: 1%"> Today </div>
                         <?php
-                            date_default_timezone_set('Asia/Kolkata');
-                            $date = date('d/m/Y');
+                        date_default_timezone_set('Asia/Kolkata');
+                        $date = date('d/m/Y');
                         ?>
-                        <div class="box-data" style="font-size: 30px; margin-top: 10% ;" > <?php echo $date; ?> </div>
-                        <div class="box-title" style="margin-top: 25% ;font-size: 25px; color:#4D4D4D;" > Today Appointments </div>
-                        <div class="box-data" style="font-size: 100px;margin-top: 20%;"> 10 </div>
+                        <div class="box-data" style="font-size: 30px; margin-top: 10% ;">
+                            <?php echo $date; ?>
+                        </div>
+                        <div class="box-title" style="margin-top: 25% ;font-size: 25px; color:#4D4D4D;"> Today
+                            Appointments </div>
+                        <div class="box-data" style="font-size: 100px;margin-top: 20%;"> <?php echo $countta; ?> </div>
                     </div>
                     <div class="graph-cont">
                         <div class="graph-home">
@@ -168,17 +204,19 @@ $days = array_reverse($days);
                                     });
                                 </script>
                             </canvas>
-                            <div style="font-size:18px;font-weight:700;margin-top:10px;margin-bottom:10px;color:#4D4D4D;"> Weekly Lab Appointments Summary </div>
+                            <div
+                                style="font-size:18px;font-weight:700;margin-top:10px;margin-bottom:10px;color:#4D4D4D;">
+                                Weekly Lab Appointments Summary </div>
                         </div>
                     </div>
                     <div class="box-cont">
                         <div class="box-sub">
                             <div class="box-title"> Pending to Respond </div>
-                            <div class="box-data"> 05 </div>
+                            <div class="box-data"> <?php echo $countpr; ?> </div>
                         </div>
                         <div class="box-sub" style="margin-top: 8%;">
                             <div class="box-title"> Pending Reports </div>
-                            <div class="box-data"> 10 </div>
+                            <div class="box-data"> <?php echo $countplr; ?> </div>
                         </div>
                     </div>
                 </div>

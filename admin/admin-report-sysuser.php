@@ -1,6 +1,10 @@
 <?php include('../config/constants.php'); ?>
 <?php include('../login_access.php') ?>
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +16,24 @@
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"
+        integrity="sha512-JtgP5ehwmnI6UfiOV6U2WzX1l6D1ut4UHZ4ZiPw89TXEhxxr1rdCz88IKhzbm/JdX9T34ZsweLhMNSs2YwD1Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
 </head>
 
 
 
 <body>
 <?php include('admin_getinfo.php') ?>
+
+
+
+    
     <div class="wrapper">
         <div class="sidebar">
             <a href="../index.php"><img src="../images/logo.png" alt="logo" class="logo"></a>
@@ -46,23 +62,336 @@
                 </div>
                 
                 <div class="reg-container">
-                    <div style="background-color: #ffffff;color: #000000;font-size: 30px;font-weight: 500;width:400px">
-                        <label style="margin-top: -100px; margin-bottom:30px;">Select system user type:</label>
-                        <select name="" id="">
-                            <option value="">Select system user</option>
-                            <option value="">Patient</option>
-                            <option value="">Doctor</option>
-                            <option value="">Pharmacist</option>
-                            <option value="">Assistant</option>
-                            <option value="">Lab Technician</option>
+                     <div style="background-color: #ffffff;color: #000000;font-size: 20px;font-weight: 500;width:400px">
+                        <label style="margin-top: 10px; margin-bottom:10px;">Select system user type:</label>
+                        <form action="" method="POST">
+                        <select name="role" id="">
+                            <option value="" hidden>Select system user</option>
+                            <option value="Patient">Patient</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Pharmacist">Pharmacist</option>
+                            <option value="Assistant">Assistant</option>
+                            <option value="Lab">Lab Technician</option>
                         </select>
+
+                        <label style="margin-top:20px; margin-bottom:10px;">Select from date:</label>
+                        <input name="from-date" class="" type="date">
+
+                        <label style="margin-top:20px; margin-bottom:10px;">Select to date:</label>
+                        <input name="to-date" type="date">
                     </div>
                 </div>
-                <button name="reg" class="reg-foot pha">
+                <button type="submit" name="generate" class="reg-foot pha">
                     <span>Generate report&nbsp;</span>
                 </button>
+                </form>
             </div>
         </div>
 </body>
 
 </html>
+
+<?php 
+if (isset($_POST['generate'])) {
+    // print_r($_POST);die();
+    $to = $_POST['to-date'];
+    $from =$_POST['from-date'];
+    if ($_POST['role'] == 'Patient') {
+        $query="SELECT * FROM tbl_patient 
+        WHERE acc_createdate <= '$to'
+        AND acc_createdate >= '$from' ";
+        $output = mysqli_query($conn, $query);
+        
+    
+?>
+<script>
+        
+            pdf = new jsPDF;
+            // Set the font size and font family
+            pdf.setFontSize(16);
+            
+
+            // Define the text to center
+            var text = "Details of patients";
+
+            // Get the width of the text
+            var textWidth = pdf.getTextWidth(text);
+
+            // Calculate the X position to center the text
+            var xPos = (pdf.internal.pageSize.width - textWidth) / 7;
+
+            // Add the text to the PDF at the center of the page
+            pdf.text(text, xPos, 10);
+
+            // Define the table columns and data
+            let columns1 = ["First Name", "Last Name" ,"Gender","DOB","NIC","Contact Number","Address"];
+            let data1 = [
+                <?php 
+                while ($donation = mysqli_fetch_array($output)) {
+                    echo '["' . $donation['first_name'] . '", "' . $donation['last_name']  . '", "' . $donation['gender']  . '", "' . $donation['dob']  . '", "' . $donation['nic']  . '", "' . $donation['contact']  . '", "' . $donation['address']  . '"],';
+                } ?>
+                
+            ];
+
+            // Add the table to the PDF using the autoTable method
+            pdf.autoTable({
+                head: [columns1],
+                body: data1,
+                startY: 20,
+                headStyles: {
+                    fillColor: [13, 92, 117], // Red color
+                    textColor: [255, 255, 255] // White text
+
+                }
+
+            });
+
+            var filename = 'Patient details report.pdf';
+            pdf.save(filename);
+                
+
+            
+        
+    </script>   
+<?php 
+} 
+else if ($_POST['role'] == 'Pharmacist') {
+        $query="SELECT * FROM tbl_pharmacist 
+        WHERE acc_createdate <= '$to'
+        AND acc_createdate >= '$from' ";
+        $output = mysqli_query($conn, $query);
+        
+    
+?>
+<script>
+        
+            pdf = new jsPDF;
+            // Set the font size and font family
+            pdf.setFontSize(16);
+            
+
+            // Define the text to center
+            var text = "Details of pharmacists";
+
+            // Get the width of the text
+            var textWidth = pdf.getTextWidth(text);
+
+            // Calculate the X position to center the text
+            var xPos = (pdf.internal.pageSize.width - textWidth) / 3;
+
+            // Add the text to the PDF at the center of the page
+            pdf.text(text, xPos, 10);
+
+            // Define the table columns and data
+            let columns1 = ["Full Name", "NIC" ,"Contact Number"];
+            let data1 = [
+                <?php 
+                while ($donation = mysqli_fetch_array($output)) {
+                    echo '["' . $donation['fullname'] . '", "' . $donation['nic']  . '", "' . $donation['contact_number']  . '"],';
+                } ?>
+                
+            ];
+
+            // Add the table to the PDF using the autoTable method
+            pdf.autoTable({
+                head: [columns1],
+                body: data1,
+                startY: 20,
+                headStyles: {
+                    fillColor: [13, 92, 117], // Red color
+                    textColor: [255, 255, 255] // White text
+
+                }
+
+            });
+
+            var filename = 'Pharmacist Details report.pdf';
+            pdf.save(filename);
+                
+
+            
+        
+    </script>   
+<?php 
+} else if ($_POST['role'] == 'Doctor') {
+        $query="SELECT * FROM tbl_doctor 
+        WHERE acc_createdate <= '$to'
+        AND acc_createdate >= '$from' ";
+        $output = mysqli_query($conn, $query);
+    
+?>
+<script>
+        
+            pdf = new jsPDF;
+            // Set the font size and font family
+            pdf.setFontSize(16);
+            
+
+            // Define the text to center
+            var text = "Details of doctors";
+
+            // Get the width of the text
+            var textWidth = pdf.getTextWidth(text);
+
+            // Calculate the X position to center the text
+            var xPos = (pdf.internal.pageSize.width - textWidth) / 6;
+
+            // Add the text to the PDF at the center of the page
+            pdf.text(text, xPos, 10);
+
+            // Define the table columns and data
+            let columns1 = ["Doctor Name","Contact Number","SLMC Number","Charge","Specialization","nic"];
+            let data1 = [
+                <?php 
+                while ($donation = mysqli_fetch_array($output)) {
+                    // print_r($donation);die();
+                    echo '["' . $donation['doc_name'] . '", "' . $donation['contact_number']  . '", "' . $donation['SLMC_number']  . '", "' . $donation['charge']  . '", "' . $donation['specialization']  . '", "' . $donation['nic']  . '"],';
+                } ?>
+                
+            ];
+
+            // Add the table to the PDF using the autoTable method
+            pdf.autoTable({
+                head: [columns1],
+                body: data1,
+                startY: 20,
+                headStyles: {
+                    fillColor: [13, 92, 117], // Red color
+                    textColor: [255, 255, 255] // White text
+
+                }
+
+            });
+
+            var filename = 'Doctor details report.pdf';
+            pdf.save(filename);
+                
+
+            
+        
+    </script>   
+<?php 
+} 
+else if ($_POST['role'] == 'Assistant') {
+        $query="SELECT * FROM tbl_assistant 
+        WHERE acc_createdate <= '$to'
+        AND acc_createdate >= '$from' ";
+        $output = mysqli_query($conn, $query);
+    
+?>
+<script>
+        
+            pdf = new jsPDF;
+            // Set the font size and font family
+            pdf.setFontSize(16);
+            
+
+            // Define the text to center
+            var text = "Details of assistants";
+
+            // Get the width of the text
+            var textWidth = pdf.getTextWidth(text);
+
+            // Calculate the X position to center the text
+            var xPos = (pdf.internal.pageSize.width - textWidth) / 6;
+
+            // Add the text to the PDF at the center of the page
+            pdf.text(text, xPos, 10);
+
+            // Define the table columns and data
+            let columns1 = ["Assistant Name","Contact Number","nic"];
+            let data1 = [
+                <?php 
+                while ($donation = mysqli_fetch_array($output)) {
+                    // print_r($donation);die();
+                    echo '["' . $donation['name'] . '", "' . $donation['phoneno']  . '", "' . $donation['nic']  . '"],';
+                } ?>
+                
+            ];
+
+            // Add the table to the PDF using the autoTable method
+            pdf.autoTable({
+                head: [columns1],
+                body: data1,
+                startY: 20,
+                headStyles: {
+                    fillColor: [13, 92, 117], // Red color
+                    textColor: [255, 255, 255] // White text
+
+                }
+
+            });
+
+            var filename = 'Assistant details report.pdf';
+            pdf.save(filename);
+                
+
+            
+        
+    </script>   
+<?php 
+} 
+else if ($_POST['role'] == 'Lab') {
+        $query="SELECT * FROM tbl_labtec 
+        WHERE acc_createdate <= '$to'
+        AND acc_createdate >= '$from' ";
+        $output = mysqli_query($conn, $query);
+    
+?>
+<script>
+        
+            pdf = new jsPDF;
+            // Set the font size and font family
+            pdf.setFontSize(16);
+            
+
+            // Define the text to center
+            var text = "Details of lab technicians";
+
+            // Get the width of the text
+            var textWidth = pdf.getTextWidth(text);
+
+            // Calculate the X position to center the text
+            var xPos = (pdf.internal.pageSize.width - textWidth) / 6;
+
+            // Add the text to the PDF at the center of the page
+            pdf.text(text, xPos, 10);
+
+            // Define the table columns and data
+            let columns1 = ["Full Name","Contact Number","nic"];
+            let data1 = [
+                <?php 
+                while ($donation = mysqli_fetch_array($output)) {
+                    // print_r($donation);die();
+                    echo '["' . $donation['fullname'] . '", "' . $donation['contact_number']  . '", "' . $donation['nic']  . '"],';
+                } ?>
+                
+            ];
+
+            // Add the table to the PDF using the autoTable method
+            pdf.autoTable({
+                head: [columns1],
+                body: data1,
+                startY: 20,
+                headStyles: {
+                    fillColor: [13, 92, 117], // Red color
+                    textColor: [255, 255, 255] // White text
+
+                }
+
+            });
+
+            var filename = 'Lab technicians details report.pdf';
+            pdf.save(filename);
+                
+
+            
+        
+    </script>   
+<?php 
+}
+ 
+}
+
+?>
+

@@ -708,3 +708,23 @@ height: 95% !important;
   border-radius: 50px;
   flex-direction: column;
 }
+
+
+
+/* search css for pharmacy_stock.php page */
+
+.search-drug {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  background-color: #ccc;
+
+}
+
+.search-drug::placeholder {
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  font-style: italic;
+}

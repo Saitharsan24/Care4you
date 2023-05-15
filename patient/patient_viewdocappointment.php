@@ -115,11 +115,11 @@
                     <?php if ($row['record_access']==0) { ?>
                       <input type="checkbox" id="toggle" name="attendance">
                       <span class="slider round"></span>
-                      <span id="toggle-text">Not Attended</span>
+                      <span id="toggle-text">Denied</span>
                     <?php } else { ?>
                       <input type="checkbox" id="toggle" name="attendance" checked>
                       <span class="slider round"></span>
-                      <span id="toggle-text">Attended</span>
+                      <span id="toggle-text">Allowed</span>
                     <?php }
                     ?>
                     

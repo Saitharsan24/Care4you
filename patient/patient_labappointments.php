@@ -1,10 +1,12 @@
 <?php include('../config/constants.php'); ?>
-<?php include('../login_access.php') ?>
+<?php include('../login_access.php'); ?>
 
 <?php
-  include('lab_getinfo.php');
-  $sql = "SELECT 'labapt_id', 'labapt_date', 'labapt_status' FROM 'tbl_labappointment' WHERE  created_by = $user_id";
-  $results = mysqli_query($conn,$sql);
+//getting details to display my appointments
+$user_id = $_SESSION['user_id'];
+$sqlsel = "SELECT labapt_id, labapt_date, labapt_status FROM tbl_labappointment WHERE  created_by = $user_id";
+//echo $sqlsel;
+$results = mysqli_query($conn, $sqlsel);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,42 +67,47 @@
             </tr>
           </thead>
           <tbody>
-          <?php
-                  if(mysqli_num_rows($results) != 0){
-                    while($row = mysqli_fetch_assoc($results)){
-                      if($row['docapt_status'] != 0){
-                  ?>
-                      <tr>
-                          <td><?php echo $row['labapt_id'] ?></td>
-                          <td><?php echo $row['labapt_date'] ?></td>
-                          <td>             
-                              <?php 
+            <?php
+            if (mysqli_num_rows($results) != 0) {
+              while ($row = mysqli_fetch_assoc($results)) {
+                ?>
+                <tr>
+                  <td>
+                    <?php echo $row['labapt_id'] ?>
+                  </td>
+                  <td>
+                    <?php echo $row['labapt_date'] ?>
+                  </td>
+                  <td>
+                    <?php
 
-                                  if($row['labapt_status']==1){
-                                      echo ' '.'<button class="docapt-st01">Confirmed</button>';
-                                  } elseif($row['docapt_status']==2){
-                                      echo ' '.'<button class="docapt-st02">Cancelled</button>';
-                                  } elseif($row['docapt_status']==3){
-                                      echo ' '.'<button class="docapt-st03"">Completed</button>';   
-                                  } else{
-                                      echo ' '.'<button class="docapt-st04">Not Nttended</button>';
-                                  }
-
-                              ?>
-                          </td>
-                          <td><a href="./patient_viewdocappointment.php?id=<?php echo $row['docapt_id'] ?>"><button class="book-btn"><span>View Status</span></button></a></td>
-                      </tr>
-                  <?php 
-                      }
+                    if ($row['labapt_status'] == 1) {
+                      echo ' ' . '<button class="docapt-st01">Confirmed</button>';
+                    } elseif ($row['labapt_status'] == 2) {
+                      echo ' ' . '<button class="docapt-st02">Cancelled</button>';
+                    } elseif ($row['labapt_status'] == 3) {
+                      echo ' ' . '<button class="docapt-st03"">Completed</button>';
+                    } else {
+                      echo ' ' . '<button class="docapt-st04">Not Attended</button>';
                     }
-                  } else {
-                  ?>
-                    <tr>
-                          <td colspan="6" class="nosessiontd"><div class="nosession">No Appointments Available</div></td>
-                  </tr>  
-                  <?php
-                  }
-                  ?> 
+
+                    ?>
+                  </td>
+                  <td><a href="./patient_viewlabappointment.php?id=<?php echo $row['labapt_id'] ?>"><button
+                        class="book-btn"><span>View Status</span></button></a></td>
+                </tr>
+                <?php
+              }
+            } else {
+              ?>
+              <tr>
+                <td colspan="6" class="nosessiontd">
+                  <div class="nosession">No Appointments Available</div>
+                </td>
+              </tr>
+              <?php
+            }
+            ?>
 
           </tbody>
         </table>

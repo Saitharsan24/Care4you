@@ -312,7 +312,7 @@ input:focus {
 <section id ="uploadOR" > 
   <span class="overlay"></span>
     <div class="modal-box" style="width:45%; height:65%;" >
-        <form action="" method="POST">
+        <form action="" method="POST"  enctype="multipart/form-data">
             <h1> Upload New Medical Record </h1>
             <div class="form-content" style="margin-left:-70px; margin-top:20px;">
               <div class="form-itm2">
@@ -323,8 +323,8 @@ input:focus {
               <div class="form-itm2">
                 <p>Record Type :</p>
                 <select name="rtype" id="rtype">
-                  <option value="Doctor Prescription">Doctor Prescription</option>
-                  <option value="Lab Report">Lab Report</option>
+                  <option value="0">Doctor Prescription</option>
+                  <option value="1">Lab Report</option>
                 </select>
               </div>
 
@@ -333,100 +333,25 @@ input:focus {
                 <input style="border:1px solid black" accept="image/*,.doc,.docx,.txt,.pdf" type="file" name="record">
               </div>
 
-              <div class="form-itm2">
-                <p>Issued Date :</p>
-                <input style="border:1px solid black" type="Date" name="issuedate">
-              </div>
+                <!-- <div class="form-itm2">
+                  <p>Issued Date :</p>
+                  <input style="border:1px solid black" type="Date" name="issuedate">
+                </div> -->
 
               <div class="form-itm2">
                 <p>Description :</p>
                 <input style="border:1px solid black" class="des" type="text" name="description">
               </div>
-
+              
               <div class="buttons" style=" display: flex; margin-left:500px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;" name="upload">Upload</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;" type="submit" name="upload" >Upload</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
+             
         </div>
         </form>
 
-        <?php
-          //Check whether the Place Order button is clicked
-          if(isset($_POST['upload']))
-          {
-              
-              include('patient_getinfo.php');
-              //Get the details from the form
-              $doctor_name = $_POST["doctor_name"];
-              $rtype = $_POST["rtype"];
-              $record_name = $_FILES["record"]["name"];
-              $issueddate = $_POST["issueddate"];
-              $description = $_POST["description"];
-              
-              echo $doctor_name;
-              echo $rtype;
-              echo $record_name;
-              echo $issueddate;
-              echo $description;
-
-
-              //Check whether the record is uploaded or not
-                  //print_r($_FILES['record']);
-                  //die(); //Break the code to prevent data insertion
-              
-                  if(isset($_FILES['record']['name']))
-                  {
-                    
-                      //Upload the record
-                      //To upload the record we need the file name, source path and destination path
-
-                      //Get the record name
-                      $record_name = $_FILES['record']['name'];
-
-                      //Upload record only if record is selected
-                      if($record_name != "")
-                      {
-                          //Auto Rename the record
-
-                          //Get the extension of the record
-                          $ext = end(explode('.',$record_name));
-
-                          //Rename the record
-                          $record_name = $p_id."_Record_".date('dmyhisA').".".$ext;
-
-                          //Get the source path
-                          $source_path = $_FILES['record']['tmp_name'];
-
-                          //Give the destination path
-                          $destination_path = "../images/patient-records/".$record_name; 
-
-                          //Upload the record
-                          $upload = move_uploaded_file($source_path,$destination_path);
-
-                          //Check whether the record is uploaded or not
-                          if($upload == FALSE)
-                          {
-                              $_SESSION['upload'] = "Failed to upload record! Please Retry";
-                              //Redirect to place order page
-                              // header('location:'.SITEURL.'/patient/patient_pharmorders.php'); 
-                              //Stop the process
-                              die();
-                          }
-
-                      } 
-
-                  }
-                  else
-                  {
-                      //record not uploaded and record name is not set (Data can not save)
-                      $record_name = "";
-                  }
-
-                  echo $record_name;
-                  
-                  
-          } 
-        ?>
+        
     </div>
 </section>
 
@@ -447,3 +372,5 @@ section.classList.remove("active");
 closeBtn.addEventListener("click", closePopup);
 overlay.addEventListener("click", closePopup);
 </script>
+
+

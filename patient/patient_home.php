@@ -67,15 +67,21 @@
           
           <section class="wrapper" id="wrapper">
             <div class="sliderpannel">
-                <i class="fa-solid fa-circle-arrow-left button" id="previous" style="color: #093e4e;"></i>
+               
                   <div class="image-container">
-                    <div class="carousel">
+                    <div class="carousel mySlides fade">
                       <img src="../images/patient-home-slider/168286.jpg" class="slide-img" alt="slider-image">
-                      <img src="../images/patient-home-slider/AmYWXq.jpg" class="slide-img" alt="slider-image">
+                    </div>
+                    <div class="carousel mySlides fade">
+                    <img src="../images/patient-home-slider/AmYWXq.jpg" class="slide-img" alt="slider-image">
+                    </div>
+                    <div class="carousel mySlides fade">
                       <img src="../images/patient-home-slider/IMG-20171105-WA0001.jpg" class="slide-img" alt="slider-image">
                     </div>
+                    
+                      
                   </div>
-                <i class="fa-solid fa-circle-arrow-right button" id="next" style="color: #093e4e;"></i>
+
             </div>
           </section>
           
@@ -90,4 +96,23 @@
       </div>
     </div>
   </body>
+
+
+  <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+ 
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
+</script>
 </html>

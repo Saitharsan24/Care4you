@@ -93,7 +93,7 @@ $p_nic = $row['nic'];
             </div> -->
           <div class="form-itm type-file">
             <p>Upload Prescription :</p>
-            <input type="file" accept="image/*,.doc,.docx,.txt,.pdf" c required />
+            <input name="prescription" type="file" accept="image/*,.doc,.docx,.txt,.pdf" c required />
           </div>
           <div class="form-itm other-order">
             <p>Other items :</p>

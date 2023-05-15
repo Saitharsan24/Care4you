@@ -45,13 +45,15 @@
     <title>Home</title>
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js'></script>
+
+    </style>
     <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-              initialView: 'dayGridMonth',
-              events: <?php echo $appointmentsJson; ?>,
-              eventClick: function(info) {
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: <?php echo $appointmentsJson; ?>,
+            eventClick: function (info) {
                 // Retrieve the event data
                 var event = info.event;
                 var eventId = event.id;
@@ -62,8 +64,8 @@
 
                 // Create the event details HTML content
                 var eventDetailsHTML = '<h2>' + eventTitle + '</h2>' +
-                  '<p><strong>Start:</strong> ' + eventStart + '</p>' +
-                  '<p><strong>Description:</strong> ' + eventTime + '</p>';
+                    '<p><strong>Start:</strong> ' + eventStart + '</p>' +
+                    '<p><strong>Description:</strong> ' + eventTime + '</p>';
 
                 // Show the popup with event details
                 var popup = document.getElementById('event-details-popup');
@@ -73,25 +75,49 @@
 
                 // Prevent the default behavior (e.g., navigating to event URL)
                 info.jsEvent.preventDefault();
-              }
-            });
-            calendar.render();
-          });
-
+            },
+            eventRender: function (info) {
+                info.el.classList.add('my-event-class');
+            }
+        });
+        calendar.render();
+    });
     </script>
 
+
     <style>
-            .popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        z-index: 9999;
-        display: none;
+        .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+      display: none;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    #popup-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .fc-event:hover {
+      cursor: pointer;
+    }
+
+
+      .fc-event:hover {
+        cursor: pointer;
       }
     </style>
 
@@ -126,10 +152,13 @@
         
           <div class="myapt-containor">
             <div class="apt-consub1">
+                
                 <div id='calendar'></div>
                 <div id="event-details-popup" class="popup">
                   <div id="event-details-content"></div>
+                  <span id="popup-close">&times;</span>
                 </div>
+
             </div>
             <div class="apt-consub2">
             <div class="mk-apt-btn common-apt">

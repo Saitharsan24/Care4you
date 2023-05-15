@@ -46,9 +46,8 @@
                 </div>
                 
                 <div class="reg-container">
-                   <a href="./admin-report-sysuser"><div>System User Analysis</div></a>
-                   <a href="./admin-report-appoint.php"><div>Appointments Revenue Analysis</div></a>
-                   <a href=""><div>Pharmacy Order Revenvue Analysis</div></a>
+                   <a href="./admin-report-sysuser.php"><div>System User Analysis</div></a>
+                   <a href="./admin-report-order.php"><div>Pharmacy Order Revenvue Analysis</div></a>
                 </div>
             </div>
         </div>

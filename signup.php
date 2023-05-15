@@ -412,13 +412,14 @@ if (isset($_POST['sign_up_submit'])) {
         VALUES ('patient', '$userName', '$hashedPassword', '$email', '0')";
 
         $res = mysqli_query($conn, $sql);
-
+        
         $last_id = $conn->insert_id;
+        // print_r($last_id);
 
         $sql1 = "INSERT INTO tbl_patient 
-                (first_name, last_name, gender, dob, nic, contact, address, acc_createdate, userid) 
+                (first_name, last_name, gender, dob, nic, contact, address, userid) 
                 VALUES 
-                ('$firstName', '$lastName', '$gender', '$dateOfBirth', '$nicNumber', '$contactNumber', '$address', '$acc_createdate', '$last_id')";
+                ('$firstName', '$lastName', '$gender', '$dateOfBirth', '$nicNumber', '$contactNumber', '$address', '$last_id')";
 
         $res1 = mysqli_query($conn, $sql1);
 
@@ -550,19 +551,22 @@ if (isset($_POST['verify'])) {
         //Storing session varibles
 
         $_SESSION['otp_id'] = $row['id'];
+        // print_r($otp." ".$tableOTP." ".strtotime($current_timestamp) - strtotime($otpTimeStamp)." ". $row['used']);
 
         if ($otp == $tableOTP && strtotime($current_timestamp) - strtotime($otpTimeStamp) < 600 && $row['used'] == 0) {
+            $last_id =$_SESSION['data-inserted'];
+            // print_r($_SESSION['data-inserted']);
 
-            $active = "UPDATE 'tbl_sysusers' SET 'status'='1' WHERE userid = $last_id";
-            echo $active;
+            $active = "UPDATE tbl_sysusers SET status='1' WHERE userid = $last_id";
+            // echo $active;
             $resactive = mysqli_query($conn, $active);
             //Redirecting to password change page
-            header("Location: signin.php");
+            echo '<script>window.location.href ="./signin.php" </script>';
             exit();
 
         } else {
             $otpErr = "*Invalid OTP number!";
-            var_dump("EOROROROROOR");
+            // var_dump("EOROROROROOR");
         }
 
 

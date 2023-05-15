@@ -1,6 +1,109 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <!DOCTYPE html>
+<?php
+        $days = array();
+        for ($i = 0; $i < 7; $i++) {
+            $days[date('D', strtotime("-$i day"))] = 0;
+        }
+        // print_r($days);die();
+        $sql = "SELECT COUNT(*) as count,tbl_docsession.date as date FROM tbl_docappointment
+        INNER JOIN tbl_docsession ON tbl_docsession.session_id = tbl_docappointment.session_id
+        WHERE tbl_docappointment.docapt_status <> 2
+        GROUP BY DAY(tbl_docsession.date) ";
+        
+        $res = mysqli_query($conn, $sql);
+        // If the year and month of the donation is in the array, add the count to the array
+        while ($item =  mysqli_fetch_assoc($res)) {
+            $day = date('D', strtotime($item['date']));
+            if (array_key_exists($day, $days)) {
+                $days[$day] += $item['count'];
+            }
+        }
+
+        //Rename the key of the array to month plus year 
+        $days = array_combine(array_map(function ($key) {
+            return date('D', strtotime($key));
+        }, array_keys($days)), array_values($days));
+
+        //Reverse the array to show the earliest month first
+        $days = array_reverse($days);
+
+
+
+
+        $days2 = array();
+        for ($i = 0; $i < 7; $i++) {
+            $days2[date('D', strtotime("-$i day"))] = 0;
+        }
+        // print_r($days);die();
+        $sql = "SELECT COUNT(*) as count,orderdate as date FROM tbl_neworder
+        WHERE order_status != 5
+        AND order_status != 4
+        GROUP BY DAY(orderdate) ";
+        
+        $res = mysqli_query($conn, $sql);
+        // If the year and month of the donation is in the array, add the count to the array
+        while ($item =  mysqli_fetch_assoc($res)) {
+            $day2 = date('D', strtotime($item['date']));
+            if (array_key_exists($day, $days)) {
+                $days2[$day2] += $item['count'];
+            }
+        }
+
+        $sql = "SELECT COUNT(*) as count,orderdate as date FROM tbl_respondedorders
+        WHERE order_status != 5
+        AND order_status != 4
+        GROUP BY DAY(orderdate) ";
+
+        $res = mysqli_query($conn, $sql);
+        // If the year and month of the donation is in the array, add the count to the array
+        while ($item =  mysqli_fetch_assoc($res)) {
+            $day2 = date('D', strtotime($item['date']));
+            if (array_key_exists($day, $days)) {
+                $days2[$day2] += $item['count'];
+            }
+        }
+
+        //Rename the key of the array to month plus year 
+        $days2 = array_combine(array_map(function ($key) {
+            return date('D', strtotime($key));
+        }, array_keys($days2)), array_values($days2));
+
+        //Reverse the array to show the earliest month first
+        $days2 = array_reverse($days2);
+
+
+
+        $days3 = array();
+        for ($i = 0; $i < 7; $i++) {
+            $days3[date('D', strtotime("-$i day"))] = 0;
+        }
+        // print_r($days);die();
+        $sql = "SELECT COUNT(*) as count,labapt_date as date FROM tbl_labappointment
+        WHERE labapt_status != 3
+        AND labapt_status != 4
+        GROUP BY DAY(labapt_date) ";
+        
+        $res = mysqli_query($conn, $sql);
+        // If the year and month of the donation is in the array, add the count to the array
+        while ($item =  mysqli_fetch_assoc($res)) {
+            $day3 = date('D', strtotime($item['date']));
+            if (array_key_exists($day, $days)) {
+                $days3[$day3] += $item['count'];
+            }
+        }
+
+        //Rename the key of the array to month plus year 
+        $days3 = array_combine(array_map(function ($key) {
+            return date('D', strtotime($key));
+        }, array_keys($days3)), array_values($days3));
+
+        //Reverse the array to show the earliest month first
+        $days3 = array_reverse($days3);
+
+
+ ?>
 <html lang="en">
 
 <head>
@@ -11,6 +114,7 @@
     <title>ADMIN</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -55,7 +159,68 @@
                 </div>
                 <div class="flex-cont">
                     <div class="graph-cont">
-                        <<< Graph Here>>>
+                        <div class="box-title"> No of Appointments </div>
+                        <canvas id="home_chart" style="height:100px">
+                        <script>
+
+                                            new Chart("home_chart", {
+                                                type: "line",
+                                                data: {
+                                                    labels: <?php 
+                                                                            $values = array_keys($days);
+                                                                            echo json_encode($values);
+                                                                        ?>,
+                                                    datasets: [{
+                                                        label:'Completed Prescriptions',
+                                                        data: <?php 
+                                                                            $values = array_values($days);
+                                                                            echo json_encode($values);
+                                                                        ?>,
+                                                        borderColor: "red",
+                                                        fill: false
+                                                    }, {
+                                                        label:'Completed Orders',
+                                                        data:  <?php 
+                                                                            $values = array_values($days2);
+                                                                            echo json_encode($values);
+                                                                        ?>,
+                                                        borderColor: "blue",
+                                                        fill: false
+                                                    }, {
+                                                        label:'Completed Orders',
+                                                        data:  <?php 
+                                                                            $values = array_values($days3);
+                                                                            echo json_encode($values);
+                                                                        ?>,
+                                                        borderColor: "green",
+                                                        fill: false
+                                                    }]
+                                                },
+                                                options: {
+                                                    legend: {
+                                                        display: true
+                                                    },
+                                                    scales:{
+                                                        yAxes:[{
+                                                            scaleLabel:{
+                                                                display:true,
+                                                                labelString:'Customer count'
+                                                            }
+                                                        }],
+                                                        xAxes:[{
+                                                            scaleLabel:{
+                                                                display:true,
+                                                                labelString:'Day'
+                                                            }
+                                                        }]
+                                                    }
+                                                }
+                                            });
+                                        </script>
+
+
+                                        </canvas>
+                       
                     </div>
                     <div class="box-cont">
                         <div class="box-sub">

@@ -16,7 +16,7 @@
 <?php
 
   $apt_id=$_GET['id'];
-  print_r($apt_id);die();
+ // print_r($apt_id);die();
 ?>
 
 <body>
@@ -29,8 +29,8 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</a></div></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-appointment.php"><div class="highlighttext">Appointments</div></a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
@@ -45,43 +45,27 @@
             
             <table class="view-lab-apt" id="tbl-main-app">
                    <tr>
-                        <td class="typeR">Reference No :</td>   <!--from tbl_labappointment -->
+                        <td class="typeR">Patient Name :</td>   <!--from tbl_patient -->
                         <td class="typeL"> </td>
 
                         </tr>
                     <tr>
-                        <td class="typeR">Doctor Name :</td>     <!--from tbl_doctor -->
+                        <td class="typeR">Contact Number :</td>     <!--from tbl_patient -->
                         <td class="typeL"></td>
                     </tr>
                     <tr>
-                        <td class="typeR">Date :</td>              <!--from tbl_labappointment -->
+                        <td class="typeR">Nic :</td>              <!--from tbl_patient-->
                         <td class="typeL"></td>
                     </tr>
                     <tr>
-                        <td class="typeR">Appointment No :</td>        <!--from tbl_labappointment -->
+                        <td class="typeR">Requested Date :</td>        <!--from tbl_labappointment -->
                         <td class="typeL"> </td>                 
                     
                     </tr>
                     <tr>
-                        <td class="typeR">Appointment time :</td>
+                        <td class="typeR">Appointment Status :</td>     <!--from tbl_labappointment -->
                         <td class="typeL"></td>
                     </tr>
-                    <tr>
-                    
-                        <td class="typeR">Room No :</td>
-                        <td class="typeL"></td>
-                    </tr>
-                    <tr>
-                        <td class="typeR">Patient name :</td>
-                        <td class="typeL"></td>
-                    </tr>
-                    <tr>
-                        <td class="typeR">Nic No :</td>
-                        <td class="typeL"></td>
-                    </tr>
-                    <tr>
-                        <td class="typeR">Session Status :</td>
-                        <td class="typeL">
                         <?php
                             
                               ?> 

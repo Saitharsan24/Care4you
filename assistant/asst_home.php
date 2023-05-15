@@ -1,5 +1,37 @@
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
+<?php 
+$userid = $_SESSION['user_id'];
+$days = array();
+        for ($i = 0; $i < 7; $i++) {
+            $days[date('D', strtotime("-$i day"))] = 0;
+        }
+        // print_r($days);die();
+        $sql = "SELECT tbl_docsession.no_of_appointment as count,tbl_docsession.date FROM tbl_docsession
+                INNER JOIN tbl_assistant ON tbl_assistant.assistant_id = tbl_docsession.assistant_id
+                WHERE tbl_assistant.userid = '$userid'
+                GROUP BY DAY(tbl_docsession.date) ";
+        
+        $res = mysqli_query($conn, $sql);
+        // If the year and month of the donation is in the array, add the count to the array
+        while ($item =  mysqli_fetch_assoc($res)) {
+            $day = date('D', strtotime($item['date']));
+            if (array_key_exists($day, $days)) {
+                $days[$day] += $item['count'];
+            }
+        }
+
+        //Rename the key of the array to month plus year 
+        $days = array_combine(array_map(function ($key) {
+            return date('D', strtotime($key));
+        }, array_keys($days)), array_values($days));
+
+        //Reverse the array to show the earliest month first
+        $days = array_reverse($days);
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +43,7 @@
     <title>Assistant</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -48,8 +81,83 @@
                     </div>
                 </div>
                 <div class="flex-cont">
-                    <div class="graph-cont">
-                        <<< Graph Here>>>
+                <div class="graph-container">
+                        <div class="box-title"> Appointments Per Day </div>
+                        <canvas id="home_chart" style="height:100px">
+                                            <script>
+                                                var ctx = document.getElementById('home_chart').getContext('2d');
+                                                var myChart = new Chart(ctx, {
+                                                    type: 'bar',
+                                                    data: {
+                                                        labels: <?php 
+                                                                // Get the keys, and print them out.
+                                                                $keys = array_keys($days);
+                                                                echo json_encode($keys);
+                                                            ?>,
+                                                        datasets: [{
+                                                            label: 'Appointments Per Day',
+                                                            data: 
+                                                            <?php 
+                                                                    $values = array_values($days);
+                                                                    echo json_encode($values);
+                                                                ?>,
+                                                            backgroundColor: [
+                                                                '#0D5C75'
+                                                            ],   
+                                                            //Barwidth
+                                                            //backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+                                                            
+                                                            borderRadius: 8,
+                                                            borderSkipped: false,
+                                                            barpercentage: 1,
+                                                            borderWidth: 2,
+                                                            
+                                                            borderSkipped: false,
+                                                            hoverOffset: 4
+                                                        }]
+                                                    },
+
+                                                    
+                                                    options: {
+
+                                                        title: {
+                                                            display: true,
+                                                            text: 'Medicine Quantity',
+                                                            // Align the chart title to the top left
+                                                            position: 'top',
+                                                            fontSize: 34,
+                                                            fontColor: '#000000',
+                                                            fontFamily: 'Poppins',
+                                                            fontStyle: 'bold'
+                                                        },
+                                                        responsive: true,
+                                                        maintainAspectRatio: false,
+                                                        scales: {
+                                                            x: {
+                                                                
+                                                                grid: {
+                                                                    display: false,
+                                                                    tickBorderDash: [10,15]
+                                                                    
+                                                            }
+                                                            },
+                                                            y: {
+                                                                grid: {
+                                                                    borderDash: [8, 4],
+                                                                    display: true,
+                                                                    tickBorderDash: [10,15]
+                                                                },
+                                                                ticks: {
+                                                                    beginAtZero: true
+                                                                },
+                                                                
+                                                            }
+                                                    }
+                                                    }
+                                                });
+                                            </script>
+
+                                        </canvas>
                     </div>
                     <div class="box-cont">
                             <div class="box-title"> <i class="fa-solid fa-calendar-day" style="font-weight: 700;font-size: 65px;"></i> </div>

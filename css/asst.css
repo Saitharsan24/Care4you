@@ -818,3 +818,20 @@ th:first-child {
   font-weight: 700;
   font-size: 130px;
 }
+
+.graph-container{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5%;
+  margin-bottom: auto;
+  margin-left: 5%;
+  width: 55%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  flex-direction: column;
+}
+#home_chart {
+margin: 15px;
+height: 320px !important;
+}

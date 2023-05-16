@@ -264,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email)
-    VALUES ('pharmacist', '$username', '$hashed_password', '$email')";
+    VALUES ('assistant', '$username', '$hashed_password', '$email')";
 
         $res1 = mysqli_query($conn, $sql);
 
@@ -276,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $res2 = mysqli_query($conn, $sql);
 
 
-        if ($res1 && $res2) {
+        if (($res1 && $res2) == TRUE) {
             // header("Location: /Care4you/admin/admin-asst-view.php");
             echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view.php';</script>";
         } else {

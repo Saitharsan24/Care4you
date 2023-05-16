@@ -110,7 +110,7 @@ if(isset($_POST['reg']))
     $res2 = mysqli_query($conn, $sql);
 
 
-    if ($res1 && $res2) 
+    if (($res1 && $res2) == TRUE) 
     {
         // header("Location: /Care4you/admin/admin-labtec-view.php");
         echo "<script> window.location.href='http://localhost/Care4you/admin/admin-labtec-view.php';</script>";

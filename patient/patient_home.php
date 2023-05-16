@@ -70,13 +70,13 @@
                
                   <div class="image-container">
                     <div class="carousel mySlides fade">
-                      <img src="../images/patient-home-slider/168286.jpg" class="slide-img" alt="slider-image">
+                      <img src="../images/patient-home-slider/Slide01.jpg" class="slide-img" alt="slider-image">
                     </div>
                     <div class="carousel mySlides fade">
-                    <img src="../images/patient-home-slider/AmYWXq.jpg" class="slide-img" alt="slider-image">
+                    <img src="../images/patient-home-slider/Slide02.jpg" class="slide-img" alt="slider-image">
                     </div>
                     <div class="carousel mySlides fade">
-                      <img src="../images/patient-home-slider/IMG-20171105-WA0001.jpg" class="slide-img" alt="slider-image">
+                      <img src="../images/patient-home-slider/Slide03.jpg" class="slide-img" alt="slider-image">
                     </div>
                     
                       

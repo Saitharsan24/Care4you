@@ -96,7 +96,7 @@ $result3 = mysqli_query($conn, $sql3);
   </script>
 
 
-  <?php include('patient_getinfo.php') ?>
+  <?php //include('patient_getinfo.php') ?>
   <div class="main-div">
     <div class="home-left">
       <div class="nav-logo">

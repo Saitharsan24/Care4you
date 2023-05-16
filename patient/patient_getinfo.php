@@ -5,45 +5,45 @@
         $user  = $_SESSION['user'];
         //echo $user;
         //Query to get userid from tbl_sysusers
-        $sql = "SELECT userid,email FROM tbl_sysusers WHERE username='$user' ";
+        $sql23 = "SELECT userid,email FROM tbl_sysusers WHERE username='$user' ";
         //echo $sql;
         //Exeute the Query                                    
-        $res = mysqli_query($conn, $sql);
+        $res23 = mysqli_query($conn, $sql23);
 
         //Check Query executed or not
-        if($res == TRUE)
+        if($res23 == TRUE)
         {
-            $count =mysqli_num_rows($res);
-            if($count == 1)
+            $count23 =mysqli_num_rows($res23);
+            if($count23 == 1)
             {
-                $row = mysqli_fetch_assoc($res);
-                $userid = $row['userid'];
-                $email = $row['email'];
+                $rowdet = mysqli_fetch_assoc($res23);
+                $userid = $rowdet['userid'];
+                $email = $rowdet['email'];
             }
         }
 
         //Query to get all data from tbl_pharmacist
-        $sql2 = "SELECT * FROM tbl_patient WHERE userid=$userid";
+        $sql24 = "SELECT * FROM tbl_patient WHERE userid=$userid";
         //Exeute the Query                                    
-        $res2 = mysqli_query($conn, $sql2);
+        $res24 = mysqli_query($conn, $sql24);
 
         //Check Query executed or not
-        if($res2 == TRUE)
+        if($res24 == TRUE)
         {
-            $count2 =mysqli_num_rows($res2);
-            if($count2 == 1)
+            $count24 =mysqli_num_rows($res24);
+            if($count24 == 1)
             {
-                $row2 = mysqli_fetch_assoc($res2);
-                $p_id = $row2['p_id'];
-                $userid = $row2['userid'];
-                $first_name = $row2['first_name'];
-                $last_name = $row2['last_name'];
-                $gender = $row2['gender'];
-                $dob = $row2['dob'];
-                $nic = $row2['nic'];
-                $contact = $row2['contact'];
-                $address = $row2['address'];
-                $profile_picture = $row2['profile_picture'];
+                $rowdet2 = mysqli_fetch_assoc($res24);
+                $p_id = $rowdet2['p_id'];
+                $userid = $rowdet2['userid'];
+                $first_name = $rowdet2['first_name'];
+                $last_name = $rowdet2['last_name'];
+                $gender = $rowdet2['gender'];
+                $dob = $rowdet2['dob'];
+                $nic = $rowdet2['nic'];
+                $contact = $rowdet2['contact'];
+                $address = $rowdet2['address'];
+                $profile_picture = $rowdet2['profile_picture'];
                 $fullname = $first_name." ".$last_name;
                 
             }

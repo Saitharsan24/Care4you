@@ -163,7 +163,7 @@
                    <tr>
                         <td class="typeR">Email Address :</td>
                         <td class="typeL"><?php echo $row['email']; ?>
-                        <?php  include('admin-asst-viewdetail-email-pop.php') ?>
+                        <?php  //include('admin-asst-viewdetail-email-pop.php') ?>
                     </td>
                     </tr>
 

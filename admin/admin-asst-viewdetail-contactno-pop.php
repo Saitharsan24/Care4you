@@ -122,12 +122,7 @@
 </style>
 
 
-<?php
-if(!isset($phonenoErr)){
-  $phonenoErr = "";
-  $phoneno="";
-}
-?>
+
 
 <section id="section1">
   <a href="#" onclick="openPopup()"></a>
@@ -139,11 +134,10 @@ if(!isset($phonenoErr)){
 
       <i class="fa-solid fa-sack-dollar"></i>
       <h2> Enter the New Phone Number </h2>
-      <input type="text" name="phone_no" class="inputtab" placeholder="Enter New Phone Number " value=<?php $row['phoneno']; ?>>
-    <?php  if (isset($phonenoErr)){ ?>
-      <span class="error"><?php echo $phonenoErr; ?></span>
-    <?php
-    }
+      <input type="text" name="phone_no" class="inputtab" value="<?php echo $row['phoneno']; ?>" placeholder="Enter New Phone Number " >
+  
+          <?php
+    
     ?>
       <div class="buttons">
         <button class="modbutton close-btn">Close</button>

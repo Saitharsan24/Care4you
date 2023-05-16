@@ -13,7 +13,7 @@ $sql = "SELECT * FROM
     AND docapt_id = $docapt_id";
 
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+$presrow = mysqli_fetch_assoc($result);
 
 ?>
 
@@ -39,8 +39,7 @@ $row = mysqli_fetch_assoc($result);
         </a>
       </div>
       <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
-      </div>
+      <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />      </div>
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
         <a href="./patient_appointments.php">Appointments</a>
@@ -66,17 +65,17 @@ $row = mysqli_fetch_assoc($result);
         <div class="container-row2">
           <div class="view-sub1">
             <div class="view-idtxt">Reference Number <br />
-              <?php echo $row['docapt_id'] ?>
+              <?php echo $presrow['docapt_id'] ?>
             </div>
             <br />
             <div class="view-headtxt">Appointment Date</div>
             <div class="view-datatxt">
-              <?php echo $row['date'] ?>
+              <?php echo $presrow['date'] ?>
             </div>
             <br />
             <div class="view-headtxt">Doctor Name</div>
             <div class="view-datatxt">
-              <?php echo $row['doc_name'] ?>
+              <?php echo $presrow['doc_name'] ?>
             </div>
             <br /> <br />
             <button onclick="downloadImage()" class="pre-btn"><span>Download Prescription</span></button>
@@ -93,7 +92,7 @@ $row = mysqli_fetch_assoc($result);
             </script>
           </div>
           <div class="view-sub2">
-            <img src="../images/docprescription/<?php echo $row['prescription_name'] ?>" alt="" class="view-sub2"
+            <img src="../images/docprescription/<?php echo $presrow['prescription_name'] ?>" alt="" class="view-sub2"
               style="border-radius:0px;">
           </div>
         </div>

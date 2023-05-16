@@ -20,8 +20,7 @@
         </a>
       </div>
       <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
-      </div>
+      <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />      </div>
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
         <a href="./patient_appointments.php">Appointments</a>

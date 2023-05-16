@@ -22,22 +22,22 @@ $sql = "SELECT * FROM
               AND docapt_id = '$docapt_id'";
 
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+$aptrow = mysqli_fetch_assoc($result);
 
 
 //to reschedue doctor id passing
-$_SESSION['reschedule'] = $row['doctor_id'];
+$_SESSION['reschedule'] = $aptrow['doctor_id'];
 $_SESSION['res_apt_id'] = $docapt_id;
-$_SESSION['current_sessionid'] = $row['session_id'];
+$_SESSION['current_sessionid'] = $aptrow['session_id'];
 
-if ($row['my_other'] == 0) {
-  $p_name = $row['first_name'];
-  $p_nic = $row['nic'];
+if ($aptrow['my_other'] == 0) {
+  $p_name = $aptrow['first_name'];
+  $p_nic = $aptrow['nic'];
 }
 
-if ($row['my_other'] == 1) {
-  $p_name = $row['pat_name'];
-  $p_nic = $row['pat_nic'];
+if ($aptrow['my_other'] == 1) {
+  $p_name = $aptrow['pat_name'];
+  $p_nic = $aptrow['pat_nic'];
 }
 
 ?>
@@ -64,8 +64,7 @@ if ($row['my_other'] == 1) {
         </a>
       </div>
       <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
-      </div>
+      <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />      </div>
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
         <a href="./patient_appointments.php" style="color: #0c5c75; font-weight: bold">Appointments</a>
@@ -92,23 +91,23 @@ if ($row['my_other'] == 1) {
           </div>
         </div>
         <div class="view-details-row">Doctor Name :<div>
-            <?php echo $row['doc_name'] ?>
+            <?php echo $aptrow['doc_name'] ?>
           </div>
         </div>
         <div class="view-details-row">Date :<div>
-            <?php echo $row['date'] ?>
+            <?php echo $aptrow['date'] ?>
           </div>
         </div>
         <div class="view-details-row">Appointment No :<div>
-            <?php echo $row['docapt_no'] ?>
+            <?php echo $aptrow['docapt_no'] ?>
           </div>
         </div>
         <div class="view-details-row">Appointment Time :<div>
-            <?php echo $row['docapt_time'] ?>
+            <?php echo $aptrow['docapt_time'] ?>
           </div>
         </div>
         <div class="view-details-row">Room No :<div>
-            <?php echo $row['room_no'] ?>
+            <?php echo $aptrow['room_no'] ?>
           </div>
         </div>
         <div class="view-details-row">Patient Name :<div>
@@ -123,11 +122,11 @@ if ($row['my_other'] == 1) {
           <div>
             <?php
 
-            if ($row['docapt_status'] == 1) {
+            if ($aptrow['docapt_status'] == 1) {
               echo ' ' . '<button class="docapt-st01">Confirmed</button>';
-            } elseif ($row['docapt_status'] == 2) {
+            } elseif ($aptrow['docapt_status'] == 2) {
               echo ' ' . '<button class="docapt-st02">Cancelled</button>';
-            } elseif ($row['docapt_status'] == 3) {
+            } elseif ($aptrow['docapt_status'] == 3) {
               echo ' ' . '<button class="docapt-st03"">Completed</button>';
             } else {
               echo ' ' . '<button class="docapt-st04">Not attended</button>';
@@ -137,14 +136,14 @@ if ($row['my_other'] == 1) {
           </div>
         </div>
         <div class="view-details-row">Total Amount :<div>
-            <?php echo 'Rs.' . $row['net_total'] ?>
+            <?php echo 'Rs.' . $aptrow['net_total'] ?>
           </div>
         </div>
 
-        <?php if ($row['docapt_status'] == 1) { ?>
+        <?php if ($aptrow['docapt_status'] == 1) { ?>
           <div class="view-details-row">Record access to doctor :<div>
               <label class="switch">
-                <?php if ($row['record_access'] == 0) { ?>
+                <?php if ($aptrow['record_access'] == 0) { ?>
                   <input type="checkbox" id="toggle" name="attendance">
                   <span class="slider round"></span>
                   <span id="toggle-text">Denied</span>
@@ -178,7 +177,7 @@ if ($row['my_other'] == 1) {
         <div class="view-apt-btn">
 
           <?php
-          if ($row['docapt_status'] == 1) {
+          if ($aptrow['docapt_status'] == 1) {
             ?>
             <div class="view-apt-btn01"><button onclick="openPopupC()">Cancel Appointment</button></div>
             <div class="view-apt-divider"></div>

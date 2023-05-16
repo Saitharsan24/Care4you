@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="container02">
-                <table class="viewtbl">
+                <table class="viewtbl" style=" border-radius:50px;">
                     <tr>
                         <td colspan="2">
                             <div class="sessionidTXT" style="margin-bottom:0px;"><i class="fa-solid fa-hand-holding-medical"></i>&nbsp;SESSION DETAILS</div>

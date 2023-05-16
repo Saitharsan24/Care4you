@@ -49,7 +49,7 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td>Session ID</td>    <!-- form tbl_session table  -->
                             <td>Doctor Name</td>   <!-- form tbl_doctor table  -->
-                            <td>Room Number</td>   <!-- form tbl_session table  -->
+                            <td>Date</td>   <!-- form tbl_session table  -->
                             <td>Session Status</td><!-- form tbl_session table  -->
                             <td></td>
                         </tr>
@@ -59,7 +59,7 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td><input type="text" class="search-session" name="session-id" id="session_id" placeholder="search session Id" onkeyup="filterSessionId()" autofocus="true"/></td>
                             <td><input type="text" class="search-session" name="doc-name" id="doctor_name" placeholder="search doctor name" onkeyup="filterDoctorName()"  autofocus="true"/></td>
-                            <td><input type="text" class="search-session" name="room-no" id="room_no" placeholder="search room no" onkeyup="filterRoomNo()" autofocus="true"/></td>
+                            <td><input type="text" class="search-session" name="room-no" id="room_no" placeholder="search date" onkeyup="filterRoomNo()" autofocus="true"/></td>
                             <td><input type="text" class="search-session" name="session-status" id="session_status" placeholder="search session status"onkeyup="filterSessionStatus()"  autofocus="true"/></td>
                             <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                         </tr>
@@ -72,7 +72,7 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td><?php echo $row['session_id'];  ?> </td>
                             <td><?php echo $row['doc_name'];  ?></tb>
-                            <td><?php echo $row['room_no'];  ?></td>         
+                            <td><?php echo $row['date'];  ?></td>         
 
                             <td>
                                 <?php 

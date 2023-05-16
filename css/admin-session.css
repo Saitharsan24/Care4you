@@ -264,7 +264,7 @@ body{
 }
 
 .btn-search span:after {
-  content: '🔍︎';
+  content: 'X';
   position: absolute;
   opacity: 0;
   top: 0;

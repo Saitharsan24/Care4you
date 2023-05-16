@@ -378,6 +378,7 @@ if (isset($_POST['reg'])) {
     if ($res1 && $res2) {
         echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php?';</script>";
     } else {
+        
         echo "Error: " . "<br>" . mysqli_error($conn);
         die();
     }

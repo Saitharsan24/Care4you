@@ -417,7 +417,7 @@ body{
 }
 
 .btn-search span:after {
-  content: '🔍︎';
+  content: 'x';
   position: absolute;
   opacity: 0;
   top: 0;

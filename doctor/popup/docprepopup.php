@@ -153,8 +153,8 @@ section.active .modal-box {
   <span class="overlay" onclick="closePopupSESA()"></span>
 
   <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
-    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
-    <h3 style="font-size:20px; font-weight:700;">Are you sure<br/>want to accept the session?</h3>
+  <i class="fa-solid fa-circle-question" style="color: #0e6680;margin-top:-20px; font-size:100px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure<br/>want to Accept the Session?</h3>
 
     <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
     <form method="post">
@@ -170,8 +170,8 @@ section.active .modal-box {
   <span class="overlay" onclick="closePopupSESD()"></span>
 
   <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
-    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
-    <h3 style="font-size:20px; font-weight:700;">Are you sure<br/>want to cancel the session?</h3>
+    <i class="fa-solid fa-circle-question" style="color: #0e6680;margin-top:-20px; font-size:100px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;">Are you sure<br/>want to Cancel the Session?</h3>
 
     <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
     <form method="post">

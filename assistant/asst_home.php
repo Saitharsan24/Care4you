@@ -2,6 +2,22 @@
 <?php include('../login_access.php') ?>
 <?php 
 $userid = $_SESSION['user_id'];
+$query="SELECT * FROM tbl_assistant INNER JOIN tbl_sysusers ON tbl_assistant.userid = tbl_sysusers.userid WHERE tbl_sysusers.userid=$userid";
+$result=mysqli_query($conn,$query);
+$row=mysqli_fetch_assoc($result);
+$asst_id=$row['assistant_id'];
+
+
+
+$currentDate=date("y-m-d");
+ $tsql = "SELECT * FROM tbl_docsession WHERE assistant_id = '$asst_id' ANd date = '$currentDate'";                                   
+$tresult = mysqli_query($conn, $tsql);
+
+
+$tcount = mysqli_num_rows($tresult);
+
+//print_r($tcount);die();
+
 $days = array();
         for ($i = 0; $i < 7; $i++) {
             $days[date('D', strtotime("-$i day"))] = 0;
@@ -168,7 +184,7 @@ $days = array();
                             ?>
                             <div class="box-data" style="font-size: 45px; margin-top: 10% ;" > <?php echo $date; ?> </div>
                             <div class="box-title" style="margin-top: 15% ;font-size: 25px;" > Assigned Appointments </div>
-                            <div class="box-data"> 10 </div>
+                            <div class="box-data"> <?php echo $tcount;  ?></div>
                     </div>
                 </div>
             </div>

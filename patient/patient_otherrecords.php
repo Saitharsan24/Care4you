@@ -73,10 +73,15 @@ if (isset($_POST)) {
   // print_r($_POST);die();
 }
 
-$user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM tbl_docappointment INNER JOIN tbl_docsession ON tbl_docappointment.session_id = tbl_docsession.session_id AND created_by = '$user_id'";
-$results = mysqli_query($conn, $sql);
+//to dispaly other reocrd
+$userid = $_SESSION['user_id'];
+
+$sqldisplay = "SELECT * FROM tbl_otherrecords WHERE userid = '$userid' ";
+
+$results =  mysqli_query($conn, $sqldisplay);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -101,8 +106,7 @@ $results = mysqli_query($conn, $sql);
         </a>
       </div>
       <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
-      </div>
+      <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />      </div>
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
         <a href="./patient_appointments.php">Appointments</a>
@@ -132,16 +136,49 @@ $results = mysqli_query($conn, $sql);
             <tr>
               <td>Record ID</td>
               <td>Record Type</td>
-              <td>Date</td>
               <td></td>
               <td></td>
             </tr>
           </thead>
           <tbody>
+
+          <?php 
+          while($rowreport = mysqli_fetch_assoc($results)){
+          ?>
+          
             <tr>
-              <td>01</td>
-              <td>Doctor Prescription</td>
-              <td>14/04/2023</td>
+              <td><?php echo $rowreport['record_id'] ?></td>
+              <?php 
+                if($rowreport['record_type']==0){
+                  $type = "Doctor Prescription";
+                } else {
+                  $type = "Lab Report";
+                }
+              ?>
+
+              <td><?php echo $type ?></td>
+              
+              <?php 
+                if($rowreport['record_type'] == 1 ){
+              ?>
+
+              <td>
+                <button onclick="downloadPDF()" class="pre-btn" style="width:180px;"><span>Download Lab
+                    Report</span></button>
+                <script>
+                  function downloadPDF() {
+                    var link = document.createElement('a');
+                    link.download = 'CareForYou-LabReport.pdf';
+                    link.href = '../images/lab-reports/patient-report/LFT.pdf';
+                    link.click();
+                  }
+                </script>
+              </td>
+
+              <?php 
+                } else {
+              ?>
+
               <td>
                 <button onclick="downloadImage()" class="pre-btn" style="width:180px;"><span>Download
                     Prescription</span></button>
@@ -157,34 +194,39 @@ $results = mysqli_query($conn, $sql);
                   }
                 </script>
               </td>
+
+              <?php 
+                }
+              ?> 
+    
+              <?php 
+                if($rowreport['record_type'] == 1 ){
+              ?>
+
               <td>
                 <a href="patient_viewotherprescription.php">
                   <button class="book-btn"><span>View Details</span></button>
                 </a>
-              </td>
-            </tr>
-            <tr>
-              <td>02</td>
-              <td>Lab Report</td>
-              <td>01/05/2023</td>
-              <td>
-                <button onclick="downloadPDF()" class="pre-btn" style="width:180px;"><span>Download Lab
-                    Report</span></button>
-                <script>
-                  function downloadPDF() {
-                    var link = document.createElement('a');
-                    link.download = 'CareForYou-LabReport.pdf';
-                    link.href = '../images/lab-reports/patient-report/LFT.pdf';
-                    link.click();
-                  }
-                </script>
-              </td>
+                </td>
+                <?php 
+                } else {
+                ?>                
               <td>
                 <a href="../images/lab-reports/patient-report/LFT.pdf" target="_blank">
                   <button class="book-btn"><span>View Report</span></button>
                 </a>
               </td>
+
+              <?php 
+                } 
+                ?>                
+
             </tr>
+
+          <?php 
+          }
+          ?>
+         
           </tbody>
         </table>
       </div>

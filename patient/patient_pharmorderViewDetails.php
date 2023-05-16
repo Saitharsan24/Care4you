@@ -12,15 +12,15 @@ if ($order_status == 0) {
 }
 
 $result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+$orderrow = mysqli_fetch_assoc($result);
 
-$pname = $row['pname'];
-$paddress = $row['paddress'];
-$contact = $row['contactnumber'];
-$order_date = $row['orderdate'];
-$nic = $row['nic'];
-$prescription = $row['prescription_name'];
-$other_items = $row['remarks'];
+$pname = $orderrow['pname'];
+$paddress = $orderrow['paddress'];
+$contact = $orderrow['contactnumber'];
+$order_date = $orderrow['orderdate'];
+$nic = $orderrow['nic'];
+$prescription = $orderrow['prescription_name'];
+$other_items = $orderrow['remarks'];
 
 ?>
 
@@ -48,8 +48,7 @@ $other_items = $row['remarks'];
         </a>
       </div>
       <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
-      </div>
+      <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />      </div>
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
         <a href="./patient_appointments.php">Appointments</a>
@@ -140,15 +139,15 @@ $other_items = $row['remarks'];
         ?>
 
         <div class="view-order-btn">
-          <?php if (isset($row['responddate'])) { ?>
+          <?php if (isset($orderrow['responddate'])) { ?>
             <div class="view-order-btn02"><a
-                href="./patient_pharmorderViewReview.php?id=<?php echo $row['order_id']; ?>&status=<?php echo $row['order_status']; ?>"><button>View
+                href="./patient_pharmorderViewReview.php?id=<?php echo $orderrow['order_id']; ?>&status=<?php echo $orderrow['order_status']; ?>"><button>View
                   review</button></a></div>
           <?php } ?>
           <div class="view-apt-divider"></div>
 
           <?php
-          if ($row['order_status'] == 0 || $row['order_status'] == 1) {
+          if ($orderrow['order_status'] == 0 || $orderrow['order_status'] == 1) {
             ?>
             <div class="view-order-btn01"><button onclick="openPopupOCAN()">Cancel Order</button></div>
 

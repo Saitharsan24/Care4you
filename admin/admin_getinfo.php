@@ -17,9 +17,9 @@
             $count =mysqli_num_rows($res);
             if($count == 1)
             {
-                $row = mysqli_fetch_assoc($res);
-                $Admin_userid = $row['userid'];
-                $Admin_email = $row['email'];
+                $row5 = mysqli_fetch_assoc($res);
+                $Admin_userid = $row5['userid'];
+                $Admin_email = $row5['email'];
 
             }
         }
@@ -35,13 +35,13 @@
             $count2 =mysqli_num_rows($res2);
             if($count2 == 1)
             {
-                $row2 = mysqli_fetch_assoc($res2);
-                $Admin_adminid = $row2['adminid'];
-                $Admin_userid = $row2['userid'];
-                $Admin_fullname = $row2['fullname'];
-                $Admin_nic = $row2['nic'];
-                $Admin_contact_number = $row2['contact_number'];
-                $Admin_profile_picture = $row2['profile_picture'];
+                $row6 = mysqli_fetch_assoc($res2);
+                $Admin_adminid = $row6['adminid'];
+                $Admin_userid = $row6['userid'];
+                $Admin_fullname = $row6['fullname'];
+                $Admin_nic = $row6['nic'];
+                $Admin_contact_number = $row6['contact_number'];
+                $Admin_profile_picture = $row6['profile_picture'];
                 
             }
         }

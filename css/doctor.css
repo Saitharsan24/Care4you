@@ -771,3 +771,7 @@ body{
   height: 320px !important;
 }
 
+canvas{
+  padding: 30px;
+}
+

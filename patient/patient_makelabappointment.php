@@ -33,8 +33,9 @@ $p_nic = $row['nic'];
   <title>Home</title>
   <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
-<?php include('patient_getinfo.php') ?>
+
 <body>
+  <?php include('patient_getinfo.php') ?>
   <div class="main-div">
     <div class="home-left">
       <div class="nav-logo">

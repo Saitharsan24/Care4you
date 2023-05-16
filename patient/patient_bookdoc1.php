@@ -107,16 +107,17 @@ if ($result) {
   <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-  <div class="main-div">
-    <div class="home-left">
-      <div class="nav-logo">
-        <a href="./patient_home.php">
-          <img src="../images/logo.png" alt="logo" />
-        </a>
-      </div>
-      <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
+<?php include('patient_getinfo.php') ?>
+  <body>
+    <div class="main-div">
+      <div class="home-left">
+        <div class="nav-logo">
+          <a href="./patient_home.php">
+            <img src="../images/logo.png" alt="logo" />
+          </a>
+        </div>
+        <div class="profile-image">
+          <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />
       </div>
         <div class="nav-links">
           <a href="./patient_home.php">Home</a>

@@ -21,6 +21,7 @@ $results = mysqli_query($conn, $sqlsel);
 </head>
 
 <body>
+  <?php include('patient_getinfo.php') ?>
   <div class="main-div">
     <div class="home-left">
       <div class="nav-logo">
@@ -83,8 +84,7 @@ $results = mysqli_query($conn, $sqlsel);
 
                     if ($row['labapt_status'] == 0) {
                       echo ' ' . '<button class="order-st01">Response Pending</button>';
-                    }
-                    elseif ($row['labapt_status'] == 1) {
+                    } elseif ($row['labapt_status'] == 1) {
                       echo ' ' . '<button class="docapt-st01">Payment Pending</button>';
                     } elseif ($row['labapt_status'] == 2) {
                       echo ' ' . '<button class="docapt-st02">Confirmed</button>';

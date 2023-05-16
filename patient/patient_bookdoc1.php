@@ -27,12 +27,12 @@ $result = mysqli_query($conn, $sql);
 if ($result) {
 
   //getting variables from database
-  $row = mysqli_fetch_assoc($result);
-  $doc_name = $row['doc_name'];
-  $special = $row['specialization'];
-  $date = $row['date'];
-  $timeslot = $row['time_slot'];
-  $noofapt = $row['no_of_appointment'];
+  $bookrow = mysqli_fetch_assoc($result);
+  $doc_name = $bookrow['doc_name'];
+  $special = $bookrow['specialization'];
+  $date = $bookrow['date'];
+  $timeslot = $bookrow['time_slot'];
+  $noofapt = $bookrow['no_of_appointment'];
 
   //to find the timeslot
   if ($timeslot == 0) {
@@ -145,17 +145,17 @@ if ($result) {
 
               <div class="form-itm">
                 <p>Doctor Name :</p>
-                <input type="text" value="<?php echo $row['doc_name']; ?>" readonly>
+                <input type="text" value="<?php echo $bookrow['doc_name']; ?>" readonly>
               </div>
 
               <div class="form-itm">
                 <p>Specialization :</p>
-                <input type="text" value="<?php echo $row['specialization']; ?>" readonly>
+                <input type="text" value="<?php echo $bookrow['specialization']; ?>" readonly>
               </div>
 
               <div class="form-itm">
                 <p>Date :</p>
-                <input type="text" value="<?php echo $row['date']; ?>" readonly>
+                <input type="text" value="<?php echo $bookrow['date']; ?>" readonly>
               </div>
 
               <div class="form-itm">

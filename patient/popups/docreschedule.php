@@ -300,7 +300,7 @@ section.active .modal-box {
 .modal-box button {
   font-size: 14px;
   padding: 6px 12px;
-  margin: 0 10px;
+  margin: 0 10px 0 -40px;
 }
 
 </style>
@@ -404,7 +404,7 @@ section.active .modal-box {
                 <input id="sessionid" style="border:1px solid black" name="sessionid" type="text" value="" hidden>
               </div>
 
-              <div class="buttons" style="margin-left:450px; Margin-top:10px; width: 200px; display:flex; flex-direction:row; justify-content:space-between;">
+              <div class="buttons" style="margin-left:450px; Margin-top:-15px; width: 200px; display:flex; flex-direction:row; justify-content:space-between;">
               <p class="back-btn" id="backBtn" onclick="openPopup3()">Back</p>  
               <button class="update-btn" type="submit" name="scheduleupdate">Update</button>
               </div>

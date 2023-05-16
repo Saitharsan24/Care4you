@@ -1395,10 +1395,10 @@ input::-webkit-file-upload-button {
 }
 
 .record-buttons button:hover {
-    background: #f0f2f4;
-    color: #093e4e;
-    font-weight: bold;
-    transition: .2s;
+    background: #1581a2;
+    color: #ffff;
+    font-weight: 500;
+    transition: .4s;
     cursor: pointer;
 }
 

@@ -43,3 +43,25 @@
     text-align: center;
     margin-bottom: 10px;
 }
+
+/* ----------------- */
+
+.second_left_sub_content{
+    position: relative;
+    top: 27px;
+    width: 700px;
+      height: 364px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+  }
+
+
+.right-sub_content{
+    
+    width: 828px;
+      height: 482px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+}

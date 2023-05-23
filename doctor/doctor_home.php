@@ -2,6 +2,30 @@
 <?php include('../login_access.php') ?>
 <?php
 $userid = $_SESSION['user_id'];
+
+$userid = $_SESSION['user_id'];
+$query="SELECT * FROM tbl_doctor INNER JOIN tbl_sysusers ON tbl_doctor.userid = tbl_sysusers.userid WHERE tbl_sysusers.userid=$userid";
+$result=mysqli_query($conn,$query);
+$row=mysqli_fetch_assoc($result);
+$doc_id=$row['doctor_id'];
+
+$query1="SELECT * FROM tbl_docsession INNER JOIN tbl_doctor ON tbl_docsession.doctor_id = tbl_doctor.doctor_id WHERE tbl_docsession.doctor_id=$doc_id AND tbl_docsession.status=0";
+$result1=mysqli_query($conn,$query1);
+$row1=mysqli_fetch_assoc($result);
+$count=mysqli_num_rows($result);
+//print_r($count);die();
+
+
+$currentDate=date("y-m-d");
+ $tsql = "SELECT * FROM tbl_docsession WHERE doctor_id = '$doc_id' ANd date = '$currentDate'";                                   
+$tresult = mysqli_query($conn, $tsql);
+//print_r($tresult);die();
+
+
+$tcount = mysqli_num_rows($tresult);
+
+
+
 $days = array();
 for ($i = 0; $i < 7; $i++) {
     $days[date('D', strtotime("-$i day"))] = 0;
@@ -171,13 +195,13 @@ $days = array_reverse($days);
                     <div class="box-sub">
                         <div class="box-title"> Sessions to be Response </div>
                         <div class="box-data">
-                            <?php ?>
+                            <?php echo $count; ?>
                         </div>
                     </div>
                     <div class="box-sub" style="margin-top: 12%;">
                         <div class="box-title"> Today's Appointsments </div>
                         <div class="box-data">
-                            <?php ?>
+                            <?php echo $tcount; ?>
                         </div>
                     </div>
                 </div>

@@ -8,15 +8,55 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Blood Culture</td>
-            <td>3000</td>
-            <td>
-                <a href="#">
-                    <i class="fa-solid fa-xmark" style="color:red;"></i>
-                </a>
-            </td>
-        </tr>
+    <?php 
+        $labapt_id = $_GET['id'];
+
+        $sqladtest = "SELECT * FROM tbl_addlabtest WHERE labapt_id = $labapt_id AND confirmation_status = 1 "; 
+        //echo print_r($sqladtest) ;
+
+        $res5 = mysqli_query($conn, $sqladtest);
+
+        if($res5 == TRUE)
+        {
+            //Count rows in tbl_neworder table
+            $count = mysqli_num_rows($res5);
+            //Check whther data available in database
+            if($count > 0)
+            {
+                //Data available in database
+                while($row2 = mysqli_fetch_assoc($res5))
+                {
+                    $test_id = $row2['test_id'];
+                    //echo "row-".$test_id;
+                    $atsql = "SELECT test_name, charge FROM tbl_labtests  WHERE test_id = $test_id";
+                    //echo $atsql;
+                    //echo print_r($atsql) ;
+                    $atres = mysqli_query($conn, $atsql);
+                    //echo print_r($atres) ;
+                    
+                    if($atres == TRUE)
+                    {
+                        //Count rows in tbl_neworder table
+                        $count2 = mysqli_num_rows($atres);
+                        
+                        if($count2 == 1){
+                            while($row9 = mysqli_fetch_assoc($atres))
+                            {
+                            $tname = $row9['test_name'];
+                            $chrg = $row9['charge'];
+                            ?><tr>
+                                <td><?php echo $tname; ?></td>
+                                <td><?php echo $chrg; ?></td>
+                                <td>
+                                </td>
+                            </tr><?php }
+                        }
+                    }
+                }
+            }
+        }
+
+    ?>
     </tbody>
 </table>
 
@@ -32,15 +72,39 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Blood Culture</td>
-            <td>3000</td>
-            <td>
-                <a href="#">
-                    <i class="fa-solid fa-xmark" style="color:red;"></i>
-                </a>
-            </td>
-        </tr>
+    <?php 
+        $labapt_id = $_GET['id'];
+
+        $sqladnottest = "SELECT * FROM tbl_addlabtest WHERE labapt_id = $labapt_id AND confirmation_status = 0 "; 
+        //echo print_r($sqladtest) ;
+
+        $res6 = mysqli_query($conn, $sqladnottest);
+
+        if($res6 == TRUE)
+        {
+            //Count rows in tbl_neworder table
+            $countt = mysqli_num_rows($res6);
+            //Check whther data available in database
+            if($countt > 0)
+            {
+                //Data available in database
+                while($row22 = mysqli_fetch_assoc($res6))
+                {
+                    $testN = $row22['test_name'];
+                    $chrg2 = "N/A";
+                    ?>
+                        <tr>
+                            <td><?php echo $testN; ?></td>
+                            <td><?php echo $chrg2; ?></td>
+                            <td>
+                            </td>
+                        </tr>
+                    <?php
+                }
+            }
+        }
+
+    ?>
     </tbody>
 </table>
 

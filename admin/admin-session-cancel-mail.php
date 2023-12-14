@@ -40,7 +40,7 @@ $result2 = mysqli_query($conn, $query2);
             
             Admin of CARE FOR YOU";
 
-           print_r($message);
+           
 
 
             //Create an instance; passing `true` enables exceptions
@@ -175,10 +175,6 @@ $row = mysqli_fetch_assoc($result);
   }
 
 
-  
 
-
-
- 
   ?>
   

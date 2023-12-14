@@ -32,8 +32,7 @@ function validateInput($data)
 // Check if form is submitted and process form data
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate first name
-    // print_r($_POST['fullname']);die();
-    if (empty($_POST["fullname"])) {
+        if (empty($_POST["fullname"])) {
         $fullNameErr = "*Full name is required";
         $isValid = false;
     } else {
@@ -88,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($conn, $sql);
           // $row = mysqli_fetch_array($result);
           // $no= mysqli_num_rows($result);
-          //m  print_r($no);die();
+         
             if (mysqli_num_rows($result) > 0) {
                 $userNameErr = "*User already registered";
                 $isValid = false;
@@ -147,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 
         //validate confirm password
-        if(empty($_POST['confirmpassword'])){
+        if(isset($_POST['confirmpassword'])){
             $confirmPasswordErr = "*Please confirm password";
             $isValid = false;
         } elseif($_POST['password'] != $_POST['confirmpassword']){
@@ -238,9 +237,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         </div>
                     </div>
-                    <button name="reg" class="reg-foot pha">
+                    <button name="reg" type="submit" class="reg-foot"> 
+                          <!-- have to type="submit" -->
                         <span>Add Assistant&nbsp;</span>
                     </button>
+                
                 </form>
             </div>
         </div>
@@ -253,7 +254,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (isset($_POST['reg'])) {
-        if($isValid==true){
+        
+        //if($isValid==true){
+            //print_r("test");die();
+        
         $fullname = $_POST['fullname'];
         $nic = $_POST['nic'];
         $contact_number = $_POST['contact_number'];
@@ -262,28 +266,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['password'];
         $confirmpassword = $_POST['confirmpassword'];
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        
 
         $sql = "INSERT INTO tbl_sysusers (actortype, username, password, email)
-    VALUES ('pharmacist', '$username', '$hashed_password', '$email')";
+    VALUES ('assistant', '$username', '$hashed_password', '$email')";
 
         $res1 = mysqli_query($conn, $sql);
-
-        $last_id = $conn->insert_id;
-
+               $last_id = $conn->insert_id;
+        
         $sql = "INSERT INTO tbl_assistant (name, nic, phoneno, profile_picture, userid)
     VALUES ('$fullname', '$nic', '$contact_number', 'user.png', '$last_id')";
 
         $res2 = mysqli_query($conn, $sql);
 
 
-        if ($res1 && $res2) {
+        if (($res1 && $res2) == TRUE) {
             // header("Location: /Care4you/admin/admin-asst-view.php");
             echo "<script> window.location.href='http://localhost/Care4you/admin/admin-asst-view.php';</script>";
         } else {
-            echo "Error: " . $s . "<br>" . mysqli_error($conn);
+            
+                       echo "Error: " . $s . "<br>" . mysqli_error($conn);
             die();
         }
     }
 
-}
+//}
 ?>

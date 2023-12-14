@@ -19,7 +19,7 @@
     width: 750px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .4);
     border-radius: 40px;
-    /* margin: 30px 0px 0px 100px; */
+    margin: 30px 0px 0px 100px;
 }
 
 .image-container .carousel {
@@ -58,3 +58,15 @@ i#prev{
 i#next{
     right: 300px;
 }
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  .mySlides {display: none;}

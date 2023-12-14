@@ -1,8 +1,25 @@
+
+
 <?php include('../config/constants.php') ?>
 <?php include('../login_access.php') ?>
 <?php include('./popup/newtestadd.php');?>
+<?php
+// print_r($_SESSION);
+?>
+
+<?php 
+    
+    if(isset($_SESSION['addLabTest'])){
+        unset($_SESSION['addLabTest']);
+        unset($_POST);
+        echo "<script>openPopupAT()</script>";
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +28,10 @@
     <title>Laboratory</title>
     <link rel="icon" type="images/x-icon" href="../images/logoicon.png" />
     <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
+    <script src="../script/labtest_filter.js"></script>
+    <script src="../script/labtest_filter.js"></script>
 </head>
+
 <body>
 <?php include('lab_getinfo.php') ?>
     <div class="wrapper">
@@ -40,8 +60,11 @@
                     <button onclick="openPopup1()" class="btn-mkdcapt" style="width:150px;"><span>add new test</span></button>
                 </div>
             </div>
-            <div class="tbl-content">
-                <table class="tbl-common" style="width:75%;">
+            
+            <input type="text" class="search-test" name="" placeholder="Search by Test Name" id="test_name" onkeyup="filterTestName()" autofocus="true" />
+                         
+            <div class="tbl-content">            
+                <table class="tbl-common" id="tbl-common" style="width:75%;">
                     <thead>
                         <tr>
                             <td style="width:15%">Test ID</td>
@@ -49,6 +72,7 @@
                             <td style="width:20%"></td>
                             <td style="width:15%"></td>
                         </tr>
+                       
                     </thead>
                     <tbody>
                         <?php
@@ -87,7 +111,9 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo SITEURL;  ?>/laboratory/lab_testdelete.php?test_id=<?php echo $test_id;?>" class="btn-delete">Delete</a>
+                                            <!-- <a href="<?php //echo SITEURL;  ?>/laboratory/lab_testdelete.php?test_id=<?php //echo $test_id;?>" class="btn-delete">Delete</a> -->
+                                            <button onclick="openPopupOTP()" class="btn-delete">Delete</button>
+                                            <?php include('./popup/testdelete.php');?>
                                         </td>
                                     </tr>
                                     <?php 

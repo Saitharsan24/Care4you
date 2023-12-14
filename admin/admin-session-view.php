@@ -30,10 +30,10 @@ $result=mysqli_query($conn,$query);
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php"><div class="highlighttext">Sessions</div></a></li>
-                <li><a href="admin-patient-view.php">Patient</a></li>
+                <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
@@ -42,14 +42,14 @@ $result=mysqli_query($conn,$query);
         <div class="main_content">
             <div class="info">
             
-            <button class="btn-addnew" style="width:170px;" onclick="location.href='admin-session-create.php'"><span>create session</span></button>
+            <button class="btn-addnew" style="width:170px; cursor: pointer;" onclick="location.href='admin-session-create.php'"><span>create session</span></button>
             <div class="content">
-                <table class="tbl-main-session" id="tbl-main-session">
+                <table class="tbl-main-session" id="tbl-main-session" style="width: 80%;">
                     <thead>
                         <tr>
                             <td>Session ID</td>    <!-- form tbl_session table  -->
                             <td>Doctor Name</td>   <!-- form tbl_doctor table  -->
-                            <td>Room Number</td>   <!-- form tbl_session table  -->
+                            <td>Date</td>   <!-- form tbl_session table  -->
                             <td>Session Status</td><!-- form tbl_session table  -->
                             <td></td>
                         </tr>
@@ -59,7 +59,7 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td><input type="text" class="search-session" name="session-id" id="session_id" placeholder="search session Id" onkeyup="filterSessionId()" autofocus="true"/></td>
                             <td><input type="text" class="search-session" name="doc-name" id="doctor_name" placeholder="search doctor name" onkeyup="filterDoctorName()"  autofocus="true"/></td>
-                            <td><input type="text" class="search-session" name="room-no" id="room_no" placeholder="search room no" onkeyup="filterRoomNo()" autofocus="true"/></td>
+                            <td><input type="text" class="search-session" name="room-no" id="room_no" placeholder="search date" onkeyup="filterRoomNo()" autofocus="true"/></td>
                             <td><input type="text" class="search-session" name="session-status" id="session_status" placeholder="search session status"onkeyup="filterSessionStatus()"  autofocus="true"/></td>
                             <td><a href=""><button class="btn-search"><span>Clear filter&emsp;</span></button></a></td>
                         </tr>
@@ -72,7 +72,7 @@ $result=mysqli_query($conn,$query);
                         <tr>
                             <td><?php echo $row['session_id'];  ?> </td>
                             <td><?php echo $row['doc_name'];  ?></tb>
-                            <td><?php echo $row['room_no'];  ?></td>         
+                            <td><?php echo $row['date'];  ?></td>         
 
                             <td>
                                 <?php 

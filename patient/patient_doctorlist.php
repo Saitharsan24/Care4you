@@ -4,14 +4,14 @@
 
 <?php
 
-    $userid = $_SESSION['user_id'];
+$userid = $_SESSION['user_id'];
 
-    $query = "SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_neworder WHERE userid='$userid'
+$query = "SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_neworder WHERE userid='$userid'
                   UNION
               SELECT order_id,pname,contactnumber,order_status,orderdate,userid FROM tbl_respondedorders WHERE userid='$userid'
                   ORDER BY order_id DESC";
 
-    $result = mysqli_query($conn, $query);
+$result = mysqli_query($conn, $query);
 
 ?>
 
@@ -28,6 +28,8 @@
   <script src="https://kit.fontawesome.com/ca1b4f4960.js" crossorigin="anonymous"></script>
 </head>
 
+<?php include('patient_getinfo.php') ?>
+
 <body>
   <div class="main-div">
     <div class="home-left">
@@ -37,7 +39,7 @@
         </a>
       </div>
       <div class="profile-image">
-        <img src="../images/user.png" alt="profile-image" />
+        <img src="../images/user-profilepic/patient/<?php echo $profile_picture; ?>" alt="user" class="imgframe" />
       </div>
       <div class="nav-links">
         <a href="./patient_home.php">Home</a>
@@ -77,51 +79,67 @@
           </table>
         </div>
 
-       
 
-         
-            <?php
-            if ($result) {
-              while ($row = mysqli_fetch_array($result)) {
+
+
+        <?php
+        if ($result) {
+          while ($row = mysqli_fetch_array($result)) {
             ?>
 
             <div class="order-tbl-list">
-            <table>
-              <tr>
-                  <td class="order-data01"><?php echo $row['order_id'];  ?></td>
-                  <td class="order-data03"><?php echo $row['contactnumber'];  ?></td>
+              <table>
+                <tr>
+                  <td class="order-data01">
+                    <?php echo $row['order_id']; ?>
+                  </td>
+                  <td class="order-data03">
+                    <?php echo $row['contactnumber']; ?>
+                  </td>
                   <?php
-                      if ($row['order_status'] == 0) { ?>
-                        <td class="order-data04 order-st01"> <?php  echo 'Response pending';?></td>
-                  <?php
-                      } else if($row['order_status'] == 1) { ?>
-                        <td class="order-data04 order-st02"> <?php  echo 'Payment pending';?></td>
-                  <?php
-                      } else if($row['order_status'] == 2) { ?>
-                        <td class="order-data04 order-st03"> <?php  echo 'To be delivered'; ?></td>
-                  <?php
-                      } else if($row['order_status'] == 3) { ?>
-                        <td class="order-data04 order-st04"> <?php  echo 'Cancelled'; ?></td>
-                  <?php
-                      } else if($row['order_status'] == 4) { ?>
-                        <td class="order-data04 order-st05"> <?php  echo 'Complete'; ?></td>
-                  <?php
-                      } 
-                    ?>
-                  
-                  <td><a class="order-btn-view" href="./patient_pharmorderViewDetails.php?id=<?php echo $row['order_id'];?>&status=<?php echo $row['order_status'];?>"><button class="btn-view-pha-detail"><span>View Details</span></button></a></td>
-              </tr>
-            </table>
+                  if ($row['order_status'] == 0) { ?>
+                    <td class="order-data04 order-st01">
+                      <?php echo 'Response pending'; ?>
+                    </td>
+                    <?php
+                  } else if ($row['order_status'] == 1) { ?>
+                      <td class="order-data04 order-st02">
+                      <?php echo 'Payment pending'; ?>
+                      </td>
+                    <?php
+                  } else if ($row['order_status'] == 2) { ?>
+                        <td class="order-data04 order-st03">
+                      <?php echo 'To be delivered'; ?>
+                        </td>
+                    <?php
+                  } else if ($row['order_status'] == 3) { ?>
+                          <td class="order-data04 order-st04">
+                      <?php echo 'Cancelled'; ?>
+                          </td>
+                    <?php
+                  } else if ($row['order_status'] == 4) { ?>
+                            <td class="order-data04 order-st05">
+                      <?php echo 'Complete'; ?>
+                            </td>
+                    <?php
+                  }
+                  ?>
+
+                  <td><a class="order-btn-view"
+                      href="./patient_pharmorderViewDetails.php?id=<?php echo $row['order_id']; ?>&status=<?php echo $row['order_status']; ?>"><button
+                        class="btn-view-pha-detail"><span>View Details</span></button></a></td>
+                </tr>
+              </table>
             </div>
 
             <?php
-              }
-            } else {
-              ?>
-                <h3>No orders yet</h3>
-            <?php
-              }
-            ?>
+          }
+        } else {
+          ?>
+          <h3>No orders yet</h3>
+          <?php
+        }
+        ?>
       </div>
     </div>
   </div>

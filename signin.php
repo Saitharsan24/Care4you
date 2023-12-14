@@ -125,7 +125,7 @@
                 if($usertype=="doctor")
                 {
                     //User exists and Login Success
-                    $_SESSION['login'] = "<div class='success'>Login Successful</div>";
+                    //$_SESSION['login'] = "<div class='success'>Login Successful</div>";
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
@@ -137,7 +137,7 @@
                 elseif($usertype=="pharmacist")
                 {
                     //User exists and Login Success
-                    $_SESSION['login'] = "<div class='success'>Login Successful</div>";
+                    //$_SESSION['login'] = "<div class='success'>Login Successful</div>";
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
@@ -149,7 +149,7 @@
                 elseif($usertype=="labtec")
                 {
                     //User exists and Login Success
-                    $_SESSION['login'] = "<div class='success'>Login Successful</div>";
+                    //$_SESSION['login'] = "<div class='success'>Login Successful</div>";
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
@@ -161,7 +161,7 @@
                 elseif($usertype=="assistant")
                 {
                     //User exists and Login Success
-                    $_SESSION['login'] = "<div class='success'>Login Successful</div>";
+                    //$_SESSION['login'] = "<div class='success'>Login Successful</div>";
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
@@ -173,7 +173,7 @@
                 elseif($usertype=="admin")
                 {
                     //User exists and Login Success
-                    $_SESSION['login'] = "<div class='success'>Login Successful</div>";
+                    //$_SESSION['login'] = "<div class='success'>Login Successful</div>";
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;
@@ -185,7 +185,7 @@
                 else
                 {
                     //User exists and Login Success
-                    $_SESSION['login'] = "<div class='success'>Login Successful</div>";
+                    //$_SESSION['login'] = "<div class='success'>Login Successful</div>";
 
                     //To check whether the user is logged or not
                     $_SESSION['user'] = $username;

@@ -31,15 +31,33 @@
 
         $btn_tobe = "btn-pressed";
 
-    } if( isset($_GET['completeid'])) {
+    } if( isset($_GET['dispatchid'])) {
 
-        $complete_id = $_GET['completeid'];
+        $complete_id = $_GET['dispatchid'];
         $sql = "SELECT * FROM tbl_respondedorders WHERE order_status=3";
 
         $result = mysqli_query($conn, $sql);
 
         $btn_complete = "btn-pressed";
-    } 
+
+    } if( isset($_GET['completedid'])) {
+
+        $complete_id = $_GET['completedid'];
+        $sql = "SELECT * FROM tbl_respondedorders WHERE order_status=4";
+
+        $result = mysqli_query($conn, $sql);
+
+        $btn_complete = "btn-pressed";
+    } if( isset($_GET['cancelledid'])) {
+
+        $complete_id = $_GET['cancelledid'];
+        $sql = "SELECT * FROM tbl_respondedorders WHERE order_status=5";
+
+        $result = mysqli_query($conn, $sql);
+
+        $btn_complete = "btn-pressed";
+    }
+    
 
 ?>
 
@@ -72,23 +90,22 @@
             <div class="signouttext"><a href="../logout.php"><i class="fa-solid fa-right-from-bracket"></i> Sign Out </a></div>
         </div>
         <div class="main_content">
-        
-            <div class="order-filter-btn">
-                <div class="right-button order-filter-main-btn">
+        <div class="info">
+            <div class="order-filter-btn2">
+                <div class="right-button order-filter-main-btn2">
                     <a href="?pendingid "><button class="btn-press <?php echo $btn_pending?>" name="pendingpayment">Pending</button></a>
                     <a href="?tobeid"><button class="btn-press <?php echo $btn_tobe ?>" name="tobedelivered">To be delivered</button></a>
-                    <a href="?completeid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Completed</button></a>
+                    <a href="?dispatchid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Dispatched</button></a>
+                    <a href="?completedid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Delivered</button></a>
+                    <a href="?cancelledid"><button class="btn-press <?php echo $btn_complete ?>" name="complete">Cancelled</button></a>
                 </div>
 
                 <?php 
                     if(isset($_GET['pendingid']) || isset($_GET['tobeid']) || isset($_GET['completeid'])){ ?>
-                        <div class="clearfilt-order"><a href="./pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>Clear filter</a></div>
+                        <div class="clearfilt-order"><a href="./pharmacy_orderhistory.php"><i class="fa-solid fa-circle-xmark" style="color: #0d5c75;"></i>clear filter</a></div>
                 <?php }?>
 
             </div>
-        
-            <div class="info">
-            <span>
                 <table class="tbl-main">
                     <thead>
                         <tr>
@@ -116,14 +133,18 @@
                         <?php
                             } else if($row['order_status'] == 2) { ?>
                                 <td><button class="st02"> <?php echo 'To be Delivered'; ?> </button></td>
-                        <?php
+                        <?php   
                             } else if($row['order_status'] == 3) { ?>
-                                <td><button class="st04"> <?php echo 'Complete'; ?> </button></td>
+                                <td><button class="st03"> <?php echo 'Dispatched'; ?> </button></td>
                         <?php
                             } else if($row['order_status'] == 4) { ?>
+                                <td><button class="st04"> <?php echo 'Delivered'; ?> </button></td>
+                        <?php 
+                            } else { ?>
                                 <td><button class="st05"> <?php echo 'Cancelled'; ?> </button></td>
                         <?php
-                            } ?>
+                            } 
+                            ?>
                             <td><a href="./pharmacy_vieworder.php?id=<?php echo $row['order_id'];?>"><button class="btn-vieworder"><span>View Details</span></button></a></td>
                         </tr>
                         <?php } ?>
@@ -138,7 +159,6 @@
 
                     </tbody>
                 </table>
-            </span>
             </div>
         </div>
     </div>

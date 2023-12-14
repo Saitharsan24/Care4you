@@ -199,7 +199,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">
                         <div class="highlighttext">System Users</div>
                     </a></li>
@@ -373,10 +373,12 @@ if (isset($_POST['reg'])) {
     $res2 = mysqli_query($conn, $sql);
 
 
+    
+
     if ($res1 && $res2) {
-        // header("Location: /Care4you/admin/admin-doc-view.php");
-        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php';</script>";
+        echo "<script> window.location.href='http://localhost/Care4you/admin/admin-doc-view.php?';</script>";
     } else {
+        
         echo "Error: " . "<br>" . mysqli_error($conn);
         die();
     }

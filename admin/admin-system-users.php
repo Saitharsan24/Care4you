@@ -22,8 +22,8 @@
                 <li><a href="admin-session-view.php">Sessions</a></li>
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php"><div class="highlighttext">System Users</div></a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
@@ -32,16 +32,16 @@
         <div class="main_content"> 
             <div class="info">
             <?php 
-                if(isset($_SESSION['login'])){
-                    echo $_SESSION['login'];
-                    unset($_SESSION['login']);
+                // if(isset($_SESSION['login'])){
+                //     echo $_SESSION['login'];
+                //     unset($_SESSION['login']);
 
-                }
-                if(isset($_SESSION['no-login-message'])){
-                    echo $_SESSION['no-login-message'];
-                    unset($_SESSION['no-login-message']);
+                // }
+                // if(isset($_SESSION['no-login-message'])){
+                //     echo $_SESSION['no-login-message'];
+                //     unset($_SESSION['no-login-message']);
 
-                }
+                // }
             ?>
             <div class="system-users">Access System Users</div>
         </div>

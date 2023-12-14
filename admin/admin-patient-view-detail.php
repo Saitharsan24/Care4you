@@ -79,10 +79,10 @@ overlay1.addEventListener("click", closePopup);
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php">Sessions</a></li>
-                <li><a href="admin-patient-view.php"><div class="highlighttext">Patient</div></a></li>
+                <li><a href="admin-patient-view.php"><div class="highlighttext">Patients</div></a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
@@ -151,10 +151,6 @@ overlay1.addEventListener("click", closePopup);
                 <table class="tbl-patientview">
                    
                 <img src="../images/user.png" alt="user" class="container01"></td>
-                  
-
-                    
-                    
                         <td colspan="2" class="typeC">
                             <i class="fa-solid fa-address-card" style="font-size: 30px;"></i>&nbsp; Patient Details
                         </td>
@@ -193,7 +189,6 @@ overlay1.addEventListener("click", closePopup);
                         <td class="typeR">Email Address :</td>
                         <td class="typeL">&emsp; <?php echo $row['email'] ?>
                         &nbsp; &nbsp;
-                        <?php  include('admin-patient-viewdetail-email-pop.php') ?>
                         </td>
                     </tr>
                     <tr>

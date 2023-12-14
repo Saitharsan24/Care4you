@@ -5,6 +5,12 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+p{
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .buttons{
   margin-left:720px;
 }
@@ -322,7 +328,8 @@ input:focus {
 
 <section id ="duration" > 
   <span class="overlay" onclick="closePopup1()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+    <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Test Duration (in Minutes)</h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -333,7 +340,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" type="submit" style="background-color: #28ae28; color: #fff;width: 150px;" name="update1">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -347,7 +354,8 @@ input:focus {
 
 <section id ="charge" > 
   <span class="overlay" onclick="closePopup2()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Test Charge </h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -358,7 +366,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update2">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -372,7 +380,8 @@ input:focus {
 
 <section id ="prerequirement" > 
   <span class="overlay" onclick="closePopup3()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Pre-Requirements for Test </h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -383,7 +392,7 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update3">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -397,7 +406,8 @@ input:focus {
 
 <section id ="NumberOfTestsPerDay" > 
   <span class="overlay" onclick="closePopup4()"></span>
-    <div class="modal-box" style="width:40%; height:35%;" >
+  <div class="modal-box" style="width:40%; height:48%;" >
+  <i class="fa-solid fa-list-ol" style="font-size:100px;margin-top:10px;"></i>
         <form action="" method="POST">
             <h1> Update Number of Tests per Day </h1>
             <div class="form-content" style="margin-left:-130px; margin-top:20px;">
@@ -408,7 +418,37 @@ input:focus {
               </div>
 
               <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
-                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="upload">Update</button>
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update4">Update</button>
+                <button class="modbutton close-btn">Close</button>
+              </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<!-- ------------------------------------------------------------------------- -->
+
+
+<section id ="PreRe" > 
+  <span class="overlay" onclick="closePopup5()"></span>
+  <div class="modal-box" style="width:40%; height:48%;" >
+    <i class="fa-solid fa-hourglass-half" style="font-size:100px;margin-top:10px;"></i>
+        <form action="" method="POST">
+            <h1> Update Prescription Requirements </h1>
+            <div class="form-content" style="margin-left:-100px; margin-top:20px;">
+
+              <div class="form-itm2" >
+                <p>Prescription :</p>
+                <!-- <input name="PreRe" class="padding" style="border:1px solid black" style="padding: 3px;" type="text" value="<?php //echo $NumberOfTestsPerDay; ?>"> -->
+                <input type="radio" id="req" name="PreRe" value="1">
+                Required
+                <input type="radio" id="notreq" name="PreRe" value="0">
+                Not Required              
+              </div>
+
+              <div class="buttons" style=" display: flex; margin-left:400px; margin-top:-0px;">
+                <button class="modbutton" style="background-color: #28ae28; color: #fff;width: 150px;" name="update5">Update</button>
                 <button class="modbutton close-btn">Close</button>
               </div>
             </div>
@@ -503,3 +543,112 @@ section4.classList.remove("active");
 closeBtn4.addEventListener("click", closePopup4);
 overlay4.addEventListener("click", closePopup4);
 </script>
+
+
+<!-- ------------------------------------------------------------------------- -->
+
+
+<script>
+function openPopup5() {
+  const section5 = document.getElementById("PreRe");
+  section5.classList.add("active");
+}
+
+const overlay5 = document.querySelector(".overlay"),
+closeBtn5 = document.querySelector(".close-btn");
+
+function closePopup5() {
+const section5 = document.getElementById("PreRe");
+section5.classList.remove("active");
+}
+
+closeBtn5.addEventListener("click", closePopup5);
+overlay5.addEventListener("click", closePopup5);
+</script>
+
+
+
+<?php 
+  if(isset($update1)){
+
+    echo 'clicked';
+
+    $duration = $_POST['duration'];
+
+    $test_id = $_GET['test_id'];
+    $sql1 = "UPDATE tbl_tbl_labtests SET duration = '$duration'
+            WHERE test_id = '$test_id'";
+
+    $results1 = mysqli_query($conn,$sql1);
+
+    if($results1 == TRUE){
+      echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_testview.php?id=" . $test_id . "';</script>";
+    }
+
+  }
+
+  if(isset($update2)){
+
+    $charge = $_POST['charge'];
+
+    $test_id = $_GET['test_id'];
+    $sql2 = "UPDATE tbl_tbl_labtests SET charge = '$charge'
+            WHERE test_id = '$test_id'";
+
+    $results2 = mysqli_query($conn,$sql2);
+
+    if($results2 == TRUE){
+      echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_testview.php?id=" . $test_id . "';</script>";
+    }
+
+  }
+
+  if(isset($update3)){
+
+    $prerequirement = $_POST['prerequirement'];
+
+    $test_id = $_GET['test_id'];
+    $sql3 = "UPDATE tbl_tbl_labtests SET prerequirement = '$prerequirement'
+            WHERE test_id = '$test_id'";
+
+    $results3 = mysqli_query($conn,$sql3);
+
+    if($results3 == TRUE){
+      echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_testview.php?id=" . $test_id . "';</script>";
+    }
+
+  }
+
+  if(isset($update4)){
+
+    $NumberOfTestsPerDay = $_POST['NumberOfTestsPerDay'];
+
+    $test_id = $_GET['test_id'];
+    $sql4 = "UPDATE tbl_tbl_labtests SET NumberOfTestsPerDay = '$NumberOfTestsPerDay'
+            WHERE test_id = '$test_id'";
+
+    $results4 = mysqli_query($conn,$sql4);
+
+    if($results4 == TRUE){
+      echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_testview.php?id=" . $test_id . "';</script>";
+    }
+
+  }
+
+  if(isset($update5)){
+
+    $PreRe = $_POST['PreRe'];
+
+    $test_id = $_GET['test_id'];
+    $sql5 = "UPDATE tbl_tbl_labtests SET prescription  = '$PreRe'
+            WHERE test_id = '$test_id'";
+
+    $results5 = mysqli_query($conn,$sql5);
+
+    if($results5 == TRUE){
+      echo "<script> window.location.href='http://localhost/Care4you/laboratory/lab_testview.php?id=" . $test_id . "';</script>";
+    }
+
+  }
+
+?>

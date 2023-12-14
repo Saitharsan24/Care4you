@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -9,11 +9,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
   background-color: #A5D1E1;
 }
 
-.back{
+.back {
   position: absolute;
   left: 275px;
   top: 30px;
@@ -21,13 +21,13 @@ body{
   cursor: pointer;
 }
 
-.back:hover{
+.back:hover {
   color: #073645;
 }
 
 /* SUCCESS/ERROR MSG Style Starts*/
 
-.success{
+.success {
   color: #2ed573;
   font-size: 13px;
   font-weight: 700;
@@ -36,8 +36,8 @@ body{
   padding-right: 3%;
 }
 
-.error{
-  color:#ff4757;
+.error {
+  color: #ff4757;
   font-size: 13px;
   font-weight: 700;
   background-color: #F7F7F7;
@@ -58,13 +58,13 @@ body{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #ffffff; 
+  box-shadow: inset 0 0 5px #ffffff;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #012836; 
+  background: #012836;
   border-radius: 10px;
 }
 
@@ -78,12 +78,12 @@ body{
 
 /* Navigation Bar CSS Starts Here*/
 
-.wrapper{
+.wrapper {
   display: flex;
   position: relative;
 }
 
-.wrapper .sidebar{
+.wrapper .sidebar {
   width: 250px;
   height: 100%;
   background: #FFFFFF;
@@ -91,13 +91,13 @@ body{
   position: fixed;
 }
 
-.logo{
+.logo {
   width: 200px;
   margin-top: 0px;
   margin-left: 25px;
 }
 
-.imgframe{
+.imgframe {
   width: 120px;
   height: 120px;
   margin-top: 20px;
@@ -106,7 +106,7 @@ body{
   border-radius: 50%;
 }
 
-.wrapper .sidebar ul{
+.wrapper .sidebar ul {
   margin-top: 20px;
   text-align: center;
   font-size: 20px;
@@ -114,21 +114,21 @@ body{
   padding: 10px;
 }
 
-.wrapper .sidebar ul li{
+.wrapper .sidebar ul li {
   padding: 4px;
   vertical-align: middle;
-}    
+}
 
-.wrapper .sidebar ul li a{
+.wrapper .sidebar ul li a {
   color: #000000;
   display: block;
 }
-    
-.wrapper .sidebar ul li:hover a{
+
+.wrapper .sidebar ul li:hover a {
   color: #0D5C75;
 }
 
-.signouttext{
+.signouttext {
   color: #0D5C75;
   text-align: center;
   font-size: 20px;
@@ -138,48 +138,48 @@ body{
   left: 65px;
 }
 
-.wrapper .sidebar .signouttext a{
+.wrapper .sidebar .signouttext a {
   color: #0D5C75;
   display: block;
 }
 
-.wrapper .sidebar .signouttext a:hover{
+.wrapper .sidebar .signouttext a:hover {
   color: #000000;
   font-weight: 700;
   display: block;
 }
 
-.fa-solid{
+.fa-solid {
   font-size: 17px;
 }
 
-.wrapper .main_content{
+.wrapper .main_content {
   width: 100%;
   margin-left: 250px;
   margin-top: 50px;
   text-align: center;
 }
 
-.wrapper .main_content .info{
+.wrapper .main_content .info {
   margin: 20px;
   color: #000000;
   line-height: 25px;
 }
 
-.wrapper .main_content .info div{
+.wrapper .main_content .info div {
   margin-bottom: 20px;
 }
 
-.wrapper .right-button{
+.wrapper .right-button {
   margin-left: 470px;
 }
 
-.wrapper .left-button{
+.wrapper .left-button {
   margin-left: -827px;
 }
 
 
-.highlighttext{
+.highlighttext {
   color: #0D5C75;
   font-weight: 600;
   display: inline;
@@ -192,10 +192,10 @@ body{
 
 table {
   /*border:1px solid #b3adad;*/
-  border-collapse:collapse;
+  border-collapse: collapse;
 }
 
-.welcometext{
+.welcometext {
   color: #000000;
   font-size: 32px;
   font-weight: 600;
@@ -204,7 +204,7 @@ table {
   display: inline;
 }
 
-.usernametext{
+.usernametext {
   color: #0D5C75;
   display: inline;
 }
@@ -213,14 +213,14 @@ table {
 table.center {
   width: 75%;
   margin-top: 5%;
-  margin-left: 9%; 
+  margin-left: 9%;
   margin-right: auto;
 }
 
-table td{
+table td {
   width: 750px;
   /*border:1px solid #b3adad;*/
-  text-align:center;
+  text-align: center;
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 5%;
@@ -229,13 +229,13 @@ table td{
 #rcorners {
   border-radius: 35px;
   background: #ffffff;
-  padding: 35px; 
+  padding: 35px;
   width: 400px;
   height: 200px;
   color: #000000;
   text-align: center;
   font-size: 25px;
-  font-weight: 600;  
+  font-weight: 600;
 }
 
 /* admin_home CSS Ends Here*/
@@ -247,6 +247,7 @@ table td{
   text-align: center;
   position: relative;
 }
+
 .square {
   border: 2px solid #0D5C75;
   width: 600px;
@@ -258,13 +259,13 @@ table td{
   border-radius: 10%;
 }
 
-.tbl-square{
+.tbl-square {
   border-collapse: separate;
   table-layout: fixed;
   /* border: 1px solid black; */
 }
 
-.tbl-square .type1{
+.tbl-square .type1 {
   /* border: 1px solid black; */
   width: 245px;
   text-align: right;
@@ -273,7 +274,7 @@ table td{
   font-weight: 500;
 }
 
-.tbl-square .type2{
+.tbl-square .type2 {
   /* border: 1px solid black; */
   width: 300px;
   text-align: left;
@@ -313,13 +314,13 @@ table td{
 #overlap {
   width: 10px;
   height: 60px;
-/*   background: purple; */
+  /*   background: purple; */
   position: relative;
   left: -10px;
   right: -20px;
 }
 
-.btn-blue{
+.btn-blue {
   margin-left: 60%;
   background-color: #0D5C75;
   padding: 10px;
@@ -333,7 +334,7 @@ table td{
   cursor: pointer;
 }
 
-.btn-blue a{
+.btn-blue a {
   color: #ffffff;
 }
 
@@ -342,7 +343,7 @@ table td{
 
 /*  admin-system-users.php page start here*/
 
-.system-users{
+.system-users {
   color: #000000;
   font-size: 40px;
   font-weight: 600;
@@ -350,7 +351,7 @@ table td{
   display: inline;
 }
 
-.button-asst{    
+.button-asst {
   position: absolute;
   width: 320px;
   height: 140px;
@@ -365,7 +366,7 @@ table td{
   font-weight: 700;
 }
 
-.button-asst:hover{
+.button-asst:hover {
   background-color: #e1ebef;
   color: #0C5C75;
   cursor: pointer;
@@ -374,7 +375,7 @@ table td{
   box-shadow: 5px 10px #888888;
 }
 
-.button-phar{    
+.button-phar {
   position: absolute;
   width: 320px;
   height: 140px;
@@ -389,7 +390,7 @@ table td{
   font-weight: 700;
 }
 
-.button-phar:hover{
+.button-phar:hover {
   background-color: #e1ebef;
   color: #0C5C75;
   cursor: pointer;
@@ -398,7 +399,7 @@ table td{
   box-shadow: 5px 10px #888888;
 }
 
-.button-lab{    
+.button-lab {
   position: absolute;
   width: 320px;
   height: 140px;
@@ -413,7 +414,7 @@ table td{
   font-weight: 700;
 }
 
-.button-lab:hover{
+.button-lab:hover {
   background-color: #e1ebef;
   color: #0C5C75;
   cursor: pointer;
@@ -422,7 +423,7 @@ table td{
   box-shadow: 5px 10px #888888;
 }
 
-.button-doc{    
+.button-doc {
   position: absolute;
   width: 320px;
   height: 140px;
@@ -437,7 +438,7 @@ table td{
   font-weight: 700;
 }
 
-.button-doc:hover{
+.button-doc:hover {
   background-color: #e1ebef;
   color: #0C5C75;
   cursor: pointer;
@@ -452,8 +453,8 @@ table td{
 
 /* admin-doc-view.php page start here*/
 
-.doc-list{
-  position:absolute;
+.doc-list {
+  position: absolute;
   color: #000000;
   font-size: 32px;
   font-weight: 600;
@@ -462,7 +463,7 @@ table td{
 
 }
 
-.btn-search{
+.btn-search {
   border-radius: 10px;
   background-color: #0D5C75;
   border: none;
@@ -543,28 +544,28 @@ table td{
 }
 
 
-.tbl-main-doc{
+.tbl-main-doc {
   position: absolute;
   left: 309px;
-    top: 110px;
-    width: 1198px;
-  margin-left:auto; 
-  margin-right:auto;
+  top: 110px;
+  width: 1198px;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: separate;
   border-spacing: 0 15px;
 }
 
-.tbl-main-doc tr{
+.tbl-main-doc tr {
   background-color: #ffffff;
 }
 
-.tbl-main-doc thead td{
+.tbl-main-doc thead td {
   color: #0D5C75;
   font-weight: 700;
   padding: 5px;
 }
 
-.tbl-main-doc td{
+.tbl-main-doc td {
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -574,29 +575,32 @@ table td{
   padding-right: 0%;
 }
 
-.tbl-main-doc td:first-child, th:first-child {
+.tbl-main-doc td:first-child,
+th:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-.tbl-main-doc td:last-child, th:last-child {
+.tbl-main-doc td:last-child,
+th:last-child {
   border-radius: 0 10px 10px 0;
 }
 
-.search-doc{
+.search-doc {
   width: 80%;
   padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 10px;
   border: none;
-  background-color:#c5dde5;
+  background-color: #c5dde5;
 }
 
 .search-doc::placeholder {
   color: rgb(0, 0, 0);
   font-size: 12px;
-  
+
 }
+
 .btn-addnew {
   position: absolute;
   left: 1285px;
@@ -644,10 +648,10 @@ table td{
 
 /* admin-doc-detail.php page start here */
 
-.view-doc{
+.view-doc {
   margin-top: 7%;
   margin-bottom: 5%;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
   width: 65%;
   text-align: center;
@@ -661,31 +665,31 @@ table td{
   box-shadow: 5px 10px #888888;
 }
 
-.view-doc tr td{
+.view-doc tr td {
   padding: 15px;
   text-align: center;
   vertical-align: middle;
 }
 
-.view-doc td.typeR{
+.view-doc td.typeR {
   text-align: right;
   color: #0D5C75;
   font-weight: 600;
 }
 
-.view-doc td.typeL{
+.view-doc td.typeL {
   text-align: left;
   font-weight: 600;
 }
 
-.ppframe{
+.ppframe {
   width: 200px;
   height: 200px;
   border: 1px solid #083746;
   border-radius: 50%;
 }
 
-.btn-del-doc-enable{ 
+.btn-del-doc-enable {
   width: 200px;
   border-radius: 25px;
   background-color: #6ECB63;
@@ -695,12 +699,12 @@ table td{
   cursor: pointer;
 }
 
-.btn-del-doc-enable:hover{ 
+.btn-del-doc-enable:hover {
   background-color: #1c7226;
   color: white;
 }
 
-.btn-del-doc-disable{
+.btn-del-doc-disable {
   width: 200px;
   border-radius: 25px;
   background-color: #F45050;
@@ -709,11 +713,11 @@ table td{
   cursor: pointer;
 }
 
-.btn-del-doc-disable:hover{
+.btn-del-doc-disable:hover {
   background-color: #730101;
 }
 
-.view-doc td.typeL i{
+.view-doc td.typeL i {
   font-size: 12px;
   color: #0C5C75;
 }
@@ -764,28 +768,28 @@ table td{
 }
 
 
-.tbl-main-pha{
+.tbl-main-pha {
   position: absolute;
   left: 375px;
   top: 110px;
   width: 1068px;
-  margin-left:auto; 
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: separate;
   border-spacing: 0 15px;
 }
 
-.tbl-main-pha tr{
+.tbl-main-pha tr {
   background-color: #ffffff;
 }
 
-.tbl-main-pha thead td{
+.tbl-main-pha thead td {
   color: #0D5C75;
   font-weight: 700;
   padding: 5px;
 }
 
-.tbl-main-pha td{
+.tbl-main-pha td {
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -795,23 +799,25 @@ table td{
   padding-right: 0%;
 }
 
-.tbl-main-pha td:first-child, th:first-child {
+.tbl-main-pha td:first-child,
+th:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-.tbl-main-pha td:last-child, th:last-child {
+.tbl-main-pha td:last-child,
+th:last-child {
   border-radius: 0 10px 10px 0;
 }
 
-.search-pha{
+.search-pha {
   width: 80%;
   padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 10px;
   border: none;
-  background-color:#c5dde5;
- 
+  background-color: #c5dde5;
+
 }
 
 .search-pha::placeholder {
@@ -820,7 +826,7 @@ table td{
   font-style: italic;
 }
 
-.to-reg-pha-page{
+.to-reg-pha-page {
   position: absolute;
   width: 184px;
   left: 1122px;
@@ -837,7 +843,7 @@ table td{
   cursor: pointer;
 }
 
-.back-pha-view{
+.back-pha-view {
   position: absolute;
   width: 158px;
   left: 905px;
@@ -854,18 +860,18 @@ table td{
   cursor: pointer;
 }
 
-.active-status{
+.active-status {
   border: 1px solid #6ECB63;
   border-radius: 25px;
   padding: 5px;
   width: 100px;
   font-size: 15px;
   font-weight: 600;
-  background-color:  #6ECB63;
+  background-color: #6ECB63;
   color: #000000;
 }
 
-.passive-status{
+.passive-status {
   border: 1px solid #F45050;
   border-radius: 25px;
   padding: 5px;
@@ -881,7 +887,7 @@ table td{
 
 /* admin-pha-view-details.php start here */
 
-.detail-txt-pha{
+.detail-txt-pha {
   position: absolute;
   top: 35px;
   left: 673px;
@@ -892,13 +898,13 @@ table td{
   display: inline;
 }
 
-.id-txt-pha{
+.id-txt-pha {
   color: #0D5C75;
   display: inline;
 }
 
 
-.square-detail-pha{
+.square-detail-pha {
   border: 2px solid #0D5C75;
   width: 725px;
   height: 574px;
@@ -910,10 +916,10 @@ table td{
   border-radius: 10%;
 }
 
-.btn-detail-pha{
+.btn-detail-pha {
   position: absolute;
   left: 570px;
-  bottom:-30px;
+  bottom: -30px;
   background-color: #0D5C75;
   padding: 10px;
   padding-left: 2%;
@@ -927,11 +933,11 @@ table td{
 }
 
 
-.btn-enable-pha{
+.btn-enable-pha {
   position: absolute;
   left: 425px;
-    bottom: -62px;
-    width: 180px;
+  bottom: -62px;
+  width: 180px;
   background-color: #008000;
   padding: 10px;
   padding-left: 2%;
@@ -944,11 +950,11 @@ table td{
   cursor: pointer;
 }
 
-.btn-disable-pha{
+.btn-disable-pha {
   position: absolute;
   left: 425px;
-    bottom: -62px;
-    width: 180px;
+  bottom: -62px;
+  width: 180px;
   background-color: #800000;
   padding: 10px;
   padding-left: 2%;
@@ -961,10 +967,10 @@ table td{
   cursor: pointer;
 }
 
-.btn-edit-pha{
+.btn-edit-pha {
   position: absolute;
   left: 227px;
-    bottom: -62px;
+  bottom: -62px;
   background-color: #0D5C75;
   width: 158px;
   padding: 10px;
@@ -979,10 +985,10 @@ table td{
 
 }
 
-.btn-del-back-pha{
+.btn-del-back-pha {
   position: absolute;
   left: 78px;
-    bottom: -62px;
+  bottom: -62px;
   background-color: #0D5C75;
   width: 113px;
   padding: 10px;
@@ -998,7 +1004,7 @@ table td{
 }
 
 
-.detail-pha{
+.detail-pha {
   position: relative;
   top: 41px;
   left: 25px;
@@ -1009,8 +1015,8 @@ table td{
 
 /* admin-laboratory-view.php page start here */
 
-.lab-list{
-  position:absolute;
+.lab-list {
+  position: absolute;
   color: #000000;
   font-size: 32px;
   font-weight: 600;
@@ -1018,6 +1024,7 @@ table td{
   left: 726px;
 
 }
+
 .btn-view-lab-detail {
   border-radius: 10px;
   background-color: #0D5C75;
@@ -1059,28 +1066,28 @@ table td{
 }
 
 
-.tbl-main-lab{
+.tbl-main-lab {
   position: absolute;
   left: 375px;
   top: 110px;
   width: 1068px;
-  margin-left:auto; 
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: separate;
   border-spacing: 0 15px;
 }
 
-.tbl-main-lab tr{
+.tbl-main-lab tr {
   background-color: #ffffff;
 }
 
-.tbl-main-lab thead td{
+.tbl-main-lab thead td {
   color: #0D5C75;
   font-weight: 700;
   padding: 5px;
 }
 
-.tbl-main-lab td{
+.tbl-main-lab td {
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -1090,11 +1097,13 @@ table td{
   padding-right: 0%;
 }
 
-.tbl-main-lab td:first-child, th:first-child {
+.tbl-main-lab td:first-child,
+th:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-.tbl-main-lab td:last-child, th:last-child {
+.tbl-main-lab td:last-child,
+th:last-child {
   border-radius: 0 10px 10px 0;
 }
 
@@ -1105,15 +1114,15 @@ table td{
   font-size: 15px;
 } */
 
-.search-lab{
+.search-lab {
   width: 80%;
   padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 10px;
   border: none;
-  background-color:#c5dde5;
- 
+  background-color: #c5dde5;
+
 }
 
 .search-lab::placeholder {
@@ -1126,7 +1135,7 @@ table td{
 
 /* admin-labtec-view-details.php start here */
 
-.detail-txt-lab{
+.detail-txt-lab {
   position: absolute;
   top: 35px;
   left: 673px;
@@ -1137,13 +1146,13 @@ table td{
   display: inline;
 }
 
-.id-txt-lab{
+.id-txt-lab {
   color: #0D5C75;
   display: inline;
 }
 
 
-.square-detail-lab{
+.square-detail-lab {
   border: 2px solid #0D5C75;
   width: 695px;
   height: 562px;
@@ -1155,10 +1164,10 @@ table td{
   border-radius: 10%;
 }
 
-.btn-detail-lab{
+.btn-detail-lab {
   position: absolute;
   left: 570px;
-  bottom:-30px;
+  bottom: -30px;
   background-color: #0D5C75;
   padding: 10px;
   padding-left: 2%;
@@ -1172,7 +1181,7 @@ table td{
 }
 
 
-.btn-lactec-disable{
+.btn-lactec-disable {
   position: absolute;
   left: 414px;
   bottom: -95px;
@@ -1190,11 +1199,11 @@ table td{
   z-index: 1;
 }
 
-.btn-lactec-enable{
+.btn-lactec-enable {
   position: absolute;
   left: 414px;
-    bottom: -95px;
-    width: 180px;
+  bottom: -95px;
+  width: 180px;
   background-color: #008000;
   padding: 10px;
   padding-left: 2%;
@@ -1207,7 +1216,7 @@ table td{
   cursor: pointer;
 }
 
-.btn-del-back-lab{
+.btn-del-back-lab {
   position: absolute;
   left: 78px;
   bottom: -95px;
@@ -1226,7 +1235,7 @@ table td{
 }
 
 
-.detail-lab{
+.detail-lab {
   position: relative;
   top: 71px;
   left: 25px;
@@ -1236,8 +1245,8 @@ table td{
 /* admin-labtec-view-details.php end here */
 
 /* admin-asst-view.php start here */
-.asst-list{
-  position:absolute;
+.asst-list {
+  position: absolute;
   color: #000000;
   font-size: 32px;
   font-weight: 600;
@@ -1245,6 +1254,7 @@ table td{
   left: 726px;
 
 }
+
 .btn-view-asst-detail {
   border-radius: 10px;
   background-color: #0D5C75;
@@ -1286,28 +1296,28 @@ table td{
 }
 
 
-.tbl-main-asst{
+.tbl-main-asst {
   position: absolute;
   left: 375px;
   top: 110px;
   width: 1068px;
-  margin-left:auto; 
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: separate;
   border-spacing: 0 15px;
 }
 
-.tbl-main-asst tr{
+.tbl-main-asst tr {
   background-color: #ffffff;
 }
 
-.tbl-main-asst thead td{
+.tbl-main-asst thead td {
   color: #0D5C75;
   font-weight: 700;
   padding: 5px;
 }
 
-.tbl-main-asst td{
+.tbl-main-asst td {
   /*border:1px solid #b3adad;*/
   color: #000000;
   text-align: center;
@@ -1317,25 +1327,27 @@ table td{
   padding-right: 0%;
 }
 
-.tbl-main-asst td:first-child, th:first-child {
+.tbl-main-asst td:first-child,
+th:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-.tbl-main-asst td:last-child, th:last-child {
+.tbl-main-asst td:last-child,
+th:last-child {
   border-radius: 0 10px 10px 0;
 }
 
 
 
-.search-asst{
+.search-asst {
   width: 80%;
   padding: 7px 7px 7px 10px;
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 10px;
   border: none;
-  background-color:#c5dde5;
- 
+  background-color: #c5dde5;
+
 }
 
 .search-asst::placeholder {
@@ -1343,8 +1355,8 @@ table td{
   font-size: 10px;
   font-style: italic;
 }
-  
-.to-reg-asst-page{
+
+.to-reg-asst-page {
   position: absolute;
   width: 184px;
   left: 1122px;
@@ -1361,7 +1373,7 @@ table td{
   cursor: pointer;
 }
 
-.back-asst-view{
+.back-asst-view {
   position: absolute;
   width: 158px;
   left: 905px;
@@ -1384,7 +1396,7 @@ table td{
 
 /* admin-asst-view-details.php start here */
 
-.detail-txt-asst{
+.detail-txt-asst {
   position: absolute;
   top: 35px;
   left: 673px;
@@ -1395,28 +1407,28 @@ table td{
   display: inline;
 }
 
-.id-txt-asst{
+.id-txt-asst {
   color: #0D5C75;
   display: inline;
 }
 
 
-.square-detail-asst{
+.square-detail-asst {
   border: 2px solid #0D5C75;
-    width: 659px;
-    height: 537px;
-    background: #ffffff;
-    position: absolute;
-    top: 109px;
-    left: 532px;
-    display: inline-block;
-    border-radius: 10%;
+  width: 659px;
+  height: 537px;
+  background: #ffffff;
+  position: absolute;
+  top: 109px;
+  left: 532px;
+  display: inline-block;
+  border-radius: 10%;
 }
 
-.btn-detail-asst{
+.btn-detail-asst {
   position: absolute;
   left: 570px;
-  bottom:-30px;
+  bottom: -30px;
   background-color: #0D5C75;
   padding: 10px;
   padding-left: 2%;
@@ -1430,11 +1442,11 @@ table td{
 }
 
 
-.btn-enable-asst{
+.btn-enable-asst {
   position: absolute;
   left: 425px;
-    bottom: -62px;
-    width: 180px;
+  bottom: -62px;
+  width: 180px;
   background-color: #008000;
   padding: 10px;
   padding-left: 2%;
@@ -1448,7 +1460,7 @@ table td{
 }
 
 
-.btn-disable-asst{
+.btn-disable-asst {
   position: absolute;
   left: 378px;
   bottom: -90px;
@@ -1464,7 +1476,8 @@ table td{
   font-weight: 500;
   cursor: pointer;
 }
-.btn-del-back-asst{
+
+.btn-del-back-asst {
   position: absolute;
   left: 92px;
   bottom: -95px;
@@ -1483,7 +1496,7 @@ table td{
 }
 
 
-.detail-asst{
+.detail-asst {
   position: relative;
   top: 47px;
   left: 22px;
@@ -1498,6 +1511,7 @@ table td{
   text-align: center;
   position: relative;
 }
+
 .square {
   border: 2px solid #0D5C75;
   width: 600px;
@@ -1509,13 +1523,13 @@ table td{
   border-radius: 10%;
 }
 
-.tbl-square{
+.tbl-square {
   border-collapse: separate;
   table-layout: fixed;
   /* border: 1px solid black; */
 }
 
-.tbl-square .type1{
+.tbl-square .type1 {
   /* border: 1px solid black; */
   width: 245px;
   text-align: right;
@@ -1524,7 +1538,7 @@ table td{
   font-weight: 500;
 }
 
-.tbl-square .type2{
+.tbl-square .type2 {
   /* border: 1px solid black; */
   width: 300px;
   text-align: left;
@@ -1564,13 +1578,13 @@ table td{
 #overlap {
   width: 10px;
   height: 60px;
-/*   background: purple; */
+  /*   background: purple; */
   position: relative;
   left: -10px;
   right: -20px;
 }
 
-.form-control2{
+.form-control2 {
   width: 200px;
   text-align: center;
   border-radius: 10px;
@@ -1586,12 +1600,12 @@ table td{
 
 /*  admin-doc-reg.php page start here*/
 
-.reg-heading{
+.reg-heading {
   width: 60%;
   margin: auto;
   margin-top: 60px;
   padding: 20px;
-  background-color:#0D5C75;
+  background-color: #0D5C75;
   text-align: center;
   font-size: 45px;
   font-weight: 800;
@@ -1606,7 +1620,7 @@ table td{
   margin-right: auto;
   margin-bottom: auto;
   padding: 20px;
-  background-color:#fff;
+  background-color: #fff;
   border: 2px solid #0D5C75;
   border-radius: 10px;
   /* animation: slideIn .9s ease forwards;
@@ -1614,14 +1628,14 @@ table td{
   transition: all .9s ease; */
 }
 
-.otheruser{
+.otheruser {
   width: 75%;
 }
 
 .reg-container-col {
-  display:inline-block;
+  display: inline-block;
   width: 30%;
-  margin:auto;
+  margin: auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 15px;
@@ -1634,52 +1648,52 @@ table td{
   transition: all .9s ease; */
 }
 
-.otherusercol{
+.otherusercol {
   width: 40%;
 }
 
-.mid{
+.mid {
   margin-left: 3%;
   margin-right: 3%;
 }
 
-.mid2{
+.mid2 {
   margin-right: 5%;
 }
 
-.otherusercolbreak{
+.otherusercolbreak {
   margin-left: 3%;
 }
 
-.labeltag{
+.labeltag {
   text-align: left;
   font-size: 15px;
   font-weight: 600;
   color: #0D5C75;
 }
 
-.inputtab{
+.inputtab {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 14px;
   position: relative;
-  width: 100%;
+  width: 90%;
   overflow: hidden;
   outline: 0;
 }
 
-option{
+option {
   font-size: 10px;
 }
 
-.reg-foot{
+.reg-foot {
   width: 12%;
   position: absolute;
   top: 93%;
   left: 52%;
   padding: 10px;
-  background-color:#0D5C75;
+  background-color: #0D5C75;
   text-align: center;
   font-size: 18px;
   font-weight: 700;
@@ -1688,11 +1702,11 @@ option{
   cursor: pointer;
 }
 
-.pha{
+.pha {
   width: 13%;
 }
 
-.labtec{
+.labtec {
   width: 14%;
 }
 
@@ -1712,7 +1726,7 @@ option{
   transition: 0.7s;
 }
 
-.reg-foot:hover{
+.reg-foot:hover {
   background-image: linear-gradient(to left, #557c87, #0D5C75);
 }
 
@@ -1726,3 +1740,94 @@ option{
 }
 
 /*  admin-doc-reg.php page end here*/
+
+
+/* --------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------ */
+
+.flex-cont {
+  display: flex;
+}
+
+.graph-cont {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: auto;
+  margin-left: 5%;
+  width: 55%;
+  height: 70vh;
+  background-color: #FFFFFF;
+  border-radius: 25px;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.box-cont {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 30%;
+  height: 70vh;
+  /* background-color: #FFFFFF; */
+  border-radius: 25px;
+}
+
+.box-sub {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin-top: -7%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 30%;
+  background-color: #fff;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 50px;
+}
+
+.box-title {
+  margin-top: 5%;
+  color: #4D4D4D;
+  font-weight: 650;
+  font-size: 28px;
+}
+
+.box-data {
+  margin-top: 10%;
+  color: #0D5C75;
+  font-weight: 700;
+  font-size: 65px;
+}
+
+#home_chart {
+  margin: 15px;
+  height: 350px !important;
+}
+
+.graph-home {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
+  height: 80%;
+  background-color: #FFFFFF;
+  border: 1px solid #888888;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+  border-radius: 50px;
+  flex-direction: column;
+}

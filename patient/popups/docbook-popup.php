@@ -179,6 +179,21 @@ section.active .modal-box {
     </div>
 </section>
 
+
+<section id="labplaced">
+  <span class="overlay" onclick="closePopupLAB()"></span>
+
+  <div class="modal-box" style="width:28%; height:45%; text-align: center; justify-content: center;align-items: center;">
+    <i class="fa-solid fa-circle-check" style="color: #28ae28;margin-top:-20px;"></i> <br/>
+    <h3 style="font-size:20px; font-weight:700;"><b>Your lab appointment has been placed</b><br/>please wait for the response from Laboratory</h3>
+
+    <div class="buttons" style="display:flex; margin-left:0px; margin-top:20px;">
+      <button class="button  close-btn " style="width:100px;" onclick="closePopupLAB()">Ok</button>
+    </div>
+  </div>
+</section>
+
+
 <script>
   function openPopup() {
     const section = document.querySelector("section");
@@ -195,4 +210,16 @@ section.classList.remove("active");
 
 closeBtn.addEventListener("click", closePopup);
 overlay.addEventListener("click", closePopup);
+
+function openPopupLAB() {
+    const section = document.getElementById("labplaced");
+    section.classList.add("active");
+}
+
+function closePopupLAB() {
+    const section = document.getElementById("labplaced");
+    section.classList.remove("active");
+}
+
+
 </script>

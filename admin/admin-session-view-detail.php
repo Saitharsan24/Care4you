@@ -21,10 +21,10 @@
             <ul>
                 <li><a href="admin_home.php">Home</a></li>
                 <li><a href="admin-session-view.php"><div class="highlighttext">Sessions</div></a></li>
-                <li><a href="admin-patient-view.php">Patient</a></li>
+                <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
-                <li><a href="admin-doc-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-appointment.php">Appointments</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php">Profile</a></li>
             </ul>
@@ -72,7 +72,7 @@
                 WHERE session_id = $sessionid";
                 
                 if (mysqli_query($conn, $query_del)) {
-                    header("Location: /Care4you/admin/admin-session-confirm-mail.php?doc_id=".$doc_id);
+                    header("Location: /Care4you/admin/admin-session-view.php?doc_id=".$doc_id);
                 } else {
                     echo "Error deleting record: " . mysqli_error($conn);
                 }
@@ -184,7 +184,7 @@
                             ?>
                                 <button class="btn-activate" onclick="document.getElementById('id01').style.display='block'; document.getElementById('del').action = '?id=<?php echo $row['session_id'] ?>&confirm=<?php echo $row['session_id'] ?>';">
                                 <i class="fa-solid fa-toggle-on"></i>
-                                Confirm Session
+                                Enable Session
                                 </button>
                             <?php 
                             };

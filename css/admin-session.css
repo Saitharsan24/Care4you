@@ -199,7 +199,7 @@ body{
 
 .btn-addnew {
   position: absolute;
-  right: 930px;
+  right: 960px;
   top: 50px;
   border-radius: 10px;
   background-color: #0D5C75;
@@ -264,7 +264,7 @@ body{
 }
 
 .btn-search span:after {
-  content: '🔍︎';
+  content: 'X';
   position: absolute;
   opacity: 0;
   top: 0;

@@ -63,6 +63,14 @@ body {
     height: 100vh;
     width: 100%;
   }
+
+  .imgframe{
+    width: 120px;
+    height: 120px;
+    border: 1px solid #083746;
+    border-radius: 50%;
+  }
+  
   
   .home-left {
     display: flex;
@@ -684,6 +692,17 @@ input:checked+.slider:before {
     transform: translateX(18px);
 }
 
+#toggle-text{
+position: absolute;
+width: max-content;
+top: 0;
+left: 50px;
+font-size: 12px;
+color: #555;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
 /* Rounded sliders */
 .slider.round {
     border-radius: 34px;
@@ -761,9 +780,9 @@ input::-webkit-file-upload-button {
 .view-apt-details {
     border-radius: 15px;
     background: white;
-    height: 520px;
-    width: 500px;
-    margin: 30px 0px 0px 200px;
+    height: 580px;
+    width: 550px;
+    margin: 20px 0px 0px 200px;
     display: flex;
     flex-direction: column;
     padding: 25px 0px 0px 30px;
@@ -794,6 +813,14 @@ input::-webkit-file-upload-button {
     justify-content: right;
     align-items: center;
     margin: 10px 30px 0px 0px;
+}
+
+.view-apt-btn-record-access {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin: 0px 145px 10px 0px;
 }
 
 .view-apt-btn01 button {
@@ -1368,10 +1395,10 @@ input::-webkit-file-upload-button {
 }
 
 .record-buttons button:hover {
-    background: #f0f2f4;
-    color: #093e4e;
-    font-weight: bold;
-    transition: .2s;
+    background: #1581a2;
+    color: #ffff;
+    font-weight: 500;
+    transition: .4s;
     cursor: pointer;
 }
 
@@ -2541,4 +2568,193 @@ font-weight: 550;
   } */
   
   /* CSS for viewprofile.php Ends Here*/
+
+  .ortext{
+    color: #0C5C75;
+    font-weight: 650;
+    font-size: 25px;
+    margin-left: 450px;
+    margin-top: -10px;
+  }
+  
+  .testselect{
+    width: 350px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+  }
+
+  .containorLarge {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 40px;
+    border-radius: 25px;
+    background: linear-gradient(to top, #ffffff, #fff);
+    height: 80vh;
+    border: 2px solid #0D5C75;
+    overflow: auto;
+  }
+  
+  .containorLarge::-webkit-scrollbar {
+    height: 80%;
+  }
+  
+  .containorLargetxt {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 40px;
+    border-radius: 25px;
+    background: linear-gradient(to top, #ffffff, #fff);
+    border: 2px solid #0D5C75;
+  }
+  
+  .containorLarge .containorSLeft {
+    width: 20%;
+    /* border: 1px solid #000000; */
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+  }
+  
+  .containorLarge .containorSRight {
+    /* margin-left: 2%; */
+    width: 35%;
+    /* border: 1px solid #000000; */
+  }
+  
+  .containorLarge .containorSRLast {
+    /* margin-left: 2%; */
+    width: 45%;
+    /* border: 1px solid #000000; */
+    vertical-align: baseline;
+    height: 62vh;
+  }
+
+  .tbl-addmed {
+    overflow: hidden;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  
+  .tbl-addmed table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  .tbl-addmed table tbody {
+    display: block;
+    max-height: 50px;
+    /* Set a maximum height for the table to enable vertical scrolling */
+    overflow-y: scroll;
+  }
+  
+  .tbl-addmed table thead,
+  .tbl-addmed table tbody {
+    display: table;
+    width: 100%;
+  }
+  
+  .tbl-addmed thead tr {
+    background-color: #bcbcbc;
+  }
+  
+  .tbl-addmed thead td {
+    color: #000000;
+    font-weight: 550;
+    padding: 2px;
+    font-size: 11px;
+  }
+  
+  .tbl-addmed tbody tr {
+    background-color: #F7F7F7;
+  }
+  
+  .tbl-addmed tbody td {
+    /*border:1px solid #b3adad;*/
+    /* color: #000000; */
+    text-align: center;
+    color: #212121;
+    font-weight: 450;
+    width: 350px;
+    padding: 2px;
+    padding-left: 0%;
+    padding-right: 0%;
+    font-size: 11px;
+  }
+  
+  .tbl-addmed td:first-child,
+  th:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .tbl-addmed td:last-child,
+  th:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+  
+  td.nosessiontd:first-child,
+  th:first-child {
+    border-radius: 10px 10px 10px 10px;
+  }
+  
+  .text {
+    font-size: 12px;
+    color: #212121;
+    font-weight: 450;
+  }
+  
+  textarea {
+    margin-bottom: -27px;
+    resize: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+  
+  .nettotal {
+    width: 338px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #444343;
+    padding-left: 5px;
+    padding: 5px;
+  }
+  
+  .nettotlab {
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: 0px;
+    padding: 5px 5px 5px 10px;
+    background-color: #e7e7e7;
+  
+  }
+  
+  .upload {
+    margin-top: 25px;
+    background-color: #0D5C75;
+    color: white;
+    width: 200px;
+    border-radius: 25px;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
   

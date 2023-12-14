@@ -137,13 +137,13 @@
                         <tr>
                             <td class="type1">Email Address :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required=""/>
+                            <input type="email" class="form-control" name="email" value="<?php echo $email; ?>" readonly/>
                             </td>
                         </tr>
                         <tr>
                             <td class="type1">NIC Number :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" required=""/>
+                            <input type="text" class="form-control" name="nic" value="<?php echo $nic; ?>" readonly/>
                             </td>
                         </tr>
                         <tr>
@@ -194,7 +194,7 @@
 
         //Step 01 - Get the data from the form
         $fullname = $_POST['fullname'];
-        $email = $_POST['email'];
+        // $email = $_POST['email'];
         $nic = $_POST['nic'];
         $contact_number = $_POST['contact_number'];
 
@@ -203,12 +203,12 @@
         $selres = mysqli_query($conn , $selsql) or die(mysqli_error($conn));
         $row = mysqli_fetch_assoc($selres);
 
-        $selsql2 = "SELECT email FROM tbl_sysusers WHERE userid ='$userid'";
-        $selres2 = mysqli_query($conn , $selsql2) or die(mysqli_error($conn));
-        $row2 = mysqli_fetch_assoc($selres2);
+        // $selsql2 = "SELECT email FROM tbl_sysusers WHERE userid ='$userid'";
+        // $selres2 = mysqli_query($conn , $selsql2) or die(mysqli_error($conn));
+        // $row2 = mysqli_fetch_assoc($selres2);
         
         //Step 03 - Compare updated data with current data
-        if ($row['fullname'] == $fullname && $row2['email'] == $email && $row['nic'] == $nic && $row['contact_number'] == $contact_number) {
+        if ($row['fullname'] == $fullname && $row['contact_number'] == $contact_number) {
             // Data is not updated
             $_SESSION['update-user'] = '<div class="ppUpEr" style="padding-top:25px;"> No Changes made to Profile Details</div>';
             echo "<script> window.location.href='http://localhost/Care4you/pharmacy/pharmacy_editprofile.php';</script>";
@@ -217,20 +217,19 @@
             // Data is updated
             //Step 04 - SQL Query to save the data in Database
             $sql3 = "UPDATE tbl_pharmacist SET 
-                fullname = '$fullname',
-                nic = '$nic',                
+                fullname = '$fullname',              
                 contact_number = '$contact_number'
                 WHERE pharmacist_id ='$pharmacist_id'
             ";
             //echo $sql;
             $res3 = mysqli_query($conn , $sql3) or die(mysqli_error($conn));
             
-            $sql4 = "UPDATE tbl_sysusers SET 
-                email = '$email'
-                WHERE userid ='$userid'
-            ";
-            //echo $sql;
-            $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
+            // $sql4 = "UPDATE tbl_sysusers SET 
+            //     email = '$email'
+            //     WHERE userid ='$userid'
+            // ";
+            // //echo $sql;
+            // $res4 = mysqli_query($conn , $sql4) or die(mysqli_error($conn));
             
             //Step 05 - Check data is inserted (Query executed) or not & Disply Message
             if($res3 == TRUE) {

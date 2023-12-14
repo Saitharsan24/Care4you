@@ -344,13 +344,14 @@ body{
   z-index: 1;
 }
 
-.tbl-patientview{
-  margin-left: -120px;
+.tbl-patientview {
+  margin-left: -280px;
   width: 110%;
   table-layout: fixed;
   text-align: center;
   vertical-align: middle;
   border-collapse: separate;
+  margin-right: 40px;
 }
 
 .tbl-patientview td {

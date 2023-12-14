@@ -396,6 +396,8 @@ input:focus {
                     $tstnamesql = "SELECT * FROM tbl_labtests;";
                     $tstNresult = mysqli_query($conn, $tstnamesql);
                     while ($row = mysqli_fetch_assoc($tstNresult)) {
+                      $test_id= $row['test_id'];
+                      $test_name =  $row['test_name'];
                       echo "<option value='".$row['test_id']."'>" . $row['test_name'] . "</option>";
                     }
                   ?>                               

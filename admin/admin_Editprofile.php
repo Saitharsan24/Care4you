@@ -22,7 +22,7 @@
                 <li><a href="admin-patient-view.php">Patients</a></li>
                 <li><a href="admin-order-view.php">Orders</a></li>
                 <li><a href="admin-appointment.php">Appointments</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="admin-reports.php">Reports</a></li>
                 <li><a href="admin-system-users.php">System Users</a></li>
                 <li><a href="admin_viewprofile.php"><div class="highlighttext">Profile</div></a></li>
             </ul>
@@ -149,13 +149,13 @@
                         <tr>
                             <td class="type1">Email Address :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="email" class="form-control" name="email" value="<?php echo $Admin_email; ?>" required=""/>
+                            <input type="email" class="form-control" name="email" value="<?php echo $Admin_email; ?>" required="" readonly/>
                             </td>
                         </tr>
                         <tr>
                             <td class="type1">NIC Number :</td>
                             <td class="type2" style="border:1px solid #02202b; background-color: #fff; padding: 2px; padding-left: 15px;">
-                            <input type="text" class="form-control" name="nic" value="<?php echo $Admin_nic; ?>" required=""/>
+                            <input type="text" class="form-control" name="nic" value="<?php echo $Admin_nic; ?>" required="" readonly/>
                             </td>
                         </tr>
                         <tr>
